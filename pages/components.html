@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Components · Goodness UI</title>
+<link rel="stylesheet" href="../assets/css/doc.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Foundations · Components</p>
+  <h1>Components<span class="d">.</span></h1>
+  <p class="lede">The starter component layer, built entirely from Goodness tokens. Every example below is live — rendered with the same <code>--gds-</code> variables you’d ship.</p>
+
+  <h2>Buttons</h2>
+  <div class="demo"><div class="stage">
+    <button class="gds-btn gds-btn--primary">Primary</button>
+    <button class="gds-btn gds-btn--secondary">Secondary</button>
+    <button class="gds-btn gds-btn--accent">Accent</button>
+    <button class="gds-btn gds-btn--ghost">Ghost</button>
+  </div><div class="bar"><span>live</span><span>gds-btn --primary / --secondary / --accent / --ghost</span></div></div>
+  <pre><code>&lt;button class=<span class="str">"gds-btn gds-btn--primary"</span>&gt;Primary&lt;/button&gt;
+&lt;button class=<span class="str">"gds-btn gds-btn--secondary"</span>&gt;Secondary&lt;/button&gt;</code></pre>
+
+  <h2>Input</h2>
+  <div class="demo"><div class="stage">
+    <input class="gds-input" placeholder="you@company.com" aria-label="email">
+    <button class="gds-btn gds-btn--accent">Subscribe</button>
+  </div><div class="bar"><span>live · focus me</span><span>gds-input</span></div></div>
+  <pre><code>&lt;input class=<span class="str">"gds-input"</span> placeholder=<span class="str">"you@company.com"</span>&gt;</code></pre>
+
+  <h2>Badges</h2>
+  <div class="demo"><div class="stage">
+    <span class="gds-badge">default</span>
+    <span class="gds-badge gds-badge--primary">v1.0</span>
+    <span class="gds-badge gds-badge--accent">stable</span>
+  </div><div class="bar"><span>live</span><span>gds-badge</span></div></div>
+
+  <h2>Toggle</h2>
+  <div class="demo"><div class="stage">
+    <div class="gds-toggle" onclick="this.classList.toggle('on')"></div>
+    <div class="gds-toggle on" onclick="this.classList.toggle('on')"></div>
+    <span style="font-size:13px;color:#93B4D8">click to switch</span>
+  </div><div class="bar"><span>live · interactive</span><span>gds-toggle</span></div></div>
+
+  <h2>Card</h2>
+  <div class="demo"><div class="stage">
+    <div class="gds-card">
+      <h4>Honest foundation</h4>
+      <p>A card built from Goodness surface, border, radius, and spacing tokens — nothing hardcoded.</p>
+      <button class="gds-btn gds-btn--primary">Learn more</button>
+    </div>
+    <div class="gds-card">
+      <h4>Constructed</h4>
+      <p>Every measurement traces back to the blueprint. Change a token, the whole system updates.</p>
+      <button class="gds-btn gds-btn--secondary">Docs</button>
+    </div>
+  </div><div class="bar"><span>live</span><span>gds-card</span></div></div>
+
+  <div class="callout"><b>This is the starting set.</b> Selects, tabs, tooltips, modals, tables, and form validation states are the next components on the roadmap — each derived from these same tokens.</div>
+
+  <div class="foot">GOODNESS UI · COMPONENTS · v1 · all examples rendered live from --gds- tokens</div>
+</div>
+</body>
+</html>

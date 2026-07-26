@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Started · Goodness UI</title>
+<link rel="stylesheet" href="../assets/css/doc.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Overview · Get Started</p>
+  <h1>Get started<span class="d">.</span></h1>
+  <p class="lede">Goodness is a small, honest foundation for interfaces — a fixed set of tokens and components built on one blueprint. This page gets you from zero to your first Goodness screen.</p>
+
+  <div class="callout"><b>Honest by default.</b> Every value in Goodness is derived, documented, and named. Nothing is magic; you can trace any pixel back to a token and any token back to the construction sheet.</div>
+
+  <h2>Install</h2>
+  <p>Goodness ships as CSS custom properties plus a lightweight component layer. Add it via package manager or a single stylesheet link.</p>
+  <pre><code><span class="com"># npm</span>
+npm install <span class="str">@goodness/core</span>
+
+<span class="com"># or drop the stylesheet in your &lt;head&gt;</span>
+&lt;link rel=<span class="str">"stylesheet"</span> href=<span class="str">"https://cdn.goodness-ui.com/v1/goodness.css"</span>&gt;</code></pre>
+
+  <h2>The token prefix</h2>
+  <p>Every compiled token is namespaced <code>--gds-</code> so Goodness is safe to drop into a codebase you don’t control — no collisions with Bootstrap, Tailwind, or a client’s legacy CSS.</p>
+  <pre><code><span class="tok">.button</span> {
+  background: <span class="tok">var</span>(--gds-color-primary);
+  border-radius: <span class="tok">var</span>(--gds-radius-md);
+  padding: <span class="tok">var</span>(--gds-space-2) <span class="tok">var</span>(--gds-space-4);
+}</code></pre>
+  <p>The prefix is <strong>configurable</strong>. In a codebase you fully own, set it to empty for bare <code>--color-primary</code> — but keep <code>--gds-</code> anywhere Goodness is embedded in a host you don’t control.</p>
+  <pre><code><span class="com">// goodness.config</span>
+{ <span class="tok">prefix</span>: <span class="str">"gds-"</span> }   <span class="com">// default · safe everywhere</span>
+{ <span class="tok">prefix</span>: <span class="str">""</span> }       <span class="com">// bare · only in fully-owned code</span></code></pre>
+  <p>Whichever you pick, the <strong>authoring API stays bare</strong>: you write <code>color.primary</code>, and the prefix only appears in compiled output.</p>
+
+  <h2>Your first screen</h2>
+  <pre><code>&lt;button class=<span class="str">"gds-btn gds-btn--primary"</span>&gt;Get started&lt;/button&gt;
+&lt;button class=<span class="str">"gds-btn gds-btn--secondary"</span>&gt;View components&lt;/button&gt;</code></pre>
+  <div class="demo"><div class="stage">
+    <button class="gds-btn gds-btn--primary">Get started</button>
+    <button class="gds-btn gds-btn--secondary">View components</button>
+  </div><div class="bar"><span>live · rendered with goodness tokens</span><span>gds-btn</span></div></div>
+
+  <h2>Principles</h2>
+  <table>
+    <tr><th>Principle</th><th>What it means</th></tr>
+    <tr><td><strong>Honest</strong></td><td>Every value is derived and named — no untraceable magic numbers.</td></tr>
+    <tr><td><strong>Constructed</strong></td><td>The identity and the geometry come from one blueprint (R62, 8-node G).</td></tr>
+    <tr><td><strong>Portable</strong></td><td>Prefixed tokens drop into any codebase without collisions.</td></tr>
+    <tr><td><strong>Monochrome-first</strong></td><td>The brand rests on one ink per ground; color is a supporting system, used with intent.</td></tr>
+  </table>
+
+  <p style="margin-top:26px">Next: browse the <a href="#/tokens" target="_top">Design Tokens</a> or see the <a href="#/components" target="_top">Components</a> in action.</p>
+
+  <div class="foot">GOODNESS UI · GET STARTED · v1</div>
+</div>
+</body>
+</html>

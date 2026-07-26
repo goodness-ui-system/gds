@@ -6,6 +6,9 @@
   var ROUTES = {
     "":                 { title: "Home",              src: "pages/hero.html",              bleed: true  },
     "home":             { title: "Home",              src: "pages/hero.html",              bleed: true  },
+    "get-started":      { title: "Get Started",       src: "pages/get-started.html",       bleed: false },
+    "tokens":           { title: "Design Tokens",     src: "pages/tokens.html",            bleed: false },
+    "components":       { title: "Components",         src: "pages/components.html",         bleed: false },
     "guidelines":       { title: "Logo Guidelines",   src: "pages/logo-guidelines.html",   bleed: false },
     "logo-exploration": { title: "Logo Exploration",  src: "pages/logo-exploration.html",  bleed: false },
     "node-explorations":{ title: "Node Explorations", src: "pages/node-explorations.html", bleed: false },
