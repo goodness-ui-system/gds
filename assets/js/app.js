@@ -1,0 +1,61 @@
+/* Goodness UI — tiny hash router. No dependencies, no build step. */
+(function () {
+  "use strict";
+
+  // route key -> { title, src, bleed }
+  var ROUTES = {
+    "":                 { title: "Home",              src: "pages/hero.html",              bleed: true  },
+    "home":             { title: "Home",              src: "pages/hero.html",              bleed: true  },
+    "guidelines":       { title: "Logo Guidelines",   src: "pages/logo-guidelines.html",   bleed: false },
+    "logo-exploration": { title: "Logo Exploration",  src: "pages/logo-exploration.html",  bleed: false },
+    "node-explorations":{ title: "Node Explorations", src: "pages/node-explorations.html", bleed: false },
+    "geometry-study":   { title: "Geometry Study",    src: "pages/geometry-study.html",    bleed: false },
+    "geometry-midpoint":{ title: "Midpoint (node 9)", src: "pages/geometry-midpoint.html", bleed: false },
+    "blueprint-plate":  { title: "Blueprint Plate",   src: "pages/blueprint-plate.html",   bleed: false },
+    "motion":           { title: "Hero Animation",    src: "pages/hero.html",              bleed: true  }
+  };
+
+  var frame  = document.getElementById("doc");
+  var loader = document.getElementById("loader");
+  var tbTitle = document.getElementById("tbTitle");
+
+  function keyFromHash() {
+    var h = (location.hash || "").replace(/^#\/?/, "").trim();
+    return ROUTES.hasOwnProperty(h) ? h : "";
+  }
+
+  function setActive(key) {
+    var links = document.querySelectorAll(".nav a[data-route]");
+    for (var i = 0; i < links.length; i++) {
+      var r = links[i].getAttribute("data-route");
+      links[i].classList.toggle("active", r === key || (key === "" && r === "home"));
+    }
+  }
+
+  function render() {
+    var key = keyFromHash();
+    var route = ROUTES[key] || ROUTES[""];
+    // show loader, swap src
+    loader.classList.remove("hide");
+    frame.setAttribute("src", route.src);
+    document.title = "Goodness UI · " + route.title;
+    if (tbTitle) tbTitle.textContent = route.title;
+    setActive(key);
+    document.body.classList.remove("nav-open"); // close mobile nav on navigate
+  }
+
+  frame.addEventListener("load", function () {
+    loader.classList.add("hide");
+  });
+
+  window.addEventListener("hashchange", render);
+  window.addEventListener("DOMContentLoaded", render);
+
+  // mobile nav toggle
+  document.addEventListener("click", function (e) {
+    if (e.target.closest("[data-burger]")) document.body.classList.toggle("nav-open");
+    if (e.target.closest(".scrim"))        document.body.classList.remove("nav-open");
+  });
+
+  render();
+})();

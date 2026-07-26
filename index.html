@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goodness UI · Design System</title>
+<meta name="description" content="Goodness UI Design System — the honest foundation for your interface.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<!-- shared mark symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="gmark" viewBox="0 0 240 240">
+    <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="172" y1="86" x2="120" y2="60"/><line x1="120" y1="60" x2="68" y2="90"/>
+      <line x1="68" y1="90" x2="62" y2="150"/><line x1="62" y1="150" x2="112" y2="188"/>
+      <line x1="112" y1="188" x2="170" y2="168"/><line x1="170" y1="168" x2="170" y2="126"/>
+      <line x1="170" y1="126" x2="126" y2="126"/>
+    </g>
+    <g fill="currentColor">
+      <circle cx="172" cy="86" r="9"/><circle cx="120" cy="60" r="9"/><circle cx="68" cy="90" r="9"/>
+      <circle cx="62" cy="150" r="9"/><circle cx="112" cy="188" r="9"/><circle cx="170" cy="168" r="9"/>
+      <circle cx="170" cy="126" r="9"/><circle cx="126" cy="126" r="9"/>
+    </g>
+  </symbol>
+</defs></svg>
+
+<!-- ===================== SIDEBAR ===================== -->
+<aside class="sidebar">
+  <a class="brand" href="#/home" style="text-decoration:none;color:inherit">
+    <span class="avatar"><svg><use href="#gmark"/></svg></span>
+    <span>
+      <div class="name">Goodness<span class="d">.</span></div>
+      <div class="sub">UI Design System</div>
+    </span>
+  </a>
+
+  <nav class="nav">
+    <div class="group">Overview</div>
+    <a data-route="home" href="#/home"><span class="dot"></span>Home <span class="tag">hero</span></a>
+
+    <div class="group">Foundations</div>
+    <a data-route="guidelines" href="#/guidelines"><span class="dot"></span>Logo Guidelines</a>
+
+    <div class="group">The Mark</div>
+    <a data-route="logo-exploration"  href="#/logo-exploration"><span class="dot"></span>Logo Exploration <span class="tag">5</span></a>
+    <a data-route="node-explorations" href="#/node-explorations"><span class="dot"></span>Node Explorations <span class="tag">20</span></a>
+    <a data-route="geometry-study"    href="#/geometry-study"><span class="dot"></span>Geometry Study</a>
+    <a data-route="geometry-midpoint" href="#/geometry-midpoint"><span class="dot"></span>Midpoint · node 9</a>
+    <a data-route="blueprint-plate"   href="#/blueprint-plate"><span class="dot"></span>Blueprint Plate</a>
+
+    <div class="group">Motion</div>
+    <a data-route="motion" href="#/motion"><span class="dot"></span>Hero Animation</a>
+  </nav>
+
+  <div class="side-foot">
+    <span>v1 · 2026</span>
+    <a href="https://github.com/goodness-ui-system/gds" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</aside>
+
+<!-- ===================== CONTENT ===================== -->
+<main class="content">
+  <div class="topbar">
+    <button class="burger" data-burger aria-label="Toggle menu">☰</button>
+    <span class="tb-title" id="tbTitle">Home</span>
+  </div>
+  <div class="frame-wrap">
+    <div class="loader" id="loader"><span class="l">— drawing —</span></div>
+    <iframe id="doc" title="Goodness UI document" src="pages/hero.html"></iframe>
+  </div>
+</main>
+
+<div class="scrim"></div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>

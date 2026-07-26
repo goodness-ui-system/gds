@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goodness — Logo Guidelines</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--ink:#12253F;--paper:#F4F7FB;--line:#DCE4EE;--muted:#5B7189;}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.mark{width:100%;height:100%;display:block}
+.mark line{stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.mark circle{fill:currentColor}
+
+/* hero */
+.hero{background:#0E2036;color:#EAF3FF;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(150,185,235,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(150,185,235,.10) 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(760px 340px at 30% 30%,#000 45%,transparent 86%)}
+.hero .wrap{position:relative;padding:56px 28px 60px;display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+.hero .id{width:118px;height:118px;border-radius:28px;background:linear-gradient(160deg,#12365F,#0A1F3A);border:1px solid rgba(150,185,235,.2);display:flex;align-items:center;justify-content:center;color:#EAF3FF;flex:0 0 auto;box-shadow:0 16px 36px rgba(0,0,0,.35)}
+.hero .id svg{width:66px;height:66px}
+.ey{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#8FB6E4;margin:0 0 12px}
+h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(34px,6vw,58px);letter-spacing:-.03em;margin:0}
+.sub{color:#B6CDEA;margin:12px 0 0;font-family:'Space Grotesk',sans-serif;font-size:17px}
+
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+.k{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:26px;letter-spacing:-.02em;margin:0 0 8px}
+.lead{color:var(--muted);max-width:64ch;margin:0 0 26px}
+
+/* master */
+.master{display:flex;gap:36px;align-items:center;flex-wrap:wrap}
+.master .plate{width:260px;height:260px;background:#fff;border:1px solid var(--line);border-radius:24px;display:flex;align-items:center;justify-content:center;color:var(--ink);box-shadow:0 12px 30px rgba(18,37,63,.07);flex:0 0 auto}
+.master .plate svg{width:66%}
+.spec{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:#33507A;line-height:2}
+.spec b{color:var(--ink);font-weight:500}
+
+/* avatar row */
+.avatars{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-end}
+.av{display:flex;flex-direction:column;gap:10px;align-items:center}
+.tile{border-radius:22%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(18,37,63,.12)}
+.tile svg{width:58%;height:58%}
+.tile.dark{background:linear-gradient(160deg,#12365F,#0A1F3A);color:#EAF3FF;border:1px solid rgba(150,185,235,.16)}
+.tile.ink{background:var(--ink);color:#EAF3FF}
+.tile.light{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.av span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+
+/* on black / on white */
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:720px){.panels{grid-template-columns:1fr}}
+.panel{border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:26px;min-height:260px;justify-content:center}
+.panel.black{background:#08131F;color:#FFFFFF}
+.panel.white{background:#FFFFFF;color:var(--ink);border:1px solid var(--line)}
+.lock{display:flex;align-items:center;gap:16px}
+.lock .m{width:54px;height:54px;flex:0 0 auto}
+.lock .m svg{width:100%;height:100%}
+.wm{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.03em;line-height:1}
+.lock.stack{flex-direction:column;gap:12px;align-items:flex-start}
+.plabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.65}
+.hx{font-family:'JetBrains Mono',monospace;font-size:11.5px;opacity:.6;margin-top:2px}
+
+/* clearspace + minsize */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+@media(max-width:720px){.two{grid-template-columns:1fr}}
+.csbox{position:relative;width:230px;height:230px;background:#fff;border:1px solid var(--line);border-radius:18px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.csbox .pad{position:absolute;inset:23%;border:1.5px dashed #B8C6D8;border-radius:6px}
+.csbox svg{width:54%;position:relative;z-index:1}
+.minrow{display:flex;align-items:flex-end;gap:26px}
+.min{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--ink)}
+.min .b{background:#fff;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.min .b svg{width:74%;height:74%}
+.min span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+
+/* palette */
+.sw{display:flex;gap:16px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);border-radius:14px;overflow:hidden;width:150px}
+.chip .c{height:70px}
+.chip .t{padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.chip .t b{display:block;font-family:'Space Grotesk',sans-serif;font-size:13px;margin-bottom:2px}
+footer{padding:40px 0 70px;color:var(--muted);font-size:12.5px;font-family:'JetBrains Mono',monospace}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="mark" viewBox="0 0 240 240" class="mark">
+  <g>
+    <line x1="172" y1="86" x2="120" y2="60"/>
+    <line x1="120" y1="60" x2="68" y2="90"/>
+    <line x1="68" y1="90" x2="62" y2="150"/>
+    <line x1="62" y1="150" x2="112" y2="188"/>
+    <line x1="112" y1="188" x2="170" y2="168"/>
+    <line x1="170" y1="168" x2="170" y2="126"/>
+    <line x1="170" y1="126" x2="126" y2="126"/>
+  </g>
+  <g>
+    <circle cx="172" cy="86" r="9"/><circle cx="120" cy="60" r="9"/><circle cx="68" cy="90" r="9"/>
+    <circle cx="62" cy="150" r="9"/><circle cx="112" cy="188" r="9"/><circle cx="170" cy="168" r="9"/>
+    <circle cx="170" cy="126" r="9"/><circle cx="126" cy="126" r="9"/>
+  </g>
+</symbol>
+</defs></svg>
+
+<header class="hero"><div class="wrap">
+  <div class="id"><svg><use href="#mark"/></svg></div>
+  <div>
+    <p class="ey">Goodness UI Design System · Brand · Logo Guidelines</p>
+    <h1>Goodness<span>.</span></h1>
+    <p class="sub">The honest foundation for your interface.</p>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <p class="k">01 · The Mark</p>
+  <h2>Master geometry</h2>
+  <p class="lead">The Node monogram — a “G” traced as a connected network. One fixed skeleton, one ink color. All approved usage derives from this single construction.</p>
+  <div class="master">
+    <div class="plate"><svg><use href="#mark"/></svg></div>
+    <div class="spec">
+      <div><b>construction</b> ...... 8-node “G”</div>
+      <div><b>stroke</b> ............. 5.0</div>
+      <div><b>node ⌀</b> ............ 9.0 (18px)</div>
+      <div><b>caps / joins</b> ...... round</div>
+      <div><b>derivation</b> ........ R62 · center datum</div>
+      <div><b>color</b> ............. single ink (monochrome)</div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="k">02 · Avatar</p>
+  <h2>The avatar / app icon</h2>
+  <p class="lead">The icon-only mark inside a rounded container. Keep the mark centered at ~58% of the tile so the network breathes. Three approved grounds — pick by context.</p>
+  <div class="avatars">
+    <div class="av"><div class="tile dark" style="width:132px;height:132px"><svg><use href="#mark"/></svg></div><span>dark · primary</span></div>
+    <div class="av"><div class="tile ink" style="width:132px;height:132px"><svg><use href="#mark"/></svg></div><span>ink · solid</span></div>
+    <div class="av"><div class="tile light" style="width:132px;height:132px"><svg><use href="#mark"/></svg></div><span>light</span></div>
+    <div class="av"><div class="tile dark" style="width:84px;height:84px"><svg><use href="#mark"/></svg></div><span>84px</span></div>
+    <div class="av"><div class="tile dark" style="width:56px;height:56px"><svg><use href="#mark"/></svg></div><span>56px</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="k">03 · Lockups</p>
+  <h2>Logo on black &amp; on white</h2>
+  <p class="lead">The horizontal lockup pairs the mark with the Space Grotesk wordmark. Reverse to white on dark grounds; use ink on light grounds. Never recolor the wordmark independently of the mark.</p>
+  <div class="panels">
+    <div class="panel black">
+      <span class="plabel">Logo · on black</span>
+      <div class="lock"><span class="m" style="color:#FFFFFF"><svg><use href="#mark"/></svg></span><span class="wm">Goodness<span>.</span></span></div>
+      <div class="lock stack"><span class="m" style="color:#FFFFFF;width:46px;height:46px"><svg><use href="#mark"/></svg></span><span class="wm" style="font-size:26px">Goodness<span>.</span></span></div>
+      <span class="hx">ink #FFFFFF · ground #08131F</span>
+    </div>
+    <div class="panel white">
+      <span class="plabel">Logo · on white</span>
+      <div class="lock"><span class="m" style="color:var(--ink)"><svg><use href="#mark"/></svg></span><span class="wm">Goodness<span>.</span></span></div>
+      <div class="lock stack"><span class="m" style="color:var(--ink);width:46px;height:46px"><svg><use href="#mark"/></svg></span><span class="wm" style="font-size:26px">Goodness<span>.</span></span></div>
+      <span class="hx">ink #12253F · ground #FFFFFF</span>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="k">04 · Protection</p>
+  <h2>Clear space &amp; minimum size</h2>
+  <div class="two">
+    <div>
+      <p class="lead">Keep clear space around the mark equal to the diameter of one node on all sides. Nothing — type, edges, other marks — enters the dashed zone.</p>
+      <div class="csbox"><div class="pad"></div><svg><use href="#mark"/></svg></div>
+    </div>
+    <div>
+      <p class="lead">The mark stays legible down to 16px as a favicon. Below that, node density collapses — use the solid-ground avatar rather than shrinking further.</p>
+      <div class="minrow">
+        <div class="min"><div class="b" style="width:48px;height:48px;color:var(--ink)"><svg><use href="#mark"/></svg></div><span>48</span></div>
+        <div class="min"><div class="b" style="width:32px;height:32px;color:var(--ink)"><svg><use href="#mark"/></svg></div><span>32</span></div>
+        <div class="min"><div class="b" style="width:24px;height:24px;color:var(--ink)"><svg><use href="#mark"/></svg></div><span>24</span></div>
+        <div class="min"><div class="b" style="width:16px;height:16px;color:var(--ink)"><svg><use href="#mark"/></svg></div><span>16</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section style="border-bottom:none"><div class="wrap">
+  <p class="k">05 · Color</p>
+  <h2>Palette</h2>
+  <p class="lead">The logo is monochrome by rule — one ink per ground. The blueprint blues below are the system’s supporting palette (documentation, hero, UI), not logo colors.</p>
+  <div class="sw">
+    <div class="chip"><div class="c" style="background:#12253F"></div><div class="t"><b>Ink</b>#12253F · logo on light</div></div>
+    <div class="chip"><div class="c" style="background:#FFFFFF;border-bottom:1px solid var(--line)"></div><div class="t"><b>Paper</b>#FFFFFF · logo on dark</div></div>
+    <div class="chip"><div class="c" style="background:#0A2247"></div><div class="t"><b>Blueprint</b>#0A2247 · ground</div></div>
+    <div class="chip"><div class="c" style="background:#6BA8DE"></div><div class="t"><b>Furniture</b>#6BA8DE · guides</div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">GOODNESS UI DESIGN SYSTEM · LOGO GUIDELINES v1 · MASTER stroke 5 · node 9 · MONOCHROME · ALL VECTOR</div></footer>
+</body>
+</html>

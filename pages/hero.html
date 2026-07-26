@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Goodness — Hero (build-up loop)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--T:7s;--ink:#EAF3FF;--fur:#5E9BD6;--ann:#8FC2F0}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:'Inter',system-ui,sans-serif;background:#071528;color:#EAF3FF;overflow:hidden}
+.stage{min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:20px;
+  background:radial-gradient(1100px 620px at 82% 20%,rgba(46,102,180,.30),transparent 60%),linear-gradient(160deg,#0A2244,#071528)}
+@media(max-width:860px){.stage{grid-template-columns:1fr;text-align:center}}
+.left{padding:0 6vw}
+.badge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8FB6E4;border:1px solid rgba(150,185,235,.25);border-radius:999px;padding:7px 13px;margin-bottom:22px}
+.badge i{width:7px;height:7px;border-radius:50%;background:#5FE0C0;box-shadow:0 0 10px #5FE0C0;font-style:normal}
+h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(40px,6.5vw,76px);letter-spacing:-.035em;margin:0;line-height:1}
+h1 .d{color:#8FC2F0}
+p.tag{font-family:'Space Grotesk',sans-serif;font-size:clamp(16px,2.2vw,21px);color:#B6CDEA;margin:16px 0 28px}
+.cta{display:inline-flex;gap:12px}
+.btn{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;border-radius:12px;padding:12px 20px;border:1px solid transparent;cursor:pointer}
+.btn.p{background:#EAF3FF;color:#0A2244}
+.btn.s{background:transparent;border-color:rgba(150,185,235,.35);color:#DCEBFF}
+.right{position:relative;height:100vh;min-height:520px}
+/* blueprint plate */
+.plate{position:absolute;inset:0}
+.plate::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(140,190,250,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(140,190,250,.09) 1px,transparent 1px);
+  background-size:34px 34px;mask-image:radial-gradient(560px 560px at 50% 50%,#000 55%,transparent 80%)}
+.plate::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(140,190,250,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(140,190,250,.16) 1px,transparent 1px);
+  background-size:170px 170px;mask-image:radial-gradient(560px 560px at 50% 50%,#000 45%,transparent 78%)}
+.svgwrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+svg.art{width:min(74%,540px);height:auto;overflow:visible}
+/* construction furniture */
+.circ{fill:none;stroke:var(--fur);stroke-width:1.4;stroke-dasharray:3 7;
+  animation:circDraw var(--T) linear infinite,fadeEnd var(--T) linear infinite}
+.cross{stroke:var(--fur);stroke-width:1.4;animation:cross var(--T) linear infinite}
+.tick{stroke:var(--fur);stroke-width:1.4;opacity:0;animation:cross var(--T) linear infinite}
+/* the G path draws on */
+.g{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:389;stroke-dashoffset:389;
+  filter:drop-shadow(0 0 10px rgba(143,194,238,.35));
+  animation:draw var(--T) cubic-bezier(.65,0,.35,1) infinite}
+.nd{fill:var(--ink);filter:drop-shadow(0 0 6px rgba(143,194,238,.5))}
+/* traveling pen */
+.pen{fill:#BFE6FF;offset-path:path("M172,86 L120,60 L68,90 L62,150 L112,188 L170,168 L170,126 L126,126");animation:pen var(--T) cubic-bezier(.65,0,.35,1) infinite}
+.pen-halo{fill:#8FC2F0;opacity:.5;offset-path:path("M172,86 L120,60 L68,90 L62,150 L112,188 L170,168 L170,126 L126,126");animation:pen var(--T) cubic-bezier(.65,0,.35,1) infinite}
+/* dimension callouts */
+.dim{stroke:var(--ann);stroke-width:1.3;opacity:0;animation:dim var(--T) linear infinite}
+.dimtxt{fill:var(--ann);font-family:'JetBrains Mono',monospace;font-size:11px;opacity:0;animation:dim var(--T) linear infinite}
+.corner{stroke:var(--fur);stroke-width:1.6;opacity:.6}
+
+@keyframes draw{0%,12%{stroke-dashoffset:389}52%{stroke-dashoffset:0}88%{stroke-dashoffset:0;opacity:1}98%{opacity:0}100%{stroke-dashoffset:389;opacity:0}}
+@keyframes pen{0%,12%{offset-distance:0%;opacity:0}13%{opacity:1}52%{offset-distance:100%;opacity:1}55%{opacity:0}100%{offset-distance:100%;opacity:0}}
+@keyframes circDraw{0%{opacity:0}4%{opacity:0}12%{opacity:.75}88%{opacity:.6}98%{opacity:0}100%{opacity:0}}
+@keyframes cross{0%,3%{opacity:0}9%{opacity:.8}88%{opacity:.7}98%{opacity:0}100%{opacity:0}}
+@keyframes dim{0%,56%{opacity:0}66%{opacity:.9}88%{opacity:.85}98%{opacity:0}100%{opacity:0}}
+@keyframes fadeEnd{0%{}100%{}}
+@keyframes n0{0%,12.0%{opacity:0;transform:scale(.2)}15.0%{opacity:1;transform:scale(1.25)}17.0%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n1{0%,18.0%{opacity:0;transform:scale(.2)}21.0%{opacity:1;transform:scale(1.25)}23.0%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n2{0%,24.2%{opacity:0;transform:scale(.2)}27.2%{opacity:1;transform:scale(1.25)}29.2%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n3{0%,30.4%{opacity:0;transform:scale(.2)}33.4%{opacity:1;transform:scale(1.25)}35.4%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n4{0%,36.8%{opacity:0;transform:scale(.2)}39.8%{opacity:1;transform:scale(1.25)}41.8%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n5{0%,43.1%{opacity:0;transform:scale(.2)}46.1%{opacity:1;transform:scale(1.25)}48.1%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n6{0%,47.5%{opacity:0;transform:scale(.2)}50.5%{opacity:1;transform:scale(1.25)}52.5%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n7{0%,52.0%{opacity:0;transform:scale(.2)}55.0%{opacity:1;transform:scale(1.25)}57.0%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}
+.n0{transform-box:fill-box;transform-origin:center;animation:n0 var(--T) linear infinite}.n1{transform-box:fill-box;transform-origin:center;animation:n1 var(--T) linear infinite}.n2{transform-box:fill-box;transform-origin:center;animation:n2 var(--T) linear infinite}.n3{transform-box:fill-box;transform-origin:center;animation:n3 var(--T) linear infinite}.n4{transform-box:fill-box;transform-origin:center;animation:n4 var(--T) linear infinite}.n5{transform-box:fill-box;transform-origin:center;animation:n5 var(--T) linear infinite}.n6{transform-box:fill-box;transform-origin:center;animation:n6 var(--T) linear infinite}.n7{transform-box:fill-box;transform-origin:center;animation:n7 var(--T) linear infinite}
+</style>
+</head><body>
+<div class="stage">
+  <div class="left">
+    <span class="badge"><i></i>Goodness UI · Design System</span>
+    <h1>Goodness<span class="d">.</span></h1>
+    <p class="tag">The honest foundation for your interface.</p>
+    <div class="cta"><button class="btn p">Get started</button><button class="btn s">View components</button></div>
+  </div>
+  <div class="right">
+    <div class="plate"></div>
+    <div class="svgwrap">
+      <svg class="art" viewBox="0 0 240 240" aria-label="Goodness G constructing">
+        <!-- construction furniture -->
+        <circle class="circ" cx="118" cy="124" r="62"/>
+        <line class="cross" x1="107" y1="124" x2="129" y2="124"/>
+        <line class="cross" x1="118" y1="113" x2="118" y2="135"/>
+        <!-- corner registration ticks -->
+        <line class="corner" x1="10" y1="10" x2="26" y2="10"/><line class="corner" x1="10" y1="10" x2="10" y2="26"/>
+        <line class="corner" x1="230" y1="10" x2="214" y2="10"/><line class="corner" x1="230" y1="10" x2="230" y2="26"/>
+        <line class="corner" x1="10" y1="230" x2="26" y2="230"/><line class="corner" x1="10" y1="230" x2="10" y2="214"/>
+        <line class="corner" x1="230" y1="230" x2="214" y2="230"/><line class="corner" x1="230" y1="230" x2="230" y2="214"/>
+        <!-- dimension line R62 -->
+        <line class="dim" x1="56" y1="206" x2="180" y2="206"/>
+        <line class="dim" x1="56" y1="202" x2="56" y2="210"/><line class="dim" x1="180" y1="202" x2="180" y2="210"/>
+        <text class="dimtxt" x="118" y="218" text-anchor="middle">R62</text>
+        <!-- node diameter leader -->
+        <line class="dim" x1="172" y1="86" x2="206" y2="60"/>
+        <text class="dimtxt" x="208" y="58">⌀18</text>
+        <text class="dimtxt" x="16" y="120">t5.0</text>
+        <!-- the G -->
+        <path class="g" d="M172,86 L120,60 L68,90 L62,150 L112,188 L170,168 L170,126 L126,126"/>
+        <circle class="nd n0" cx="172" cy="86" r="9"/><circle class="nd n1" cx="120" cy="60" r="9"/><circle class="nd n2" cx="68" cy="90" r="9"/><circle class="nd n3" cx="62" cy="150" r="9"/><circle class="nd n4" cx="112" cy="188" r="9"/><circle class="nd n5" cx="170" cy="168" r="9"/><circle class="nd n6" cx="170" cy="126" r="9"/><circle class="nd n7" cx="126" cy="126" r="9"/>
+        <!-- traveling pen -->
+        <circle class="pen-halo" r="8" cx="0" cy="0"/>
+        <circle class="pen" r="4" cx="0" cy="0"/>
+      </svg>
+    </div>
+  </div>
+</div>
+</body></html>
