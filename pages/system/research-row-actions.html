@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Row Actions · Goodness UI</title>
+<link rel="stylesheet" href="../../assets/css/doc.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Research · Row Actions</p>
+  <h1>Row actions<span class="d">.</span></h1>
+  <p class="lede">Visible icons versus the three-dot menu: why repeated icons turn invisible, and the frequency budget that reconciles the evidence.</p>
+<p>Research note. Named products and sources are cited here because this folder is
+the one place citations are allowed; operating documents stay generic.</p>
+<h2>The question</h2>
+<p>A table row usually offers several actions: open, edit, duplicate, archive,
+delete. Should they sit on the row as visible icon buttons, or behind a single
+⋯ button (the overflow menu — a button that opens a longer menu of choices)?</p>
+<h2>What the evidence says</h2>
+<p>Three problems with an icon per action per row:</p>
+<ol>
+<li>Repetition destroys the signal. An affordance — the visual hint that
+   something is clickable — works by contrast with its surroundings. Repeat the
+   same icon on forty rows and it stops contrasting with anything; it reads as
+   texture, like a ruled line, and the eye skips it. The Nielsen Norman Group's
+   icon research adds the second half of the problem: outside a small set of
+   universal symbols (search, print, play), users routinely misread bare icons,
+   so every additional icon column adds guessing rather than speed.</li>
+<li>Danger proximity. A destructive icon repeated down a column places an
+   irreversible action one accidental click away from every record on screen.
+   Mature systems bury destructive actions instead of surfacing them.</li>
+<li>Clutter compounds. Two icons per row across forty rows is eighty competing
+   click targets; data-dense screens lose the very scannability the table
+   exists to provide.</li>
+</ol>
+<p>The overflow menu's own weakness, from the same research: everything inside it
+is invisible until clicked. The Nielsen Norman Group's contextual-menu
+guidelines are direct about the consequence — contextual menus must never be
+the only way to reach an action people need constantly, and their contents
+must stay consistent from row to row.</p>
+<h2>The convergent industry rule: a frequency budget</h2>
+<p>The large design systems reconcile the two findings the same way. IBM's Carbon
+data-table guidance puts row actions in an overflow menu in the last column,
+optionally revealed on hover, and GitHub's Primer action bar collapses anything
+beyond a small number of frequent actions into overflow. The shared shape:</p>
+<ul>
+<li>At most one — occasionally two — actions earn a visible spot on the row,
+  and only if they are used constantly, harmless if misclicked, and drawn with
+  a universally understood symbol.</li>
+<li>Everything else goes into one ⋯ menu, always in the same (last) column,
+  always with the same contents for the same record type.</li>
+<li>Destructive actions never appear as bare row icons; inside the menu they
+  take the danger color, the last position, and a divider above (the
+  consequential-action rule).</li>
+<li>The quiet variant — row actions hidden until hover — is legitimate only if
+  keyboard focus also reveals them (<code>:focus-within</code>), so keyboard and
+  assistive-technology users are never locked out. Carbon added hover-reveal to
+  its data table for exactly this clutter reason.</li>
+</ul>
+<h2>Fit with this system</h2>
+<p>The default table already uses one ghost ⋯ per row. The catalog in the
+specimen renders the full option set: A (⋯ only, the default), B (one earned
+icon plus ⋯), C (hover/focus-revealed ⋯), and the rejected anti-pattern (a
+destructive icon per row) shown for contrast. The rule as encoded: default is
+A; B is an exception argued per case against the three tests; C is a styling
+variant of A or B; the anti-pattern is forbidden.</p>
+<h2>Sources</h2>
+<ul>
+<li>Nielsen Norman Group — Designing Effective Contextual Menus:
+  https://www.nngroup.com/articles/contextual-menus-guidelines/</li>
+<li>Nielsen Norman Group — Contextual Menus: Delivering Relevant Tools:
+  https://www.nngroup.com/articles/contextual-menus/</li>
+<li>Nielsen Norman Group — icon usability research:
+  https://www.nngroup.com/topic/icons/</li>
+<li>IBM Carbon Design System — Overflow menu usage:
+  https://carbondesignsystem.com/components/overflow-menu/usage/</li>
+<li>Carbon data table — overflow visible on hover (design discussion):
+  https://github.com/carbon-design-system/carbon/issues/5804</li>
+<li>GitHub Primer — Action bar:
+  https://primer.style/components/action-bar</li>
+</ul>
+</div>
+</body>
+</html>

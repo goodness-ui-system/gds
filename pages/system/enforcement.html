@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enforcement · Goodness UI</title>
+<link rel="stylesheet" href="../../assets/css/doc.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">The System · Enforcement</p>
+  <h1>Enforcement<span class="d">.</span></h1>
+  <p class="lede">Written rules drift; enforced rules hold. The design system ships with the checkers that defend it.</p>
+  <p>The rules of the system are not reminders — they are machinery. Two checkers run on every change and both must pass before anything is done:</p>
+  <table>
+    <tr><th>Checker</th><th>What it enforces</th></tr>
+    <tr><td><code>enforcement/lint_design.py</code></td><td>Rules R1–R10: raw values only in tokens.css; no inline styles; no !important; shadows only for overlays; naming discipline (BEM); no imperative JavaScript; impersonal voice; no named entities outside research; the palette-family contract (every family defines identical steps).</td></tr>
+    <tr><td><code>enforcement/check_contrast.py</code></td><td>Resolves every palette family × theme combination from tokens.css and verifies the WCAG AA contrast floors plus the dark-mode halation ceilings: text never pure white and never brighter than #EBEBEB; the canvas never pure black.</td></tr>
+  </table>
+  <p>The same rules exist as executable scenarios (Gherkin — plain-language specifications a test runner binds to), so applications inherit them as tests:</p>
+  <pre><code>Feature: Design-system enforcement
+  The rules in AGENTS.md are enforced by machinery, not by memory.
+  Every scenario here is checked programmatically by enforcement/lint_design.py
+  (pure scanning functions; I/O only at the main() boundary). When this design
+  system is integrated into an app, these scenarios bind to pytest-bdd step
+  definitions and run in CI alongside the app&#x27;s own enforcement.feature.
+
+  @unit
+  Scenario: tokens.css is the only file with raw color values
+    Given every CSS context in the design system
+    When a raw hex color appears outside tokens.css
+    Then the lint reports an R1-raw-hex violation
+    And the build fails
+
+  @unit
+  Scenario: components own no raw pixel values
+    Given every CSS context outside tokens.css
+    When a px literal other than 0px, 1px, or 2px appears
+    Then the lint reports an R5-raw-px violation
+    # 0 = reset, 1px = hairline border, 2px = emphasis line (active tab, ring).
+    # Everything else — sizes, spacing, radii, heights — must be a token.
+
+  @unit
+  Scenario: no inline styles in templates
+    Given every HTML template
+    When a style= attribute appears
+    Then the lint reports an R2-style-attr violation
+
+  @unit
+  Scenario: no specificity escalation
+    Given every CSS context
+    When !important appears
+    Then the lint reports an R3-important violation
+
+  @unit
+  Scenario: shadows exist only on floating overlays
+    Given every CSS context outside tokens.css
+    When a box-shadow value other than var(--shadow-overlay) or none appears
+    Then the lint reports an R4-shadow violation
+    # Depth in app chrome comes from the surface ladder + hairlines, never shadows.
+
+  @unit
+  Scenario: every class name is BEM
+    Given every CSS class selector in the design system
+    When a selector does not match block, block__element, or block--modifier
+    Then the lint reports an R6-bem violation
+
+  @unit
+  Scenario: behaviour is declarative, not imperative
+    Given every HTML template
+    When a script tag, addEventListener, querySelector, innerHTML, or fetch( appears
+    Then the lint reports an R7-imperative-js violation
+    # Exception: the app shell&#x27;s own &lt;script&gt; tags loading the htmx/domx libraries.
+    # All behaviour is declared with hx-* / dx-* attributes.
+
+  @unit
+  Scenario: the specimen is a living conformance proof
+    Given specimen.html renders every component in the system
+    When the lint runs against the design-system folder
+    Then specimen.html itself passes every rule above
+    # The reference implementation must obey its own law.
+
+  @unit
+  Scenario: documents speak with no narrator
+    Given every markdown, feature, and HTML document in the design system
+    When a first-person word (`we`, `our`, `ours`, `us`, `let&#x27;s`) appears outside code or URLs
+    Then the lint reports an R8-first-person violation
+    # White-paper voice: statements are about the situation and the method,
+    # never about who is talking.
+
+  @unit
+  Scenario: documents name no company, product, or person as an example
+    Given every markdown, feature, and HTML document in the design system
+    When an identity name appears anywhere, or a benchmark product name appears
+      outside the research folder
+    Then the lint reports an R9-named-entity violation
+    # Citations of standards and studied systems live in research/, inline and
+    # under Sources headings; hypothetical actors are always generic roles.
+
+  @unit
+  Scenario: palette families match step for step
+    Given the palette families defined in tokens.css
+    When any family lacks a named step another family defines, or adds one
+    Then the lint reports an R10-palette-contract violation
+    # Switching families re-points aliases one-to-one; a selection made in one
+    # family must always have its exact counterpart in every other.
+
+  @unit
+  Scenario: contrast is verified, not assumed
+    Given every palette family in every theme resolved from tokens.css
+    When any text-capable pair falls below 4.5:1 on canvas or surface
+    Then enforcement/check_contrast.py reports the pair and the build fails
+
+  @unit
+  Scenario: dark-mode text never glows
+    Given the dark mapping of every palette family
+    When body text is pure white or brighter than the halation ceiling,
+      or the canvas is pure black
+    Then enforcement/check_contrast.py reports the violation
+    # Bright white on dark halos (halation); contrast has a ceiling in dark
+    # mode, but never a basement. See research/theme-parity.md.
+</code></pre>
+  <p>Both files live in <code>system/enforcement/</code> in this repository.</p>
+
+</div>
+</body>
+</html>

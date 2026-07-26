@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep Analysis · Goodness UI</title>
+<link rel="stylesheet" href="../../assets/css/doc.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Research · Deep Analysis</p>
+  <h1>Deep analysis<span class="d">.</span></h1>
+  <p class="lede">The founding briefing: the enduring ideas of interface design, the aesthetic study, and the synthesis onto the server-rendered medium.</p>
+<blockquote>
+<p>Research briefing. Sources — the products, systems, and methodologies studied —
+are cited inline where claims are made and listed at the end.</p>
+<p>The expert briefing behind this design system. Read once to understand <em>why</em> the
+rules in <code>AGENTS.md</code> are what they are. <code>AGENTS.md</code> is the operating manual; this
+is the reasoning and the references.</p>
+<p>Scope: a single master UI system, built from scratch, for professional, data-dense
+B2B applications built on the Honest stack (FastAPI + Jinja2 + HTMX + domx +
+CSS custom properties, DOM-as-state, no client framework). Applications adopt the
+system whole; product identity is a brand skin, never a fork.</p>
+</blockquote>
+<hr />
+<h2>0. The problem this kills</h2>
+<p>Multiple applications, hand-styled screen by screen, drift apart. Feedback fixes one
+place and not the others. "Consistent look and feel" becomes impossible because nothing
+is a <em>system</em> — every screen is a snowflake. The cure is not more taste applied more often.
+The cure is to encode the decisions once, as data and named parts, so that "the
+button" is one definition with a finite set of options, used everywhere, changed in one
+place. Everything below serves that single goal.</p>
+<hr />
+<h2>Part 1 — The enduring ideas (proven over time)</h2>
+<p>These are the concepts that have survived a decade-plus of industry churn because each
+one durably solves a real problem. They are the load-bearing walls.</p>
+<h3>1.1 Atomic Design — a vocabulary for composition</h3>
+<p>Brad Frost, 2013 (blog) → 2016 (book). Decompose every UI into a five-stage hierarchy:
+atoms (button, input, label, badge) → molecules (a labelled search field) →
+organisms (a table toolbar, a header) → templates (page skeletons) → pages
+(real content). It survives because it forces "build systems, not pages" and gives
+everyone one shared word for each part. It maps cleanly onto a component library — and,
+here, onto Jinja partials/macros.</p>
+<h3>1.2 Design Tokens — decisions stored as data</h3>
+<p>Coined at Salesforce (Jina Anne &amp; Jon Levine, ~2014) for the Lightning Design System.
+A token is a named, platform-agnostic key–value pair — <code>color-action = #d97757</code> — that
+stores a <em>design decision</em> decoupled from where it's used. Style Dictionary (Danny
+Banks / Amazon, open-sourced ~2016) built them; the W3C Design Tokens Community Group
+(2019) standardised a portable format. Tokens survive because they turn "rebrand the app"
+from a find-and-replace nightmare into a single data edit.</p>
+<p>The discipline that makes tokens work is tiering:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primitive / global</td>
+<td>Raw values. The palette. Named by what they <em>are</em>.</td>
+<td><code>--clay-400: #d97757</code></td>
+</tr>
+<tr>
+<td>Semantic / alias</td>
+<td>Intent. Named by what they're <em>for</em>. Components use only these.</td>
+<td><code>--color-action: var(--clay-400)</code></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Optional. A component's own hook, pointing at a semantic.</td>
+<td><code>--button-bg: var(--color-action)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Components never touch raw values — only semantic aliases. This one rule is what lets
+a single system skin many apps and flip light/dark (see 1.6).</p>
+<h3>1.3 The reference systems — and the one thing each proved</h3>
+<p>The lessons are borrowed, not the look. Each of these earned its place:</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Signature contribution taken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM Carbon</td>
+<td>The gold standard for data-dense enterprise UI: rigorous DataTable, grid, deep accessibility. The closest cousin to this system.</td>
+</tr>
+<tr>
+<td>Salesforce Lightning</td>
+<td>Birthplace of design tokens and enterprise/CRM pattern discipline.</td>
+</tr>
+<tr>
+<td>Google Material</td>
+<td>Codified elevation, motion, and the 8dp grid — a full physics of UI.</td>
+</tr>
+<tr>
+<td>Apple HIG</td>
+<td>Clarity / deference / depth; rigorous targets &amp; typography.</td>
+</tr>
+<tr>
+<td>Atlassian</td>
+<td>Practical token adoption across many products; strong empty states.</td>
+</tr>
+<tr>
+<td>Shopify Polaris</td>
+<td>Best-in-class UX writing and exhaustive component-state docs.</td>
+</tr>
+<tr>
+<td>Adobe Spectrum</td>
+<td>Token-driven multi-scale theming (density as a first-class axis).</td>
+</tr>
+<tr>
+<td>Ant Design</td>
+<td>The richest enterprise tables / forms / filters out of the box.</td>
+</tr>
+<tr>
+<td>USWDS</td>
+<td>Proof a system can be an accessibility &amp; plain-language instrument.</td>
+</tr>
+</tbody>
+</table>
+<h3>1.4 The 8-point grid — a finite, memorable spatial system</h3>
+<p>Space, size, and layout snap to multiples of 8px, with a 4px sub-grid for fine work.
+Popularised by Material; adopted everywhere because 8 divides cleanly across screen
+densities and replaces an infinity of arbitrary paddings with one small, memorable scale
+(4, 8, 12, 16, 24, 32, 48…). Fewer choices → more consistency.</p>
+<h3>1.5 Type ramps &amp; the base-16 rule</h3>
+<p>A modular scale derives sizes from a base and a ratio, giving harmonious steps instead
+of random pixel values. The base-16 approach keeps the root at the browser default
+(16px) and expresses type and space in <code>rem</code>, so user zoom and accessibility settings
+scale the whole UI proportionally. Harmony <em>and</em> accessibility from one decision.</p>
+<h3>1.6 Theming by indirection — the mechanism that skins many apps</h3>
+<p>Multi-brand and light/dark are not separate stylesheets. A theme is just a different
+mapping of semantic → primitive. Because components reference only semantic aliases,
+you re-point the aliases under a selector (<code>:root</code>, <code>[data-theme="light"]</code>,
+<code>[data-brand="acme"]</code>) and every component re-skins with zero component edits. This is
+the technical core of "design once, use everywhere," and CSS custom properties do it
+natively — no build step required.</p>
+<h3>1.7 Variant taxonomy — the "options and differences," made finite</h3>
+<p>A mature component is an explicit, finite option set: variants (primary /
+secondary / ghost / danger), states (default, hover, focus, active, disabled,
+loading, selected, error), and sizes (sm / md / lg). Polaris, Carbon, and Ant each
+document this matrix exhaustively — every cell gets a spec and a token. This is precisely
+the system's goal: <em>define each element and the differences between its options so
+they're easy to use.</em> A finite matrix prevents one-off snowflakes and makes components
+predictable and testable.</p>
+<h3>1.8 Accessibility as a structural constraint, not a review</h3>
+<p>WCAG 2.2 (W3C Recommendation, Oct 2023) is encoded into tokens and defaults, not
+checked at the end: text contrast ≥ 4.5:1, large text / UI components ≥ 3:1,
+always-visible focus, full keyboard operability, target size ≥ 24×24px. When
+the tokens ship contrast-safe pairs and components ship focus rings and min hit-areas by
+default, compliance is structural.</p>
+<h3>1.9 CSS methodology for a no-framework, pure-custom-properties stack</h3>
+<p>The stack has no Tailwind and no CSS-in-JS. Three proven methods combine:
+- BEM (<code>.block__element--modifier</code>; Yandex, ~2010) — flat, low-specificity,
+  self-documenting class names. The Honest architecture already mandates it.
+- ITCSS (Harry Roberts) — orders the stylesheet by reach (Settings → Tools → Generic
+  → Elements → Objects → Components → Utilities) to prevent specificity wars.
+- CUBE CSS (Andy Bell, 2020) — Composition, Utility, Block, Exception; embraces the
+  cascade and pairs naturally with tokens + BEM.</p>
+<p>Together: ITCSS orders the file, tokens hold the values, BEM names the parts, CUBE
+reconciles with the cascade.</p>
+<hr />
+<h2>Part 2 — The aesthetic: the AI agent-harness visual language</h2>
+<p>The direction: build from scratch, inspired by the current AI agent-harness apps —
+Claude (Code / Cowork / claude.ai), Conductor, Omnigent, and the wider class
+(Cursor, Warp, Raycast, Linear, Vercel/Geist, Zed). Studied directly, they share a
+coherent visual DNA.</p>
+<h3>2.1 The shared DNA</h3>
+<ol>
+<li>Dark is canonical for the work surface; light is derived by inverting the same
+   ramp — not a second palette. (Claude is the interesting inversion: a <em>warm cream</em>
+   light canvas with dark reserved for code/model cards.)</li>
+<li>Depth from a surface-colour ladder + 1px hairline borders, not drop shadows.
+   Linear, Raycast, and Zed reject shadows in chrome outright. Vercel allows only
+   whisper-soft layered shadows plus an inset hairline ring.</li>
+<li>One restrained accent carries the brand voice — Anthropic clay/terracotta, Linear
+   lavender, Vercel blue — reserved for the primary action and the active/selected state.</li>
+<li>Semantic colours are desaturated so they survive on a low-chroma neutral field.</li>
+<li>Sans for UI, mono for meaning — code, IDs, timestamps, run labels, numeric table
+   cells. Mono is a <em>functional signal</em>, not decoration.</li>
+<li>~8px grid, tight radii (6–10px), pills for CTAs only. Negative letter-tracking on
+   display sizes; weights capped around 600.</li>
+<li>Agent-tool motifs: run/task cards, per-agent panes, status dots, diff views,
+   streaming output, keyboard-first affordances, monospace labels. Motion is highly
+   restrained — streaming text is the primary animation.</li>
+</ol>
+<h3>2.2 The from-scratch direction (professional, data-dense)</h3>
+<ul>
+<li>System-first theming: the OS preference leads, a stored user choice overrides,
+  and dark and light are exact equals re-pointed from the same ramp — a deliberate
+  departure from the dark-canonical habit of the studied tools (see
+  <code>theme-parity.md</code>).</li>
+<li>A slightly warm neutral ramp (a touch of Anthropic's taupe) — approachable and
+  distinctive against the sea of cool blue-grays, without Claude's full cream commitment.
+  A 10-step functional ramp: 1–3 backgrounds/surfaces, 4–6 borders, 7–8 hover/active,
+  9–10 text.</li>
+<li>Surface layering: canvas → raised panel (one step up) → sunken well (one step down);
+  depth from the ladder + 1px hairlines. No drop shadows in app chrome. Exactly one
+  soft shadow token, reserved for floating overlays (command palette, menus, popovers).</li>
+<li>A single warm accent — terracotta/clay (<code>~#d97757</code>) — reads distinctive and
+  non-generic against ubiquitous SaaS blue. Primary action + active/selected only.</li>
+<li>Type pairing: a humanist/grotesque sans for UI + a mono for code, IDs, timestamps,
+  and numeric columns. A serif display face is optional if an editorial voice is wanted
+  (Claude's signature move); default is sans display with tight tracking.</li>
+<li>Density: compact-but-breathable — 4px base grid, 8px rhythm. Dense tables breathe
+  via line-height, hairline row dividers, and mono numerals rather than extra padding.
+  Density is a token-switchable axis (<code>[data-density]</code>), à la Spectrum.</li>
+<li>Radius: 6–8px default, 4px for chips/inputs, pill for the primary CTA and status
+  badges.</li>
+</ul>
+<p>Concrete token values live in <code>tokens.css</code> — the single source of truth — with every
+text/UI pair contrast-verified programmatically in both themes (WCAG 2.2 AA).</p>
+<hr />
+<h2>Part 3 — The synthesis: this system inside the Honest medium</h2>
+<p>The single most important realisation: on the Honest stack, a design system is not a
+component library you import — it is three native layers. Nothing here fights the
+sixteen principles; it expresses them.</p>
+<table>
+<thead>
+<tr>
+<th>Design-system concept</th>
+<th>Honest-native form</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Design tokens (tiered)</td>
+<td>CSS custom properties in <code>:root</code>, primitive → semantic → component</td>
+</tr>
+<tr>
+<td>Theming / multi-brand / dark mode</td>
+<td>Re-pointed aliases under <code>[data-theme]</code> / <code>[data-brand]</code> — pure CSS</td>
+</tr>
+<tr>
+<td>Atomic components</td>
+<td>Jinja partials &amp; macros (atoms → organisms); fragment partials (<code>_row.html</code>) are molecules/organisms</td>
+</tr>
+<tr>
+<td>Variants × states × sizes</td>
+<td>BEM modifiers + macro parameters; states via <code>:hover</code> / <code>:focus-visible</code> / <code>[aria-selected]</code></td>
+</tr>
+<tr>
+<td>Interaction / behaviour</td>
+<td>HTMX attributes (<code>hx-get/post/put/delete</code>, <code>hx-target</code>, <code>hx-swap</code>, <code>hx-trigger</code>, <code>hx-push-url</code>, <code>hx-include</code>) — never hand-written JS</td>
+</tr>
+<tr>
+<td>Loading / async states</td>
+<td><code>hx-indicator</code> + a CSS class — no JS spinners wired by hand</td>
+</tr>
+<tr>
+<td>Validation states</td>
+<td>Native browser (<code>type=email</code>, <code>required</code>, <code>min</code>) per P11 + server-rendered error partials</td>
+</tr>
+</tbody>
+</table>
+<h3>3.1 The customization insight — DATAOS <em>is</em> the feature</h3>
+<p>The headline product goal — users build their own dashboards, tables, filters, and
+screens — is where the Honest stack stops being a constraint and becomes the advantage.</p>
+<p>In a React app, "my saved view" is a client-side state problem (stores, effects, local
+persistence). Under DOM-as-State (P06) it is the opposite and far simpler: a user's
+custom view is server-side state — a row in a <code>views</code> / <code>preferences</code> table — rendered to
+HTML and swapped in by HTMX. Column show/hide, saved filters, dashboard tile layout,
+density preference: all of it is <em>server-rendered configuration</em>, not a client widget.
+The filter/search example already in <code>items/page.html</code> (<code>hx-get</code> + <code>hx-push-url="true"</code>)
+is the seed of the entire pattern — bookmarkable, shareable, no client store. The design
+system's job is to give these configurable primitives a consistent skin and a finite set
+of options.</p>
+<h3>3.2 The command palette (Cmd-K) — zero JavaScript after all</h3>
+<p>Every best-of-breed tool in this class has a command palette. Initially assessed as
+needing one sliver of JS for the key binding — verification against the htmx
+documentation proved otherwise: trigger event filters cover it declaratively
+(<code>hx-trigger="keydown[(metaKey||ctrlKey)&amp;&amp;key=='k'] from:body"</code>). Contents are
+server-rendered fragments fetched with <code>hx-get</code>; typeahead is <code>hx-trigger="input changed
+delay:150ms"</code>. The system therefore ships with zero JavaScript — no exceptions.
+Where DOM state must be <em>collected or persisted</em> (e.g. capturing a user's current view
+arrangement), domx — the DATAOS companion library (collect / apply / observe /
+persist via a declarative manifest, as an htmx extension) — is the sanctioned tool,
+never hand-written JS.</p>
+<hr />
+<h2>Part 4 — The five primitives, best-of-breed → Honest</h2>
+<p>Five primitives matter most: tables, menus, dashboards, filters, search. For
+each: the proven pattern, the finite options, and the Honest expression.</p>
+<p>Tables / data grids. The core primitive of data-dense professional work. Options:
+density mode (comfortable/compact), sticky header (+ sticky first column), per-column
+sort / resize / reorder / show-hide, row selection (checkbox + shift-range), inline or
+overflow-menu row actions, pagination vs. server-side "load more," and saved views
+(named column/sort/filter presets per user). Honest form: native <code>&lt;table&gt;</code>, server-sorted
+and server-filtered, rows as <code>_row.html</code> fragments, sort/paginate via <code>hx-get</code> +
+<code>hx-push-url</code>, saved views persisted server-side. Virtualisation is deliberately <em>not</em>
+needed — the server sends only the current page. (Reference bar: AG Grid, Linear, Airtable.)</p>
+<p>Menus / navigation. Collapsible left sidebar for deep hierarchies, topbar for
+shallow apps, plus a command palette (Cmd-K) for navigation <em>and</em> actions
+(the Sublime → VS Code → Superhuman/Linear lineage). Options: collapsed/expanded, nested
+accordion sections, active-state indication. Honest form: server-rendered nav, active
+state from the request path, <code>hx-boost</code> for instant transitions.</p>
+<p>Dashboards. A widget/card grid users can add, remove, resize, and rearrange —
+"build your own dashboard" (Datadog/Grafana/Retool). Options: KPI tiles (big number +
+delta + sparkline) up top, richer cards below; per-user persisted layout; designed
+empty states that teach first-run rather than dead-end. Honest form: layout is a
+server-side config row; each widget is a fragment fetched with <code>hx-get hx-trigger="load"</code>.</p>
+<p>Filters. Escalating sophistication: filter bar (quick chips/dropdowns) → filter
+builder (stacked field / operator / value rows, AND/OR) → faceted (counts per
+value). Options: saved named filters, URL-encoded state so any filtered view is
+bookmarkable and shareable — essential for collaborative audit trails. Honest form:
+exactly the <code>items</code> search pattern, generalised: inputs drive <code>hx-get</code> with
+<code>hx-push-url="true"</code> and <code>hx-include</code> to combine controls.</p>
+<p>Search. Instant/typeahead (debounced), scoped (per entity type), and unified
+command-palette search (nav + records + actions in one Cmd-K surface). Options:
+grouped results, highlighted matches, keyboard nav, recent/suggested on empty query.
+Honest form: <code>hx-trigger="input changed delay:150ms"</code> → server-rendered results fragment.</p>
+<hr />
+<h2>Sources</h2>
+<p>Aesthetic (agent-harness study):
+- Anthropic brand / Claude tokens — https://geist.co/work/anthropic ; https://github.com/anthropics/skills/blob/main/skills/brand-guidelines/SKILL.md
+- Claude design notes — https://github.com/voltagent/awesome-design-md/blob/main/design-md/claude/DESIGN.md
+- Conductor — https://www.conductor.build/
+- Omnigent — https://omnigent.ai/ ; https://www.databricks.com/blog/introducing-omnigent-meta-harness-combine-control-and-share-your-agents
+- Linear tokens — https://github.com/voltagent/awesome-design-md/blob/main/design-md/linear.app/DESIGN.md
+- Vercel/Geist — https://vercel.com/geist/colors
+- Raycast — https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/raycast/DESIGN.md
+- Warp themes — https://www.warp.dev/blog/how-we-designed-themes-for-the-terminal-a-peek-into-our-process</p>
+<p>Methodology &amp; patterns:
+- Atomic Design — https://atomicdesign.bradfrost.com/chapter-2/
+- Design Tokens history — https://www.designsystemscollective.com/the-incomplete-history-of-design-tokens-61581c573e5d ; https://www.w3.org/community/design-tokens/
+- Style Dictionary — https://didoo.medium.com/how-to-manage-your-design-tokens-with-style-dictionary-98c795b938aa
+- WCAG 2.2 target size — https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+- CUBE CSS — https://cube.fyi/
+- Command palettes — https://blog.superhuman.com/how-to-build-a-remarkable-command-palette/ ; https://retool.com/blog/designing-the-command-palette</p>
+</div>
+</body>
+</html>

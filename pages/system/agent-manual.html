@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Manual · Goodness UI</title>
+<link rel="stylesheet" href="../../assets/css/doc.css">
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">The System · Agent Manual</p>
+  <h1>Agent operating manual<span class="d">.</span></h1>
+  <p class="lede">The rulebook an AI agent reads before touching any UI: the medium, the principles, the token architecture, the workflow, and the definition of done. Rules only — the full story behind each rule lives in the white paper.</p>
+<p>This project is a best-of-breed UI design system for professional, data-dense B2B
+applications built on the Honest stack.
+Design once here; applications adopt the system and inherit it whole — per-product
+identity is a brand skin, never a fork. Read this file first, every session, before
+designing or changing any UI.</p>
+<p>Companions:
+- <code>tokens.css</code> — the single source of truth for every design decision (§4).
+- <code>specimen.html</code> — the whole system, rendered. Open it in a browser.
+- <code>enforcement/</code> — the lint + Gherkin spec that make the rules self-defending (§9).
+- <code>research/deep-analysis.md</code> — the <em>why</em> and the references behind these rules.</p>
+<p><strong>Machine-mode.</strong> Durable fix over patch. Concise. "go" means execute. Say when something
+is wrong and propose the correct path.</p>
+<p><strong>Documentation style.</strong> These documents are written for publication: any reader,
+anywhere, with no knowledge of the author. Four rules, enforced by the prose lint:</p>
+<ol>
+<li>No bold inside paragraphs — bold is reserved for titles and headings. Readers
+   find what matters in a sentence themselves; mid-sentence bolding disrupts reading
+   and steals attention from everything not bolded. Italics sparingly.</li>
+<li>Impersonal voice. Never <code>we</code>, <code>our</code>, <code>us</code>, or <code>let's</code> — no implied speaker,
+   seller, or team. Write about the situation, the market, and the method: "a
+   company whose brand color is red…", "best practice suggests…", "the system
+   supports…". Recommendations are attributed to the method or to best practice,
+   never to a narrator.</li>
+<li>No named entities as examples. No companies, products, people, or industries as
+   hypothetical actors — "a green-brand enterprise" says everything a real name
+   would. Nothing in any document may reveal what sector the author works in or
+   who the author is. Fictional placeholder names in demo data are fine.</li>
+<li>Citations are welcome, and are the one place names belong: public standards,
+   methodologies, and published systems may be cited inline where a claim is made,
+   and listed under a Sources heading at the end of the file.</li>
+<li>Plain language, always. Explanations are written so a reader with no design or
+   engineering background follows them: prefer the everyday word, keep sentences
+   concrete, and define every term of art in ordinary words the first time it
+   appears ("a draft — changes made on screen but not yet written to the
+   database"). Jargon without a definition is a defect, not a shorthand.</li>
+<li>Every part explained. Whenever a component embodies a decision or offers an
+   option, the document names each part and gives the reason it exists and the
+   reason it sits where it sits ("Hide all lives above the list because, with
+   thirty fields and three wanted, hiding everything and re-enabling three beats
+   flipping twenty-seven switches"). A part that cannot be justified in one plain
+   sentence is a candidate for removal, not for silence.</li>
+</ol>
+<p>Examples given in conversation are context for the session — they are never
+transcribed into documents.</p>
+<p><strong>Catalog status.</strong> Until a selection pass happens, the documents and the specimen
+are catalogs of candidates, not verdicts. Where several ways of doing the same
+thing exist (form presentation styles, figure sizes, table-editing models), every
+credible option is documented and rendered side by side so the final system can be
+chosen by looking at real examples. New research adds options to the catalog; it
+does not silently pick winners. Decisions, once made, are recorded explicitly and
+losers are removed in the same change.</p>
+<hr />
+<h2>1. Mission</h2>
+<p>Kill visual drift. Many apps, one system. Never "here is the app, take it or leave it" —
+instead give users a finite, consistent kit of parts they can compose into their own
+screens, dashboards, tables, and filters. Every element is defined once, with an
+explicit, finite set of options, so it's easy to pick the right one and impossible to
+invent a snowflake.</p>
+<p>Two words govern every decision: systematic (one definition, reused) and finite
+(a known option set, not infinite freedom).</p>
+<h2>2. The medium — non-negotiable</h2>
+<p>Target applications are Honest apps: FastAPI + Jinja2 + HTMX + domx + PostgreSQL,
+DOM-as-state, no client-side framework. The Honest rules (the sixteen principles,
+Gherkin-first, the forbidden-patterns tables) govern here too. What that means for UI:</p>
+<ul>
+<li>Tokens = CSS custom properties in <code>tokens.css</code>. Nothing else holds a colour or size.</li>
+<li>Components = Jinja partials / macros + BEM classes. No React, Vue, Alpine,
+  Tailwind, CSS-in-JS, or utility frameworks.</li>
+<li>Behaviour = HTMX attributes (<code>hx-get/post/put/delete</code>, <code>hx-target</code>, <code>hx-swap</code>,
+  <code>hx-trigger</code>, <code>hx-push-url</code>, <code>hx-include</code>). No hand-written JS event wiring, no
+  <code>fetch</code>, no <code>addEventListener</code>, no client state store. Zero JS — even keyboard
+  shortcuts are declarative (§7).</li>
+<li>domx (the DATAOS companion library) is the sanctioned tool when DOM state must be
+  <em>collected, applied, observed, or persisted</em> — e.g. capturing a user's current view
+  configuration to send to the server. It works declaratively via a manifest and the
+  <code>hx-ext="domx"</code> extension (<code>dx-manifest</code>, <code>dx-cache</code>). Reach for it instead of ever
+  writing imperative JS; if neither HTMX nor domx covers a need, the route is returning
+  the wrong HTML shape — fix the route.</li>
+<li>State lives on the server, rendered to HTML, swapped by HTMX (P06 DATAOS).</li>
+<li>Validation is native + declared (<code>type=email</code>, <code>required</code>, <code>min</code>, SQL constraints)
+  per P11 — never imperative checks.</li>
+</ul>
+<h2>3. Design principles</h2>
+<ol>
+<li>One accent, used sparingly. The clay accent marks the primary action and the
+   active/selected state. Never decorate with it. The primary button is the only pill.</li>
+<li>Depth from the surface ladder + 1px hairlines. No drop shadows in app chrome. One
+   shadow token exists, only for floating overlays (palette, menu, popover).</li>
+<li>System-first theming. The OS preference leads (<code>prefers-color-scheme</code>); a stored
+   per-user choice (<code>data-theme</code>, rendered server-side — never a flash of the wrong
+   theme) overrides it. Dark and light are exact equals: neither is primary, neither
+   is derived; both mappings share one ramp and are contrast-solved independently.
+   The craft rules of parity (no pure white text on dark — halation; no pure black
+   canvas; desaturate on dark; elevation by lightness; verify every pair in both
+   modes) live in <code>research/theme-parity.md</code> and are encoded in the tokens.</li>
+<li>Mono means something. The mono face marks code, IDs, timestamps, run labels, and
+   numeric table columns — never prose.</li>
+<li>Density is a setting, not a redesign. Three steps on one axis via
+   <code>[data-density]</code>: tight (the most rows per screen, for heavy data review),
+   normal (the default reading rhythm, no attribute), loose (extra air for touch
+   use, presentations, long reading). Two options assume one kind of user; three
+   cover the spectrum while staying finite. Every step keeps targets ≥
+   <code>--target-min</code>.</li>
+<li>Finite options. Every component is variants × states × sizes — a matrix (§5).
+   A new need means a new row, not a snowflake.</li>
+<li>Customization is server-rendered config. "My view" is a DB row, not client state (§6).</li>
+<li>Accessibility is structural (§8) — shipped in tokens and defaults, not bolted on.</li>
+<li>Sections by default, cards by intent. For the day-to-day working screens —
+   lists, tables, forms, database and record views — the layout unit is the full-bleed
+   section: flush rectangles sharing one hairline separator. Two adjacent cards
+   cost three visual elements (edge + gap + edge); two sections cost one line. Cards
+   are not forbidden — they earn their place where content is genuinely independent
+   and glanceable: a senior-management dashboard, a monitoring/control environment, a
+   user-composed widget grid. The test: if the user reads <em>across</em> items (comparing,
+   scanning), use sections; if each item stands alone at a glance, a card is
+   legitimate. The duality with strengths and weaknesses is spelled out in
+   <code>components.md</code> §2.7.</li>
+<li>The consequential action stands apart. In any action list — a dropdown menu, a
+    view menu, a context menu, a bulk-actions bar — the most critical or
+    destructive choice (delete, archive, remove) is never styled like its
+    neighbors: it takes the danger color, sits last, and is separated by a
+    divider, so the eye finds it instantly and never hits it by accident. The
+    full rule lives in <code>components.md</code> §2.3.</li>
+<li>The control decides what Enter means — never the application. In menus,
+    lists, and palettes, Enter activates the highlighted item. In a single-line
+    field inside a form, Enter submits (native implicit submission — kept, never
+    suppressed). In every multi-line text box, Enter makes a new line, always;
+    Cmd/Ctrl+Enter is the one universal accelerator for "save or submit from
+    anywhere in the form", and the primary button teaches it by showing the ⌘↵
+    hint while a text box has focus. Shift+Enter is accepted as a harmless
+    newline synonym. In grid editing, Enter starts and commits a cell edit (the
+    standard grid grammar) — the same principle applied to a different control.
+    Full explanation: <code>components.md</code> §2.14; evidence: <code>research/enter-key.md</code>.</li>
+</ol>
+<h2>4. Tokens — <code>tokens.css</code> is the single source of truth</h2>
+<p>Never restate values in docs or components; edit <code>tokens.css</code>, and only <code>tokens.css</code>.
+Three tiers; components consume only semantic (tier 2) aliases:</p>
+<pre><code>tier 1  primitive  →  raw palette / scales    (--clay-400, --neutral-900, --space-4)
+tier 2  semantic   →  intent; component-facing (--color-action, --color-surface)
+tier 3  component  →  optional per-component hook (--button-bg: var(--color-action))
+</code></pre>
+<ul>
+<li>Theming = re-pointing tier-2 aliases under <code>[data-theme="light"]</code> — already in the
+  file. A palette family is the same move one level up, selected with
+  <code>[data-palette]</code>. Three families fill the contract, each with both themes: warm
+  (taupe ramp + clay accent, the token-level fallback), cool (gray-blue + azure),
+  and mono (pure grayscale + achromatic ink accent — the specimen's opening state).
+  A brand skin re-points just the accent under <code>[data-brand="…"]</code> (commented
+  example). Never edit a component to re-theme.</li>
+<li>The palette contract: every family defines the identical set of named steps —
+  14 neutrals (0·25·50·100·200·300·400·500·600·700·800·900·950·1000) and 4 accent
+  steps (300·400·500·600). Families map one-to-one; switching families can never
+  leave a semantic alias without a matching step. A family missing a step is a bug;
+  adding a family means filling the exact contract with new values.</li>
+<li>Contrast is verified, not assumed — by machinery. <code>enforcement/check_contrast.py</code>
+  resolves every family × theme mapping and enforces WCAG 2.2 AA floors (text
+  ≥ 4.5:1, UI ≥ 3:1) plus the dark-mode halation ceilings: body text lives in the
+  <code>#DEDEDE</code>–<code>#EBEBEB</code> band, never <code>#ffffff</code>; canvas is never <code>#000000</code>
+  (<code>research/theme-parity.md</code> has the expert record). Semantic hues use different
+  contrast-solved steps per theme. The checker runs on every token change.</li>
+<li>The resting hairline <code>--color-border</code> is <em>intentionally</em> sub-3:1 — a decorative
+  divider. Interactive contrast is carried by <code>--color-focus</code>, never the resting border.</li>
+<li>Fonts are self-hosted via <code>@font-face</code> at integration (Inter for UI, JetBrains Mono
+  for data) — never a CDN <code>&lt;link&gt;</code>. The stacks degrade gracefully to system faces.</li>
+<li>Icons: one set — Lucide, copied inline as SVG (<code>stroke="currentColor"</code>,
+  stroke-width 1.5). No icon fonts, no CDN, no second set.</li>
+</ul>
+<h2>5. Component taxonomy — the "options and differences"</h2>
+<p>Every component is a finite matrix: variants × states × sizes, documented as a table.
+Shared state vocabulary: <code>default · hover · focus-visible · active · disabled · loading ·
+selected · error</code> (not all apply to all). Sizes <code>sm · md · lg</code> where relevant. Everything
+below is rendered live in <code>specimen.html</code>. The full catalog — every component with an
+example and explanation, including the full View System — is <code>components.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Atom</th>
+<th>Variants</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Button</td>
+<td><code>primary · secondary · ghost · danger · link</code></td>
+<td>primary = clay pill, the only one; icon-only variant; loading via <code>hx-indicator</code></td>
+</tr>
+<tr>
+<td>Input / Textarea</td>
+<td><code>default · invalid</code></td>
+<td>native validation; server-rendered error</td>
+</tr>
+<tr>
+<td>Select</td>
+<td><code>default · invalid</code></td>
+<td>native <code>&lt;select&gt;</code>; multiselect = chips</td>
+</tr>
+<tr>
+<td>Checkbox / Radio / Switch</td>
+<td>—</td>
+<td>native inputs, <code>accent-color</code> token</td>
+</tr>
+<tr>
+<td>Badge</td>
+<td><code>neutral · success · warning · danger · info · accent</code></td>
+<td>dot + tinted field</td>
+</tr>
+<tr>
+<td>Chip (removable)</td>
+<td><code>default</code></td>
+<td>filter tokens; <code>hx-delete</code> to remove</td>
+</tr>
+<tr>
+<td>Avatar</td>
+<td><code>sm · md · lg</code></td>
+<td>initials fallback</td>
+</tr>
+<tr>
+<td>Icon</td>
+<td>—</td>
+<td>inline Lucide SVG, <code>currentColor</code></td>
+</tr>
+<tr>
+<td>Spinner / Skeleton</td>
+<td><code>line · block</code></td>
+<td>paired with <code>hx-indicator</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Molecule</th>
+<th>Made of</th>
+<th>Key options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search field</td>
+<td>input + icon</td>
+<td>typeahead <code>hx-trigger="input changed delay:150ms"</code></td>
+</tr>
+<tr>
+<td>Form field</td>
+<td>label + control + hint + error</td>
+<td>required marker, invalid state</td>
+</tr>
+<tr>
+<td>Filter row</td>
+<td>field + operator + value</td>
+<td>AND/OR, add/remove</td>
+</tr>
+<tr>
+<td>Dropdown menu</td>
+<td>button + list</td>
+<td>overlay shadow; kbd hints; danger item</td>
+</tr>
+<tr>
+<td>Alert</td>
+<td>accent bar + title + text</td>
+<td><code>success · warning · danger · info</code></td>
+</tr>
+<tr>
+<td>Tabs</td>
+<td>tablist + panels</td>
+<td>active from URL/<code>aria-selected</code></td>
+</tr>
+<tr>
+<td>Card</td>
+<td>title + body + actions</td>
+<td>surface + hairline</td>
+</tr>
+<tr>
+<td>KPI tile</td>
+<td>label + value + delta + sparkline</td>
+<td>mono value; delta up/down</td>
+</tr>
+<tr>
+<td>Pagination</td>
+<td>prev/next + status</td>
+<td><code>hx-get</code> + <code>hx-push-url</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Organism</th>
+<th>Purpose</th>
+<th>Customization surface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App shell</td>
+<td>sidebar + topbar + main</td>
+<td>collapsed/expanded; <code>aria-current</code> nav</td>
+</tr>
+<tr>
+<td>Data table</td>
+<td>the core primitive</td>
+<td>density, columns, sort, selection, saved views</td>
+</tr>
+<tr>
+<td>Table toolbar</td>
+<td>search + chips + view controls</td>
+<td>column show/hide, saved-view picker</td>
+</tr>
+<tr>
+<td>Filter builder</td>
+<td>stacked filter rows</td>
+<td>saved filters, URL state</td>
+</tr>
+<tr>
+<td>Dashboard grid</td>
+<td>KPI tiles + cards</td>
+<td>add/remove/resize/reorder; per-user layout</td>
+</tr>
+<tr>
+<td>Command palette</td>
+<td>⌘K nav + actions + search</td>
+<td>§7</td>
+</tr>
+<tr>
+<td>Empty state</td>
+<td>first-run guidance</td>
+<td>teaches, never dead-ends</td>
+</tr>
+</tbody>
+</table>
+<p>Each shipped cell gets: the BEM class, the tokens it consumes, a row in its matrix table,
+a live rendering in <code>specimen.html</code>, and a Gherkin scenario for any behaviour (§10).</p>
+<h2>6. Customization = server-rendered config (DATAOS)</h2>
+<p>The product goal is users building their own screens — dashboards, tables, filters,
+saved views. On this stack that is <em>simpler</em>, not harder: a saved view / filter set /
+dashboard layout / density choice is a row in a <code>views</code> or <code>preferences</code> table,
+rendered to HTML and swapped by HTMX. No client store.</p>
+<p>Rules:
+- Persist user view config server-side (per user, per resource). Render from it.
+- Filter/sort/search state goes in the URL via <code>hx-push-url="true"</code> — every view is
+  bookmarkable and shareable (essential for collaborative team workflows).
+- Column show/hide, reorder, density, saved views, dashboard tile layout = config the
+  server reads and reflects into the rendered fragment.
+- Combine controls with <code>hx-include</code>; target specific <code>#id</code>s with <code>hx-target</code>.
+- When the current DOM state itself must be captured (e.g. "save this arrangement"),
+  collect it declaratively with domx and post it — never hand-rolled JS.</p>
+<h2>7. The command palette — zero JavaScript</h2>
+<p>Every best-of-breed professional tool has ⌘K. Here it needs no JS at all: htmx
+trigger event-filters are the documented mechanism —</p>
+<pre><code class="language-html">&lt;div hx-get=&quot;/palette&quot;
+     hx-trigger=&quot;keydown[(metaKey||ctrlKey)&amp;&amp;key=='k'] from:body&quot;
+     hx-target=&quot;#overlay&quot; hx-swap=&quot;innerHTML&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>The panel arrives as a server-rendered fragment (<code>autofocus</code> on its input); typeahead is
+<code>hx-trigger="input changed delay:150ms"</code>; results are grouped fragments, keyboard-
+navigable. The palette overlay is the only element that may cast <code>--shadow-overlay</code>.</p>
+<h2>8. Accessibility — shipped by default</h2>
+<p>Non-negotiable, encoded in tokens and component defaults:
+- Contrast: body text ≥ 4.5:1, large text &amp; UI ≥ 3:1 — verified per §4.
+- Visible focus on every interactive element: <code>:focus-visible</code> ring in
+  <code>--color-focus</code>, width/offset from tokens.
+- Full keyboard operability — native elements (<code>&lt;button&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;table&gt;</code>,
+  <code>&lt;details&gt;</code>, <code>&lt;dialog&gt;</code>) over div soup; correct tab order.
+- Target size ≥ <code>--target-min</code> (24px) even in tight density.
+- Semantic HTML + ARIA only where native falls short (<code>aria-selected</code>, <code>aria-current</code>,
+  <code>aria-live</code> for toasts).</p>
+<h2>9. Enforcement — the rules defend themselves</h2>
+<p>Prose rules drift; machinery doesn't. <code>enforcement/</code> carries the design equivalents of
+the Honest enforcement stack:</p>
+<ul>
+<li><code>enforcement/lint_design.py</code> — pure scanning functions, I/O only in <code>main()</code>.
+  Run: <code>python3 enforcement/lint_design.py</code> (exit 1 on any violation). Rules:
+  R1 no raw hex outside <code>tokens.css</code> · R2 no <code>style=</code> attributes ·
+  R3 no <code>!important</code> · R4 no shadow outside <code>var(--shadow-overlay)</code>/<code>none</code> ·
+  R5 no px literals outside <code>tokens.css</code> except 0/1/2px ·
+  R6 every class selector is BEM · R7 no imperative JS in templates.</li>
+<li><code>enforcement/check_contrast.py</code> — the color-math checker. Resolves every palette
+  family in every theme from <code>tokens.css</code> and enforces the floors (every
+  text-capable pair ≥ 4.5:1 on canvas and surface, on-action ≥ 4.5:1) and the
+  dark-mode ceilings (body text never pure white and never brighter than <code>#EBEBEB</code>
+  effective — the halation band; canvas never pure black). Run:
+  <code>python3 enforcement/check_contrast.py</code> (exit 1 on any violation).</li>
+<li><code>enforcement/design-enforcement.feature</code> — the same rules as Gherkin scenarios;
+  binds to pytest-bdd step definitions at app integration and runs in CI.</li>
+<li><code>specimen.html</code> is the living conformance proof — it renders the entire system and
+  must itself pass the lint. If a component isn't in the specimen, it doesn't exist.</li>
+<li>At integration, add the lint as a pre-commit hook next to the app's existing hooks.</li>
+</ul>
+<h2>10. Workflow — how to add or change UI</h2>
+<p>Honest is Gherkin-first; UI behaviour is behaviour.</p>
+<ol>
+<li>Token or component? A value change = edit <code>tokens.css</code>, run
+   <code>python3 enforcement/check_contrast.py</code>, and stop. A behaviour/structure
+   change = continue.</li>
+<li>Write the scenario first — <code>.feature</code>, <code>@unit</code>, plain observable language.</li>
+<li>Write step defs red, then the Jinja partial + BEM CSS + HTMX/domx attributes to green.</li>
+<li>Semantic tokens only in component CSS.</li>
+<li>Document the variant matrix (§5) and add the component to BOTH rendered
+   documents: <code>specimen.html</code> (pure catalog, no prose) and <code>whitepaper.html</code>
+   (the same example placed after its explanation, with options, recommendation
+   and status). The two evolve in parallel — never change one without the other.
+   Shared styles live in <code>ui.css</code>, so visual changes are single-sourced; the
+   parallel rule applies to markup and to content.</li>
+<li>Run <code>python3 enforcement/lint_design.py</code> — must exit clean.</li>
+<li>Validate contrast &amp; focus (§8) for anything colour-touching.</li>
+<li>Branch + PR; a human reviews and merges (human gate).</li>
+</ol>
+<h2>11. Forbidden — design edition</h2>
+<table>
+<thead>
+<tr>
+<th>Forbidden</th>
+<th>Honest equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raw hex / px / size inside a component</td>
+<td>A token (<code>var(--…)</code>) — lint R1/R5</td>
+</tr>
+<tr>
+<td>A component reading a primitive token</td>
+<td>Read a semantic alias</td>
+</tr>
+<tr>
+<td>Tailwind / utility classes / CSS-in-JS</td>
+<td>BEM + CSS custom properties — lint R6</td>
+</tr>
+<tr>
+<td>React / Vue / Alpine / any client store</td>
+<td>Jinja partial + HTMX + server state</td>
+</tr>
+<tr>
+<td><code>addEventListener</code> / <code>querySelector</code> / <code>fetch</code> / <code>&lt;script&gt;</code></td>
+<td>HTMX attributes; domx for state capture — lint R7</td>
+</tr>
+<tr>
+<td>Hand-written JS for shortcuts, tabs, toggles</td>
+<td><code>hx-trigger</code> event filters, <code>&lt;details&gt;</code>, <code>aria-*</code></td>
+</tr>
+<tr>
+<td><code>style=</code> attributes, <code>!important</code></td>
+<td>Proper BEM rule + tokens — lint R2/R3</td>
+</tr>
+<tr>
+<td>Drop shadow in app chrome</td>
+<td>Surface ladder + 1px hairline — lint R4</td>
+</tr>
+<tr>
+<td>Accent colour as decoration</td>
+<td>Accent = primary action + active only</td>
+</tr>
+<tr>
+<td>A second stylesheet for light/dark</td>
+<td>Re-pointed <code>[data-theme]</code> aliases</td>
+</tr>
+<tr>
+<td>A one-off "just this screen" style</td>
+<td>Add a variant to the matrix, or a token</td>
+</tr>
+<tr>
+<td>Client-side saved views / filters</td>
+<td>Server-side config row, URL state</td>
+</tr>
+<tr>
+<td>CDN fonts or icon fonts</td>
+<td>Self-hosted <code>@font-face</code>; inline Lucide SVG</td>
+</tr>
+</tbody>
+</table>
+<h2>12. Definition of done</h2>
+<p>A UI change is done when: it uses only semantic tokens; it has a Gherkin scenario for any
+behaviour; it renders in BOTH <code>specimen.html</code> and <code>whitepaper.html</code> (the
+dual-document rule — the specimen shows it, the white paper explains it, and the
+two change together in the same commit); the lint exits clean; it works in dark
+and light from one ramp; contrast and visible focus pass; it needs zero
+JavaScript; and its options are captured in the §5 matrix. If any fails, it's
+not done.</p>
+<p><strong>Document map — what each file is and who it is for.</strong></p>
+<ul>
+<li><code>whitepaper.html</code> — the flagship, for every reader including non-technical
+  ones: one chapter per topic, each with the explanation in plain language, the
+  options, the live example right after the words that describe it, the
+  recommendation, a decision-status badge, and that chapter's sources.</li>
+<li><code>specimen.html</code> — the pure rendered catalog, no prose: the same examples as
+  the white paper with titles and option labels only. A visual reference.</li>
+<li><code>AGENTS.md</code> + <code>enforcement/</code> — the agent rulebook: rules and machinery only;
+  each rule points to its white-paper chapter for the full story.</li>
+<li><code>components.md</code> + <code>tokens.css</code> — the technical reference for developers:
+  specs, option matrices, code idioms, and the single source of truth for
+  values.</li>
+<li><code>README.md</code> + <code>index.md</code> — orientation for any reader; the index groups
+  files by audience.</li>
+<li><code>research/</code> — the workbench: named sources and investigations live here
+  while in progress, then graduate into white-paper chapters. Never the place
+  a reader is sent to.</li>
+</ul>
+</div>
+</body>
+</html>

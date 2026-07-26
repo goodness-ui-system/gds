@@ -6,6 +6,22 @@
   var ROUTES = {
     "":                 { title: "Home",              src: "pages/hero.html",              bleed: true  },
     "home":             { title: "Home",              src: "pages/hero.html",              bleed: true  },
+
+    "whitepaper":       { title: "White Paper",         src: "system/whitepaper.html",                bleed: true  },
+    "specimen":         { title: "Specimen",            src: "system/specimen.html",                  bleed: true  },
+    "sys-components":   { title: "Components Catalog",  src: "pages/system/components-catalog.html",  bleed: false },
+    "sys-agents":       { title: "Agent Manual",        src: "pages/system/agent-manual.html",        bleed: false },
+    "sys-enforcement":  { title: "Enforcement",         src: "pages/system/enforcement.html",         bleed: false },
+    "sys-about":        { title: "About the System",    src: "pages/system/about.html",               bleed: false },
+
+    "r-deep":           { title: "Deep Analysis",       src: "pages/system/research-deep-analysis.html", bleed: false },
+    "r-theme":          { title: "Theme Parity",        src: "pages/system/research-theme-parity.html",  bleed: false },
+    "r-brand":          { title: "Brand vs Semantics",  src: "pages/system/research-brand-color.html",   bleed: false },
+    "r-forms":          { title: "Record Forms",        src: "pages/system/research-record-forms.html",  bleed: false },
+    "r-editing":        { title: "Table Inline Editing",src: "pages/system/research-table-editing.html", bleed: false },
+    "r-rowactions":     { title: "Row Actions",         src: "pages/system/research-row-actions.html",   bleed: false },
+    "r-enter":          { title: "The Enter Key",       src: "pages/system/research-enter-key.html",     bleed: false },
+
     "get-started":      { title: "Get Started",       src: "pages/get-started.html",       bleed: false },
     "tokens":           { title: "Design Tokens",     src: "pages/tokens.html",            bleed: false },
     "components":       { title: "Components",         src: "pages/components.html",         bleed: false },
@@ -15,8 +31,6 @@
     "geometry-study":   { title: "Geometry Study",    src: "pages/geometry-study.html",    bleed: false },
     "geometry-midpoint":{ title: "Midpoint (node 9)", src: "pages/geometry-midpoint.html", bleed: false },
     "blueprint-plate":  { title: "Blueprint Plate",   src: "pages/blueprint-plate.html",   bleed: false },
-    "whitepaper":       { title: "White Paper",       src: "system/whitepaper.html",       bleed: true  },
-    "specimen":         { title: "Specimen",          src: "system/specimen.html",         bleed: true  },
     "motion":           { title: "Hero Animation",    src: "pages/hero.html",              bleed: true  }
   };
 
