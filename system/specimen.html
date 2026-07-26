@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goodness — Specimen</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="ui.css">
+</head>
+<body class="specimen">
+
+<header class="specimen__header">
+  <div class="specimen__title">Goodness <span class="specimen__title-tag">— specimen</span></div>
+  <div class="specimen__controls">
+    <label class="control-switch" for="opt-family">Family
+      <select class="select" id="opt-family">
+        <option value="mono" selected>Mono</option>
+        <option value="warm">Warm</option>
+        <option value="cool">Cool</option>
+      </select>
+    </label>
+    <label class="control-switch" for="opt-light">
+      <input class="control-switch__box" type="checkbox" id="opt-light"> Light theme
+    </label>
+    <label class="control-switch" for="opt-density">Density
+      <select class="select" id="opt-density">
+        <option value="tight">Tight</option>
+        <option value="normal" selected>Normal</option>
+        <option value="loose">Loose</option>
+      </select>
+    </label>
+  </div>
+</header>
+
+<main class="specimen__main">
+
+
+  <!-- ================= COLOR ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Color — palette families</h2>
+    <div class="palette-family palette-family--warm">
+    <div class="specimen__label">Warm family</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--n0"></div><div class="swatch__meta"><div class="swatch__name">neutral-0</div><div class="swatch__value">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n25"></div><div class="swatch__meta"><div class="swatch__name">neutral-25</div><div class="swatch__value">#faf9f5</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n100"></div><div class="swatch__meta"><div class="swatch__name">neutral-100</div><div class="swatch__value">#e9e6dd</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n300"></div><div class="swatch__meta"><div class="swatch__name">neutral-300</div><div class="swatch__value">#b8b3a4</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n500"></div><div class="swatch__meta"><div class="swatch__name">neutral-500</div><div class="swatch__value">#6c6862</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n700"></div><div class="swatch__meta"><div class="swatch__name">neutral-700</div><div class="swatch__value">#35332e</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n800"></div><div class="swatch__meta"><div class="swatch__name">neutral-800</div><div class="swatch__value">#252320</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n900"></div><div class="swatch__meta"><div class="swatch__name">neutral-900</div><div class="swatch__value">#1a1916</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n950"></div><div class="swatch__meta"><div class="swatch__name">neutral-950</div><div class="swatch__value">#121110</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n1000"></div><div class="swatch__meta"><div class="swatch__name">neutral-1000</div><div class="swatch__value">#0c0b0a</div></div></div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--clay300"></div><div class="swatch__meta"><div class="swatch__name">clay-300</div><div class="swatch__value">#e5a58c</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--clay400"></div><div class="swatch__meta"><div class="swatch__name">clay-400</div><div class="swatch__value">#d97757</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--clay500"></div><div class="swatch__meta"><div class="swatch__name">clay-500</div><div class="swatch__value">#cc785c</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--clay600"></div><div class="swatch__meta"><div class="swatch__name">clay-600</div><div class="swatch__value">#a9583e</div></div></div>
+    </div>
+    </div>
+    <div class="palette-family palette-family--cool">
+    <div class="specimen__label">Cool family</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--c0"></div><div class="swatch__meta"><div class="swatch__name">cool-0</div><div class="swatch__value">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c25"></div><div class="swatch__meta"><div class="swatch__name">cool-25</div><div class="swatch__value">#fafbfc</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c100"></div><div class="swatch__meta"><div class="swatch__name">cool-100</div><div class="swatch__value">#e8ebf1</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c300"></div><div class="swatch__meta"><div class="swatch__name">cool-300</div><div class="swatch__value">#b6bdcc</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c500"></div><div class="swatch__meta"><div class="swatch__name">cool-500</div><div class="swatch__value">#666e82</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c700"></div><div class="swatch__meta"><div class="swatch__name">cool-700</div><div class="swatch__value">#333949</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c800"></div><div class="swatch__meta"><div class="swatch__name">cool-800</div><div class="swatch__value">#232836</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c900"></div><div class="swatch__meta"><div class="swatch__name">cool-900</div><div class="swatch__value">#191d28</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c950"></div><div class="swatch__meta"><div class="swatch__name">cool-950</div><div class="swatch__value">#12151e</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c1000"></div><div class="swatch__meta"><div class="swatch__name">cool-1000</div><div class="swatch__value">#0b0d13</div></div></div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--az300"></div><div class="swatch__meta"><div class="swatch__name">azure-300</div><div class="swatch__value">#93b4f2</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--az400"></div><div class="swatch__meta"><div class="swatch__name">azure-400</div><div class="swatch__value">#5c8ce6</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--az500"></div><div class="swatch__meta"><div class="swatch__name">azure-500</div><div class="swatch__value">#4b76d3</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--az600"></div><div class="swatch__meta"><div class="swatch__name">azure-600</div><div class="swatch__value">#3a5fbf</div></div></div>
+    </div>
+    </div>
+    <div class="palette-family palette-family--mono">
+    <div class="specimen__label">Mono family — the opening default</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--g0"></div><div class="swatch__meta"><div class="swatch__name">gray-0</div><div class="swatch__value">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g25"></div><div class="swatch__meta"><div class="swatch__name">gray-25</div><div class="swatch__value">#fafafa</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g100"></div><div class="swatch__meta"><div class="swatch__name">gray-100</div><div class="swatch__value">#e8e8e8</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g300"></div><div class="swatch__meta"><div class="swatch__name">gray-300</div><div class="swatch__value">#b3b3b3</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g500"></div><div class="swatch__meta"><div class="swatch__name">gray-500</div><div class="swatch__value">#6b6b6b</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g700"></div><div class="swatch__meta"><div class="swatch__name">gray-700</div><div class="swatch__value">#333333</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g800"></div><div class="swatch__meta"><div class="swatch__name">gray-800</div><div class="swatch__value">#242424</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g900"></div><div class="swatch__meta"><div class="swatch__name">gray-900</div><div class="swatch__value">#1a1a1a</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g950"></div><div class="swatch__meta"><div class="swatch__name">gray-950</div><div class="swatch__value">#121212</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g1000"></div><div class="swatch__meta"><div class="swatch__name">gray-1000</div><div class="swatch__value">#0a0a0a</div></div></div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--ink300"></div><div class="swatch__meta"><div class="swatch__name">ink-300</div><div class="swatch__value">#f5f5f5</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--ink400"></div><div class="swatch__meta"><div class="swatch__name">ink-400</div><div class="swatch__value">#dedede</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--ink500"></div><div class="swatch__meta"><div class="swatch__name">ink-500</div><div class="swatch__value">#3d3d3d</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--ink600"></div><div class="swatch__meta"><div class="swatch__name">ink-600</div><div class="swatch__value">#262626</div></div></div>
+    </div>
+    </div>
+    <div class="specimen__label">Semantic — follows the active family</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--success"></div><div class="swatch__meta"><div class="swatch__name">success</div><div class="swatch__value">semantic</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--warning"></div><div class="swatch__meta"><div class="swatch__name">warning</div><div class="swatch__value">semantic</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--danger"></div><div class="swatch__meta"><div class="swatch__name">danger</div><div class="swatch__value">semantic</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--info"></div><div class="swatch__meta"><div class="swatch__name">info</div><div class="swatch__value">semantic</div></div></div>
+    </div>
+    <div class="specimen__label">Surface ladder — depth without shadows</div>
+    <div class="surface-demo">
+      <div class="surface-demo__panel surface-demo__panel--well"><div class="surface-demo__name">well</div><div class="surface-demo__desc">sunken — inputs, code, scroll areas</div></div>
+      <div class="surface-demo__panel surface-demo__panel--canvas"><div class="surface-demo__name">canvas</div><div class="surface-demo__desc">the page itself</div></div>
+      <div class="surface-demo__panel surface-demo__panel--surface"><div class="surface-demo__name">surface</div><div class="surface-demo__desc">raised — cards, panels, table chrome</div></div>
+    </div>
+  </section>
+
+  <!-- ================= TYPOGRAPHY ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Typography — sans for UI, mono for meaning</h2>
+    <div class="type-demo">
+      <div class="type-demo__sample"><span class="type-demo__tag">text-2xl 600</span><span class="type-demo__t2xl">Signal over noise</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-xl 600</span><span class="type-demo__txl">Quarterly overview</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-lg 500</span><span class="type-demo__tlg">Section heading</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-md 400</span><span class="type-demo__tmd">Emphasis body — introductions and lead paragraphs.</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-base 400</span><span class="type-demo__tbase">Body — the default reading size for dense professional UI.</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-sm 400</span><span class="type-demo__tsm">Secondary — table cells, helper text, metadata.</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-xs 400</span><span class="type-demo__txs">CAPTION — LABELS, COLUMN HEADERS, TIMESTAMPS</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">mono</span><span class="type-demo__mono">a1b2c3d4 · 2026-07-23 14:02 · $1,284,600.00 — IDs, timestamps, numbers</span></div>
+    </div>
+  </section>
+
+  <!-- ================= BUTTONS ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Buttons</h2>
+    <div class="specimen__row">
+      <button class="button button--primary" type="button">Run analysis</button>
+      <button class="button button--secondary" type="button">Export</button>
+      <button class="button button--ghost" type="button">Cancel</button>
+      <button class="button button--danger" type="button">Delete</button>
+      <button class="button button--link" type="button">View details</button>
+    </div>
+    <div class="specimen__label">States</div>
+    <div class="specimen__row">
+      <button class="button button--primary" type="button" disabled>Disabled</button>
+      <button class="button button--secondary" type="button" disabled>Disabled</button>
+      <button class="button button--secondary" type="button"><span class="spinner"></span> Loading</button>
+      <button class="button button--secondary" type="button">
+        <span class="button__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></span>
+        With icon
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= FORMS ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Inputs &amp; form fields</h2>
+    <div class="specimen__row">
+      <div class="field">
+        <label class="field__label field__label--required" for="f-name">Account name</label>
+        <input class="input" id="f-name" type="text" placeholder="Acme Corp" required>
+        <span class="field__hint">Legal entity name, as registered.</span>
+      </div>
+      <div class="field">
+        <label class="field__label" for="f-email">Contact email</label>
+        <input class="input input--invalid" id="f-email" type="email" value="not-an-email">
+        <span class="field__error">Enter a valid email address.</span>
+      </div>
+      <div class="field">
+        <label class="field__label" for="f-tier">Priority</label>
+        <select class="select" id="f-tier">
+          <option>Critical</option><option selected>High</option><option>Moderate</option><option>Low</option>
+        </select>
+      </div>
+    </div>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox" type="checkbox" checked> Include archived</label>
+      <label class="choice"><input class="checkbox" type="checkbox"> Notify on change</label>
+      <label class="choice"><input class="radio" type="radio" name="r1" checked> Quarterly</label>
+      <label class="choice"><input class="radio" type="radio" name="r1"> Annual</label>
+    </div>
+  </section>
+
+  <!-- ================= STATUS ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Badges, chips &amp; status</h2>
+    <div class="specimen__row">
+      <span class="badge"><span class="badge__dot"></span> Neutral</span>
+      <span class="badge badge--success"><span class="badge__dot"></span> On track</span>
+      <span class="badge badge--warning"><span class="badge__dot"></span> Review due</span>
+      <span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span>
+      <span class="badge badge--info"><span class="badge__dot"></span> In review</span>
+      <span class="badge badge--accent"><span class="badge__dot"></span> Active</span>
+    </div>
+    <div class="specimen__label">Filter chips (removable)</div>
+    <div class="specimen__row">
+      <span class="chip"><span class="chip__key">status:</span> open <button class="chip__remove" type="button" aria-label="Remove filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></span>
+      <span class="chip"><span class="chip__key">priority:</span> critical <button class="chip__remove" type="button" aria-label="Remove filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></span>
+      <span class="chip"><span class="chip__key">owner:</span> me <button class="chip__remove" type="button" aria-label="Remove filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></span>
+    </div>
+    <div class="specimen__label">Avatars &amp; loading</div>
+    <div class="specimen__row">
+      <span class="avatar avatar--sm">AM</span>
+      <span class="avatar avatar--md">KL</span>
+      <span class="avatar avatar--lg">JD</span>
+      <span class="spinner"></span>
+      <span class="skeleton skeleton--line"></span>
+      <span class="skeleton skeleton--line-short"></span>
+    </div>
+  </section>
+
+  <!-- ================= ALERTS ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Alerts</h2>
+    <div class="alert alert--success"><div><div class="alert__title">Report ready</div><div class="alert__text">All 34 sections generated. The export is ready to download.</div></div></div>
+    <div class="alert alert--warning"><div><div class="alert__title">Renewal approaching</div><div class="alert__text">The annual agreement on file renews in 14 days.</div></div></div>
+    <div class="alert alert--danger"><div><div class="alert__title">Sync failed</div><div class="alert__text">The upstream feed returned 503. Retry is scheduled.</div></div></div>
+    <div class="alert alert--info"><div><div class="alert__title">New template available</div><div class="alert__text">A new report template can now be enabled per workspace.</div></div></div>
+  </section>
+
+  <!-- ================= SECTIONS ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Sections, not cards — one separator between neighbors</h2>
+    <div class="specimen__row">
+      <div class="section-stack">
+        <section class="section-stack__section">
+          <h3 class="section-stack__title">Coverage</h3>
+          <p class="section-stack__text">34 of 41 milestones complete. Seven remaining in review.</p>
+        </section>
+        <section class="section-stack__section">
+          <h3 class="section-stack__title">Documents</h3>
+          <p class="section-stack__text">Last upload 2 days ago · 12 files attached.</p>
+        </section>
+        <section class="section-stack__section">
+          <h3 class="section-stack__title">Next review</h3>
+          <p class="section-stack__text">Scheduled quarterly — 18 days from now.</p>
+        </section>
+      </div>
+      <div class="pane-row">
+        <div class="pane-row__pane">
+          <h3 class="section-stack__title">Summary</h3>
+          <p class="section-stack__text">Side-by-side panes share one vertical hairline.</p>
+        </div>
+        <div class="pane-row__pane">
+          <h3 class="section-stack__title">Detail</h3>
+          <p class="section-stack__text">No gaps; rhythm comes from internal padding.</p>
+        </div>
+        <div class="pane-row__pane pane-row__pane--well">
+          <h3 class="section-stack__title">Well</h3>
+          <p class="section-stack__text">A sunken pane for code or logs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NAV ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Navigation — sidebar, tabs, menu</h2>
+    <div class="shell-demo">
+      <nav class="sidenav" aria-label="Demo sidebar">
+        <div class="sidenav__section">Workspace</div>
+        <a class="sidenav__item" href="#nav" aria-current="page">Dashboard</a>
+        <a class="sidenav__item" href="#nav">Accounts <span class="sidenav__count">248</span></a>
+        <a class="sidenav__item" href="#nav">Projects <span class="sidenav__count">12</span></a>
+        <div class="sidenav__section">Admin</div>
+        <a class="sidenav__item" href="#nav">Team</a>
+        <a class="sidenav__item" href="#nav">Settings</a>
+      </nav>
+      <div class="shell-demo__content">
+        <div role="tablist" class="tabs">
+          <button class="tabs__tab" role="tab" aria-selected="true" type="button">Overview</button>
+          <button class="tabs__tab" role="tab" aria-selected="false" type="button">Controls</button>
+          <button class="tabs__tab" role="tab" aria-selected="false" type="button">Documents</button>
+          <button class="tabs__tab" role="tab" aria-selected="false" type="button">History</button>
+        </div>
+        <p class="section-stack__text">Tabs draw one shared baseline; the selected tab carries the only accent. The content area starts here, one hairline away from the rail — no box around either side.</p>
+      </div>
+    </div>
+    <div class="specimen__label">Dropdown menu — the one legitimate floating box</div>
+    <div class="specimen__row">
+      <div class="menu" role="menu" aria-label="Demo menu">
+        <button class="menu__item" type="button" role="menuitem">Open <span class="menu__kbd">↵</span></button>
+        <button class="menu__item" type="button" role="menuitem">Rename</button>
+        <button class="menu__item" type="button" role="menuitem">Duplicate <span class="menu__kbd">⌘D</span></button>
+        <hr class="menu__divider">
+        <button class="menu__item menu__item--danger" type="button" role="menuitem">Archive</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DASHBOARD ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Dashboard — KPI tiles &amp; cards</h2>
+
+    <div class="specimen__label">Figure size, option A — display figures (glance-first)</div>
+    <div class="specimen__row">
+      <div class="kpi">
+        <div class="kpi__label">Open items</div>
+        <div class="kpi__value">127</div>
+        <div class="kpi__delta kpi__delta--down">▼ 12% vs last quarter</div>
+        <svg class="kpi__spark" width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="0,18 15,14 30,16 45,10 60,12 75,7 90,9 105,5 120,6"/></svg>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">Avg. review time</div>
+        <div class="kpi__value">3.4d</div>
+        <div class="kpi__delta kpi__delta--up">▲ 0.6d improvement</div>
+        <svg class="kpi__spark" width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="0,6 15,9 30,7 45,12 60,10 75,15 90,13 105,17 120,16"/></svg>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">Coverage</div>
+        <div class="kpi__value">86%</div>
+        <div class="kpi__delta kpi__delta--up">▲ 4 pts vs last quarter</div>
+        <svg class="kpi__spark" width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="0,16 15,15 30,13 45,14 60,11 75,10 90,8 105,7 120,5"/></svg>
+      </div>
+    </div>
+
+    <div class="specimen__label">Figure size, option B — mid figures (working dashboards)</div>
+    <div class="specimen__row">
+      <div class="kpi kpi--mid">
+        <div class="kpi__label">Open items</div>
+        <div class="kpi__value">127</div>
+        <div class="kpi__delta kpi__delta--down">▼ 12% vs last quarter</div>
+      </div>
+      <div class="kpi kpi--mid">
+        <div class="kpi__label">Avg. review time</div>
+        <div class="kpi__value">3.4d</div>
+        <div class="kpi__delta kpi__delta--up">▲ 0.6d improvement</div>
+      </div>
+      <div class="kpi kpi--mid">
+        <div class="kpi__label">Coverage</div>
+        <div class="kpi__value">86%</div>
+        <div class="kpi__delta kpi__delta--up">▲ 4 pts vs last quarter</div>
+      </div>
+      <div class="kpi kpi--mid">
+        <div class="kpi__label">Escalations</div>
+        <div class="kpi__value">9</div>
+        <div class="kpi__delta kpi__delta--down">▼ 3 vs last quarter</div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Figure size, option C — the stat list (density-first)</div>
+    <div class="specimen__row">
+      <div class="stat-list">
+        <div class="stat-list__row"><span class="stat-list__label">Open items</span><span class="stat-list__value">127</span><span class="stat-list__delta stat-list__delta--down">▼ 12%</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">Avg. review time</span><span class="stat-list__value">3.4d</span><span class="stat-list__delta stat-list__delta--up">▲ 0.6d</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">Coverage</span><span class="stat-list__value">86%</span><span class="stat-list__delta stat-list__delta--up">▲ 4 pts</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">Escalations</span><span class="stat-list__value">9</span><span class="stat-list__delta stat-list__delta--down">▼ 3</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">Overdue reviews</span><span class="stat-list__value">14</span><span class="stat-list__delta stat-list__delta--down">▼ 2</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">New accounts</span><span class="stat-list__value">31</span><span class="stat-list__delta stat-list__delta--up">▲ 6</span></div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Summary card — glanceable narrative content</div>
+    <div class="specimen__row">
+      <div class="card">
+        <div class="card__title">Quarterly summary</div>
+        <div class="card__body">18 of 24 accounts have submitted updates. Six reminders are queued for Friday.</div>
+        <div class="card__actions">
+          <button class="button button--secondary" type="button">Review queue</button>
+          <button class="button button--ghost" type="button">Dismiss</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RATIO & PROGRESS ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Progress &amp; ratio — a number against a total</h2>
+
+    <div class="specimen__label">Ratio tiles, size option A — display percent (glance-first)</div>
+    <div class="specimen__row">
+      <div class="ratio">
+        <div class="ratio__label">Items reviewed</div>
+        <div class="ratio__line"><span class="ratio__pct">10%</span><span class="ratio__frac">20 / 200</span></div>
+        <progress class="meter" value="20" max="200"></progress>
+      </div>
+      <div class="ratio">
+        <div class="ratio__label">Documents filed</div>
+        <div class="ratio__line"><span class="ratio__pct">62%</span><span class="ratio__frac">124 / 200</span></div>
+        <progress class="meter" value="124" max="200"></progress>
+      </div>
+      <div class="ratio">
+        <div class="ratio__label">Accounts updated</div>
+        <div class="ratio__line"><span class="ratio__pct">87%</span><span class="ratio__frac">174 / 200</span></div>
+        <progress class="meter" value="174" max="200"></progress>
+      </div>
+    </div>
+
+    <div class="specimen__label">Ratio tiles, size option B — mid percent</div>
+    <div class="specimen__row">
+      <div class="ratio ratio--mid">
+        <div class="ratio__label">Items reviewed</div>
+        <div class="ratio__line"><span class="ratio__pct">10%</span><span class="ratio__frac">20 / 200</span></div>
+        <progress class="meter" value="20" max="200"></progress>
+      </div>
+      <div class="ratio ratio--mid">
+        <div class="ratio__label">Documents filed</div>
+        <div class="ratio__line"><span class="ratio__pct">62%</span><span class="ratio__frac">124 / 200</span></div>
+        <progress class="meter" value="124" max="200"></progress>
+      </div>
+      <div class="ratio ratio--mid">
+        <div class="ratio__label">Accounts updated</div>
+        <div class="ratio__line"><span class="ratio__pct">87%</span><span class="ratio__frac">174 / 200</span></div>
+        <progress class="meter" value="174" max="200"></progress>
+      </div>
+    </div>
+
+    <div class="specimen__label">Ratio tiles, size option C — small percent (bar-led)</div>
+    <div class="specimen__row">
+      <div class="ratio ratio--small">
+        <div class="ratio__label">Items reviewed</div>
+        <div class="ratio__line"><span class="ratio__pct">10%</span><span class="ratio__frac">20 / 200</span></div>
+        <progress class="meter" value="20" max="200"></progress>
+      </div>
+      <div class="ratio ratio--small">
+        <div class="ratio__label">Documents filed</div>
+        <div class="ratio__line"><span class="ratio__pct">62%</span><span class="ratio__frac">124 / 200</span></div>
+        <progress class="meter" value="124" max="200"></progress>
+      </div>
+      <div class="ratio ratio--small">
+        <div class="ratio__label">Accounts updated</div>
+        <div class="ratio__line"><span class="ratio__pct">87%</span><span class="ratio__frac">174 / 200</span></div>
+        <progress class="meter" value="174" max="200"></progress>
+      </div>
+    </div>
+
+    <div class="specimen__label">Count-led and delta variants — when the count or the movement is the story</div>
+    <div class="specimen__row">
+      <div class="ratio">
+        <div class="ratio__label">Open reviews</div>
+        <div class="ratio__line"><span class="ratio__pct">180</span><span class="ratio__frac">of 200 remaining · 90%</span></div>
+        <progress class="meter" value="180" max="200"></progress>
+      </div>
+      <div class="ratio">
+        <div class="ratio__label">Review coverage</div>
+        <div class="ratio__line"><span class="ratio__pct">10%</span><span class="ratio__frac">20 / 200</span></div>
+        <div class="ratio__delta ratio__delta--up">▲ 2.5 pts vs last week</div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Meter rows — the list form, for many metrics (scan the label column)</div>
+    <div class="specimen__row">
+      <div class="section-stack record-form">
+        <section class="section-stack__section">
+          <div class="section-stack__title">Quarterly progress</div>
+        </section>
+        <section class="section-stack__section">
+          <div class="meter-row"><span class="meter-row__label">Reviewed</span><span class="meter-row__meter"><progress class="meter" value="20" max="200"></progress></span><span class="meter-row__nums">20 / 200 · 10%</span></div>
+        </section>
+        <section class="section-stack__section">
+          <div class="meter-row"><span class="meter-row__label">Filed</span><span class="meter-row__meter"><progress class="meter" value="124" max="200"></progress></span><span class="meter-row__nums">124 / 200 · 62%</span></div>
+        </section>
+        <section class="section-stack__section">
+          <div class="meter-row"><span class="meter-row__label">Updated</span><span class="meter-row__meter"><progress class="meter" value="174" max="200"></progress></span><span class="meter-row__nums">174 / 200 · 87%</span></div>
+        </section>
+        <section class="section-stack__section">
+          <div class="meter-row"><span class="meter-row__label">Signed off</span><span class="meter-row__meter"><progress class="meter" value="36" max="200"></progress></span><span class="meter-row__nums">36 / 200 · 18%</span></div>
+        </section>
+      </div>
+    </div>
+
+    <div class="specimen__label">Segmented meter — when the total splits into states (2px surface gaps, one-hue ladder)</div>
+    <div class="specimen__row">
+      <div class="ratio">
+        <div class="ratio__label">Review pipeline</div>
+        <div class="ratio__line"><span class="ratio__pct">45%</span><span class="ratio__frac">90 / 200 complete</span></div>
+        <div class="meter-seg">
+          <span class="meter-seg__part meter-seg__part--a meter-seg__part--w45"></span>
+          <span class="meter-seg__part meter-seg__part--b meter-seg__part--w30"></span>
+          <span class="meter-seg__part meter-seg__part--c meter-seg__part--w25"></span>
+        </div>
+        <div class="meter-legend">
+          <span class="meter-legend__key"><span class="meter-legend__swatch meter-seg__part--a"></span> Complete 90</span>
+          <span class="meter-legend__key"><span class="meter-legend__swatch meter-seg__part--b"></span> In progress 60</span>
+          <span class="meter-legend__key"><span class="meter-legend__swatch meter-seg__part--c"></span> Not started 50</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TABLE ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Data table — a saved view in action</h2>
+    <div class="data-table">
+      <div class="data-table__viewbar">
+        <span class="data-table__viewname">≡ High-priority, active ▾</span>
+        <span class="data-table__viewdesc">Collaborative view · grouped by priority · 2 filters · 2 sorts · color rule: score &lt; 50</span>
+      </div>
+      <div class="table-toolbar">
+        <div class="table-toolbar__group">
+          <span class="search-field">
+            <span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>
+            <input class="input search-field__input" type="search" placeholder="Filter accounts…">
+          </span>
+          <span class="chip"><span class="chip__key">priority:</span> high+ <button class="chip__remove" type="button" aria-label="Remove filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></span>
+        </div>
+        <div class="table-toolbar__group">
+          <button class="button button--ghost" type="button">Fields</button>
+          <button class="button button--ghost" type="button">Filter · 2</button>
+          <button class="button button--ghost" type="button">Group · 1</button>
+          <button class="button button--ghost" type="button">Sort · 2</button>
+          <button class="button button--ghost" type="button">Height</button>
+          <button class="button button--primary" type="button">Add account</button>
+        </div>
+      </div>
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
+              <th><button class="data-table__sort" type="button">Priority</button></th>
+              <th><button class="data-table__sort" type="button">Status</button></th>
+              <th><button class="data-table__sort" type="button">Owner</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Score</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last review</button></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="data-table__group"><td colspan="8">Critical <span class="data-table__count">· 2</span></td></tr>
+            <tr class="data-table__row--mark-danger">
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Umbrella Hosting</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Critical</span></td>
+              <td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td>
+              <td><span class="avatar avatar--sm">AM</span></td>
+              <td class="data-table__cell--num">38</td><td class="data-table__cell--num">2026-03-11</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr class="data-table__row--mark-danger">
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Northwind Cloud</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Critical</span></td>
+              <td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td>
+              <td><span class="avatar avatar--sm">AM</span></td>
+              <td class="data-table__cell--num">42</td><td class="data-table__cell--num">2026-06-30</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr class="data-table__group"><td colspan="8">High <span class="data-table__count">· 2</span></td></tr>
+            <tr class="data-table__row--selected data-table__row--mark-warning">
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" checked aria-label="Select row"></td>
+              <td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
+              <td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td>
+              <td><span class="avatar avatar--sm">JD</span></td>
+              <td class="data-table__cell--num">71</td><td class="data-table__cell--num">2026-05-02</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr class="data-table__row--selected">
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" checked aria-label="Select row"></td>
+              <td>Acme Payments</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
+              <td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td>
+              <td><span class="avatar avatar--sm">KL</span></td>
+              <td class="data-table__cell--num">87</td><td class="data-table__cell--num">2026-07-18</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr class="data-table__group"><td colspan="8">Moderate <span class="data-table__count">· 1</span></td></tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Initech Legal</td><td><span class="badge"><span class="badge__dot"></span> Moderate</span></td>
+              <td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td>
+              <td><span class="avatar avatar--sm">TS</span></td>
+              <td class="data-table__cell--num">93</td><td class="data-table__cell--num">2026-07-01</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr><td></td><td>5 accounts</td><td>2 critical</td><td>1 overdue</td><td></td><td class="data-table__cell--num">avg 66</td><td class="data-table__cell--num">latest 2026-07-18</td><td></td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="data-table__bulk">
+        <span class="data-table__bulk-count">2 selected</span>
+        <button class="button button--ghost" type="button">Export</button>
+        <button class="button button--ghost" type="button">Assign owner</button>
+        <button class="button button--ghost" type="button">Archive</button>
+        <button class="button button--ghost" type="button">Clear</button>
+      </div>
+      <div class="data-table__footer">
+        <span class="pagination__status">1–5 of 248 · view: “High-priority, active”</span>
+        <div class="pagination">
+          <button class="button button--ghost" type="button" disabled>← Prev</button>
+          <button class="button button--ghost" type="button">Next →</button>
+        </div>
+      </div>
+      <div class="data-table__url">/accounts?view=high-priority&amp;filterHasNoneOf_priority=low&amp;filterContains_status=&amp;group=priority&amp;sort=score,account&amp;dir=desc — the URL is the view: copy the address bar, a colleague sees this exact screen</div>
+    </div>
+  </section>
+
+  <!-- ================= ROW ACTIONS ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Row actions — visible icons vs. the overflow menu</h2>
+
+    <div class="specimen__label">Option A — overflow menu only (the default)</div>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option B — one earned icon plus the menu (the frequency budget)</div>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option C — actions revealed on hover or keyboard focus</div>
+    <div class="data-table data-table--quiet">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="specimen__label">The anti-pattern — a destructive icon on every row (shown to be rejected)</div>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TABLE EDITING ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Table editing vs. form editing — the full menu of options</h2>
+
+    <div class="specimen__label">Option A — read-only table, form editing (the default)</div>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Priority</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge"><span class="badge__dot"></span> Moderate</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">93</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-table__footer"><span class="pagination__status">Click a row → the record form opens. Cells never become inputs.</span></div>
+    </div>
+
+    <div class="specimen__label">Option B — edit mode with a draft and a save bar</div>
+    <div class="data-table">
+      <div class="table-toolbar">
+        <div class="table-toolbar__group"><span class="badge badge--info"><span class="badge__dot"></span> Edit mode</span></div>
+        <div class="table-toolbar__group"><button class="button button--ghost" type="button">Exit edit mode</button></div>
+      </div>
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Priority</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Acme Payments</td>
+              <td class="data-table__cell--edited"><select class="select select--cell" aria-label="Priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select></td>
+              <td><span class="avatar avatar--sm">KL</span></td>
+              <td class="data-table__cell--num data-table__cell--edited"><input class="input input--cell" type="number" value="91" aria-label="Score"></td>
+            </tr>
+            <tr>
+              <td>Initech Legal</td>
+              <td><span class="badge"><span class="badge__dot"></span> Moderate</span></td>
+              <td><span class="avatar avatar--sm">TS</span></td>
+              <td class="data-table__cell--num data-table__cell--edited"><input class="input input--cell" type="number" value="95" aria-label="Score"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="savebar">
+        <span class="savebar__count">3 unsaved changes</span>
+        <button class="button button--ghost" type="button">Discard</button>
+        <button class="button button--primary" type="button">Save all</button>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option C — per-cell instant commit (pickers only)</div>
+    <div class="specimen__row">
+      <div class="data-table">
+        <div class="data-table__scroll">
+          <table class="data-table__table">
+            <thead><tr><th>Account</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Acme Payments</td><td><select class="select select--cell" aria-label="Status"><option>On track</option><option selected>Review due</option><option>Overdue</option></select></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="toast" role="status">Status saved · Review due <button class="toast__action" type="button">Undo</button></div>
+    </div>
+
+    <div class="specimen__label">Option D — editable-field whitelist</div>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Priority</th><th>Owner</th><th class="data-table__cell--num">Score (calculated)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Acme Payments <span class="cell-edit-hint">read-only</span></td>
+              <td><span class="badge badge--warning"><span class="badge__dot"></span> High</span> <span class="cell-edit-hint">✎</span></td>
+              <td><span class="avatar avatar--sm">KL</span> <span class="cell-edit-hint">✎</span></td>
+              <td class="data-table__cell--num">87 <span class="cell-edit-hint">read-only</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option E — the keyboard grammar (applies to B, C and D)</div>
+
+    <div class="specimen__label">Choosing between them</div>
+  </section>
+
+  <!-- ================= RECORD FORM ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Record forms — presentation styles</h2>
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">Style 1 — stacked form: sections, top labels, single column</div>
+        <div class="section-stack record-form">
+          <section class="section-stack__section">
+            <h3 class="section-stack__title">Details</h3>
+            <div class="field">
+              <label class="field__label field__label--required" for="rf-name">Account name</label>
+              <input class="input" id="rf-name" type="text" value="Acme Payments" required>
+              <span class="field__hint">Legal entity name, as registered.</span>
+            </div>
+            <div class="field-pair">
+              <div class="field">
+                <label class="field__label" for="rf-city">City</label>
+                <input class="input" id="rf-city" type="text" value="Toronto">
+              </div>
+              <div class="field">
+                <label class="field__label" for="rf-postal">Postal code</label>
+                <input class="input" id="rf-postal" type="text" value="M5V 2T6">
+              </div>
+            </div>
+          </section>
+          <section class="section-stack__section">
+            <h3 class="section-stack__title">Classification</h3>
+            <div class="field">
+              <label class="field__label" for="rf-priority">Priority</label>
+              <select class="select" id="rf-priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select>
+            </div>
+            <div class="field">
+              <label class="field__label" for="rf-owner">Owner</label>
+              <select class="select" id="rf-owner"><option selected>K. Lane</option><option>J. Doe</option><option>T. Shaw</option></select>
+            </div>
+          </section>
+          <section class="section-stack__section form-actions">
+            <button class="button button--ghost" type="button">Cancel</button>
+            <button class="button button--primary" type="button">Save changes</button>
+          </section>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">Style 2 — property sheet: read-first, hover a row</div>
+        <div class="prop-grid">
+          <div class="prop-grid__header">
+            <div class="prop-grid__title">Acme Payments</div>
+            <div class="prop-grid__meta">a1b2c3d4 · created 2026-03-02 · updated 2026-07-18</div>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Status</span>
+            <span class="prop__value"><span class="badge badge--success"><span class="badge__dot"></span> On track</span></span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Priority</span>
+            <span class="prop__value"><span class="badge badge--warning"><span class="badge__dot"></span> High</span></span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Owner</span>
+            <span class="prop__value"><span class="avatar avatar--sm">KL</span> K. Lane</span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Score</span>
+            <span class="prop__value prop__value--num">87</span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Last review</span>
+            <span class="prop__value prop__value--num">2026-07-18</span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Notes</span>
+            <span class="prop__value">Renewal discussion scheduled for next quarter.</span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">Style 3 — ledger: the form as a table (label cells, input cells)</div>
+        <div class="ledger-form">
+          <div class="ledger-form__row">
+            <span class="ledger-form__label">Account name</span>
+            <span class="ledger-form__cell"><input class="ledger-form__input" type="text" value="Acme Payments" aria-label="Account name"></span>
+          </div>
+          <div class="ledger-form__row">
+            <span class="ledger-form__label">Priority</span>
+            <span class="ledger-form__cell"><select class="ledger-form__input" aria-label="Priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select></span>
+          </div>
+          <div class="ledger-form__row">
+            <span class="ledger-form__label">Region</span>
+            <span class="ledger-form__cell"><input class="ledger-form__input" type="text" value="Northeast" aria-label="Region"></span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">Style 4 — left-label inputs: the property sheet's editable twin</div>
+        <div class="ll-form">
+          <div class="ll-form__row">
+            <span class="ll-form__label">Account name</span>
+            <input class="input" type="text" value="Acme Payments" aria-label="Account name">
+          </div>
+          <div class="ll-form__row">
+            <span class="ll-form__label">Priority</span>
+            <select class="select" aria-label="Priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select>
+          </div>
+          <div class="ll-form__row">
+            <span class="ll-form__label">Region</span>
+            <input class="input" type="text" value="Northeast" aria-label="Region">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">Style 5 — two-column dense: top labels, twin columns (dense review contexts)</div>
+        <div class="section-stack record-form">
+          <section class="section-stack__section">
+            <div class="form-two-col">
+              <div class="field"><label class="field__label" for="tc-name">Account name</label><input class="input" id="tc-name" type="text" value="Acme Payments"></div>
+              <div class="field"><label class="field__label" for="tc-priority">Priority</label><select class="select" id="tc-priority"><option selected>High</option></select></div>
+              <div class="field"><label class="field__label" for="tc-region">Region</label><input class="input" id="tc-region" type="text" value="Northeast"></div>
+              <div class="field"><label class="field__label" for="tc-score">Score</label><input class="input" id="tc-score" type="number" value="87"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">Style 6 — print: no boxes, values on a baseline rule</div>
+        <div class="print-form">
+          <div class="print-field">
+            <span class="print-field__label">Account name</span>
+            <input class="print-field__input" type="text" value="Acme Payments" aria-label="Account name">
+          </div>
+          <div class="print-field">
+            <span class="print-field__label">Priority</span>
+            <input class="print-field__input" type="text" value="High" aria-label="Priority">
+          </div>
+          <div class="print-field">
+            <span class="print-field__label">Region</span>
+            <input class="print-field__input" type="text" value="Northeast" aria-label="Region">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RECORD FORM CANDIDATES ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Record forms — workflows and processes (candidates)</h2>
+
+    <div class="specimen__label">Workflow — document hybrid: the record as a page (prose heart + properties)</div>
+    <div class="specimen__row">
+      <div class="doc-record">
+        <div class="doc-record__body">
+          <div class="doc-record__title">Renewal strategy — Acme Payments</div>
+          <div class="doc-record__meta">a1b2c3d4 · K. Lane · updated 2026-07-18</div>
+          <p class="doc-record__prose">The account renews next quarter. Usage grew 22% year over year, and the expansion conversation should lead with the reporting module. Click the title or this text to edit in place.</p>
+        </div>
+        <div class="doc-record__props">
+          <div class="prop"><span class="prop__label">Status</span><span class="prop__value"><span class="badge badge--success"><span class="badge__dot"></span> On track</span></span><span class="prop__edit-hint">✎</span></div>
+          <div class="prop"><span class="prop__label">Priority</span><span class="prop__value"><span class="badge badge--warning"><span class="badge__dot"></span> High</span></span><span class="prop__edit-hint">✎</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — wizard: sequential creation with a visible path</div>
+    <div class="specimen__row">
+      <div class="section-stack wizard">
+        <section class="section-stack__section">
+          <div class="wizard__steps">
+            <span class="wizard__step wizard__step--done"><span class="wizard__dot">✓</span> Details</span>
+            <span class="wizard__bar"></span>
+            <span class="wizard__step wizard__step--active"><span class="wizard__dot">2</span> Classification</span>
+            <span class="wizard__bar"></span>
+            <span class="wizard__step"><span class="wizard__dot">3</span> Review</span>
+          </div>
+        </section>
+        <section class="section-stack__section">
+          <div class="field">
+            <label class="field__label" for="wz-priority">Priority</label>
+            <select class="select" id="wz-priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="wz-owner">Owner</label>
+            <select class="select" id="wz-owner"><option selected>K. Lane</option><option>J. Doe</option></select>
+          </div>
+        </section>
+        <section class="section-stack__section form-actions">
+          <span class="wizard__count">Step 2 of 3</span>
+          <button class="button button--ghost" type="button">Back</button>
+          <button class="button button--primary" type="button">Continue</button>
+        </section>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — grid entry: the table as the form (bulk edits, tab advances)</div>
+    <div class="specimen__row">
+      <div class="data-table record-form">
+        <div class="data-table__scroll">
+          <table class="data-table__table">
+            <thead><tr><th>Account</th><th class="data-table__cell--num">Score</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Acme Payments</td><td class="data-table__cell--num">87</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td></tr>
+              <tr><td>Globex Analytics</td><td class="data-table__cell--num"><input class="grid-entry__input" value="71" aria-label="Score, editing"></td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td></tr>
+              <tr><td>Initech Legal</td><td class="data-table__cell--num">93</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — conversational: one question at a time (intake and AI-assisted creation)</div>
+    <div class="specimen__row">
+      <div class="conv-form">
+        <span class="conv-form__step">3 / 7</span>
+        <span class="conv-form__q">What is the account's primary region?</span>
+        <input class="input" type="text" placeholder="Start typing…">
+        <span class="conv-form__hint">Press <kbd>↵</kbd> to continue · <kbd>⇧↵</kbd> to go back</span>
+      </div>
+    </div>
+
+    <div class="specimen__label">Placement axis — the same form in three containers</div>
+    <div class="placement">
+      <div class="placement__opt"><span class="placement__frame"><span class="placement__panel"></span></span> Side panel — keeps table context</div>
+      <div class="placement__opt"><span class="placement__frame"><span class="placement__dialog"></span></span> Dialog — short, focused, interruptive</div>
+      <div class="placement__opt"><span class="placement__frame"><span class="placement__page"></span></span> Full page — long records, deep links</div>
+    </div>
+
+    <div class="specimen__label">Workflow — settings: summary rows, drill into a small edit form</div>
+    <div class="specimen__row">
+      <div class="prop-grid">
+        <div class="prop"><span class="prop__label">Notifications</span><span class="prop__value">Weekly digest</span><span class="prop__chev">›</span></div>
+        <div class="prop"><span class="prop__label">Access</span><span class="prop__value">3 teams</span><span class="prop__chev">›</span></div>
+        <div class="prop"><span class="prop__label">Export</span><span class="prop__value">CSV, monthly</span><span class="prop__chev">›</span></div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — review / diff: old value struck, new value proposed (approvals)</div>
+    <div class="specimen__row">
+      <div class="prop-grid">
+        <div class="prop"><span class="prop__label">Priority</span><span class="prop__value"><span class="diff-form__old">Moderate</span> <span class="diff-form__arrow">→</span> <span class="badge badge--warning"><span class="badge__dot"></span> High</span></span></div>
+        <div class="prop"><span class="prop__label">Owner</span><span class="prop__value"><span class="diff-form__old">J. Doe</span> <span class="diff-form__arrow">→</span> K. Lane</span></div>
+        <div class="prop form-actions"><button class="button button--ghost" type="button">Reject</button><button class="button button--primary" type="button">Approve changes</button></div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — user-composed: the layout itself is a saved configuration</div>
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">Fields</div>
+        <div class="panel">
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Account name</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Priority</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox"> <span class="panel__grow">Notes</span> <span class="panel__drag">⋮⋮</span></label>
+        </div>
+      </div>
+      <div class="builder-preview">
+        <div class="specimen__label">Preview — rendered from the configuration row</div>
+        <div class="section-stack record-form">
+          <section class="section-stack__section">
+            <div class="field">
+              <label class="field__label" for="bp-name">Account name</label>
+              <input class="input" id="bp-name" type="text" placeholder="Acme Payments">
+            </div>
+            <div class="field">
+              <label class="field__label" for="bp-priority">Priority</label>
+              <select class="select" id="bp-priority"><option>High</option></select>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KEYBOARD ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Keyboard conventions — what Enter means</h2>
+
+    <div class="specimen__label">Choice surfaces — Enter activates the highlighted item</div>
+    <div class="specimen__row">
+      <div class="menu" role="menu" aria-label="Enter demo menu">
+        <button class="menu__item" type="button" role="menuitem">Open <span class="menu__kbd">↵</span></button>
+        <button class="menu__item" type="button" role="menuitem">Rename</button>
+        <button class="menu__item" type="button" role="menuitem">Duplicate</button>
+      </div>
+    </div>
+
+    <div class="specimen__label">Single-line field — Enter submits the form</div>
+    <form class="enter-form" action="#keyboard" method="get">
+      <div class="field">
+        <label class="field__label" for="kb-search">Find an account</label>
+        <input class="input" id="kb-search" type="text" placeholder="Acme…">
+      </div>
+      <div class="enter-form__footer">
+        <button class="button button--secondary" type="submit">Search</button>
+      </div>
+    </form>
+
+    <div class="specimen__label">Multi-line text box — Enter makes a new line, ⌘↵ saves</div>
+    <form class="enter-form" action="#keyboard" method="get">
+      <div class="field">
+        <label class="field__label" for="kb-notes">Review notes</label>
+        <textarea class="textarea" id="kb-notes" rows="3" placeholder="Enter makes a new line here — always."></textarea>
+      </div>
+      <div class="enter-form__footer">
+        <button class="button button--ghost" type="button">Cancel</button>
+        <button class="button button--primary" type="submit">Save record<span class="enter-form__hint">⌘↵</span></button>
+      </div>
+    </form>
+
+    <div class="specimen__label">Grid cells — the editing grammar</div>
+    <div class="kbd-row">
+      <span class="kbd-row__pair"><kbd>↵</kbd> / <kbd>F2</kbd> edit the focused cell</span>
+      <span class="kbd-row__pair"><kbd>Esc</kbd> cancel, restore the old value</span>
+      <span class="kbd-row__pair"><kbd>Tab</kbd> commit and advance</span>
+      <span class="kbd-row__pair"><kbd>←→↑↓</kbd> travel the grid</span>
+    </div>
+  </section>
+
+  <!-- ================= FILTER BUILDER ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Filter builder</h2>
+    <div class="condition-stack">
+      <div class="condition">
+        <span class="condition__lead">Where</span>
+        <span class="condition__seg">
+          <select class="select" aria-label="Field"><option>Priority</option><option>Status</option><option>Owner</option><option>Score</option></select>
+          <select class="select" aria-label="Operator"><option>has none of</option><option>is</option><option>is not</option></select>
+          <select class="select" aria-label="Value"><option>Low</option><option>Moderate</option><option>High</option></select>
+          <button class="condition__btn" type="button" aria-label="Remove condition">✕</button>
+          <button class="condition__btn" type="button" aria-label="Reorder">⋮⋮</button>
+        </span>
+      </div>
+      <div class="condition">
+        <span class="condition__lead"><select class="select" aria-label="Conjunction"><option>and</option><option>or</option></select></span>
+        <span class="condition__seg">
+          <select class="select" aria-label="Field"><option>Score</option><option>Priority</option><option>Status</option></select>
+          <select class="select" aria-label="Operator"><option>&lt;</option><option>&gt;</option><option>=</option></select>
+          <input class="input" type="number" value="50" aria-label="Value">
+          <button class="condition__btn" type="button" aria-label="Remove condition">✕</button>
+          <button class="condition__btn" type="button" aria-label="Reorder">⋮⋮</button>
+        </span>
+      </div>
+    </div>
+    <div class="specimen__row">
+      <button class="button button--ghost" type="button">+ Add condition</button>
+      <button class="button button--ghost" type="button">+ Add condition group</button>
+      <button class="button button--ghost" type="button">Copy from another view</button>
+    </div>
+  </section>
+
+  <!-- ================= VIEW SYSTEM ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">View system — switcher, fields, sort, view menu</h2>
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">View switcher</div>
+        <nav class="panel" aria-label="Views">
+          <input class="input panel__search" type="search" placeholder="Find a view">
+          <div class="panel__row">+ Create new…</div>
+          <hr class="panel__divider">
+          <div class="panel__row panel__row--active">High-priority, active</div>
+          <div class="panel__row">Enterprise only</div>
+          <div class="panel__row">Quarterly review</div>
+          <hr class="panel__divider">
+          <div class="panel__hint">PERSONAL</div>
+          <div class="panel__row">My triage</div>
+        </nav>
+      </div>
+      <div>
+        <div class="specimen__label">Field visibility</div>
+        <div class="panel">
+          <input class="input panel__search" type="search" placeholder="Find a field">
+          <div class="panel__bulk">
+            <button class="panel__bulk-btn" type="button">Show all</button>
+            <button class="panel__bulk-btn" type="button">Hide all</button>
+          </div>
+          <hr class="panel__divider">
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Status</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Owner</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Score</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox"> <span class="panel__grow">Notes</span> <span class="panel__drag">⋮⋮</span></label>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">Sort</div>
+        <div class="panel">
+          <div class="panel__row">
+            <span class="condition__seg condition__seg--fill">
+              <select class="select" aria-label="Sort field"><option>Score</option><option>Owner</option></select>
+              <select class="select" aria-label="Direction"><option>1 → 9</option><option>9 → 1</option></select>
+              <button class="condition__btn" type="button" aria-label="Remove sort">✕</button>
+            </span>
+          </div>
+          <div class="panel__row">
+            <span class="condition__seg condition__seg--fill">
+              <select class="select" aria-label="Sort field"><option>Account</option><option>Status</option></select>
+              <select class="select" aria-label="Direction"><option>A → Z</option><option>Z → A</option></select>
+              <button class="condition__btn" type="button" aria-label="Remove sort">✕</button>
+            </span>
+          </div>
+          <div class="panel__row">+ Add another sort</div>
+          <div class="panel__footer"><input class="control-switch__box" type="checkbox" checked> Automatically sort records</div>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">View menu</div>
+        <div class="menu" role="menu" aria-label="View actions">
+          <button class="menu__item" type="button" role="menuitem">Rename view</button>
+          <button class="menu__item" type="button" role="menuitem">Edit description</button>
+          <button class="menu__item" type="button" role="menuitem">Duplicate view</button>
+          <button class="menu__item" type="button" role="menuitem">Copy another view's configuration</button>
+          <hr class="menu__divider">
+          <button class="menu__item" type="button" role="menuitem">Download CSV</button>
+          <hr class="menu__divider">
+          <button class="menu__item menu__item--danger" type="button" role="menuitem">Delete view</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMMAND PALETTE ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Command palette — ⌘K, zero JavaScript</h2>
+    <div class="palette-demo">
+      <div class="palette" role="dialog" aria-label="Command palette demo">
+        <input class="palette__input" type="search" placeholder="Type a command or search…" value="pro">
+        <div class="palette__group">Actions</div>
+        <div class="palette__item palette__item--active">New <strong>pro</strong>ject <span class="palette__kbd">⌘N</span></div>
+        <div class="palette__item">Assign owner…</div>
+        <div class="palette__group">Records</div>
+        <div class="palette__item">Acme Payments — <strong>pro</strong>ject 2026-Q3</div>
+        <div class="palette__item">Globex Analytics — <strong>pro</strong>ject 2026-Q2</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EMPTY STATE ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Empty state — teaches, never dead-ends</h2>
+    <div class="empty-state">
+      <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
+      <div class="empty-state__title">No saved views yet</div>
+      <div class="empty-state__text">Build a filter, then save it as a view. Saved views keep your columns, sort, and filters — and they're shareable with your team.</div>
+      <button class="button button--primary" type="button">Create your first view</button>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

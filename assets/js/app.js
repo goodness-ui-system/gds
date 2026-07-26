@@ -15,6 +15,8 @@
     "geometry-study":   { title: "Geometry Study",    src: "pages/geometry-study.html",    bleed: false },
     "geometry-midpoint":{ title: "Midpoint (node 9)", src: "pages/geometry-midpoint.html", bleed: false },
     "blueprint-plate":  { title: "Blueprint Plate",   src: "pages/blueprint-plate.html",   bleed: false },
+    "whitepaper":       { title: "White Paper",       src: "system/whitepaper.html",       bleed: true  },
+    "specimen":         { title: "Specimen",          src: "system/specimen.html",         bleed: true  },
     "motion":           { title: "Hero Animation",    src: "pages/hero.html",              bleed: true  }
   };
 

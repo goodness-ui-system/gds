@@ -1,0 +1,398 @@
+/* ==========================================================================
+   tokens.css — THE single source of truth for every design decision.
+   UI Design System · best-of-breed B2B · Honest stack (see AGENTS.md)
+
+   Rules:
+   · Three tiers: primitives → semantic aliases → (optional) component hooks.
+   · Components consume SEMANTIC tokens only. Never a primitive, never a raw value.
+   · A theme or brand is a re-pointing of semantic aliases — nothing else.
+   · This is the ONLY file allowed to contain raw color/size values.
+     (enforcement/lint_design.py fails the build otherwise.)
+
+   Contrast: every text pair ≥ 4.5:1, every UI pair ≥ 3:1 (WCAG 2.2 AA),
+   verified programmatically in both themes. Hairline borders (--color-border)
+   are decorative by design; interactive contrast is carried by --color-focus.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   TIER 1 — PRIMITIVES. Named for what they ARE. Never used by components.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Warm neutral ramp — 0 = white, 1000 = ink */
+  --neutral-0:    #ffffff;
+  --neutral-25:   #faf9f5;   /* warm cream — light canvas */
+  --neutral-50:   #f4f2ec;
+  --neutral-100:  #e9e6dd;
+  --neutral-200:  #d6d2c6;
+  --neutral-300:  #b8b3a4;
+  --neutral-400:  #8f8a7b;
+  --neutral-500:  #6c6862;
+  --neutral-600:  #4f4c46;
+  --neutral-700:  #35332e;
+  --neutral-800:  #252320;   /* warm elevated dark */
+  --neutral-900:  #1a1916;
+  --neutral-950:  #121110;
+  --neutral-1000: #0c0b0a;
+
+  /* Clay accent (terracotta) */
+  --clay-300: #e5a58c;
+  --clay-400: #d97757;   /* accent, dark theme  (6.0:1 on dark canvas) */
+  --clay-500: #cc785c;
+  --clay-600: #a9583e;   /* accent, light theme (4.8:1 on cream) */
+
+  /* Semantic hues — two contrast-solved steps each:
+     -300/-400 = text-safe on the DARK canvas · -400/-600 = text-safe on CREAM */
+  --green-400: #5db872;  --green-600: #3e7a4c;
+  --amber-400: #e8a55a;  --amber-600: #8f6737;
+  --red-300:   #d56b6b;  --red-400:   #c64545;
+  --blue-400:  #6a9bcc;  --blue-600:  #4e7296;
+  --teal-400:  #5db8a6;  --teal-600:  #3c786d;   /* reserved: charts/extra series */
+
+  /* Cool neutral ramp — second palette family (light gray / blue-gray).
+     Same 14 steps as the warm ramp; activated via [data-palette="cool"]. */
+  --cool-0:    #ffffff;
+  --cool-25:   #fafbfc;   /* cool light canvas */
+  --cool-50:   #f4f6f9;
+  --cool-100:  #e8ebf1;
+  --cool-200:  #d9dee7;
+  --cool-300:  #b6bdcc;
+  --cool-400:  #8b93a7;
+  --cool-500:  #666e82;
+  --cool-600:  #4a5164;
+  --cool-700:  #333949;
+  --cool-800:  #232836;
+  --cool-900:  #191d28;
+  --cool-950:  #12151e;
+  --cool-1000: #0b0d13;
+
+  /* Azure accent — pairs with the cool family */
+  --azure-300: #93b4f2;
+  --azure-400: #5c8ce6;   /* accent, cool dark  (5.5:1 on cool canvas)  */
+  --azure-500: #4b76d3;   /* hover step (mirrors clay-500)               */
+  --azure-600: #3a5fbf;   /* accent, cool light (5.7:1 on cool cream)   */
+
+  /* Gray ramp — mono palette family: pure achromatic, no tint.
+     The specimen opens on this family. */
+  --gray-0:    #ffffff;
+  --gray-25:   #fafafa;   /* mono light canvas */
+  --gray-50:   #f5f5f5;
+  --gray-100:  #e8e8e8;
+  --gray-200:  #d4d4d4;
+  --gray-300:  #b3b3b3;
+  --gray-400:  #8a8a8a;
+  --gray-500:  #6b6b6b;
+  --gray-600:  #4f4f4f;
+  --gray-700:  #333333;
+  --gray-800:  #242424;
+  --gray-900:  #1a1a1a;
+  --gray-950:  #121212;   /* mono dark canvas */
+  --gray-1000: #0a0a0a;
+
+  /* Ink accent — pairs with the mono family. Achromatic: the action color
+     is near-white on dark and near-black on light. The brightest step is
+     #f5f5f5, never pure white — see research/theme-parity.md (halation). */
+  --ink-300: #f5f5f5;
+  --ink-400: #dedede;   /* accent, mono dark  (13.9:1 on gray canvas)  */
+  --ink-500: #3d3d3d;   /* hover step, mono light                       */
+  --ink-600: #262626;   /* accent, mono light (14.5:1 on gray canvas)  */
+
+  /* PALETTE CONTRACT — every palette family defines the IDENTICAL set of
+     named steps: 14 neutrals (0·25·50·100·200·300·400·500·600·700·800·
+     900·950·1000) and 4 accent steps (300·400·500·600). Semantic aliases
+     re-point across families one-to-one; a family missing a step is a
+     bug (lint rule R10 fails the build). Three families fill the contract:
+     warm (neutral + clay), cool (cool + azure), mono (gray + ink).
+     Adding a family = filling this exact contract with new values. */
+
+  /* Type */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Cascadia Mono', monospace;
+  /* Fonts are SELF-HOSTED via @font-face when integrated — never a CDN link.
+     The stacks above degrade gracefully to system faces until then. */
+
+  /* Type ramp — root stays at browser default (16px); UI body is 14px-dense */
+  --text-xs:   0.75rem;
+  --text-sm:   0.8125rem;
+  --text-base: 0.875rem;
+  --text-md:   1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.375rem;
+  --text-2xl:  1.75rem;
+  --leading-tight:  1.3;
+  --leading-normal: 1.5;
+  --tracking-tight: -0.011em;      /* display sizes only */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;          /* ceiling — no 700+ in UI */
+
+  /* Space — 4px base, 8px rhythm */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+
+  /* Radius */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-pill: 999px;
+
+  /* Elevation — exactly ONE shadow, for floating overlays only
+     (menus, popovers, command palette). App chrome uses the surface
+     ladder + hairline borders, never shadows. */
+  --shadow-overlay: 0 8px 24px rgba(0, 0, 0, 0.32);
+
+  /* Motion — restrained; streaming/response is the primary animation */
+  --motion-fast: 100ms;
+  --motion-base: 160ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Focus ring */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   TIER 2 — SEMANTIC ALIASES. Named for what they're FOR.
+   Components consume ONLY these.
+
+   THEMING IS SYSTEM-FIRST. Dark and light are exact equals — neither is
+   primary, neither is derived. The OS preference leads (see the
+   prefers-color-scheme block below); an explicit data-theme attribute —
+   a stored per-user choice, rendered server-side so there is never a
+   flash of the wrong theme — overrides it. The block right here is the
+   dark MAPPING (the fallback when the OS prefers dark), not a default
+   in any privileged sense. Both mappings are contrast-solved
+   independently; see research/theme-parity.md.
+   -------------------------------------------------------------------------- */
+:root {
+  --color-canvas:        var(--neutral-950);  /* page background            */
+  --color-surface:       var(--neutral-900);  /* raised panel / card        */
+  --color-surface-hover: var(--neutral-800);  /* hover on rows, menu items  */
+  --color-well:          var(--neutral-1000); /* sunken area / code block   */
+  --color-border:        var(--neutral-800);  /* hairline (decorative)      */
+  --color-border-strong: var(--neutral-700);  /* input borders, dividers    */
+  --color-text:          var(--neutral-100);
+  --color-text-muted:    var(--neutral-400);
+
+  --color-action:        var(--clay-400);     /* primary action + active    */
+  --color-action-hover:  var(--clay-300);
+  --color-action-active: var(--clay-600);
+  --color-on-action:     var(--neutral-1000); /* ink on a clay button       */
+  --color-selected-bg:   color-mix(in srgb, var(--clay-400) 14%, transparent);
+  --color-focus:         var(--clay-400);
+
+  --color-success: var(--green-400);
+  --color-warning: var(--amber-400);
+  --color-danger:  var(--red-300);
+  --color-info:    var(--blue-400);
+}
+
+/* --------------------------------------------------------------------------
+   THEMES & BRANDS — re-point aliases; never touch a component.
+   -------------------------------------------------------------------------- */
+[data-theme="light"] {
+  --color-canvas:        var(--neutral-25);
+  --color-surface:       var(--neutral-0);
+  --color-surface-hover: var(--neutral-50);
+  --color-well:          var(--neutral-50);
+  --color-border:        var(--neutral-200);
+  --color-border-strong: var(--neutral-300);
+  --color-text:          var(--neutral-900);
+  --color-text-muted:    var(--neutral-500);
+
+  --color-action:        var(--clay-600);     /* darkened for cream: 4.8:1  */
+  --color-action-hover:  var(--clay-500);
+  --color-action-active: var(--clay-600);
+  --color-on-action:     var(--neutral-0);
+  --color-selected-bg:   color-mix(in srgb, var(--clay-600) 12%, transparent);
+  --color-focus:         var(--clay-600);
+
+  --color-success: var(--green-600);
+  --color-warning: var(--amber-600);
+  --color-danger:  var(--red-400);
+  --color-info:    var(--blue-600);
+}
+
+/* SYSTEM-FIRST — when no explicit data-theme is set, the OS preference
+   applies the light mapping. data-theme="light" / data-theme="dark" is
+   the stored per-user override (dark needs no block: it is the fallback
+   mapping above). Alias values here mirror [data-theme="light"] exactly. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-canvas:        var(--neutral-25);
+    --color-surface:       var(--neutral-0);
+    --color-surface-hover: var(--neutral-50);
+    --color-well:          var(--neutral-50);
+    --color-border:        var(--neutral-200);
+    --color-border-strong: var(--neutral-300);
+    --color-text:          var(--neutral-900);
+    --color-text-muted:    var(--neutral-500);
+
+    --color-action:        var(--clay-600);
+    --color-action-hover:  var(--clay-500);
+    --color-action-active: var(--clay-600);
+    --color-on-action:     var(--neutral-0);
+    --color-selected-bg:   color-mix(in srgb, var(--clay-600) 12%, transparent);
+    --color-focus:         var(--clay-600);
+
+    --color-success: var(--green-600);
+    --color-warning: var(--amber-600);
+    --color-danger:  var(--red-400);
+    --color-info:    var(--blue-600);
+  }
+  [data-palette="cool"]:not([data-theme]) {
+    --color-canvas:        var(--cool-25);
+    --color-surface:       var(--cool-0);
+    --color-surface-hover: var(--cool-50);
+    --color-well:          var(--cool-50);
+    --color-border:        var(--cool-200);
+    --color-border-strong: var(--cool-300);
+    --color-text:          var(--cool-900);
+    --color-text-muted:    var(--cool-500);
+
+    --color-action:        var(--azure-600);
+    --color-action-hover:  var(--azure-500);
+    --color-action-active: var(--azure-600);
+    --color-on-action:     var(--cool-0);
+    --color-selected-bg:   color-mix(in srgb, var(--azure-600) 12%, transparent);
+    --color-focus:         var(--azure-600);
+  }
+  [data-palette="mono"]:not([data-theme]) {
+    --color-canvas:        var(--gray-25);
+    --color-surface:       var(--gray-0);
+    --color-surface-hover: var(--gray-50);
+    --color-well:          var(--gray-50);
+    --color-border:        var(--gray-200);
+    --color-border-strong: var(--gray-300);
+    --color-text:          var(--gray-900);
+    --color-text-muted:    var(--gray-500);
+
+    --color-action:        var(--ink-600);
+    --color-action-hover:  var(--ink-500);
+    --color-action-active: var(--ink-600);
+    --color-on-action:     var(--gray-0);
+    --color-selected-bg:   color-mix(in srgb, var(--ink-600) 12%, transparent);
+    --color-focus:         var(--ink-600);
+  }
+}
+
+/* PALETTE FAMILIES — the warm ramp is the default; [data-palette="cool"]
+   re-points the same aliases to the cool ramp + azure accent. All contrast
+   pairs verified AA in both themes of both families (32 pairs total). */
+[data-palette="cool"] {
+  --color-canvas:        var(--cool-950);
+  --color-surface:       var(--cool-900);
+  --color-surface-hover: var(--cool-800);
+  --color-well:          var(--cool-1000);
+  --color-border:        var(--cool-800);
+  --color-border-strong: var(--cool-700);
+  --color-text:          var(--cool-100);
+  --color-text-muted:    var(--cool-400);
+
+  --color-action:        var(--azure-400);
+  --color-action-hover:  var(--azure-300);
+  --color-action-active: var(--azure-600);
+  --color-on-action:     var(--cool-1000);
+  --color-selected-bg:   color-mix(in srgb, var(--azure-400) 14%, transparent);
+  --color-focus:         var(--azure-400);
+}
+
+[data-palette="cool"][data-theme="light"] {
+  --color-canvas:        var(--cool-25);
+  --color-surface:       var(--cool-0);
+  --color-surface-hover: var(--cool-50);
+  --color-well:          var(--cool-50);
+  --color-border:        var(--cool-200);
+  --color-border-strong: var(--cool-300);
+  --color-text:          var(--cool-900);
+  --color-text-muted:    var(--cool-500);
+
+  --color-action:        var(--azure-600);
+  --color-action-hover:  var(--azure-500);
+  --color-action-active: var(--azure-600);
+  --color-on-action:     var(--cool-0);
+  --color-selected-bg:   color-mix(in srgb, var(--azure-600) 12%, transparent);
+  --color-focus:         var(--azure-600);
+}
+
+[data-palette="mono"] {
+  --color-canvas:        var(--gray-950);
+  --color-surface:       var(--gray-900);
+  --color-surface-hover: var(--gray-800);
+  --color-well:          var(--gray-1000);
+  --color-border:        var(--gray-800);
+  --color-border-strong: var(--gray-700);
+  --color-text:          var(--gray-100);
+  --color-text-muted:    var(--gray-400);
+
+  --color-action:        var(--ink-400);
+  --color-action-hover:  var(--ink-300);
+  --color-action-active: var(--ink-400);
+  --color-on-action:     var(--gray-1000);
+  --color-selected-bg:   color-mix(in srgb, var(--ink-400) 14%, transparent);
+  --color-focus:         var(--ink-400);
+}
+
+[data-palette="mono"][data-theme="light"] {
+  --color-canvas:        var(--gray-25);
+  --color-surface:       var(--gray-0);
+  --color-surface-hover: var(--gray-50);
+  --color-well:          var(--gray-50);
+  --color-border:        var(--gray-200);
+  --color-border-strong: var(--gray-300);
+  --color-text:          var(--gray-900);
+  --color-text-muted:    var(--gray-500);
+
+  --color-action:        var(--ink-600);
+  --color-action-hover:  var(--ink-500);
+  --color-action-active: var(--ink-600);
+  --color-on-action:     var(--gray-0);
+  --color-selected-bg:   color-mix(in srgb, var(--ink-600) 12%, transparent);
+  --color-focus:         var(--ink-600);
+
+  --color-success: var(--green-600);
+  --color-warning: var(--amber-600);
+  --color-danger:  var(--red-400);
+  --color-info:    var(--blue-600);
+}
+
+/* A brand skin is the same move at accent level. Example (uncomment per brand):
+[data-brand="acme"] {
+  --color-action:       var(--blue-400);
+  --color-action-hover: var(--blue-600);
+  --color-focus:        var(--blue-400);
+}
+*/
+
+/* --------------------------------------------------------------------------
+   DENSITY — a token switch, not a redesign.
+   -------------------------------------------------------------------------- */
+:root {
+  --control-h-tight: 28px;           /* primitive: tight control height       */
+  --control-h-normal: 34px;          /* primitive: normal control height      */
+  --control-h-loose: 40px;           /* primitive: loose control height       */
+  --control-h: var(--control-h-normal);   /* inputs, buttons, selects         */
+  --row-pad-y: var(--space-2);       /* table rows, list rows               */
+  --menu-pad-y: 0.375rem;            /* nav & menu items — tighter than data
+                                        rows: navigation is targeted, not
+                                        read; rows stay ≥ --target-min      */
+  --target-min: 24px;                /* WCAG 2.2 minimum target size        */
+}
+/* Three steps, one axis: tight packs the most rows per screen for heavy data
+   review; normal (no attribute) is the default reading rhythm; loose adds air
+   for touch use, presentations, and long reading sessions. Every step keeps
+   targets at or above --target-min. */
+[data-density="tight"] {
+  --control-h: var(--control-h-tight);
+  --row-pad-y: var(--space-1);
+  --menu-pad-y: var(--space-1);
+}
+[data-density="loose"] {
+  --control-h: var(--control-h-loose);
+  --row-pad-y: var(--space-3);
+  --menu-pad-y: var(--space-2);
+}

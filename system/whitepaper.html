@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goodness — White Paper</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="ui.css">
+</head>
+<body class="specimen wp">
+
+<header class="specimen__header">
+  <div class="specimen__title">Goodness <span class="specimen__title-tag">— the white paper</span></div>
+  <div class="specimen__controls">
+    <label class="control-switch" for="opt-family">Family
+      <select class="select" id="opt-family">
+        <option value="mono" selected>Mono</option>
+        <option value="warm">Warm</option>
+        <option value="cool">Cool</option>
+      </select>
+    </label>
+    <label class="control-switch" for="opt-light">
+      <input class="control-switch__box" type="checkbox" id="opt-light"> Light theme
+    </label>
+    <label class="control-switch" for="opt-density">Density
+      <select class="select" id="opt-density">
+        <option value="tight">Tight</option>
+        <option value="normal" selected>Normal</option>
+        <option value="loose">Loose</option>
+      </select>
+    </label>
+  </div>
+</header>
+
+<main class="specimen__main">
+
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Contents</h2>
+    <nav class="wp-toc" aria-label="Table of contents">
+      <a class="wp-toc__item" href="#introduction"><span class="wp-toc__num">01</span>Introduction — how to read this document</a>
+      <a class="wp-toc__item" href="#color"><span class="wp-toc__num">02</span>Color — the palette families and the shared contract</a>
+      <a class="wp-toc__item" href="#themes"><span class="wp-toc__num">03</span>Dark and light as equals — and the halation problem</a>
+      <a class="wp-toc__item" href="#typography"><span class="wp-toc__num">04</span>Typography — sans for interface, mono for meaning</a>
+      <a class="wp-toc__item" href="#density"><span class="wp-toc__num">05</span>Density — one axis, three steps</a>
+      <a class="wp-toc__item" href="#buttons"><span class="wp-toc__num">06</span>Buttons</a>
+      <a class="wp-toc__item" href="#inputs"><span class="wp-toc__num">07</span>Inputs and form fields</a>
+      <a class="wp-toc__item" href="#status"><span class="wp-toc__num">08</span>Badges, chips and status</a>
+      <a class="wp-toc__item" href="#alerts"><span class="wp-toc__num">09</span>Alerts</a>
+      <a class="wp-toc__item" href="#sections"><span class="wp-toc__num">10</span>Sections, not cards</a>
+      <a class="wp-toc__item" href="#navigation"><span class="wp-toc__num">11</span>Navigation — sidebar, tabs, menu</a>
+      <a class="wp-toc__item" href="#consequential"><span class="wp-toc__num">12</span>The consequential action</a>
+      <a class="wp-toc__item" href="#dashboard"><span class="wp-toc__num">13</span>Dashboards and the size of a number</a>
+      <a class="wp-toc__item" href="#ratio"><span class="wp-toc__num">14</span>Progress and ratio — a number against a total</a>
+      <a class="wp-toc__item" href="#table"><span class="wp-toc__num">15</span>The data table — a saved view in action</a>
+      <a class="wp-toc__item" href="#rowactions"><span class="wp-toc__num">16</span>Row actions — visible icons vs. the overflow menu</a>
+      <a class="wp-toc__item" href="#editing"><span class="wp-toc__num">17</span>Table editing vs. form editing</a>
+      <a class="wp-toc__item" href="#recordforms"><span class="wp-toc__num">18</span>Record forms — the presentation styles</a>
+      <a class="wp-toc__item" href="#workflows"><span class="wp-toc__num">19</span>Record forms — the workflows and processes</a>
+      <a class="wp-toc__item" href="#filters"><span class="wp-toc__num">20</span>The filter builder</a>
+      <a class="wp-toc__item" href="#views"><span class="wp-toc__num">21</span>The view system</a>
+      <a class="wp-toc__item" href="#keyboard"><span class="wp-toc__num">22</span>Keyboard conventions — what Enter means</a>
+      <a class="wp-toc__item" href="#palette-cmd"><span class="wp-toc__num">23</span>The command palette</a>
+      <a class="wp-toc__item" href="#empty"><span class="wp-toc__num">24</span>Empty states</a>
+      <a class="wp-toc__item" href="#brandcolor"><span class="wp-toc__num">25</span>Brand color vs. the meaning colors</a>
+      <a class="wp-toc__item" href="#decisions"><span class="wp-toc__num">26</span>How decisions get made</a>
+    </nav>
+  </section>
+
+  <section class="specimen__section" id="introduction">
+    <h2 class="specimen__section-title">1. Introduction — how to read this document</h2>
+    <p class="wp-prose">This white paper is the design system explained. It is a living document: every example in it is rendered by the system itself from the same style tokens the applications use, so when a token changes, every example on this page changes with it — nothing here is a screenshot.</p>
+    <p class="wp-prose">Each chapter follows the same rhythm: the question in plain language, the options that exist, the live example right after the words that describe it, the trade-offs, the recommendation, and a status marker saying whether the matter is decided or still open. Terms of art are defined in ordinary words the first time they appear.</p>
+    <p class="wp-prose">Until a selection pass happens, this document is a catalog of candidates, not a verdict: wherever several ways of doing the same thing exist, every credible option is shown side by side so the final system can be chosen by looking at real examples. A companion file, the specimen, renders the same catalog with no text at all — a pure visual reference — and the two evolve in parallel: any change to an example is made in both places.</p>
+    <p class="wp-prose">The switches in the top-right corner work on this whole document: the palette family, the light theme, and the density scale re-point the same design tokens applications switch with server-rendered attributes. There is no JavaScript on this page.</p>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="color">
+    <h2 class="specimen__section-title">2. Color — the palette families and the shared contract</h2>
+    <p class="wp-prose">Every color in the system lives in one file of named values called tokens (a token is a named design decision, like <code>--color-text</code>, that components reference instead of raw values). Tokens come in three tiers: primitives (the raw palette below), semantic aliases (names that describe a job, like text or danger), and component references. Components may only use the middle tier — which is what makes whole-system reskinning a one-file change.</p>
+    <p class="wp-prose">Three palette families exist — warm, cool, and mono — and a contract guarantees they are interchangeable: every family defines exactly the same named steps (fourteen neutrals and four accent steps), enforced by an automated check. A product picks a family the way it picks a typeface; nothing else in the system needs to know.</p>
+    <p class="specimen__note">Primitives (tier 1) of the <em>active</em> family. Components never touch these directly — they consume the semantic aliases. The family switch (top right) replaces this palette entirely; only one family is ever on screen.</p>
+    <div class="palette-family palette-family--warm">
+    <div class="specimen__label">Warm family</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--n0"></div><div class="swatch__meta"><div class="swatch__name">neutral-0</div><div class="swatch__value">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n25"></div><div class="swatch__meta"><div class="swatch__name">neutral-25</div><div class="swatch__value">#faf9f5</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n100"></div><div class="swatch__meta"><div class="swatch__name">neutral-100</div><div class="swatch__value">#e9e6dd</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n300"></div><div class="swatch__meta"><div class="swatch__name">neutral-300</div><div class="swatch__value">#b8b3a4</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n500"></div><div class="swatch__meta"><div class="swatch__name">neutral-500</div><div class="swatch__value">#6c6862</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n700"></div><div class="swatch__meta"><div class="swatch__name">neutral-700</div><div class="swatch__value">#35332e</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n800"></div><div class="swatch__meta"><div class="swatch__name">neutral-800</div><div class="swatch__value">#252320</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n900"></div><div class="swatch__meta"><div class="swatch__name">neutral-900</div><div class="swatch__value">#1a1916</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n950"></div><div class="swatch__meta"><div class="swatch__name">neutral-950</div><div class="swatch__value">#121110</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--n1000"></div><div class="swatch__meta"><div class="swatch__name">neutral-1000</div><div class="swatch__value">#0c0b0a</div></div></div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--clay300"></div><div class="swatch__meta"><div class="swatch__name">clay-300</div><div class="swatch__value">#e5a58c</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--clay400"></div><div class="swatch__meta"><div class="swatch__name">clay-400</div><div class="swatch__value">#d97757</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--clay500"></div><div class="swatch__meta"><div class="swatch__name">clay-500</div><div class="swatch__value">#cc785c</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--clay600"></div><div class="swatch__meta"><div class="swatch__name">clay-600</div><div class="swatch__value">#a9583e</div></div></div>
+    </div>
+    </div>
+    <div class="palette-family palette-family--cool">
+    <div class="specimen__label">Cool family</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--c0"></div><div class="swatch__meta"><div class="swatch__name">cool-0</div><div class="swatch__value">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c25"></div><div class="swatch__meta"><div class="swatch__name">cool-25</div><div class="swatch__value">#fafbfc</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c100"></div><div class="swatch__meta"><div class="swatch__name">cool-100</div><div class="swatch__value">#e8ebf1</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c300"></div><div class="swatch__meta"><div class="swatch__name">cool-300</div><div class="swatch__value">#b6bdcc</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c500"></div><div class="swatch__meta"><div class="swatch__name">cool-500</div><div class="swatch__value">#666e82</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c700"></div><div class="swatch__meta"><div class="swatch__name">cool-700</div><div class="swatch__value">#333949</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c800"></div><div class="swatch__meta"><div class="swatch__name">cool-800</div><div class="swatch__value">#232836</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c900"></div><div class="swatch__meta"><div class="swatch__name">cool-900</div><div class="swatch__value">#191d28</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c950"></div><div class="swatch__meta"><div class="swatch__name">cool-950</div><div class="swatch__value">#12151e</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--c1000"></div><div class="swatch__meta"><div class="swatch__name">cool-1000</div><div class="swatch__value">#0b0d13</div></div></div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--az300"></div><div class="swatch__meta"><div class="swatch__name">azure-300</div><div class="swatch__value">#93b4f2</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--az400"></div><div class="swatch__meta"><div class="swatch__name">azure-400</div><div class="swatch__value">#5c8ce6</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--az500"></div><div class="swatch__meta"><div class="swatch__name">azure-500</div><div class="swatch__value">#4b76d3</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--az600"></div><div class="swatch__meta"><div class="swatch__name">azure-600</div><div class="swatch__value">#3a5fbf</div></div></div>
+    </div>
+    </div>
+    <div class="palette-family palette-family--mono">
+    <div class="specimen__label">Mono family — the opening default</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--g0"></div><div class="swatch__meta"><div class="swatch__name">gray-0</div><div class="swatch__value">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g25"></div><div class="swatch__meta"><div class="swatch__name">gray-25</div><div class="swatch__value">#fafafa</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g100"></div><div class="swatch__meta"><div class="swatch__name">gray-100</div><div class="swatch__value">#e8e8e8</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g300"></div><div class="swatch__meta"><div class="swatch__name">gray-300</div><div class="swatch__value">#b3b3b3</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g500"></div><div class="swatch__meta"><div class="swatch__name">gray-500</div><div class="swatch__value">#6b6b6b</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g700"></div><div class="swatch__meta"><div class="swatch__name">gray-700</div><div class="swatch__value">#333333</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g800"></div><div class="swatch__meta"><div class="swatch__name">gray-800</div><div class="swatch__value">#242424</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g900"></div><div class="swatch__meta"><div class="swatch__name">gray-900</div><div class="swatch__value">#1a1a1a</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g950"></div><div class="swatch__meta"><div class="swatch__name">gray-950</div><div class="swatch__value">#121212</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--g1000"></div><div class="swatch__meta"><div class="swatch__name">gray-1000</div><div class="swatch__value">#0a0a0a</div></div></div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--ink300"></div><div class="swatch__meta"><div class="swatch__name">ink-300</div><div class="swatch__value">#f5f5f5</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--ink400"></div><div class="swatch__meta"><div class="swatch__name">ink-400</div><div class="swatch__value">#dedede</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--ink500"></div><div class="swatch__meta"><div class="swatch__name">ink-500</div><div class="swatch__value">#3d3d3d</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--ink600"></div><div class="swatch__meta"><div class="swatch__name">ink-600</div><div class="swatch__value">#262626</div></div></div>
+    </div>
+    </div>
+    <div class="specimen__label">Semantic — follows the active family</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--success"></div><div class="swatch__meta"><div class="swatch__name">success</div><div class="swatch__value">semantic</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--warning"></div><div class="swatch__meta"><div class="swatch__name">warning</div><div class="swatch__value">semantic</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--danger"></div><div class="swatch__meta"><div class="swatch__name">danger</div><div class="swatch__value">semantic</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--info"></div><div class="swatch__meta"><div class="swatch__name">info</div><div class="swatch__value">semantic</div></div></div>
+    </div>
+    <div class="specimen__label">Surface ladder — depth without shadows</div>
+    <div class="surface-demo">
+      <div class="surface-demo__panel surface-demo__panel--well"><div class="surface-demo__name">well</div><div class="surface-demo__desc">sunken — inputs, code, scroll areas</div></div>
+      <div class="surface-demo__panel surface-demo__panel--canvas"><div class="surface-demo__name">canvas</div><div class="surface-demo__desc">the page itself</div></div>
+      <div class="surface-demo__panel surface-demo__panel--surface"><div class="surface-demo__name">surface</div><div class="surface-demo__desc">raised — cards, panels, table chrome</div></div>
+    </div>
+    <p class="wp-prose">Recommendation: mono as the opening default — grayscale plus an ink accent keeps data screens quiet and makes every use of color meaningful. Warm and cool remain full citizens for products whose identity wants them.</p>
+    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+  </section>
+
+  <section class="specimen__section" id="themes">
+    <h2 class="specimen__section-title">3. Dark and light as equals — and the halation problem</h2>
+    <p class="wp-prose">The system treats dark and light as two equal renderings of the same design, not a main theme and an afterthought. The operating system's preference leads (via the standard <code>prefers-color-scheme</code> signal), and a stored per-user choice overrides it. Every color pair is contrast-solved independently in both themes and verified by an automated checker against the WCAG accessibility floors (WCAG is the international standard for readable contrast).</p>
+    <p class="wp-prose">Dark mode has a trap of its own called halation: pure white text on a dark background scatters in the eye and appears to glow, with a halo around each letter — especially for readers with astigmatism. The published evidence converges on the fix: dark-theme text is never pure white but a light gray in the #DEDEDE–#EBEBEB band, and the canvas is never pure black. Those ceilings are enforced by the same checker that enforces the contrast floors — flip the Light theme switch above and note that both renderings hold.</p>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <p class="wp-sources">Sources: <a href="https://m2.material.io/design/color/dark-theme.html">Material Design — dark theme (87% white)</a> · <a href="https://www.nngroup.com/articles/dark-mode-users-issues/">Nielsen Norman Group — dark mode research</a> · <a href="https://git.apcacontrast.com/documentation/WhyAPCA">APCA contrast method</a> · <a href="research/theme-parity.md">full evidence record</a></p>
+  </section>
+
+  <section class="specimen__section" id="typography">
+    <h2 class="specimen__section-title">4. Typography — sans for interface, mono for meaning</h2>
+    <p class="wp-prose">Two typefaces, each with a job. The sans-serif face carries the interface: labels, body text, headings, in a small fixed ramp of sizes so every screen uses the same few steps. The monospaced face is reserved for values that carry meaning in their exact characters — identifiers, timestamps, amounts, counts — where aligned digits and unmistakable characters earn their keep. Type never wears decoration; hierarchy comes from size and weight, not color.</p>
+    <div class="type-demo">
+      <div class="type-demo__sample"><span class="type-demo__tag">text-2xl 600</span><span class="type-demo__t2xl">Signal over noise</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-xl 600</span><span class="type-demo__txl">Quarterly overview</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-lg 500</span><span class="type-demo__tlg">Section heading</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-md 400</span><span class="type-demo__tmd">Emphasis body — introductions and lead paragraphs.</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-base 400</span><span class="type-demo__tbase">Body — the default reading size for dense professional UI.</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-sm 400</span><span class="type-demo__tsm">Secondary — table cells, helper text, metadata.</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">text-xs 400</span><span class="type-demo__txs">CAPTION — LABELS, COLUMN HEADERS, TIMESTAMPS</span></div>
+      <div class="type-demo__sample"><span class="type-demo__tag">mono</span><span class="type-demo__mono">a1b2c3d4 · 2026-07-23 14:02 · $1,284,600.00 — IDs, timestamps, numbers</span></div>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="density">
+    <h2 class="specimen__section-title">5. Density — one axis, three steps</h2>
+    <p class="wp-prose">Density is how much information fits on a screen before it stops being comfortable. In this system density is a setting, not a redesign: three named steps on one axis, switched by a single attribute. Tight packs the most rows per screen for heavy data review (28px controls); normal is the default reading rhythm (34px); loose adds air for touch use, presentations, and long reading sessions (40px). Two options would assume one kind of user; three cover the spectrum while staying finite.</p>
+    <p class="wp-prose">The switch changes only the rhythm of repeated things — control heights, table rows, menu and panel rows. Text sizes, section padding, and page structure do not move, so switching density never feels like zooming. Every step keeps click targets at or above the 24px accessibility floor. Try it: the Density control in the header re-flows every example in this document.</p>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="buttons">
+    <h2 class="specimen__section-title">6. Buttons</h2>
+    <p class="wp-prose">One accent, one pill: the primary action is the only element on a screen wearing the accent color and the only pill shape, which is what lets the eye find it instantly. Everything else stays quiet — secondary buttons carry a hairline, ghost buttons carry nothing until hovered.</p>
+    <p class="specimen__note">One accent, one pill: <code>primary</code> is the only clay element and the only pill. Everything else stays quiet.</p>
+    <div class="specimen__row">
+      <button class="button button--primary" type="button">Run analysis</button>
+      <button class="button button--secondary" type="button">Export</button>
+      <button class="button button--ghost" type="button">Cancel</button>
+      <button class="button button--danger" type="button">Delete</button>
+      <button class="button button--link" type="button">View details</button>
+    </div>
+    <div class="specimen__label">States</div>
+    <div class="specimen__row">
+      <button class="button button--primary" type="button" disabled>Disabled</button>
+      <button class="button button--secondary" type="button" disabled>Disabled</button>
+      <button class="button button--secondary" type="button"><span class="spinner"></span> Loading</button>
+      <button class="button button--secondary" type="button">
+        <span class="button__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></span>
+        With icon
+      </button>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="inputs">
+    <h2 class="specimen__section-title">7. Inputs and form fields</h2>
+    <p class="wp-prose">Fields are built from a fixed anatomy: label above, control, and a message line below that carries help or an error — never a tooltip that disappears. Invalid state is a color plus a message, never color alone (color-blind readers must get the same information).</p>
+    <p class="specimen__note">Validation is declared (<code>type</code>, <code>required</code>, <code>min</code>) — the browser and the server enforce; errors render as server fragments.</p>
+    <div class="specimen__row">
+      <div class="field">
+        <label class="field__label field__label--required" for="f-name">Account name</label>
+        <input class="input" id="f-name" type="text" placeholder="Acme Corp" required>
+        <span class="field__hint">Legal entity name, as registered.</span>
+      </div>
+      <div class="field">
+        <label class="field__label" for="f-email">Contact email</label>
+        <input class="input input--invalid" id="f-email" type="email" value="not-an-email">
+        <span class="field__error">Enter a valid email address.</span>
+      </div>
+      <div class="field">
+        <label class="field__label" for="f-tier">Priority</label>
+        <select class="select" id="f-tier">
+          <option>Critical</option><option selected>High</option><option>Moderate</option><option>Low</option>
+        </select>
+      </div>
+    </div>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox" type="checkbox" checked> Include archived</label>
+      <label class="choice"><input class="checkbox" type="checkbox"> Notify on change</label>
+      <label class="choice"><input class="radio" type="radio" name="r1" checked> Quarterly</label>
+      <label class="choice"><input class="radio" type="radio" name="r1"> Annual</label>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="status">
+    <h2 class="specimen__section-title">8. Badges, chips and status</h2>
+    <p class="wp-prose">A badge states a condition; a chip states an applied choice and can be removed. Both follow the compound-signal rule: a semantic color never appears alone — always with a word or a dot-plus-word — so meaning survives grayscale, color-blindness, and printing.</p>
+    <div class="specimen__row">
+      <span class="badge"><span class="badge__dot"></span> Neutral</span>
+      <span class="badge badge--success"><span class="badge__dot"></span> On track</span>
+      <span class="badge badge--warning"><span class="badge__dot"></span> Review due</span>
+      <span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span>
+      <span class="badge badge--info"><span class="badge__dot"></span> In review</span>
+      <span class="badge badge--accent"><span class="badge__dot"></span> Active</span>
+    </div>
+    <div class="specimen__label">Filter chips (removable)</div>
+    <div class="specimen__row">
+      <span class="chip"><span class="chip__key">status:</span> open <button class="chip__remove" type="button" aria-label="Remove filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></span>
+      <span class="chip"><span class="chip__key">priority:</span> critical <button class="chip__remove" type="button" aria-label="Remove filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></span>
+      <span class="chip"><span class="chip__key">owner:</span> me <button class="chip__remove" type="button" aria-label="Remove filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></span>
+    </div>
+    <div class="specimen__label">Avatars &amp; loading</div>
+    <div class="specimen__row">
+      <span class="avatar avatar--sm">AM</span>
+      <span class="avatar avatar--md">KL</span>
+      <span class="avatar avatar--lg">JD</span>
+      <span class="spinner"></span>
+      <span class="skeleton skeleton--line"></span>
+      <span class="skeleton skeleton--line-short"></span>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="alerts">
+    <h2 class="specimen__section-title">9. Alerts</h2>
+    <p class="wp-prose">Four intents — success, warning, danger, info — one anatomy: a title that states the fact and one sentence that says what happens next. Alerts describe the situation; they never scold.</p>
+    <div class="alert alert--success"><div><div class="alert__title">Report ready</div><div class="alert__text">All 34 sections generated. The export is ready to download.</div></div></div>
+    <div class="alert alert--warning"><div><div class="alert__title">Renewal approaching</div><div class="alert__text">The annual agreement on file renews in 14 days.</div></div></div>
+    <div class="alert alert--danger"><div><div class="alert__title">Sync failed</div><div class="alert__text">The upstream feed returned 503. Retry is scheduled.</div></div></div>
+    <div class="alert alert--info"><div><div class="alert__title">New template available</div><div class="alert__text">A new report template can now be enabled per workspace.</div></div></div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="sections">
+    <h2 class="specimen__section-title">10. Sections, not cards</h2>
+    <p class="wp-prose">The default layout unit for working screens is the full-bleed section: blocks that touch, sharing a single hairline separator. Two cards cost the eye three elements between two pieces of content (edge, gap, edge); two sections cost one. The result is calmer, denser screens where separation is information, not decoration.</p>
+    <p class="wp-prose">Cards are not forbidden — they are scoped. Independent, glanceable content earns a card: executive dashboards, widget grids, control environments. The duality is deliberate and documented, so the choice is always an argument, never a habit.</p>
+    <p class="specimen__note">The default layout unit for day-to-day data screens. Flush sections share a single 1px hairline: two cards cost the eye three elements (edge + gap + edge); two sections cost one. Cards stay legitimate for glanceable, independent content — executive dashboards, widget grids, control environments (see components.md §2.7 for the duality).</p>
+    <div class="specimen__row">
+      <div class="section-stack">
+        <section class="section-stack__section">
+          <h3 class="section-stack__title">Coverage</h3>
+          <p class="section-stack__text">34 of 41 milestones complete. Seven remaining in review.</p>
+        </section>
+        <section class="section-stack__section">
+          <h3 class="section-stack__title">Documents</h3>
+          <p class="section-stack__text">Last upload 2 days ago · 12 files attached.</p>
+        </section>
+        <section class="section-stack__section">
+          <h3 class="section-stack__title">Next review</h3>
+          <p class="section-stack__text">Scheduled quarterly — 18 days from now.</p>
+        </section>
+      </div>
+      <div class="pane-row">
+        <div class="pane-row__pane">
+          <h3 class="section-stack__title">Summary</h3>
+          <p class="section-stack__text">Side-by-side panes share one vertical hairline.</p>
+        </div>
+        <div class="pane-row__pane">
+          <h3 class="section-stack__title">Detail</h3>
+          <p class="section-stack__text">No gaps; rhythm comes from internal padding.</p>
+        </div>
+        <div class="pane-row__pane pane-row__pane--well">
+          <h3 class="section-stack__title">Well</h3>
+          <p class="section-stack__text">A sunken pane for code or logs.</p>
+        </div>
+      </div>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="navigation">
+    <h2 class="specimen__section-title">11. Navigation — sidebar, tabs, menu</h2>
+    <p class="wp-prose">Navigation is the sections-not-cards rule turned sideways: the sidebar is a flat rail on the page background, separated from content by one vertical hairline, with the current item as the only filled shape. Overlays — dropdown menus, dialogs, palettes — are the legitimate exception: something that floats above other content needs an edge and a shadow to read as a separate layer. Navigation rows also run tighter than data rows, because a menu item is targeted, not read.</p>
+    <p class="specimen__note">The sidebar is not a card. It is a flat rail sitting directly on the page background, separated from the content by a single vertical hairline — the same sections-not-cards rule, turned sideways. Only the current item gets a filled pill; everything else is plain text.</p>
+    <div class="shell-demo">
+      <nav class="sidenav" aria-label="Demo sidebar">
+        <div class="sidenav__section">Workspace</div>
+        <a class="sidenav__item" href="#nav" aria-current="page">Dashboard</a>
+        <a class="sidenav__item" href="#nav">Accounts <span class="sidenav__count">248</span></a>
+        <a class="sidenav__item" href="#nav">Projects <span class="sidenav__count">12</span></a>
+        <div class="sidenav__section">Admin</div>
+        <a class="sidenav__item" href="#nav">Team</a>
+        <a class="sidenav__item" href="#nav">Settings</a>
+      </nav>
+      <div class="shell-demo__content">
+        <div role="tablist" class="tabs">
+          <button class="tabs__tab" role="tab" aria-selected="true" type="button">Overview</button>
+          <button class="tabs__tab" role="tab" aria-selected="false" type="button">Controls</button>
+          <button class="tabs__tab" role="tab" aria-selected="false" type="button">Documents</button>
+          <button class="tabs__tab" role="tab" aria-selected="false" type="button">History</button>
+        </div>
+        <p class="section-stack__text">Tabs draw one shared baseline; the selected tab carries the only accent. The content area starts here, one hairline away from the rail — no box around either side.</p>
+      </div>
+    </div>
+    <div class="specimen__label">Dropdown menu — the one legitimate floating box</div>
+    <p class="specimen__note">A dropdown is an overlay: it floats above other content, so it needs an edge and a shadow to read as a separate layer. That is a requirement of floating, not a card by choice — overlays (menus, dialogs, palettes) are the exception the no-cards rule allows.</p>
+    <div class="specimen__row">
+      <div class="menu" role="menu" aria-label="Demo menu">
+        <button class="menu__item" type="button" role="menuitem">Open <span class="menu__kbd">↵</span></button>
+        <button class="menu__item" type="button" role="menuitem">Rename</button>
+        <button class="menu__item" type="button" role="menuitem">Duplicate <span class="menu__kbd">⌘D</span></button>
+        <hr class="menu__divider">
+        <button class="menu__item menu__item--danger" type="button" role="menuitem">Archive</button>
+      </div>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="consequential">
+    <h2 class="specimen__section-title">12. The consequential action</h2>
+    <p class="wp-prose">In any list of actions, one choice is usually graver than the rest — delete, archive, remove. The rule: that choice never dresses like its neighbors. It takes the danger color, sits last, and is separated by a divider, so the eye finds it instantly and never hits it by accident. One consequential action per list; anything destructive still asks for confirmation.</p>
+    <div class="specimen__row">
+      <div class="menu" role="menu" aria-label="Consequential action demo">
+        <button class="menu__item" type="button" role="menuitem">Open <span class="menu__kbd">↵</span></button>
+        <button class="menu__item" type="button" role="menuitem">Rename</button>
+        <button class="menu__item" type="button" role="menuitem">Duplicate <span class="menu__kbd">⌘D</span></button>
+        <hr class="menu__divider">
+        <button class="menu__item menu__item--danger" type="button" role="menuitem">Archive</button>
+      </div>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="dashboard">
+    <h2 class="specimen__section-title">13. Dashboards and the size of a number</h2>
+    <p class="wp-prose">Dashboards are where cards are legitimate — each tile is independent, glanceable content — and where the loudest typographic decision in the system lives: how big should the number be? The options below show the same data at three volumes. The trade is always the same: the bigger the number, the further away it can be read and the fewer of them a screen can hold before none of them is the headline.</p>
+    <p class="specimen__note">Users compose their own dashboards from these widgets; the layout is a server-side config row, each tile a fragment loaded with <code>hx-get hx-trigger="load"</code>. Dashboards are the place where cards are legitimate: each tile is independent, glanceable content.</p>
+
+    <div class="specimen__label">Figure size, option A — display figures (glance-first)</div>
+    <p class="specimen__note">The big number works like signage: it can be read from across the room, before the eye has focused on anything. The label whispers, the number shouts. The cost is space and competition — every big number claims to be the headline, so past five or six tiles none of them is. Best for a small set of numbers a whole team steers by.</p>
+    <div class="specimen__row">
+      <div class="kpi">
+        <div class="kpi__label">Open items</div>
+        <div class="kpi__value">127</div>
+        <div class="kpi__delta kpi__delta--down">▼ 12% vs last quarter</div>
+        <svg class="kpi__spark" width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="0,18 15,14 30,16 45,10 60,12 75,7 90,9 105,5 120,6"/></svg>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">Avg. review time</div>
+        <div class="kpi__value">3.4d</div>
+        <div class="kpi__delta kpi__delta--up">▲ 0.6d improvement</div>
+        <svg class="kpi__spark" width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="0,6 15,9 30,7 45,12 60,10 75,15 90,13 105,17 120,16"/></svg>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">Coverage</div>
+        <div class="kpi__value">86%</div>
+        <div class="kpi__delta kpi__delta--up">▲ 4 pts vs last quarter</div>
+        <svg class="kpi__spark" width="120" height="24" viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="0,16 15,15 30,13 45,14 60,11 75,10 90,8 105,7 120,5"/></svg>
+      </div>
+    </div>
+
+    <div class="specimen__label">Figure size, option B — mid figures (working dashboards)</div>
+    <p class="specimen__note">The number drops to heading size. It still leads the tile, but it no longer dominates the screen, so more tiles fit per row and the sparkline and delta get relatively more weight. The trade: the wall-glance is gone; the reader has to look at the tile. Best when the dashboard is a working screen someone sits in front of, not a display.</p>
+    <div class="specimen__row">
+      <div class="kpi kpi--mid">
+        <div class="kpi__label">Open items</div>
+        <div class="kpi__value">127</div>
+        <div class="kpi__delta kpi__delta--down">▼ 12% vs last quarter</div>
+      </div>
+      <div class="kpi kpi--mid">
+        <div class="kpi__label">Avg. review time</div>
+        <div class="kpi__value">3.4d</div>
+        <div class="kpi__delta kpi__delta--up">▲ 0.6d improvement</div>
+      </div>
+      <div class="kpi kpi--mid">
+        <div class="kpi__label">Coverage</div>
+        <div class="kpi__value">86%</div>
+        <div class="kpi__delta kpi__delta--up">▲ 4 pts vs last quarter</div>
+      </div>
+      <div class="kpi kpi--mid">
+        <div class="kpi__label">Escalations</div>
+        <div class="kpi__value">9</div>
+        <div class="kpi__delta kpi__delta--down">▼ 3 vs last quarter</div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Figure size, option C — the stat list (density-first)</div>
+    <p class="specimen__note">All numbers at body size, one metric per row, values right-aligned in the mono face so digits line up. Nothing shouts, which is exactly the point: this form is for comparing many metrics, not for glancing at one. It reads as data, not signage — and it scales to a dozen rows where tiles would sprawl.</p>
+    <div class="specimen__row">
+      <div class="stat-list">
+        <div class="stat-list__row"><span class="stat-list__label">Open items</span><span class="stat-list__value">127</span><span class="stat-list__delta stat-list__delta--down">▼ 12%</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">Avg. review time</span><span class="stat-list__value">3.4d</span><span class="stat-list__delta stat-list__delta--up">▲ 0.6d</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">Coverage</span><span class="stat-list__value">86%</span><span class="stat-list__delta stat-list__delta--up">▲ 4 pts</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">Escalations</span><span class="stat-list__value">9</span><span class="stat-list__delta stat-list__delta--down">▼ 3</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">Overdue reviews</span><span class="stat-list__value">14</span><span class="stat-list__delta stat-list__delta--down">▼ 2</span></div>
+        <div class="stat-list__row"><span class="stat-list__label">New accounts</span><span class="stat-list__value">31</span><span class="stat-list__delta stat-list__delta--up">▲ 6</span></div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Summary card — glanceable narrative content</div>
+    <div class="specimen__row">
+      <div class="card">
+        <div class="card__title">Quarterly summary</div>
+        <div class="card__body">18 of 24 accounts have submitted updates. Six reminders are queued for Friday.</div>
+        <div class="card__actions">
+          <button class="button button--secondary" type="button">Review queue</button>
+          <button class="button button--ghost" type="button">Dismiss</button>
+        </div>
+      </div>
+    </div>
+    <p class="wp-prose">Recommendation: display figures for a handful of numbers a team steers by; mid figures for working dashboards someone sits in front of; the stat list once the metric count passes five or six. One size per row, never mixed.</p>
+    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+  </section>
+
+  <section class="specimen__section" id="ratio">
+    <h2 class="specimen__section-title">14. Progress and ratio — a number against a total</h2>
+    <p class="wp-prose">The "20 of 200 reviewed" figure appears everywhere in operational software. The catalog covers the tile variants (percent-led, count-led, delta), the three figure sizes, the meter-row list form for many metrics, and the segmented meter for totals that split into states. Throughout, length carries the value and color stays quiet: a semantic color enters only when a threshold genuinely means something, and then always with a word.</p>
+    <p class="specimen__note">The "20 of 200 reviewed" figure, five ways. Adjacency rules: one variant per row, one quiet hue for every tile (length carries the value, not color), identical formats (integer percents, counts in mono), and the meter track is a lighter step of the same hue so the bar reads as one object. A semantic color enters only when a threshold has meaning — and then with a word, never alone. Past four or five metrics, leave tiles for stacked meter rows.</p>
+
+    <div class="specimen__label">Ratio tiles, size option A — display percent (glance-first)</div>
+    <p class="specimen__note">Same trade-off as the dashboard figures: the big percent is readable at a glance and makes the tile a headline, at the cost of space and of competing with its neighbors. Identical variant across the row, always.</p>
+    <div class="specimen__row">
+      <div class="ratio">
+        <div class="ratio__label">Items reviewed</div>
+        <div class="ratio__line"><span class="ratio__pct">10%</span><span class="ratio__frac">20 / 200</span></div>
+        <progress class="meter" value="20" max="200"></progress>
+      </div>
+      <div class="ratio">
+        <div class="ratio__label">Documents filed</div>
+        <div class="ratio__line"><span class="ratio__pct">62%</span><span class="ratio__frac">124 / 200</span></div>
+        <progress class="meter" value="124" max="200"></progress>
+      </div>
+      <div class="ratio">
+        <div class="ratio__label">Accounts updated</div>
+        <div class="ratio__line"><span class="ratio__pct">87%</span><span class="ratio__frac">174 / 200</span></div>
+        <progress class="meter" value="174" max="200"></progress>
+      </div>
+    </div>
+
+    <div class="specimen__label">Ratio tiles, size option B — mid percent</div>
+    <p class="specimen__note">The percent drops to heading size; the bar starts doing more of the talking, since bar length and number now carry similar visual weight. More tiles fit per row.</p>
+    <div class="specimen__row">
+      <div class="ratio ratio--mid">
+        <div class="ratio__label">Items reviewed</div>
+        <div class="ratio__line"><span class="ratio__pct">10%</span><span class="ratio__frac">20 / 200</span></div>
+        <progress class="meter" value="20" max="200"></progress>
+      </div>
+      <div class="ratio ratio--mid">
+        <div class="ratio__label">Documents filed</div>
+        <div class="ratio__line"><span class="ratio__pct">62%</span><span class="ratio__frac">124 / 200</span></div>
+        <progress class="meter" value="124" max="200"></progress>
+      </div>
+      <div class="ratio ratio--mid">
+        <div class="ratio__label">Accounts updated</div>
+        <div class="ratio__line"><span class="ratio__pct">87%</span><span class="ratio__frac">174 / 200</span></div>
+        <progress class="meter" value="174" max="200"></progress>
+      </div>
+    </div>
+
+    <div class="specimen__label">Ratio tiles, size option C — small percent (bar-led)</div>
+    <p class="specimen__note">The number shrinks to body size and the bar becomes the primary signal — the eye compares lengths first and reads digits second. This is the halfway house between tiles and the meter rows below; past four or five metrics, go all the way to the rows.</p>
+    <div class="specimen__row">
+      <div class="ratio ratio--small">
+        <div class="ratio__label">Items reviewed</div>
+        <div class="ratio__line"><span class="ratio__pct">10%</span><span class="ratio__frac">20 / 200</span></div>
+        <progress class="meter" value="20" max="200"></progress>
+      </div>
+      <div class="ratio ratio--small">
+        <div class="ratio__label">Documents filed</div>
+        <div class="ratio__line"><span class="ratio__pct">62%</span><span class="ratio__frac">124 / 200</span></div>
+        <progress class="meter" value="124" max="200"></progress>
+      </div>
+      <div class="ratio ratio--small">
+        <div class="ratio__label">Accounts updated</div>
+        <div class="ratio__line"><span class="ratio__pct">87%</span><span class="ratio__frac">174 / 200</span></div>
+        <progress class="meter" value="174" max="200"></progress>
+      </div>
+    </div>
+
+    <div class="specimen__label">Count-led and delta variants — when the count or the movement is the story</div>
+    <div class="specimen__row">
+      <div class="ratio">
+        <div class="ratio__label">Open reviews</div>
+        <div class="ratio__line"><span class="ratio__pct">180</span><span class="ratio__frac">of 200 remaining · 90%</span></div>
+        <progress class="meter" value="180" max="200"></progress>
+      </div>
+      <div class="ratio">
+        <div class="ratio__label">Review coverage</div>
+        <div class="ratio__line"><span class="ratio__pct">10%</span><span class="ratio__frac">20 / 200</span></div>
+        <div class="ratio__delta ratio__delta--up">▲ 2.5 pts vs last week</div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Meter rows — the list form, for many metrics (scan the label column)</div>
+    <div class="specimen__row">
+      <div class="section-stack record-form">
+        <section class="section-stack__section">
+          <div class="section-stack__title">Quarterly progress</div>
+        </section>
+        <section class="section-stack__section">
+          <div class="meter-row"><span class="meter-row__label">Reviewed</span><span class="meter-row__meter"><progress class="meter" value="20" max="200"></progress></span><span class="meter-row__nums">20 / 200 · 10%</span></div>
+        </section>
+        <section class="section-stack__section">
+          <div class="meter-row"><span class="meter-row__label">Filed</span><span class="meter-row__meter"><progress class="meter" value="124" max="200"></progress></span><span class="meter-row__nums">124 / 200 · 62%</span></div>
+        </section>
+        <section class="section-stack__section">
+          <div class="meter-row"><span class="meter-row__label">Updated</span><span class="meter-row__meter"><progress class="meter" value="174" max="200"></progress></span><span class="meter-row__nums">174 / 200 · 87%</span></div>
+        </section>
+        <section class="section-stack__section">
+          <div class="meter-row"><span class="meter-row__label">Signed off</span><span class="meter-row__meter"><progress class="meter" value="36" max="200"></progress></span><span class="meter-row__nums">36 / 200 · 18%</span></div>
+        </section>
+      </div>
+    </div>
+
+    <div class="specimen__label">Segmented meter — when the total splits into states (2px surface gaps, one-hue ladder)</div>
+    <div class="specimen__row">
+      <div class="ratio">
+        <div class="ratio__label">Review pipeline</div>
+        <div class="ratio__line"><span class="ratio__pct">45%</span><span class="ratio__frac">90 / 200 complete</span></div>
+        <div class="meter-seg">
+          <span class="meter-seg__part meter-seg__part--a meter-seg__part--w45"></span>
+          <span class="meter-seg__part meter-seg__part--b meter-seg__part--w30"></span>
+          <span class="meter-seg__part meter-seg__part--c meter-seg__part--w25"></span>
+        </div>
+        <div class="meter-legend">
+          <span class="meter-legend__key"><span class="meter-legend__swatch meter-seg__part--a"></span> Complete 90</span>
+          <span class="meter-legend__key"><span class="meter-legend__swatch meter-seg__part--b"></span> In progress 60</span>
+          <span class="meter-legend__key"><span class="meter-legend__swatch meter-seg__part--c"></span> Not started 50</span>
+        </div>
+      </div>
+    </div>
+    <p class="wp-prose">Recommendation: percent-led tiles as the default; meter rows past four or five metrics; the delta variant only where the movement is the story.</p>
+    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+  </section>
+
+  <section class="specimen__section" id="table">
+    <h2 class="specimen__section-title">15. The data table — a saved view in action</h2>
+    <p class="wp-prose">The data table is the core primitive of data-dense software, and this example composes the whole view system on one screen: a named collaborative view, grouped rows, color-rule edge markers, applied filters as removable chips, multi-column sorting, a summary row, bulk actions on selection — and a URL that carries the entire state, so copying the address bar shares the exact screen. Everything is rendered by the server; there is no JavaScript.</p>
+    <p class="specimen__note">The whole view system composed on one screen: a named collaborative view, rows grouped by tier, color-rule edge markers, applied filters in the chip-bar, multi-sort, a summary row, bulk actions on selection — and the URL at the bottom carrying the entire state. Server-rendered; zero JavaScript; switch the density above (tight / normal / loose) and it re-flows from tokens alone.</p>
+    <div class="data-table">
+      <div class="data-table__viewbar">
+        <span class="data-table__viewname">≡ High-priority, active ▾</span>
+        <span class="data-table__viewdesc">Collaborative view · grouped by priority · 2 filters · 2 sorts · color rule: score &lt; 50</span>
+      </div>
+      <div class="table-toolbar">
+        <div class="table-toolbar__group">
+          <span class="search-field">
+            <span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>
+            <input class="input search-field__input" type="search" placeholder="Filter accounts…">
+          </span>
+          <span class="chip"><span class="chip__key">priority:</span> high+ <button class="chip__remove" type="button" aria-label="Remove filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></span>
+        </div>
+        <div class="table-toolbar__group">
+          <button class="button button--ghost" type="button">Fields</button>
+          <button class="button button--ghost" type="button">Filter · 2</button>
+          <button class="button button--ghost" type="button">Group · 1</button>
+          <button class="button button--ghost" type="button">Sort · 2</button>
+          <button class="button button--ghost" type="button">Height</button>
+          <button class="button button--primary" type="button">Add account</button>
+        </div>
+      </div>
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
+              <th><button class="data-table__sort" type="button">Priority</button></th>
+              <th><button class="data-table__sort" type="button">Status</button></th>
+              <th><button class="data-table__sort" type="button">Owner</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Score</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last review</button></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="data-table__group"><td colspan="8">Critical <span class="data-table__count">· 2</span></td></tr>
+            <tr class="data-table__row--mark-danger">
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Umbrella Hosting</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Critical</span></td>
+              <td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td>
+              <td><span class="avatar avatar--sm">AM</span></td>
+              <td class="data-table__cell--num">38</td><td class="data-table__cell--num">2026-03-11</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr class="data-table__row--mark-danger">
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Northwind Cloud</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Critical</span></td>
+              <td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td>
+              <td><span class="avatar avatar--sm">AM</span></td>
+              <td class="data-table__cell--num">42</td><td class="data-table__cell--num">2026-06-30</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr class="data-table__group"><td colspan="8">High <span class="data-table__count">· 2</span></td></tr>
+            <tr class="data-table__row--selected data-table__row--mark-warning">
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" checked aria-label="Select row"></td>
+              <td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
+              <td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td>
+              <td><span class="avatar avatar--sm">JD</span></td>
+              <td class="data-table__cell--num">71</td><td class="data-table__cell--num">2026-05-02</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr class="data-table__row--selected">
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" checked aria-label="Select row"></td>
+              <td>Acme Payments</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
+              <td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td>
+              <td><span class="avatar avatar--sm">KL</span></td>
+              <td class="data-table__cell--num">87</td><td class="data-table__cell--num">2026-07-18</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr class="data-table__group"><td colspan="8">Moderate <span class="data-table__count">· 1</span></td></tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Initech Legal</td><td><span class="badge"><span class="badge__dot"></span> Moderate</span></td>
+              <td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td>
+              <td><span class="avatar avatar--sm">TS</span></td>
+              <td class="data-table__cell--num">93</td><td class="data-table__cell--num">2026-07-01</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr><td></td><td>5 accounts</td><td>2 critical</td><td>1 overdue</td><td></td><td class="data-table__cell--num">avg 66</td><td class="data-table__cell--num">latest 2026-07-18</td><td></td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="data-table__bulk">
+        <span class="data-table__bulk-count">2 selected</span>
+        <button class="button button--ghost" type="button">Export</button>
+        <button class="button button--ghost" type="button">Assign owner</button>
+        <button class="button button--ghost" type="button">Archive</button>
+        <button class="button button--ghost" type="button">Clear</button>
+      </div>
+      <div class="data-table__footer">
+        <span class="pagination__status">1–5 of 248 · view: “High-priority, active”</span>
+        <div class="pagination">
+          <button class="button button--ghost" type="button" disabled>← Prev</button>
+          <button class="button button--ghost" type="button">Next →</button>
+        </div>
+      </div>
+      <div class="data-table__url">/accounts?view=high-priority&amp;filterHasNoneOf_priority=low&amp;filterContains_status=&amp;group=priority&amp;sort=score,account&amp;dir=desc — the URL is the view: copy the address bar, a colleague sees this exact screen</div>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="rowactions">
+    <h2 class="specimen__section-title">16. Row actions — visible icons vs. the overflow menu</h2>
+    <p class="wp-prose">Every table row carries actions; the question is how many deserve to be visible. The research is unambiguous about the failure mode: an icon repeated on every row stops reading as a button and becomes texture, bare icons beyond a handful of universal symbols are routinely misread, and a destructive icon on every row puts an irreversible act one accidental click from everything. The overflow menu's cost is the mirror image: whatever lives inside it is invisible until clicked. The reconciliation is a frequency budget, shown below.</p>
+    <p class="specimen__note">Every table row carries actions; the question is how many of them deserve to be visible. An icon repeated on every row stops being a button and becomes texture — the eye tunes it out like wallpaper — and beyond a handful of universal symbols, icons alone are routinely misread. The overflow menu (the ⋯ button) hides everything behind one click, which is its cost: an action people need constantly should not live there. The options below are the catalog; the budget rule underneath is the recommendation.</p>
+
+    <div class="specimen__label">Option A — overflow menu only (the default)</div>
+    <p class="specimen__note">One ⋯ per row, always in the last column, always opening the same menu. The row stays silent; the consequential-action rule governs the menu's inside — destructive choice last, divider above, danger color, one per menu.</p>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option B — one earned icon plus the menu (the frequency budget)</div>
+    <p class="specimen__note">At most one — occasionally two — actions earn a visible spot on the row, and only when all three tests pass: used constantly, harmless if misclicked, and drawn with a symbol everyone reads the same way. Everything else stays in the ⋯. Here the constant action is opening the record for editing.</p>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option C — actions revealed on hover or keyboard focus</div>
+    <p class="specimen__note">The row is visually silent until the pointer rests on it or keyboard focus enters it; then the ⋯ appears. The quietest table of the three. The non-negotiable: reveal on focus as well as hover, so a keyboard user is never locked out — hover this table, or press <kbd>Tab</kbd> through it, to see the buttons appear.</p>
+    <div class="data-table data-table--quiet">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="specimen__label">The anti-pattern — a destructive icon on every row (shown to be rejected)</div>
+    <p class="specimen__note">Forty rows means forty delete buttons: repetition turns them into texture, and an irreversible action sits one accidental click from every row. Destructive actions live inside the ⋯ menu — danger color, last position, divider above — never as a bare row icon.</p>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="wp-prose">Recommendation: the ⋯ menu alone is the default; a visible row icon is an exception argued per case (constantly used, harmless if misclicked, universally understood symbol); a destructive action never appears as a bare row icon; the hover-quiet variant must also reveal on keyboard focus.</p>
+    <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
+    <p class="wp-sources">Sources: <a href="https://www.nngroup.com/articles/contextual-menus-guidelines/">NN/g — contextual menus</a> · <a href="https://www.nngroup.com/topic/icons/">NN/g — icon usability</a> · <a href="https://carbondesignsystem.com/components/overflow-menu/usage/">IBM Carbon — overflow menu</a> · <a href="https://primer.style/components/action-bar">GitHub Primer — action bar</a></p>
+  </section>
+
+  <section class="specimen__section" id="editing">
+    <h2 class="specimen__section-title">17. Table editing vs. form editing</h2>
+    <p class="wp-prose">Where should a value change: in the table cell, or in the record form the row opens? Products that refuse inline editing are usually not lazy — a form has room for labels, help and errors beside each field, one visible Save, and a shape that approval workflows can review; a grid has none of that by default. Products that embrace inline editing serve a real need: correcting one field across forty rows through a form is miserable. The industry's reconciliation is the draft-plus-save-bar pattern (option B below): edits are held as a draft — changes made on screen but not yet written — tinted cell by cell, counted in a bar with one Save and one Cancel, validated by the server as a batch. That submitted draft is the same object an approval review needs, which is why the pattern fits governed data.</p>
+    <p class="specimen__note">Where should a value change: in the table itself, or in the record form the row opens? Every serious product picks a spot on this spectrum. The options below are the complete catalog, from safest to most fluid; they are not mutually exclusive — a real screen usually combines two or three.</p>
+
+    <div class="specimen__label">Option A — read-only table, form editing (the default)</div>
+    <p class="specimen__note">The table is for finding and comparing; clicking a row opens the record form, and every change happens there. This is the safest option: the form has room for labels, help text, and error messages next to each field, and one clear Save button. It is the right default for records with many fields or fields that depend on each other.</p>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Priority</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+            <tr><td>Acme Payments</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge"><span class="badge__dot"></span> Moderate</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">93</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-table__footer"><span class="pagination__status">Click a row → the record form opens. Cells never become inputs.</span></div>
+    </div>
+
+    <div class="specimen__label">Option B — edit mode with a draft and a save bar</div>
+    <p class="specimen__note">An Edit button flips the grid into a spreadsheet-like mode. Changes are held as a draft — nothing is written yet — and edited cells are tinted so the reader can see exactly what will change. A bar counts the pending changes and offers one Save and one Cancel for the whole batch, so the server can check all the changes together and reject the batch with per-cell errors. This is the pattern the large business platforms converged on, and it maps directly onto a server-side pending changeset.</p>
+    <div class="data-table">
+      <div class="table-toolbar">
+        <div class="table-toolbar__group"><span class="badge badge--info"><span class="badge__dot"></span> Edit mode</span></div>
+        <div class="table-toolbar__group"><button class="button button--ghost" type="button">Exit edit mode</button></div>
+      </div>
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Priority</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Acme Payments</td>
+              <td class="data-table__cell--edited"><select class="select select--cell" aria-label="Priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select></td>
+              <td><span class="avatar avatar--sm">KL</span></td>
+              <td class="data-table__cell--num data-table__cell--edited"><input class="input input--cell" type="number" value="91" aria-label="Score"></td>
+            </tr>
+            <tr>
+              <td>Initech Legal</td>
+              <td><span class="badge"><span class="badge__dot"></span> Moderate</span></td>
+              <td><span class="avatar avatar--sm">TS</span></td>
+              <td class="data-table__cell--num data-table__cell--edited"><input class="input input--cell" type="number" value="95" aria-label="Score"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="savebar">
+        <span class="savebar__count">3 unsaved changes</span>
+        <button class="button button--ghost" type="button">Discard</button>
+        <button class="button button--primary" type="button">Save all</button>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option C — per-cell instant commit (pickers only)</div>
+    <p class="specimen__note">One field, saved the moment it changes, confirmed by a toast with Undo. Safe only for single choices from a fixed list — a status, an owner — where there is nothing to validate against other fields and the mistake is one click to reverse. Never for typed text or numbers: a slip of the keyboard would write straight to the record.</p>
+    <div class="specimen__row">
+      <div class="data-table">
+        <div class="data-table__scroll">
+          <table class="data-table__table">
+            <thead><tr><th>Account</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Acme Payments</td><td><select class="select select--cell" aria-label="Status"><option>On track</option><option selected>Review due</option><option>Overdue</option></select></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="toast" role="status">Status saved · Review due <button class="toast__action" type="button">Undo</button></div>
+    </div>
+
+    <div class="specimen__label">Option D — editable-field whitelist</div>
+    <p class="specimen__note">Inline editing is granted per column, not per table. Simple, low-risk fields (owner, tags, priority) earn the pencil; calculated fields, identifiers, and anything a rule or an approval depends on stay read-only in the grid and change only through the form. The pencil hint on hover is the affordance — the visual cue that tells the reader "this one opens".</p>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Priority</th><th>Owner</th><th class="data-table__cell--num">Score (calculated)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Acme Payments <span class="cell-edit-hint">read-only</span></td>
+              <td><span class="badge badge--warning"><span class="badge__dot"></span> High</span> <span class="cell-edit-hint">✎</span></td>
+              <td><span class="avatar avatar--sm">KL</span> <span class="cell-edit-hint">✎</span></td>
+              <td class="data-table__cell--num">87 <span class="cell-edit-hint">read-only</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option E — the keyboard grammar (applies to B, C and D)</div>
+    <p class="specimen__note">Whatever the commit model, the keys are fixed by convention: <kbd>Enter</kbd> or <kbd>F2</kbd> starts editing the focused cell, <kbd>Esc</kbd> cancels and restores the old value, <kbd>Tab</kbd> confirms and moves to the next cell, arrow keys travel the grid. One grammar, learned once — the spreadsheet taught it to everyone already.</p>
+
+    <div class="specimen__label">Choosing between them</div>
+    <p class="specimen__note">Form editing wins when records are rich, fields interact, or changes need review — which is why it is the default here. The draft-and-save-bar grid wins for repetitive corrections across many rows, and its batch submit is the same thing as a pending changeset, so it feeds the existing review/diff form unchanged. Instant commit is a convenience reserved for pickers with an Undo. These are candidates on display, pending selection — like everything on this page.</p>
+    <p class="wp-prose">Recommendation: option A (read-only table, form editing) as the default; option B (draft + save bar) for repetitive multi-row correction; option C (instant commit) reserved for single pickers with Undo; option D (per-column whitelist) governs which fields ever edit inline. Open decisions: whether C exists at all before an undo toast ships, and whether records under approval rules always force B's draft mode.</p>
+    <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
+    <p class="wp-sources">Sources: <a href="https://www.lightningdesignsystem.com/components/data-tables/">Salesforce Lightning — data table inline edit</a> · <a href="https://primer.style/ui-patterns/saving">GitHub Primer — saving patterns</a> · <a href="https://www.w3.org/WAI/ARIA/apg/patterns/grid/">W3C ARIA APG — grid pattern</a></p>
+  </section>
+
+  <section class="specimen__section" id="recordforms">
+    <h2 class="specimen__section-title">18. Record forms — the presentation styles</h2>
+    <p class="wp-prose">The screen behind a clicked row. Presentation is one axis (how fields and labels are drawn) and workflow is another (how the record is entered, reviewed, and approved); the two compose freely, so they are cataloged separately. The evidence splits by task: entering data wants labels above fields in a single column; reading and scanning a record wants a left label column that the eye can run down. All six styles below are candidates on display; full evidence in the record-forms research file pending its graduation into this chapter.</p>
+    <p class="specimen__note">The UI of fields: six graphical treatments of the same record, no workflow involved. The evidence splits by task (research/record-forms.md): entry wants top labels and a single column; reading wants a left label column to scan. Any style composes with any workflow from the next section.</p>
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">Style 1 — stacked form: sections, top labels, single column</div>
+        <div class="section-stack record-form">
+          <section class="section-stack__section">
+            <h3 class="section-stack__title">Details</h3>
+            <div class="field">
+              <label class="field__label field__label--required" for="rf-name">Account name</label>
+              <input class="input" id="rf-name" type="text" value="Acme Payments" required>
+              <span class="field__hint">Legal entity name, as registered.</span>
+            </div>
+            <div class="field-pair">
+              <div class="field">
+                <label class="field__label" for="rf-city">City</label>
+                <input class="input" id="rf-city" type="text" value="Toronto">
+              </div>
+              <div class="field">
+                <label class="field__label" for="rf-postal">Postal code</label>
+                <input class="input" id="rf-postal" type="text" value="M5V 2T6">
+              </div>
+            </div>
+          </section>
+          <section class="section-stack__section">
+            <h3 class="section-stack__title">Classification</h3>
+            <div class="field">
+              <label class="field__label" for="rf-priority">Priority</label>
+              <select class="select" id="rf-priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select>
+            </div>
+            <div class="field">
+              <label class="field__label" for="rf-owner">Owner</label>
+              <select class="select" id="rf-owner"><option selected>K. Lane</option><option>J. Doe</option><option>T. Shaw</option></select>
+            </div>
+          </section>
+          <section class="section-stack__section form-actions">
+            <button class="button button--ghost" type="button">Cancel</button>
+            <button class="button button--primary" type="button">Save changes</button>
+          </section>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">Style 2 — property sheet: read-first, hover a row</div>
+        <div class="prop-grid">
+          <div class="prop-grid__header">
+            <div class="prop-grid__title">Acme Payments</div>
+            <div class="prop-grid__meta">a1b2c3d4 · created 2026-03-02 · updated 2026-07-18</div>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Status</span>
+            <span class="prop__value"><span class="badge badge--success"><span class="badge__dot"></span> On track</span></span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Priority</span>
+            <span class="prop__value"><span class="badge badge--warning"><span class="badge__dot"></span> High</span></span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Owner</span>
+            <span class="prop__value"><span class="avatar avatar--sm">KL</span> K. Lane</span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Score</span>
+            <span class="prop__value prop__value--num">87</span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Last review</span>
+            <span class="prop__value prop__value--num">2026-07-18</span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+          <div class="prop">
+            <span class="prop__label">Notes</span>
+            <span class="prop__value">Renewal discussion scheduled for next quarter.</span>
+            <span class="prop__edit-hint">✎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">Style 3 — ledger: the form as a table (label cells, input cells)</div>
+        <div class="ledger-form">
+          <div class="ledger-form__row">
+            <span class="ledger-form__label">Account name</span>
+            <span class="ledger-form__cell"><input class="ledger-form__input" type="text" value="Acme Payments" aria-label="Account name"></span>
+          </div>
+          <div class="ledger-form__row">
+            <span class="ledger-form__label">Priority</span>
+            <span class="ledger-form__cell"><select class="ledger-form__input" aria-label="Priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select></span>
+          </div>
+          <div class="ledger-form__row">
+            <span class="ledger-form__label">Region</span>
+            <span class="ledger-form__cell"><input class="ledger-form__input" type="text" value="Northeast" aria-label="Region"></span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">Style 4 — left-label inputs: the property sheet's editable twin</div>
+        <div class="ll-form">
+          <div class="ll-form__row">
+            <span class="ll-form__label">Account name</span>
+            <input class="input" type="text" value="Acme Payments" aria-label="Account name">
+          </div>
+          <div class="ll-form__row">
+            <span class="ll-form__label">Priority</span>
+            <select class="select" aria-label="Priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select>
+          </div>
+          <div class="ll-form__row">
+            <span class="ll-form__label">Region</span>
+            <input class="input" type="text" value="Northeast" aria-label="Region">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">Style 5 — two-column dense: top labels, twin columns (dense review contexts)</div>
+        <div class="section-stack record-form">
+          <section class="section-stack__section">
+            <div class="form-two-col">
+              <div class="field"><label class="field__label" for="tc-name">Account name</label><input class="input" id="tc-name" type="text" value="Acme Payments"></div>
+              <div class="field"><label class="field__label" for="tc-priority">Priority</label><select class="select" id="tc-priority"><option selected>High</option></select></div>
+              <div class="field"><label class="field__label" for="tc-region">Region</label><input class="input" id="tc-region" type="text" value="Northeast"></div>
+              <div class="field"><label class="field__label" for="tc-score">Score</label><input class="input" id="tc-score" type="number" value="87"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">Style 6 — print: no boxes, values on a baseline rule</div>
+        <div class="print-form">
+          <div class="print-field">
+            <span class="print-field__label">Account name</span>
+            <input class="print-field__input" type="text" value="Acme Payments" aria-label="Account name">
+          </div>
+          <div class="print-field">
+            <span class="print-field__label">Priority</span>
+            <input class="print-field__input" type="text" value="High" aria-label="Priority">
+          </div>
+          <div class="print-field">
+            <span class="print-field__label">Region</span>
+            <input class="print-field__input" type="text" value="Northeast" aria-label="Region">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+  </section>
+
+  <section class="specimen__section" id="workflows">
+    <h2 class="specimen__section-title">19. Record forms — the workflows and processes</h2>
+    <p class="wp-prose">The second axis: the same fields can arrive as a document-style hybrid, a step-by-step wizard, a spreadsheet-like grid entry, a guided conversational flow, a settings page, or a review-and-diff screen where changes are compared before they land. These are processes, not layouts — each one pairs with any presentation style from the previous chapter.</p>
+    <p class="specimen__note">The process around the fields — how a record is created, edited, approved, or composed. Rendered for review; options will be pruned after selection. Any workflow can carry any presentation style from the section above, in any placement.</p>
+
+    <div class="specimen__label">Workflow — document hybrid: the record as a page (prose heart + properties)</div>
+    <div class="specimen__row">
+      <div class="doc-record">
+        <div class="doc-record__body">
+          <div class="doc-record__title">Renewal strategy — Acme Payments</div>
+          <div class="doc-record__meta">a1b2c3d4 · K. Lane · updated 2026-07-18</div>
+          <p class="doc-record__prose">The account renews next quarter. Usage grew 22% year over year, and the expansion conversation should lead with the reporting module. Click the title or this text to edit in place.</p>
+        </div>
+        <div class="doc-record__props">
+          <div class="prop"><span class="prop__label">Status</span><span class="prop__value"><span class="badge badge--success"><span class="badge__dot"></span> On track</span></span><span class="prop__edit-hint">✎</span></div>
+          <div class="prop"><span class="prop__label">Priority</span><span class="prop__value"><span class="badge badge--warning"><span class="badge__dot"></span> High</span></span><span class="prop__edit-hint">✎</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — wizard: sequential creation with a visible path</div>
+    <div class="specimen__row">
+      <div class="section-stack wizard">
+        <section class="section-stack__section">
+          <div class="wizard__steps">
+            <span class="wizard__step wizard__step--done"><span class="wizard__dot">✓</span> Details</span>
+            <span class="wizard__bar"></span>
+            <span class="wizard__step wizard__step--active"><span class="wizard__dot">2</span> Classification</span>
+            <span class="wizard__bar"></span>
+            <span class="wizard__step"><span class="wizard__dot">3</span> Review</span>
+          </div>
+        </section>
+        <section class="section-stack__section">
+          <div class="field">
+            <label class="field__label" for="wz-priority">Priority</label>
+            <select class="select" id="wz-priority"><option>Critical</option><option selected>High</option><option>Moderate</option></select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="wz-owner">Owner</label>
+            <select class="select" id="wz-owner"><option selected>K. Lane</option><option>J. Doe</option></select>
+          </div>
+        </section>
+        <section class="section-stack__section form-actions">
+          <span class="wizard__count">Step 2 of 3</span>
+          <button class="button button--ghost" type="button">Back</button>
+          <button class="button button--primary" type="button">Continue</button>
+        </section>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — grid entry: the table as the form (bulk edits, tab advances)</div>
+    <div class="specimen__row">
+      <div class="data-table record-form">
+        <div class="data-table__scroll">
+          <table class="data-table__table">
+            <thead><tr><th>Account</th><th class="data-table__cell--num">Score</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Acme Payments</td><td class="data-table__cell--num">87</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td></tr>
+              <tr><td>Globex Analytics</td><td class="data-table__cell--num"><input class="grid-entry__input" value="71" aria-label="Score, editing"></td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td></tr>
+              <tr><td>Initech Legal</td><td class="data-table__cell--num">93</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — conversational: one question at a time (intake and AI-assisted creation)</div>
+    <div class="specimen__row">
+      <div class="conv-form">
+        <span class="conv-form__step">3 / 7</span>
+        <span class="conv-form__q">What is the account's primary region?</span>
+        <input class="input" type="text" placeholder="Start typing…">
+        <span class="conv-form__hint">Press <kbd>↵</kbd> to continue · <kbd>⇧↵</kbd> to go back</span>
+      </div>
+    </div>
+
+    <div class="specimen__label">Placement axis — the same form in three containers</div>
+    <div class="placement">
+      <div class="placement__opt"><span class="placement__frame"><span class="placement__panel"></span></span> Side panel — keeps table context</div>
+      <div class="placement__opt"><span class="placement__frame"><span class="placement__dialog"></span></span> Dialog — short, focused, interruptive</div>
+      <div class="placement__opt"><span class="placement__frame"><span class="placement__page"></span></span> Full page — long records, deep links</div>
+    </div>
+
+    <div class="specimen__label">Workflow — settings: summary rows, drill into a small edit form</div>
+    <div class="specimen__row">
+      <div class="prop-grid">
+        <div class="prop"><span class="prop__label">Notifications</span><span class="prop__value">Weekly digest</span><span class="prop__chev">›</span></div>
+        <div class="prop"><span class="prop__label">Access</span><span class="prop__value">3 teams</span><span class="prop__chev">›</span></div>
+        <div class="prop"><span class="prop__label">Export</span><span class="prop__value">CSV, monthly</span><span class="prop__chev">›</span></div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — review / diff: old value struck, new value proposed (approvals)</div>
+    <div class="specimen__row">
+      <div class="prop-grid">
+        <div class="prop"><span class="prop__label">Priority</span><span class="prop__value"><span class="diff-form__old">Moderate</span> <span class="diff-form__arrow">→</span> <span class="badge badge--warning"><span class="badge__dot"></span> High</span></span></div>
+        <div class="prop"><span class="prop__label">Owner</span><span class="prop__value"><span class="diff-form__old">J. Doe</span> <span class="diff-form__arrow">→</span> K. Lane</span></div>
+        <div class="prop form-actions"><button class="button button--ghost" type="button">Reject</button><button class="button button--primary" type="button">Approve changes</button></div>
+      </div>
+    </div>
+
+    <div class="specimen__label">Workflow — user-composed: the layout itself is a saved configuration</div>
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">Fields</div>
+        <div class="panel">
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Account name</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Priority</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox"> <span class="panel__grow">Notes</span> <span class="panel__drag">⋮⋮</span></label>
+        </div>
+      </div>
+      <div class="builder-preview">
+        <div class="specimen__label">Preview — rendered from the configuration row</div>
+        <div class="section-stack record-form">
+          <section class="section-stack__section">
+            <div class="field">
+              <label class="field__label" for="bp-name">Account name</label>
+              <input class="input" id="bp-name" type="text" placeholder="Acme Payments">
+            </div>
+            <div class="field">
+              <label class="field__label" for="bp-priority">Priority</label>
+              <select class="select" id="bp-priority"><option>High</option></select>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+  </section>
+
+  <section class="specimen__section" id="filters">
+    <h2 class="specimen__section-title">20. The filter builder</h2>
+    <p class="wp-prose">Conditions are built from segmented rows — field, operator, value as one control sharing hairlines — so a long condition list stays compact. Every change updates the address bar, which means every filtered view is bookmarkable and shareable by copying a URL.</p>
+    <p class="specimen__note">Field / operator / value as one segmented control — fields share hairlines the way sections do, so a long condition list stays compact. Every change fires <code>hx-get</code> with <code>hx-push-url="true"</code> — filtered views are bookmarkable and shareable.</p>
+    <div class="condition-stack">
+      <div class="condition">
+        <span class="condition__lead">Where</span>
+        <span class="condition__seg">
+          <select class="select" aria-label="Field"><option>Priority</option><option>Status</option><option>Owner</option><option>Score</option></select>
+          <select class="select" aria-label="Operator"><option>has none of</option><option>is</option><option>is not</option></select>
+          <select class="select" aria-label="Value"><option>Low</option><option>Moderate</option><option>High</option></select>
+          <button class="condition__btn" type="button" aria-label="Remove condition">✕</button>
+          <button class="condition__btn" type="button" aria-label="Reorder">⋮⋮</button>
+        </span>
+      </div>
+      <div class="condition">
+        <span class="condition__lead"><select class="select" aria-label="Conjunction"><option>and</option><option>or</option></select></span>
+        <span class="condition__seg">
+          <select class="select" aria-label="Field"><option>Score</option><option>Priority</option><option>Status</option></select>
+          <select class="select" aria-label="Operator"><option>&lt;</option><option>&gt;</option><option>=</option></select>
+          <input class="input" type="number" value="50" aria-label="Value">
+          <button class="condition__btn" type="button" aria-label="Remove condition">✕</button>
+          <button class="condition__btn" type="button" aria-label="Reorder">⋮⋮</button>
+        </span>
+      </div>
+    </div>
+    <div class="specimen__row">
+      <button class="button button--ghost" type="button">+ Add condition</button>
+      <button class="button button--ghost" type="button">+ Add condition group</button>
+      <button class="button button--ghost" type="button">Copy from another view</button>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="views">
+    <h2 class="specimen__section-title">21. The view system</h2>
+    <p class="wp-prose">A view is a saved way of looking at the same data: which columns show, how rows are filtered, grouped and sorted. Views are collaborative or personal, switchable from a menu, and stored server-side as configuration — the interface is the database row, rendered. The field panel below carries the show-all/hide-all pair above its list because, with thirty fields and three wanted, hiding everything and re-enabling three beats flipping twenty-seven switches.</p>
+    <p class="specimen__note">The saved-view family (components.md §4) — the filter builder above is part of it. Each panel is a server-rendered fragment; what it edits is a row in the views table, reflected in the URL.</p>
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">View switcher</div>
+        <nav class="panel" aria-label="Views">
+          <input class="input panel__search" type="search" placeholder="Find a view">
+          <div class="panel__row">+ Create new…</div>
+          <hr class="panel__divider">
+          <div class="panel__row panel__row--active">High-priority, active</div>
+          <div class="panel__row">Enterprise only</div>
+          <div class="panel__row">Quarterly review</div>
+          <hr class="panel__divider">
+          <div class="panel__hint">PERSONAL</div>
+          <div class="panel__row">My triage</div>
+        </nav>
+      </div>
+      <div>
+        <div class="specimen__label">Field visibility</div>
+        <div class="panel">
+          <input class="input panel__search" type="search" placeholder="Find a field">
+          <div class="panel__bulk">
+            <button class="panel__bulk-btn" type="button">Show all</button>
+            <button class="panel__bulk-btn" type="button">Hide all</button>
+          </div>
+          <hr class="panel__divider">
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Status</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Owner</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox" checked> <span class="panel__grow">Score</span> <span class="panel__drag">⋮⋮</span></label>
+          <label class="panel__row"><input class="control-switch__box" type="checkbox"> <span class="panel__grow">Notes</span> <span class="panel__drag">⋮⋮</span></label>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">Sort</div>
+        <div class="panel">
+          <div class="panel__row">
+            <span class="condition__seg condition__seg--fill">
+              <select class="select" aria-label="Sort field"><option>Score</option><option>Owner</option></select>
+              <select class="select" aria-label="Direction"><option>1 → 9</option><option>9 → 1</option></select>
+              <button class="condition__btn" type="button" aria-label="Remove sort">✕</button>
+            </span>
+          </div>
+          <div class="panel__row">
+            <span class="condition__seg condition__seg--fill">
+              <select class="select" aria-label="Sort field"><option>Account</option><option>Status</option></select>
+              <select class="select" aria-label="Direction"><option>A → Z</option><option>Z → A</option></select>
+              <button class="condition__btn" type="button" aria-label="Remove sort">✕</button>
+            </span>
+          </div>
+          <div class="panel__row">+ Add another sort</div>
+          <div class="panel__footer"><input class="control-switch__box" type="checkbox" checked> Automatically sort records</div>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">View menu</div>
+        <div class="menu" role="menu" aria-label="View actions">
+          <button class="menu__item" type="button" role="menuitem">Rename view</button>
+          <button class="menu__item" type="button" role="menuitem">Edit description</button>
+          <button class="menu__item" type="button" role="menuitem">Duplicate view</button>
+          <button class="menu__item" type="button" role="menuitem">Copy another view's configuration</button>
+          <hr class="menu__divider">
+          <button class="menu__item" type="button" role="menuitem">Download CSV</button>
+          <hr class="menu__divider">
+          <button class="menu__item menu__item--danger" type="button" role="menuitem">Delete view</button>
+        </div>
+      </div>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="keyboard">
+    <h2 class="specimen__section-title">22. Keyboard conventions — what Enter means</h2>
+    <p class="wp-prose">Enter is the most overloaded key in modern software, and chat applications made it worse by teaching millions that Enter sends. The rule that removes the guessing: the kind of control decides what Enter means, identically on every screen — activate in menus, submit in single-line fields (a behavior called implicit submission, built into the web platform), and always a new line in multi-line text boxes, where a surprise submit of a half-written record is the expensive failure. Cmd/Ctrl+Enter is the one universal save-from-anywhere accelerator, taught in place: focus the text box below and the Save button reveals its hint.</p>
+    <p class="specimen__note">Enter is the most overloaded key in modern software: in one product it sends, in another it makes a new line, in a third it activates a menu item — and every user carries each habit into the next application, where it misfires. The rule here removes the guessing: the kind of control decides what Enter means, identically on every screen, never the application's mood.</p>
+
+    <div class="specimen__label">Choice surfaces — Enter activates the highlighted item</div>
+    <p class="specimen__note">In menus, lists, and palettes there is exactly one sensible thing for Enter to do: pick what is highlighted. Esc closes. The oldest meaning, and the least disputed.</p>
+    <div class="specimen__row">
+      <div class="menu" role="menu" aria-label="Enter demo menu">
+        <button class="menu__item" type="button" role="menuitem">Open <span class="menu__kbd">↵</span></button>
+        <button class="menu__item" type="button" role="menuitem">Rename</button>
+        <button class="menu__item" type="button" role="menuitem">Duplicate</button>
+      </div>
+    </div>
+
+    <div class="specimen__label">Single-line field — Enter submits the form</div>
+    <p class="specimen__note">Implicit submission is built into the web platform itself; it is why Enter works in every search and login box ever made. It is kept, never suppressed — pressing Enter here is the same as clicking the button.</p>
+    <form class="enter-form" action="#keyboard" method="get">
+      <div class="field">
+        <label class="field__label" for="kb-search">Find an account</label>
+        <input class="input" id="kb-search" type="text" placeholder="Acme…">
+      </div>
+      <div class="enter-form__footer">
+        <button class="button button--secondary" type="submit">Search</button>
+      </div>
+    </form>
+
+    <div class="specimen__label">Multi-line text box — Enter makes a new line, ⌘↵ saves</div>
+    <p class="specimen__note">A text box that accepts paragraphs is a writing surface; in a record system it holds notes and descriptions, not chat messages. The failure modes are not symmetric — a surprise submit fires a half-written record, a newline that did not submit costs one keystroke — so the safe meaning wins: Enter writes, Cmd/Ctrl+Enter saves from anywhere in the form. Click into the text box below and watch the Save button teach the shortcut. Shift+Enter is accepted as a harmless newline synonym for chat-trained hands.</p>
+    <form class="enter-form" action="#keyboard" method="get">
+      <div class="field">
+        <label class="field__label" for="kb-notes">Review notes</label>
+        <textarea class="textarea" id="kb-notes" rows="3" placeholder="Enter makes a new line here — always."></textarea>
+      </div>
+      <div class="enter-form__footer">
+        <button class="button button--ghost" type="button">Cancel</button>
+        <button class="button button--primary" type="submit">Save record<span class="enter-form__hint">⌘↵</span></button>
+      </div>
+    </form>
+
+    <div class="specimen__label">Grid cells — the editing grammar</div>
+    <p class="specimen__note">A grid cell is a different control again, so Enter means something different there — and means it consistently (see the table-editing section above).</p>
+    <div class="kbd-row">
+      <span class="kbd-row__pair"><kbd>↵</kbd> / <kbd>F2</kbd> edit the focused cell</span>
+      <span class="kbd-row__pair"><kbd>Esc</kbd> cancel, restore the old value</span>
+      <span class="kbd-row__pair"><kbd>Tab</kbd> commit and advance</span>
+      <span class="kbd-row__pair"><kbd>←→↑↓</kbd> travel the grid</span>
+    </div>
+    <p class="wp-prose">Recommendation as stated above; Shift+Enter tolerated as a harmless newline synonym. The one place Enter-to-send would ever be correct is a true chat surface, which does not exist in the system today.</p>
+    <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
+    <p class="wp-sources">Sources: <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#implicit-submission">HTML standard — implicit submission</a> · <a href="https://www.w3.org/WAI/ARIA/apg/patterns/">W3C ARIA APG — keyboard patterns</a> · <a href="https://www.tjvantoll.com/2013/01/01/enter-should-submit-forms-stop-messing-with-that/">TJ VanToll — Enter should submit forms</a> · <a href="https://meta.discourse.org/t/enter-to-newline-shift-enter-to-submit-message-in-chat/289280">Discourse — the Enter debate</a></p>
+  </section>
+
+  <section class="specimen__section" id="palette-cmd">
+    <h2 class="specimen__section-title">23. The command palette</h2>
+    <p class="wp-prose">One keystroke, one field, every destination: the palette opens with ⌘K, lists commands and records grouped by kind, and is fully keyboard-driven. In this system it is rendered by the server and opened by a declarative trigger — no JavaScript, which proves the zero-script principle holds even for the most "app-like" component.</p>
+    <p class="specimen__note">Opened by a pure HTMX trigger — <code>hx-trigger="keydown[(metaKey||ctrlKey)&amp;&amp;key=='k'] from:body"</code> — contents are server-rendered fragments; typeahead is <code>hx-trigger="input changed delay:150ms"</code>. The overlay is the only element that may cast a shadow.</p>
+    <div class="palette-demo">
+      <div class="palette" role="dialog" aria-label="Command palette demo">
+        <input class="palette__input" type="search" placeholder="Type a command or search…" value="pro">
+        <div class="palette__group">Actions</div>
+        <div class="palette__item palette__item--active">New <strong>pro</strong>ject <span class="palette__kbd">⌘N</span></div>
+        <div class="palette__item">Assign owner…</div>
+        <div class="palette__group">Records</div>
+        <div class="palette__item">Acme Payments — <strong>pro</strong>ject 2026-Q3</div>
+        <div class="palette__item">Globex Analytics — <strong>pro</strong>ject 2026-Q2</div>
+      </div>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="empty">
+    <h2 class="specimen__section-title">24. Empty states</h2>
+    <p class="wp-prose">Every list, table, and dashboard has a designed first-run state: what this screen is for, one sentence, one primary action. A bare "no results" teaches nothing and dead-ends the person who most needs guidance — the one seeing the screen for the first time.</p>
+    <div class="empty-state">
+      <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
+      <div class="empty-state__title">No saved views yet</div>
+      <div class="empty-state__text">Build a filter, then save it as a view. Saved views keep your columns, sort, and filters — and they're shareable with your team.</div>
+      <button class="button button--primary" type="button">Create your first view</button>
+    </div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+  <section class="specimen__section" id="brandcolor">
+    <h2 class="specimen__section-title">25. Brand color vs. the meaning colors</h2>
+    <p class="wp-prose">Red means danger and green means success inside an interface — those meanings are load-bearing. A product whose brand color is red or green therefore has a conflict: if the brand hue also paints buttons and links, every error banner and success badge competes with it. The research recommends role separation (the brand hue owns identity moments — logo, marketing, accent details — while interface semantics keep their own reserved hues) and hue distancing (shifting the interface's semantic red or green far enough from the brand hue that the two never read as the same color).</p>
+    <p class="wp-prose">Recommendation: role separation plus hue distancing, applied per brand skin. Full evidence in the brand-color research file pending its graduation into this chapter.</p>
+    <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
+  </section>
+
+  <section class="specimen__section" id="decisions">
+    <h2 class="specimen__section-title">26. How decisions get made</h2>
+    <p class="wp-prose">Each chapter above ends in a status: adopted as principle, recommendation pending, or options on display. The selection pass reads this document top to bottom and turns every pending status into a decision; each decision then flows down — into the agent rulebook as an enforceable rule, into the technical catalog as the surviving specification, and into both this document and the specimen, from which the losing options are removed in the same change.</p>
+    <p class="wp-prose">Two documents render the system and evolve in parallel by standing rule: this white paper, where every explanation sits beside its living example, and the specimen, the same catalog with no words. A change to any example lands in both, always, in the same commit.</p>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+  </section>
+
+</main>
+</body>
+</html>
