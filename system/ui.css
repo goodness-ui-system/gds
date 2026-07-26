@@ -304,6 +304,22 @@ html:has(#opt-family [value="mono"]:checked) .palette-family--mono { display: bl
 .menu__item--danger { color: var(--color-danger); }
 .menu__kbd { margin-left: auto; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); }
 .menu__divider { height: 1px; background: var(--color-border); margin: var(--space-1) 0; border: none; }
+.menu__label { font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.06em; padding: var(--space-2) var(--space-3) var(--space-1); }
+.menu__item--active { background: var(--color-selected-bg); color: var(--color-action); font-weight: var(--weight-medium); }
+.menu__stack { display: flex; flex-direction: column; }
+.menu__sub { font-size: var(--text-xs); color: var(--color-text-muted); font-weight: var(--weight-normal, 400); }
+.menu__check { margin-left: auto; color: var(--color-action); }
+
+/* ---- appearance control ---------------------------------------------------- */
+.theme-trigger { width: var(--control-h); height: var(--control-h); display: inline-flex; align-items: center; justify-content: center; }
+.theme-glyph--sun { display: none; }
+html:has(#opt-light:checked) .theme-glyph--sun { display: inline; }
+html:has(#opt-light:checked) .theme-glyph--moon { display: none; }
+.sysnote--dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .sysnote--dark { display: inline; }
+  .sysnote--light { display: none; }
+}
 
 /* ---- table editing options ------------------------------------------------ */
 .input--cell { height: auto; padding: var(--space-1) var(--space-2); font-size: var(--text-sm); width: 100%; min-width: 6rem; }

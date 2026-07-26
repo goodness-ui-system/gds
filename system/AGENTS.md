@@ -105,6 +105,11 @@ Gherkin-first, the forbidden-patterns tables) govern here too. What that means f
    The craft rules of parity (no pure white text on dark — halation; no pure black
    canvas; desaturate on dark; elevation by lightness; verify every pair in both
    modes) live in `research/theme-parity.md` and are encoded in the tokens.
+   The switching UI is the appearance control (`components.md` §2.15): one
+   header button opening a three-option menu — System · Light · Dark — with
+   the active choice checked and the System row stating what it resolves to.
+   Never a cycling toggle. Persistence of an override (session vs. stored per
+   user) is an open decision.
 4. Mono means something. The mono face marks code, IDs, timestamps, run labels, and
    numeric table columns — never prose.
 5. Density is a setting, not a redesign. Three steps on one axis via

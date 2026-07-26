@@ -1,0 +1,80 @@
+# The appearance control — how a person switches theme
+
+Research note. Named products are cited here because this folder is the one
+place citations are allowed; operating documents stay generic. Based on a
+design exploration delivered with an interactive mockup (menu vs. cycle,
+sun/moon vs. contrast circle, simulated device setting).
+
+## The question
+
+System-first theming decides which theme leads; a person still needs a
+control to override it. What should that control look like, where does it
+live, and how long should an override last?
+
+## The candidate everyone tries first: the cycling toggle
+
+One icon in the header; each click advances System → Light → Dark → System.
+It is the smallest possible control, and it fails for a structural reason: a
+cycling control must answer two different questions with one symbol — "what
+mode am I in?" and "what happens if I click?" A glyph cannot say both at
+once, so the reader always clicks and watches to find out. That guesswork is
+the exact confusion a theme control exists to remove. Rejected.
+
+## The converged pattern: the three-option menu
+
+The pattern shipped by macOS and iOS appearance settings and by GitHub,
+Vercel, and Linear: a trigger opens a small menu with System, Light, and
+Dark; the active choice is checked. It is what-you-see-is-what-you-get —
+every option visible, the outcome selected rather than discovered — and it
+is already learned, so there is nothing to teach.
+
+Two refinements complete it:
+
+1. The resolves-to line. The System row states what System currently means —
+   "Match device — currently Dark" — updated live if the device switches.
+   This fixes a real frustration: picking System blind and only discovering
+   the result afterward. In a zero-script implementation the line is two
+   prewritten spans toggled by a `prefers-color-scheme` media query.
+2. The honest trigger. The sun/moon glyph reports the current appearance —
+   sun when light, moon when dark (the GitHub/Vercel/Linear convention).
+   Because it merely reports while the menu chooses, the state-vs-action
+   collision never happens. The neutral alternative is the contrast circle ◐
+   (the Radix convention): it says "appearance" without picking a side —
+   state-agnostic, slightly less informative. Sun/moon is the recommended
+   default; the circle remains a legitimate option.
+
+## Trade-offs, plainly
+
+- Menu vs. cycle: the menu costs one extra tap to open and a little more
+  markup; it buys the end of current-vs-next ambiguity and keeps System one
+  click away at all times.
+- Sun/moon vs. circle: the glyph doubles as a live status readout but
+  implies a state, so it belongs with a menu, never alone; the circle is
+  neutral but says less.
+- Resolves-to line: one more line of text in the menu; it must track the
+  device live. Worth it — it teaches what System does at the exact moment
+  the knowledge is useful.
+
+## The open decision: how long an override lasts
+
+Session-scoped memory treats the operating system as the source of truth: a
+one-time override never hijacks future visits, and every session opens in
+System. A stored per-user choice — persisted server-side and rendered into
+the page so the wrong theme never flashes — respects a person who decided
+once and meant it. The first suits public sites; the second suits signed-in
+working applications. The methodology records both; the selection pass
+decides, possibly differently per context.
+
+## Sources
+
+- Apple Human Interface Guidelines — Dark Mode (appearance follows the
+  system; people can override per app):
+  https://developer.apple.com/design/human-interface-guidelines/dark-mode
+- GitHub — theme settings (System / Light / Dark menu, sun/moon convention):
+  https://docs.github.com/en/get-started/accessibility/managing-your-theme-settings
+- Radix UI — themes and the neutral contrast-circle trigger:
+  https://www.radix-ui.com/themes/docs/theme/dark-mode
+- web.dev — prefers-color-scheme and theme switching:
+  https://web.dev/articles/prefers-color-scheme
+- Interactive mockup accompanying this note (menu vs. cycle, icon styles,
+  simulated device setting): delivered in session, 2026-07-26.

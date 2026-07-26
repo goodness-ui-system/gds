@@ -289,6 +289,35 @@
     </div>
   </section>
 
+  <!-- ================= APPEARANCE ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Appearance control — System · Light · Dark</h2>
+
+    <div class="specimen__label">Trigger options — sun/moon (reports the current appearance; flip the Light switch above) · contrast circle (neutral)</div>
+    <div class="specimen__row">
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Appearance"><span class="theme-glyph--sun">☀</span><span class="theme-glyph--moon">☾</span></button>
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Appearance">◐</button>
+    </div>
+
+    <div class="specimen__label">The appearance menu — active choice checked; the System row states what it resolves to right now</div>
+    <div class="specimen__row">
+      <div class="menu" role="menu" aria-label="Appearance">
+        <div class="menu__label">Appearance</div>
+        <button class="menu__item menu__item--active" type="button" role="menuitemradio" aria-checked="true">
+          <span class="menu__stack"><span>System</span><span class="menu__sub">Match device — currently <span class="sysnote--light">Light</span><span class="sysnote--dark">Dark</span></span></span>
+          <span class="menu__check">✓</span>
+        </button>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Light</button>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Dark</button>
+      </div>
+    </div>
+
+    <div class="specimen__label">Rejected — the cycling toggle (one icon, three hidden states)</div>
+    <div class="specimen__row">
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Cycle theme">☾</button>
+    </div>
+  </section>
+
   <!-- ================= DASHBOARD ================= -->
   <section class="specimen__section">
     <h2 class="specimen__section-title">Dashboard — KPI tiles &amp; cards</h2>

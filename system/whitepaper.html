@@ -164,6 +164,29 @@
     <h2 class="specimen__section-title">3. Dark and light as equals — and the halation problem</h2>
     <p class="wp-prose">The system treats dark and light as two equal renderings of the same design, not a main theme and an afterthought. The operating system's preference leads (via the standard <code>prefers-color-scheme</code> signal), and a stored per-user choice overrides it. Every color pair is contrast-solved independently in both themes and verified by an automated checker against the WCAG accessibility floors (WCAG is the international standard for readable contrast).</p>
     <p class="wp-prose">Dark mode has a trap of its own called halation: pure white text on a dark background scatters in the eye and appears to glow, with a halo around each letter — especially for readers with astigmatism. The published evidence converges on the fix: dark-theme text is never pure white but a light gray in the #DEDEDE–#EBEBEB band, and the canvas is never pure black. Those ceilings are enforced by the same checker that enforces the contrast floors — flip the Light theme switch above and note that both renderings hold.</p>
+
+    <div class="specimen__label">The appearance control — how a person switches</div>
+    <p class="wp-prose">System-first theming needs a visible control, and the control has a settled shape: one button in the header opens a small menu with exactly three choices — System, Light, Dark. The active choice is checked, and the System row tells the reader what it resolves to right now ("Match device — currently Dark"), so nobody picks System blind and discovers the result afterward. Every option is visible before anything is clicked; the reader selects an outcome instead of guessing.</p>
+    <p class="wp-prose">The obvious-seeming alternative — a single icon that cycles through the three modes on each click — is rejected, because a cycling control must answer two different questions with one symbol: "what mode am I in?" and "what happens if I click?" No icon can say both at once, so the reader always has to click and watch to find out — the exact confusion the control exists to remove.</p>
+    <p class="wp-prose">The trigger itself offers two candidate styles. The sun/moon glyph reports the current appearance honestly — a sun when the page is light, a moon when it is dark — while the menu handles the choosing, so the two jobs never collide. The contrast circle (◐) is the neutral alternative: it says "appearance" without picking a side — less informative, but state-agnostic. Both render below; the sun/moon in this document follows the Light switch above.</p>
+    <div class="specimen__row">
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Appearance"><span class="theme-glyph--sun">☀</span><span class="theme-glyph--moon">☾</span></button>
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Appearance">◐</button>
+    </div>
+    <p class="wp-prose">The menu, with the resolves-to line under System — on this page that line is driven purely by a stylesheet media query reading the device preference, no script:</p>
+    <div class="specimen__row">
+      <div class="menu" role="menu" aria-label="Appearance">
+        <div class="menu__label">Appearance</div>
+        <button class="menu__item menu__item--active" type="button" role="menuitemradio" aria-checked="true">
+          <span class="menu__stack"><span>System</span><span class="menu__sub">Match device — currently <span class="sysnote--light">Light</span><span class="sysnote--dark">Dark</span></span></span>
+          <span class="menu__check">✓</span>
+        </button>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Light</button>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Dark</button>
+      </div>
+    </div>
+    <p class="wp-prose">One question stays open: how long an override lasts. Session-scoped memory treats the device setting as the source of truth — a one-time choice never hijacks future visits, and the site greets every session in System. A stored per-user choice, rendered by the server so the page never flashes the wrong theme, respects a person who has decided once and means it. The first suits public sites; the second suits the signed-in working applications this system targets. Both remain on the table.</p>
+    <p class="wp-prose">Recommendation: the three-option menu with the resolves-to line, always opening in System; sun/moon as the default trigger; the cycling toggle never. Persistence — session-scoped vs. stored per user — is the pending decision, and may legitimately differ between public sites and signed-in applications.</p>
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
     <p class="wp-sources">Sources: <a href="https://m2.material.io/design/color/dark-theme.html">Material Design — dark theme (87% white)</a> · <a href="https://www.nngroup.com/articles/dark-mode-users-issues/">Nielsen Norman Group — dark mode research</a> · <a href="https://git.apcacontrast.com/documentation/WhyAPCA">APCA contrast method</a> · <a href="research/theme-parity.md">full evidence record</a></p>
   </section>

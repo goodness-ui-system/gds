@@ -261,6 +261,32 @@ part of the convention, and why:</p>
 </ul>
 <p>Evidence and the history of the confusion: research/enter-key.md. Live
 examples: the specimen's keyboard-conventions section.</p>
+<h3>2.15 Appearance control — System · Light · Dark</h3>
+<p>The visible half of system-first theming (principle 3): one button in the
+header opens a menu with exactly three choices. Every part, and why:</p>
+<ul>
+<li>Three options, not two. System is a first-class choice, always one click
+  away — never buried behind "advanced". The site opens in System.</li>
+<li>The menu, not a cycle. A single icon that cycles modes must answer "what
+  mode am I in?" and "what happens if I click?" with one symbol; it cannot.
+  The menu is what-you-see-is-what-you-get: all options visible, the active
+  one checked. The cycling toggle is rejected.</li>
+<li>The resolves-to line. The System row states what it currently means —
+  "Match device — currently Dark" — so nobody picks System blind. Rendered
+  with zero script: two prewritten spans, one shown by a
+  <code>prefers-color-scheme</code> media query.</li>
+<li>Trigger options: sun/moon (reports the current appearance — sun when
+  light, moon when dark; the icon reports, the menu chooses) or the neutral
+  contrast circle ◐. Sun/moon is the recommended default.</li>
+<li>Honest-stack mapping: the menu is a server-rendered overlay; choosing posts
+  to the preferences endpoint and the server re-renders with <code>data-theme</code>
+  set (or absent, for System) — no flash of the wrong theme, no client
+  state.</li>
+</ul>
+<p>Open decision: override persistence. Session-scoped (device stays the source
+of truth; every visit greets in System) vs. stored per user (a decision made
+once holds). May legitimately differ between public sites and signed-in
+applications. Evidence and named prior art: research/theme-control.md.</p>
 <hr />
 <h2>3 · Organisms</h2>
 <h3>3.0 Section &amp; separator — the default layout unit</h3>
