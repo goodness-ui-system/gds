@@ -752,7 +752,9 @@
       <a class="tabs__tab" href="#tabs">Due diligence</a>
       <a class="tabs__tab" href="#tabs">History</a>
     </nav>
-    <div class="specimen__label">Dropdown menu — the one legitimate floating box</div>
+    <div class="specimen__label">Dropdown family — the one legitimate floating box, three kinds</div>
+
+    <div class="specimen__label">Action menu — commands on a record; the consequential choice stands apart</div>
     <div class="specimen__row">
       <div class="menu" role="menu" aria-label="Demo menu">
         <button class="menu__item" type="button" role="menuitem">Open <span class="menu__kbd">↵</span></button>
@@ -760,6 +762,30 @@
         <button class="menu__item" type="button" role="menuitem">Duplicate <span class="menu__kbd">⌘D</span></button>
         <hr class="menu__divider">
         <button class="menu__item menu__item--danger" type="button" role="menuitem">Archive</button>
+      </div>
+    </div>
+
+    <div class="specimen__label">Single-select menu — pick one; the current choice is checked; closes on pick</div>
+    <div class="specimen__row">
+      <div class="menu" role="menu" aria-label="Row height">
+        <div class="menu__label">Row height</div>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Short</button>
+        <button class="menu__item menu__item--active" type="button" role="menuitemradio" aria-checked="true">Medium <span class="menu__check">✓</span></button>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Tall</button>
+      </div>
+    </div>
+
+    <div class="specimen__label">Multi-select menu — checkboxes, search first, stays open while choosing, count + clear</div>
+    <div class="specimen__row">
+      <div class="menu" aria-label="Filter by owner">
+        <div class="menu__label">Owner</div>
+        <input class="input panel__search" type="search" placeholder="Find an owner">
+        <label class="menu__item"><input class="checkbox" type="checkbox" checked> K. Lane</label>
+        <label class="menu__item"><input class="checkbox" type="checkbox" checked> J. Doe</label>
+        <label class="menu__item"><input class="checkbox" type="checkbox"> T. Shaw</label>
+        <label class="menu__item"><input class="checkbox" type="checkbox"> A. Marsh</label>
+        <hr class="menu__divider">
+        <div class="menu__footer"><span>2 selected</span><button class="menu__clear" type="button">Clear</button></div>
       </div>
     </div>
   </section>

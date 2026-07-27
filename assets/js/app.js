@@ -27,6 +27,7 @@
     "r-tablescroll":    { title: "Table Scroll",        src: "pages/system/research-table-scroll.html", bleed: false },
     "r-tablerows":      { title: "Table Rows",          src: "pages/system/research-table-rows.html", bleed: false },
     "r-tabs":           { title: "Tabs",                src: "pages/system/research-tabs.html", bleed: false },
+    "r-dropdowns":      { title: "Dropdowns",           src: "pages/system/research-dropdowns.html", bleed: false },
 
     "get-started":      { title: "Get Started",       src: "pages/get-started.html",       bleed: false },
     "tokens":           { title: "Design Tokens",     src: "pages/tokens.html",            bleed: false },

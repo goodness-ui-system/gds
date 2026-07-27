@@ -350,9 +350,34 @@ filters"), sits with the controls it clears rather than beside ones it does
 not, and never becomes the only way to clear something that could clear
 itself.
 
-### 2.3 Dropdown menu
-Button-opened action list; the fragment arrives from the server open.
-Options: items, `--danger` item, dividers, kbd hints. Carries `--shadow-overlay`.
+### 2.3 Dropdown menu — a family of three
+Button-opened floating list; the fragment arrives from the server open.
+Carries `--shadow-overlay` (overlays are the one legitimate floating box).
+"Dropdown" is not one component — the kind is decided by what the reader is
+doing, and mixing the kinds produces most dropdown misery:
+
+- Action menu — commands (verbs) on a record: open, rename, duplicate,
+  archive. Closes when a command fires. Options: items, `--danger` item,
+  dividers, kbd hints. The consequential-action rule governs the inside (see
+  below).
+- Single-select menu — pick exactly one of a small set (row height, sort
+  direction). The current choice is checked (`menu__item--active` + ✓) so
+  state is visible before clicking; closes on pick. Under about five options
+  with room on screen, prefer visible controls (radios, a segmented control)
+  over hiding choices behind a click — the dropdown is the fallback, not the
+  reflex.
+- Multi-select menu — several choices at once (filter by owners, apply
+  tags). Checkboxes, not checkmarks — the square box is the learned signal
+  that more than one can be ticked. Stays OPEN while choosing (closing after
+  each tick, forcing a reopen per choice, is the most common multi-select
+  mistake). A search field sits first whenever the list is long — past
+  roughly ten items scanning loses to typing. A footer shows the selection
+  count and one Clear. Applied choices echo outside the menu as removable
+  chips (§2.12), so state survives the menu closing.
+
+Honest mapping: all three are server-rendered fragments; a multi-select tick
+posts the new selection and the server re-renders the menu fragment (still
+open) plus the chip-bar and the table. Evidence: research/dropdowns.md.
 
 The consequential-action rule (applies to every action list in the system —
 dropdown menus, the view menu, context menus, bulk-actions bars, palette action

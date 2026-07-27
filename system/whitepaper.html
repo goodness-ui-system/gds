@@ -721,8 +721,10 @@
 </div>
     <p class="specimen__note">Four parts carry the style. The rail is one continuous hairline, not a border per child — a per-item border breaks at every row gap and reads as a stack of unrelated fragments rather than a branch. It descends from the centre of the parent's icon, so the children visibly hang from the row that owns them rather than from the panel edge. The children are muted at rest, because they are the second level and the parent carries the group's weight; hover restores full text colour. And the children take no icons: icons mark the top level only, so a child row can never be mistaken for a parent — the indent and the rail already say where it sits. The active child can be marked two ways, and an application picks one and never mixes them. The rail segment, shown second, replaces a length of the branch with the accent: position stays legible while the fill remains reserved for the top level, so the two depths stay distinguishable at a glance — the quieter option, and the default. The fill, shown third, marks the child the way the top level marks itself: impossible to miss, at the cost of that depth cue, and the right choice where level two is where the reader actually lives rather than a place they pass through. Depth stops here either way: two levels, never three.</p>
 
-    <div class="specimen__label">Dropdown menu — the one legitimate floating box</div>
-    <p class="specimen__note">A dropdown is an overlay: it floats above other content, so it needs an edge and a shadow to read as a separate layer. That is a requirement of floating, not a card by choice — overlays (menus, dialogs, palettes) are the exception the no-cards rule allows.</p>
+    <div class="specimen__label">The dropdown family — the one legitimate floating box, three kinds</div>
+    <p class="specimen__note">A dropdown is an overlay: it floats above other content, so it needs an edge and a shadow to read as a separate layer. That is a requirement of floating, not a card by choice — overlays (menus, dialogs, palettes) are the exception the no-cards rule allows. But "dropdown" is not one thing: the floating box comes in three kinds, and confusing them produces most dropdown misery. The kind is decided by what the reader is doing — issuing a command, picking one option, or picking several.</p>
+
+    <p class="wp-prose">The action menu holds commands — verbs that do something to a record: open, rename, duplicate, archive. It closes as soon as a command fires, and the consequential-action rule governs its inside: the gravest choice takes the danger color, sits last, and is separated by a divider, so the eye finds it deliberately and never by accident.</p>
     <div class="specimen__row">
       <div class="menu" role="menu" aria-label="Demo menu">
         <button class="menu__item" type="button" role="menuitem">Open <span class="menu__kbd">↵</span></button>
@@ -732,6 +734,32 @@
         <button class="menu__item menu__item--danger" type="button" role="menuitem">Archive</button>
       </div>
     </div>
+
+    <p class="wp-prose">The single-select menu holds a choice — pick exactly one of a small set, like a row height or a sort direction. The current choice is checked so the state is visible before anything is clicked, and the menu closes the moment a new choice is made, because the job is done. A caution from the research: when the set has fewer than about five options and the screen has room, visible controls (radio buttons, a segmented control) beat hiding the options behind a click at all — the dropdown is the fallback, not the reflex.</p>
+    <div class="specimen__row">
+      <div class="menu" role="menu" aria-label="Row height">
+        <div class="menu__label">Row height</div>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Short</button>
+        <button class="menu__item menu__item--active" type="button" role="menuitemradio" aria-checked="true">Medium <span class="menu__check">✓</span></button>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Tall</button>
+      </div>
+    </div>
+
+    <p class="wp-prose">The multi-select menu holds several choices at once — filter by three owners, tag with two labels. Its rules follow from that job. Checkboxes, not checkmarks, because a square box is the learned signal that more than one can be ticked. The menu stays open while choosing — a menu that closes after every tick forces the reader to reopen it once per choice, which is the single most common multi-select mistake. A search field sits first whenever the list is long (past roughly ten items, scanning loses to typing), and a footer counts the selection and offers one Clear, so the current state and the way out are both always visible.</p>
+    <div class="specimen__row">
+      <div class="menu" aria-label="Filter by owner">
+        <div class="menu__label">Owner</div>
+        <input class="input panel__search" type="search" placeholder="Find an owner">
+        <label class="menu__item"><input class="checkbox" type="checkbox" checked> K. Lane</label>
+        <label class="menu__item"><input class="checkbox" type="checkbox" checked> J. Doe</label>
+        <label class="menu__item"><input class="checkbox" type="checkbox"> T. Shaw</label>
+        <label class="menu__item"><input class="checkbox" type="checkbox"> A. Marsh</label>
+        <hr class="menu__divider">
+        <div class="menu__footer"><span>2 selected</span><button class="menu__clear" type="button">Clear</button></div>
+      </div>
+    </div>
+    <p class="wp-prose">Recommendation: name the kind before drawing the box. Commands get the action menu with the consequential rule; one-of-a-few gets the single-select menu (or visible controls when room allows); several-of-many gets checkboxes, stay-open behavior, search first, and a count with Clear. Evidence and named prior art: the dropdowns research note.</p>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
     <p class="wp-prose">How tall may a floating box grow? As tall as the window allows. Any popover opened from a control — a dropdown menu, the view panel, the sort list, the field panel — sizes itself to its content and grows downward until it stops one gutter short of the window's bottom edge (about a hundred pixels, the popover-gutter token); only past that point does its list begin to scroll internally. The rule exists so the scrolling is honest: a taller window simply shows more items, a short window scrolls sooner, and no popover ever caps itself at an arbitrary item count while the screen below it sits empty. Where the space beneath the control is too shallow, the box opens upward under the same gutter. The one exception is the command palette, which sizes from the center of the screen by its own rule.</p>
     <div class="wp-status"><span class="badge badge--success">Rail principle adopted</span> <span class="badge badge--info">Anatomy options on display — decision pending</span></div>
     <div class="wp-sources">Sources: W3C ARIA Authoring Practices (disclosure navigation; the anti-menubar caution) · Nielsen Norman Group (hidden navigation, vertical navigation, accordion icons) · IBM Carbon UI shell and writing style · GitHub Primer NavList and the details reset · Shopify Polaris navigation · Microsoft Fluent 2 Nav and Style Guide · Salesforce Lightning vertical navigation · Google Material navigation drawer · GOV.UK and MoJ side navigation and accordion research · Adrian Roselli, "Don't Use ARIA Menu Roles for Site Nav" · full record: research/menus.md</div>
