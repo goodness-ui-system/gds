@@ -22,6 +22,7 @@
     "r-rowactions":     { title: "Row Actions",         src: "pages/system/research-row-actions.html",   bleed: false },
     "r-enter":          { title: "The Enter Key",       src: "pages/system/research-enter-key.html",     bleed: false },
     "r-theme-control":  { title: "The Appearance Control", src: "pages/system/research-theme-control.html", bleed: false },
+    "r-selection":      { title: "Selection Controls",  src: "pages/system/research-selection-controls.html", bleed: false },
 
     "get-started":      { title: "Get Started",       src: "pages/get-started.html",       bleed: false },
     "tokens":           { title: "Design Tokens",     src: "pages/tokens.html",            bleed: false },

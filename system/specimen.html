@@ -182,6 +182,100 @@
     </div>
   </section>
 
+  <!-- ================= SELECTION CONTROLS ================= -->
+  <section class="specimen__section">
+    <h2 class="specimen__section-title">Selection controls — the choice family</h2>
+
+    <div class="specimen__label">Checkbox, drawing option A — native (browser-drawn, accent-color)</div>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox" type="checkbox" checked> Checked</label>
+      <label class="choice"><input class="checkbox" type="checkbox"> Unchecked</label>
+      <label class="choice"><input class="checkbox" type="checkbox" checked disabled> Disabled</label>
+    </div>
+    <div class="specimen__label">Checkbox, drawing option B — custom-drawn, with the mixed state</div>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" checked> Checked</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox"> Unchecked</label>
+      <label class="choice"><input class="checkbox checkbox--drawn checkbox--mixed" type="checkbox"> Mixed — some of a set</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" checked disabled> Disabled</label>
+    </div>
+
+    <div class="specimen__label">Radio, drawing option A — native · drawing option B — custom-drawn</div>
+    <div class="specimen__row">
+      <label class="choice"><input class="radio" type="radio" name="sr1" checked> Monthly</label>
+      <label class="choice"><input class="radio" type="radio" name="sr1"> Quarterly</label>
+      <label class="choice"><input class="radio radio--drawn" type="radio" name="sr2" checked> Monthly</label>
+      <label class="choice"><input class="radio radio--drawn" type="radio" name="sr2"> Quarterly</label>
+      <label class="choice"><input class="radio radio--drawn" type="radio" name="sr2" disabled> Disabled</label>
+    </div>
+
+    <div class="specimen__label">Switch — md · sm · disabled (immediate effect; never beside a Save button)</div>
+    <div class="specimen__row">
+      <label class="switch"><input class="switch__track" type="checkbox" switch role="switch" checked> Auto-refresh</label>
+      <label class="switch"><input class="switch__track" type="checkbox" switch role="switch"> Live totals</label>
+      <label class="switch switch--sm"><input class="switch__track" type="checkbox" switch role="switch" checked> Compact</label>
+      <label class="switch"><input class="switch__track" type="checkbox" switch role="switch" disabled> Disabled</label>
+    </div>
+    <div class="specimen__label">Switch rows — the settings-list presentation</div>
+    <div class="section-stack">
+      <label class="switch-row">
+        <span class="switch-row__text"><span class="switch-row__title">Email digests</span><span class="switch-row__desc">A morning summary of changes in watched views.</span></span>
+        <input class="switch__track" type="checkbox" switch role="switch" checked>
+      </label>
+      <label class="switch-row">
+        <span class="switch-row__text"><span class="switch-row__title">Sound on completion</span><span class="switch-row__desc">Play a tone when a long export finishes.</span></span>
+        <input class="switch__track" type="checkbox" switch role="switch">
+      </label>
+    </div>
+    <div class="specimen__label">The anti-pattern — state words inside the track (shown to be rejected)</div>
+    <div class="specimen__row">
+      <label class="switch"><input class="switch__track switch__track--worded" type="checkbox" switch role="switch" checked> Notifications</label>
+      <label class="switch"><input class="switch__track switch__track--worded" type="checkbox" switch role="switch"> Notifications</label>
+    </div>
+
+    <div class="specimen__label">Segmented control, option A — raised segment · option B — tinted accent · with counts</div>
+    <div class="specimen__row">
+      <div class="segmented">
+        <input class="segmented__input" type="radio" name="seg1" id="seg1-d" checked><label class="segmented__btn" for="seg1-d">Day</label>
+        <input class="segmented__input" type="radio" name="seg1" id="seg1-w"><label class="segmented__btn" for="seg1-w">Week</label>
+        <input class="segmented__input" type="radio" name="seg1" id="seg1-m"><label class="segmented__btn" for="seg1-m">Month</label>
+      </div>
+      <div class="segmented segmented--accent">
+        <input class="segmented__input" type="radio" name="seg2" id="seg2-a" checked><label class="segmented__btn" for="seg2-a">All</label>
+        <input class="segmented__input" type="radio" name="seg2" id="seg2-o"><label class="segmented__btn" for="seg2-o">Open</label>
+        <input class="segmented__input" type="radio" name="seg2" id="seg2-c"><label class="segmented__btn" for="seg2-c">Closed</label>
+      </div>
+      <div class="segmented">
+        <input class="segmented__input" type="radio" name="seg3" id="seg3-a" checked><label class="segmented__btn" for="seg3-a">All <span class="segmented__count">128</span></label>
+        <input class="segmented__input" type="radio" name="seg3" id="seg3-o"><label class="segmented__btn" for="seg3-o">Open <span class="segmented__count">34</span></label>
+        <input class="segmented__input" type="radio" name="seg3" id="seg3-x"><label class="segmented__btn" for="seg3-x">Overdue <span class="segmented__count">7</span></label>
+      </div>
+    </div>
+
+    <div class="specimen__label">Toggle button — pressed state via aria-pressed · labeled · icon-only pair</div>
+    <div class="specimen__row">
+      <button class="toggle-btn" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Watch</button>
+      <button class="toggle-btn" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Watch</button>
+      <button class="toggle-btn toggle-btn--icon" type="button" aria-pressed="true" aria-label="Bold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/><path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/></svg></button>
+      <button class="toggle-btn toggle-btn--icon" type="button" aria-pressed="false" aria-label="Italic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg></button>
+    </div>
+
+    <div class="specimen__label">Choice chips — many-of-many as compact pills (a checkbox group in chip clothing)</div>
+    <div class="specimen__row">
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox" checked><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> Open</span></label>
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox" checked><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> In review</span></label>
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox"><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> Blocked</span></label>
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox"><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> Done</span></label>
+    </div>
+
+    <div class="specimen__label">Option tiles — a radio dressed as a small card, for choices that need a description</div>
+    <div class="specimen__row">
+      <label class="option-tile"><input class="option-tile__input" type="radio" name="tier" checked><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Standard</span><span class="option-tile__desc">Nightly sync, 30-day history.</span></span></span></label>
+      <label class="option-tile"><input class="option-tile__input" type="radio" name="tier"><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Extended</span><span class="option-tile__desc">Hourly sync, 1-year history.</span></span></span></label>
+      <label class="option-tile"><input class="option-tile__input" type="radio" name="tier"><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Audit</span><span class="option-tile__desc">Continuous sync, full history.</span></span></span></label>
+    </div>
+  </section>
+
   <!-- ================= STATUS ================= -->
   <section class="specimen__section">
     <h2 class="specimen__section-title">Badges, chips &amp; status</h2>

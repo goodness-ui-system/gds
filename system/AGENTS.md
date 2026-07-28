@@ -198,7 +198,12 @@ example and explanation, including the full View System — is `components.md`.
 | Button | `primary · secondary · ghost · danger · link` | primary = clay pill, the only one; icon-only variant; loading via `hx-indicator` |
 | Input / Textarea | `default · invalid` | native validation; server-rendered error |
 | Select | `default · invalid` | native `<select>`; multiselect = chips |
-| Checkbox / Radio / Switch | — | native inputs, `accent-color` token |
+| Checkbox / Radio | `native · drawn` (candidates) | wrapped in `.choice`; mixed state server-rendered (`aria-checked="mixed"`) |
+| Switch | `md · sm`; row presentation | immediate effect only — never beside a Save button; checkbox + `role="switch"` (+ native `switch` attr), never `aria-checked` |
+| Segmented control | `raised · accent`; counts | candidate; one-of-few values/scopes, 2–5 segments; hidden radios, zero JS |
+| Toggle button | `labeled · icon-only` | candidate; `aria-pressed` server-rendered; pressed ≠ color alone |
+| Choice chip | — | candidate; many-of-many filter facets; hidden checkbox + pill |
+| Option tile | — | candidate; radio-as-card with visible dot; one interactive element per tile |
 | Badge | `neutral · success · warning · danger · info · accent` | dot + tinted field |
 | Chip (removable) | `default` | filter tokens; `hx-delete` to remove |
 | Avatar | `sm · md · lg` | initials fallback |
