@@ -411,8 +411,26 @@ row); active item via `aria-current="page"` from the request path; `hx-boost` fo
 instant transitions.
 
 ### 3.2 Sidebar nav
-Sections (uppercase xs labels), items with optional mono counts, collapsible groups
-(`<details>`), active state in `--color-selected-bg`.
+Anatomy options on display (whitepaper, Navigation chapter; decision pending):
+
+- Group label: uppercase eyebrow (`.sidenav__section`) · sentence case
+  (`.sidenav__section--sentence`). Static text, never a link.
+- Item casing: title case · sentence case — one is chosen per application,
+  never mixed.
+- Icons: none · small (`.sidenav__icon`, 1rem — matches the text) · large
+  (`.sidenav--icons-lg`, 1.25rem — leads the row). All-or-none per menu;
+  Lucide only; the word is always present.
+- Active item: tinted pill (default) · solid ink pill (`.sidenav--active-solid`)
+  · left accent bar (`.sidenav--active-bar`). Never color alone.
+- Separators: titled group when the group has a name; bare hairline
+  (`.sidenav__divider`) when it does not; never both between the same neighbors.
+- Submenus: always-open with connector line (`.sidenav__item--sub`) ·
+  collapsible native `<details>` group (`.sidenav__group` +
+  `.sidenav__group-summary`, chevron right→down, zero JS; server renders
+  frequent groups `open`) · second column (`.sidenav--secondary`) when a parent
+  has dozens of children — the drill-in. One level of nesting; a parent either
+  navigates or toggles, never both.
+- Items may carry mono counts (`.sidenav__count`).
 
 Not a card: the sidebar is a flat rail sitting directly on the page background,
 separated from the content by a single vertical hairline — the sections-not-cards

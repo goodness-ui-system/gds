@@ -8,7 +8,7 @@
     "home":             { title: "Home",              src: "pages/hero.html",              bleed: true  },
 
     "whitepaper":       { title: "White Paper",         src: "system/whitepaper.html",                bleed: true  },
-    "specimen":         { title: "Specimen",            src: "system/specimen.html",                  bleed: true  },
+    "specimen":         { title: "Specimen",            src: "system/specimen.html",                  bleed: true, subnav: true },
     "sys-components":   { title: "Components Catalog",  src: "pages/system/components-catalog.html",  bleed: false },
     "sys-agents":       { title: "Agent Manual",        src: "pages/system/agent-manual.html",        bleed: false },
     "sys-enforcement":  { title: "Enforcement",         src: "pages/system/enforcement.html",         bleed: false },
@@ -23,6 +23,7 @@
     "r-enter":          { title: "The Enter Key",       src: "pages/system/research-enter-key.html",     bleed: false },
     "r-theme-control":  { title: "The Appearance Control", src: "pages/system/research-theme-control.html", bleed: false },
     "r-selection":      { title: "Selection Controls",  src: "pages/system/research-selection-controls.html", bleed: false },
+    "r-menus":          { title: "Menus",               src: "pages/system/research-menus.html", bleed: false },
 
     "get-started":      { title: "Get Started",       src: "pages/get-started.html",       bleed: false },
     "tokens":           { title: "Design Tokens",     src: "pages/tokens.html",            bleed: false },
@@ -62,6 +63,7 @@
     document.title = "Goodness UI · " + route.title;
     if (tbTitle) tbTitle.textContent = route.title;
     setActive(key);
+    document.body.classList.toggle("subnav-open", !!route.subnav);
     document.body.classList.remove("nav-open"); // close mobile nav on navigate
   }
 
@@ -76,6 +78,13 @@
   document.addEventListener("click", function (e) {
     if (e.target.closest("[data-burger]")) document.body.classList.toggle("nav-open");
     if (e.target.closest(".scrim"))        document.body.classList.remove("nav-open");
+    // subnav: mark the clicked section link active
+    var sublink = e.target.closest(".subnav a");
+    if (sublink) {
+      var links = document.querySelectorAll(".subnav a");
+      for (var i = 0; i < links.length; i++) links[i].classList.remove("active");
+      sublink.classList.add("active");
+    }
   });
 
   render();

@@ -480,6 +480,132 @@
         <p class="section-stack__text">Tabs draw one shared baseline; the selected tab carries the only accent. The content area starts here, one hairline away from the rail — no box around either side.</p>
       </div>
     </div>
+    <div class="specimen__label">The side menu — anatomy</div>
+    <p class="wp-prose">The rail's principle is settled; its anatomy still holds open choices, and each one below is shown as options to pick from. The questions: how a group announces itself, how the items are written, whether they carry icons and at what size, how the current item is marked, what separates one run of items from the next, and how a group folds.</p>
+    <p class="wp-prose">The group label. The small heading above a group of items comes in two styles. The uppercase eyebrow, letterspaced and muted, reads unmistakably as furniture — nobody tries to click it. The sentence-case label is quieter and closer to the items' own voice, and it carries the readability argument: all-capitals text is measurably slower to read because word shapes disappear, which is why several major systems ban it. Either way the label is static text, never a link — and if uppercase is chosen, the transform lives in the stylesheet, never typed into the content, so the style can change later without touching a word.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Group label, uppercase eyebrow">
+        <div class="sidenav__section">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Improvements</a>
+      </nav>
+      <nav class="sidenav" aria-label="Group label, sentence case">
+        <div class="sidenav__section sidenav__section--sentence">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Improvements</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Item casing. Two schools govern how the items themselves are written. Title case capitalizes every main word and gives each item the weight of a proper name. Sentence case capitalizes only the first word; most published content style guides prescribe it for interfaces, partly because it survives translation better and stays calm when labels grow long. The system picks one and never mixes the two in one application.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Items in title case">
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item" href="#nav">Firm Locations</a>
+        <a class="sidenav__item" href="#nav">Field Offices</a>
+        <a class="sidenav__item" href="#nav">Access Requests</a>
+      </nav>
+      <nav class="sidenav" aria-label="Items in sentence case">
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item" href="#nav">Firm locations</a>
+        <a class="sidenav__item" href="#nav">Field offices</a>
+        <a class="sidenav__item" href="#nav">Access requests</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Icons. Whether items carry a leading icon is an all-or-none decision per menu — one icon-less row in an icon'd menu looks broken, so a menu commits either way. With icons on, two sizes are on display: small, matching the text's own size, so the icon reads as part of the line; and large, one step bigger, so the icon leads the row and the eye can navigate by shape alone. Icons come from the system's single line-icon set, drawn with the same stroke as the interface, and never carry meaning alone — the word is always there.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="No icons">
+        <a class="sidenav__item" href="#nav" aria-current="page">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Tables</a>
+        <a class="sidenav__item" href="#nav">People</a>
+      </nav>
+      <nav class="sidenav" aria-label="Small icons, matching the text">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--icons-lg" aria-label="Large icons, leading the row">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+    </div>
+    <p class="wp-prose">The active item. Three markings are on display. The tinted pill — the accent color at low strength behind the row — is the system's standing default: visible, quiet, and it keeps the accent's meaning (the accent marks the current place). The solid ink pill inverts the row entirely — the loudest option, unmistakable at any glance, at the cost of a heavy shape on an otherwise flat rail. The left accent bar is the quietest: the rail stays completely flat and a two-pixel bar marks the place. Whichever is chosen, the marking never rests on color alone — the filled or barred shape carries it.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Active as tinted pill">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--active-solid" aria-label="Active as solid ink pill">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--active-bar" aria-label="Active as left bar">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Separators. A group with a name gets a titled label; a run of items that merely changes topic gets a bare hairline divider — settings and help pinned at the bottom of a rail are the classic case. Never both between the same neighbors: a title already separates.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Titled group then untitled divider">
+        <div class="sidenav__section">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <hr class="sidenav__divider">
+        <a class="sidenav__item" href="#nav">Settings</a>
+        <a class="sidenav__item" href="#nav">Help &amp; Support</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Submenus. Two candidates fold a group of children under a parent. Always-open shows everything: children sit indented under a connector line, nothing is ever hidden, and the cost is a longer rail. Collapsible puts the children behind the parent row: the native disclosure element supplies the open-and-close behavior with no script at all, the chevron sits at the row's end pointing right when closed and turning down when open — the prevailing convention, though timed testing mildly favors a leading chevron for its constant click position — and the whole row is the toggle target, never just the icon. The server can render frequently-used groups already open, and a third route exists that needs no toggle at all: the group holding the current page renders open because the server knows the route. One discipline keeps collapsible groups honest: a parent row either navigates or toggles, never both — a row that does two things from one click teaches the reader to trust neither. Nesting stops at one level of children; a third level is a sign the navigation needs restructuring, not deeper indentation. The connector line beside the children in the always-open example is honestly labeled a borrowed look — it comes from tree views, not from any surveyed side menu.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Submenu always open">
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
+        <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
+        <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+        <a class="sidenav__item" href="#nav">Implementation</a>
+      </nav>
+      <nav class="sidenav" aria-label="Submenu collapsible">
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <details class="sidenav__group" open>
+          <summary class="sidenav__group-summary">Directories <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+        </details>
+        <details class="sidenav__group">
+          <summary class="sidenav__group-summary">Evidence <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Improvements</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Tables</a>
+        </details>
+        <a class="sidenav__item" href="#nav">Implementation</a>
+      </nav>
+    </div>
+    <p class="wp-prose">When a group outgrows the rail — a document’s sections, a deep settings tree, dozens of children — neither folding nor indentation saves it: a fold that tall still scrolls, and indentation that deep stops reading as structure. The third candidate is the second column: the parent stays a single item on the rail, and its children move into a column of their own beside it, one hairline away, with a quiet title of its own. This site’s own specimen menu works exactly this way. The rule of thumb: fold a handful of children under a parent; give a parent with dozens its own column.</p>
+    <div class="specimen__row">
+      <div class="shell-demo">
+        <nav class="sidenav" aria-label="Primary rail">
+          <a class="sidenav__item" href="#nav">Home</a>
+          <a class="sidenav__item" href="#nav" aria-current="page">Specimen</a>
+          <a class="sidenav__item" href="#nav">Enforcement</a>
+        </nav>
+        <nav class="sidenav sidenav--secondary" aria-label="Section list">
+          <div class="sidenav__section">Specimen · Sections</div>
+          <a class="sidenav__item" href="#nav">Color</a>
+          <a class="sidenav__item" href="#nav">Typography</a>
+          <a class="sidenav__item" href="#nav" aria-current="page">Selection Controls</a>
+          <a class="sidenav__item" href="#nav">Navigation</a>
+          <a class="sidenav__item" href="#nav">Data Table</a>
+        </nav>
+      </div>
+    </div>
     <div class="specimen__label">Dropdown menu — the one legitimate floating box</div>
     <p class="specimen__note">A dropdown is an overlay: it floats above other content, so it needs an edge and a shadow to read as a separate layer. That is a requirement of floating, not a card by choice — overlays (menus, dialogs, palettes) are the exception the no-cards rule allows.</p>
     <div class="specimen__row">
@@ -491,7 +617,8 @@
         <button class="menu__item menu__item--danger" type="button" role="menuitem">Archive</button>
       </div>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Rail principle adopted</span> <span class="badge badge--info"><span class="badge__dot"></span> Anatomy options on display — decision pending</span></div>
+    <div class="wp-sources">Sources: W3C ARIA Authoring Practices (disclosure navigation; the anti-menubar caution) · Nielsen Norman Group (hidden navigation, vertical navigation, accordion icons) · IBM Carbon UI shell and writing style · GitHub Primer NavList and the details reset · Shopify Polaris navigation · Microsoft Fluent 2 Nav and Style Guide · Salesforce Lightning vertical navigation · Google Material navigation drawer · GOV.UK and MoJ side navigation and accordion research · Adrian Roselli, "Don't Use ARIA Menu Roles for Site Nav" · full record: research/menus.md</div>
   </section>
 
   <section class="specimen__section" id="consequential">

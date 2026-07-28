@@ -224,7 +224,7 @@ example and explanation, including the full View System — is `components.md`.
 
 | Organism | Purpose | Customization surface |
 |---|---|---|
-| App shell | sidebar + topbar + main | collapsed/expanded; `aria-current` nav |
+| App shell | sidebar + topbar + main | collapsed/expanded; `aria-current` nav; menu-anatomy candidates (label style, casing, icons ×3, active ×3, separators, submenu ×3) in `components.md` §3.2 |
 | Data table | the core primitive | density, columns, sort, selection, saved views |
 | Table toolbar | search + chips + view controls | column show/hide, saved-view picker |
 | Filter builder | stacked filter rows | saved filters, URL state |

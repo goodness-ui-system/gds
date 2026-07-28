@@ -36,7 +36,7 @@
 
 
   <!-- ================= COLOR ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="color">
     <h2 class="specimen__section-title">Color — palette families</h2>
     <div class="palette-family palette-family--warm">
     <div class="specimen__label">Warm family</div>
@@ -117,7 +117,7 @@
   </section>
 
   <!-- ================= TYPOGRAPHY ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="typography">
     <h2 class="specimen__section-title">Typography — sans for UI, mono for meaning</h2>
     <div class="type-demo">
       <div class="type-demo__sample"><span class="type-demo__tag">text-2xl 600</span><span class="type-demo__t2xl">Signal over noise</span></div>
@@ -132,7 +132,7 @@
   </section>
 
   <!-- ================= BUTTONS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="buttons">
     <h2 class="specimen__section-title">Buttons</h2>
     <div class="specimen__row">
       <button class="button button--primary" type="button">Run analysis</button>
@@ -154,7 +154,7 @@
   </section>
 
   <!-- ================= FORMS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="inputs-form-fields">
     <h2 class="specimen__section-title">Inputs &amp; form fields</h2>
     <div class="specimen__row">
       <div class="field">
@@ -183,7 +183,7 @@
   </section>
 
   <!-- ================= SELECTION CONTROLS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="selection-controls">
     <h2 class="specimen__section-title">Selection controls — the choice family</h2>
 
     <div class="specimen__label">Checkbox, drawing option A — native (browser-drawn, accent-color)</div>
@@ -277,7 +277,7 @@
   </section>
 
   <!-- ================= STATUS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="badges-chips-status">
     <h2 class="specimen__section-title">Badges, chips &amp; status</h2>
     <div class="specimen__row">
       <span class="badge"><span class="badge__dot"></span> Neutral</span>
@@ -305,7 +305,7 @@
   </section>
 
   <!-- ================= ALERTS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="alerts">
     <h2 class="specimen__section-title">Alerts</h2>
     <div class="alert alert--success"><div><div class="alert__title">Report ready</div><div class="alert__text">All 34 sections generated. The export is ready to download.</div></div></div>
     <div class="alert alert--warning"><div><div class="alert__title">Renewal approaching</div><div class="alert__text">The annual agreement on file renews in 14 days.</div></div></div>
@@ -314,7 +314,7 @@
   </section>
 
   <!-- ================= SECTIONS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="sections-not-cards">
     <h2 class="specimen__section-title">Sections, not cards — one separator between neighbors</h2>
     <div class="specimen__row">
       <div class="section-stack">
@@ -349,7 +349,7 @@
   </section>
 
   <!-- ================= NAV ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="navigation">
     <h2 class="specimen__section-title">Navigation — sidebar, tabs, menu</h2>
     <div class="shell-demo">
       <nav class="sidenav" aria-label="Demo sidebar">
@@ -371,6 +371,130 @@
         <p class="section-stack__text">Tabs draw one shared baseline; the selected tab carries the only accent. The content area starts here, one hairline away from the rail — no box around either side.</p>
       </div>
     </div>
+    <div class="specimen__label">Side menu — group label: option A uppercase eyebrow · option B sentence case</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Group label, uppercase eyebrow">
+        <div class="sidenav__section">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Improvements</a>
+      </nav>
+      <nav class="sidenav" aria-label="Group label, sentence case">
+        <div class="sidenav__section sidenav__section--sentence">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Improvements</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Item casing: option A title case · option B sentence case (one is chosen, never mixed)</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Items in title case">
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item" href="#nav">Firm Locations</a>
+        <a class="sidenav__item" href="#nav">Field Offices</a>
+        <a class="sidenav__item" href="#nav">Access Requests</a>
+      </nav>
+      <nav class="sidenav" aria-label="Items in sentence case">
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item" href="#nav">Firm locations</a>
+        <a class="sidenav__item" href="#nav">Field offices</a>
+        <a class="sidenav__item" href="#nav">Access requests</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Icons: option A none · option B small (matches the text) · option C large (leads the row) — all-or-none per menu</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="No icons">
+        <a class="sidenav__item" href="#nav" aria-current="page">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Tables</a>
+        <a class="sidenav__item" href="#nav">People</a>
+      </nav>
+      <nav class="sidenav" aria-label="Small icons, matching the text">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--icons-lg" aria-label="Large icons, leading the row">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Active item: option A tinted pill · option B solid ink pill · option C left accent bar</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Active as tinted pill">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--active-solid" aria-label="Active as solid ink pill">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--active-bar" aria-label="Active as left bar">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Separators — a titled group when it has a name; a bare divider when it does not; never both</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Titled group then untitled divider">
+        <div class="sidenav__section">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <hr class="sidenav__divider">
+        <a class="sidenav__item" href="#nav">Settings</a>
+        <a class="sidenav__item" href="#nav">Help &amp; Support</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Submenus: option A always open (connector line) · option B collapsible (native disclosure, zero JS; chevron right → down)</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Submenu always open">
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
+        <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
+        <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+        <a class="sidenav__item" href="#nav">Implementation</a>
+      </nav>
+      <nav class="sidenav" aria-label="Submenu collapsible">
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <details class="sidenav__group" open>
+          <summary class="sidenav__group-summary">Directories <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+        </details>
+        <details class="sidenav__group">
+          <summary class="sidenav__group-summary">Evidence <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Improvements</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Tables</a>
+        </details>
+        <a class="sidenav__item" href="#nav">Implementation</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Submenu overflow — the second column: a parent with dozens of children gets its own rail (the drill-in)</div>
+    <div class="specimen__row">
+      <div class="shell-demo">
+        <nav class="sidenav" aria-label="Primary rail">
+          <a class="sidenav__item" href="#nav">Home</a>
+          <a class="sidenav__item" href="#nav" aria-current="page">Specimen</a>
+          <a class="sidenav__item" href="#nav">Enforcement</a>
+        </nav>
+        <nav class="sidenav sidenav--secondary" aria-label="Section list">
+          <div class="sidenav__section">Specimen · Sections</div>
+          <a class="sidenav__item" href="#nav">Color</a>
+          <a class="sidenav__item" href="#nav">Typography</a>
+          <a class="sidenav__item" href="#nav" aria-current="page">Selection Controls</a>
+          <a class="sidenav__item" href="#nav">Navigation</a>
+          <a class="sidenav__item" href="#nav">Data Table</a>
+        </nav>
+      </div>
+    </div>
     <div class="specimen__label">Dropdown menu — the one legitimate floating box</div>
     <div class="specimen__row">
       <div class="menu" role="menu" aria-label="Demo menu">
@@ -384,7 +508,7 @@
   </section>
 
   <!-- ================= APPEARANCE ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="appearance-control">
     <h2 class="specimen__section-title">Appearance control — System · Light · Dark</h2>
 
     <div class="specimen__label">Trigger options — sun/moon (reports the current appearance; flip the Light switch above) · contrast circle (neutral)</div>
@@ -413,7 +537,7 @@
   </section>
 
   <!-- ================= DASHBOARD ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="dashboard">
     <h2 class="specimen__section-title">Dashboard — KPI tiles &amp; cards</h2>
 
     <div class="specimen__label">Figure size, option A — display figures (glance-first)</div>
@@ -488,7 +612,7 @@
   </section>
 
   <!-- ================= RATIO & PROGRESS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="progress-ratio">
     <h2 class="specimen__section-title">Progress &amp; ratio — a number against a total</h2>
 
     <div class="specimen__label">Ratio tiles, size option A — display percent (glance-first)</div>
@@ -603,7 +727,7 @@
   </section>
 
   <!-- ================= TABLE ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="data-table">
     <h2 class="specimen__section-title">Data table — a saved view in action</h2>
     <div class="data-table">
       <div class="data-table__viewbar">
@@ -710,7 +834,7 @@
   </section>
 
   <!-- ================= ROW ACTIONS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="row-actions">
     <h2 class="specimen__section-title">Row actions — visible icons vs. the overflow menu</h2>
 
     <div class="specimen__label">Option A — overflow menu only (the default)</div>
@@ -770,7 +894,7 @@
   </section>
 
   <!-- ================= TABLE EDITING ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="table-editing-vs-form-editing">
     <h2 class="specimen__section-title">Table editing vs. form editing — the full menu of options</h2>
 
     <div class="specimen__label">Option A — read-only table, form editing (the default)</div>
@@ -857,7 +981,7 @@
   </section>
 
   <!-- ================= RECORD FORM ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="record-forms">
     <h2 class="specimen__section-title">Record forms — presentation styles</h2>
     <div class="specimen__row">
       <div>
@@ -1010,7 +1134,7 @@
   </section>
 
   <!-- ================= RECORD FORM CANDIDATES ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="record-forms-workflows">
     <h2 class="specimen__section-title">Record forms — workflows and processes (candidates)</h2>
 
     <div class="specimen__label">Workflow — document hybrid: the record as a page (prose heart + properties)</div>
@@ -1138,7 +1262,7 @@
   </section>
 
   <!-- ================= KEYBOARD ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="keyboard-conventions">
     <h2 class="specimen__section-title">Keyboard conventions — what Enter means</h2>
 
     <div class="specimen__label">Choice surfaces — Enter activates the highlighted item</div>
@@ -1183,7 +1307,7 @@
   </section>
 
   <!-- ================= FILTER BUILDER ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="filter-builder">
     <h2 class="specimen__section-title">Filter builder</h2>
     <div class="condition-stack">
       <div class="condition">
@@ -1215,7 +1339,7 @@
   </section>
 
   <!-- ================= VIEW SYSTEM ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="view-system">
     <h2 class="specimen__section-title">View system — switcher, fields, sort, view menu</h2>
     <div class="specimen__row">
       <div>
@@ -1285,7 +1409,7 @@
   </section>
 
   <!-- ================= COMMAND PALETTE ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="command-palette">
     <h2 class="specimen__section-title">Command palette — ⌘K, zero JavaScript</h2>
     <div class="palette-demo">
       <div class="palette" role="dialog" aria-label="Command palette demo">
@@ -1301,7 +1425,7 @@
   </section>
 
   <!-- ================= EMPTY STATE ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="empty-state">
     <h2 class="specimen__section-title">Empty state — teaches, never dead-ends</h2>
     <div class="empty-state">
       <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
