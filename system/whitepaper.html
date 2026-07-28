@@ -1016,8 +1016,128 @@
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
   </section>
 
+  <section class="specimen__section" id="tablebottom">
+    <h2 class="specimen__section-title">17. How the table meets the bottom of the screen</h2>
+    <p class="wp-prose">A table holding two hundred and forty-eight rows cannot show them all, so something gives: either the table is cut into pages, or the rows keep coming and the reader scrolls. The choice decides whether a next button exists, whether anything may sit at the bottom of the screen, and where the summary numbers and bulk actions live. Three models answer it; all three stay on display, and the choice between them is by task, not by taste.</p>
+    <p class="wp-prose">Pages. A fixed number of rows and a footer that says where the reader stands. Nobody's favorite — the click tax is measured and real — but it is the only model with a stable address: “page 3, sorted by score” can be bookmarked, shared, and returned to, and the server does bounded work no matter how large the table grows. Right where position in the set is part of the task — search results, an audit log read to a date. Wrong as the default for a grid someone lives in all day.</p>
+    <div class="specimen__label">Option A — pages (the fixed count and the next button)</div>
+    <div class="scroll-study">
+      <div class="scroll-study__chrome"><span>The screen</span><span>model: pages</span></div>
+      <div class="scroll-study__body">
+      <table class="data-table__table">
+        <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
+        <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">71</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="scroll-study__foot">
+        <span>1–6 of 248 · view: “High-priority, active”</span>
+        <span class="scroll-study__actions"><button class="button button--ghost" type="button" disabled>← Prev</button><button class="button button--ghost" type="button">Next →</button></span>
+      </div>
+    </div>
+    <p class="wp-prose">The scrolling page. The document grows: rows continue as the reader scrolls, and more arrive as the end approaches — with a thousand rows, the scroll just continues. The published record on this model is mostly cautionary, and its most famous failure produces this system's rule: anything placed below an infinite list recedes forever as new rows push it down. So the rule is absolute — <strong>nothing may sit at the bottom of the screen</strong>. The bottom edge belongs to the last visible row and to nothing else; the selected count, the bulk actions, and the summary numbers all move above the table, where they are always reachable. The toolbar states the true total, because the scrollbar cannot be trusted to. The mechanism is native to the stack: a request fired when a sentinel row is revealed appends the next fragment, no custom script, degrading to a plain “more” link without one.</p>
+    <div class="specimen__label">Option B — the page scrolls: nothing may sit at the bottom of the screen</div>
+    <div class="scroll-study">
+      <div class="scroll-study__chrome"><span>The screen</span><span>model: scrolling page</span></div>
+      <div class="scroll-study__page">
+        <div class="scroll-study__bar scroll-study__bar--sticky">
+          <span class="scroll-study__count">2 selected</span>
+          <button class="button button--ghost" type="button">Export</button>
+          <button class="button button--ghost" type="button">Archive</button>
+          <span>248 accounts · avg 62</span>
+        </div>
+      <table class="data-table__table">
+        <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
+        <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">31</td></tr>
+          <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td></tr>
+          <tr><td>Massive Dynamic</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">78</td></tr>
+          <tr><td>Monarch Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">66</td></tr>
+          <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">49</td></tr>
+          <tr><td>Northwind Cloud</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">42</td></tr>
+          <tr><td>Oceanic Freight</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">80</td></tr>
+          <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">58</td></tr>
+          <tr><td>Pied Piper Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">76</td></tr>
+          <tr><td>Soylent Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">52</td></tr>
+          <tr><td>Stark Logistics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">29</td></tr>
+          <tr><td>Sterling Media</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">84</td></tr>
+          <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td></tr>
+          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">38</td></tr>
+          <tr><td>Vandelay Exports</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">82</td></tr>
+          <tr><td>Wayne Foundry</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">45</td></tr>
+          <tr><td>Wonka Metrics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">70</td></tr>
+        </tbody>
+      </table>
+        <span class="scroll-study__more">… rows keep arriving as the scroll nears the end — the bottom edge belongs to the last row</span>
+      </div>
+    </div>
+    <p class="wp-prose">The contained scroll. The third model changes what scrolls. The table's box stretches to fill the height of the screen; the rows scroll inside it, fed the same way as the scrolling page; the column header stays pinned at the top of the box; and the chrome — toolbar above, bulk actions and summary below — never moves. There is no next button, and there is nothing dishonest about the bottom of the screen: the summary pinned there is not fleeing from anyone, because the scrolling happens inside the frame above it. This is the working-grid tradition of every spreadsheet-like tool. Its one demand is honesty about height: a page that scrolls and a grid that scrolls is the double-scrollbar trap, so the shell must hand the grid its height and the grid must fit it exactly.</p>
+    <div class="specimen__label">Option C — the contained scroll: the grid fills the screen and scrolls inside (recommended)</div>
+    <div class="scroll-study">
+      <div class="scroll-study__chrome"><span>The screen</span><span>model: contained scroll</span></div>
+      <div class="scroll-study__bar">
+        <span class="chip"><span class="chip__key">priority:</span> high+</span>
+        <button class="button button--ghost" type="button">Fields</button>
+        <button class="button button--ghost" type="button">Sort · 2</button>
+        <button class="button button--ghost" type="button">Group · 1</button>
+      </div>
+      <div class="scroll-study__grid">
+      <table class="data-table__table">
+        <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
+        <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">31</td></tr>
+          <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td></tr>
+          <tr><td>Massive Dynamic</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">78</td></tr>
+          <tr><td>Monarch Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">66</td></tr>
+          <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">49</td></tr>
+          <tr><td>Northwind Cloud</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">42</td></tr>
+          <tr><td>Oceanic Freight</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">80</td></tr>
+          <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">58</td></tr>
+          <tr><td>Pied Piper Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">76</td></tr>
+          <tr><td>Soylent Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">52</td></tr>
+          <tr><td>Stark Logistics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">29</td></tr>
+          <tr><td>Sterling Media</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">84</td></tr>
+          <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td></tr>
+          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">38</td></tr>
+          <tr><td>Vandelay Exports</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">82</td></tr>
+          <tr><td>Wayne Foundry</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">45</td></tr>
+          <tr><td>Wonka Metrics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">70</td></tr>
+        </tbody>
+      </table>
+        <span class="scroll-study__more">… more arriving as the scroll nears the end — the header stays pinned, the chrome below never moves</span>
+      </div>
+      <div class="scroll-study__foot">
+        <span class="scroll-study__actions"><span class="scroll-study__count">2 selected</span><button class="button button--ghost" type="button">Export</button><button class="button button--ghost" type="button">Archive</button></span>
+        <span>248 accounts · avg 62 · no next button</span>
+      </div>
+    </div>
+    <p class="wp-prose">Recommendation: the contained scroll as the default for working grids — the only model that abolishes the next button while keeping every piece of chrome reachable. The scrolling page where the table is the page — a feed, a log — with the bottom-of-screen rule enforced strictly. Pages where position in the set is part of the task.</p>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as rule — nothing at the bottom of a scrolling page; contained scroll is the working-grid default</span></div>
+    <div class="wp-sources">Sources: the published usability record on infinite scrolling, pagination, and the load-more hybrid — citations live in the Table Scroll research note · sticky positioning inside scroll containers is native CSS · incremental loading via the reveal trigger: the stack's own documentation.</div>
+  </section>
+
   <section class="specimen__section" id="rowactions">
-    <h2 class="specimen__section-title">17. Row actions — visible icons vs. the overflow menu</h2>
+    <h2 class="specimen__section-title">18. Row actions — visible icons vs. the overflow menu</h2>
     <p class="wp-prose">Every table row carries actions; the question is how many deserve to be visible. The research is unambiguous about the failure mode: an icon repeated on every row stops reading as a button and becomes texture, bare icons beyond a handful of universal symbols are routinely misread, and a destructive icon on every row puts an irreversible act one accidental click from everything. The overflow menu's cost is the mirror image: whatever lives inside it is invisible until clicked. The reconciliation is a frequency budget, shown below.</p>
     <p class="specimen__note">Every table row carries actions; the question is how many of them deserve to be visible. An icon repeated on every row stops being a button and becomes texture — the eye tunes it out like wallpaper — and beyond a handful of universal symbols, icons alone are routinely misread. The overflow menu (the ⋯ button) hides everything behind one click, which is its cost: an action people need constantly should not live there. The options below are the catalog; the budget rule underneath is the recommendation.</p>
 
@@ -1085,7 +1205,7 @@
   </section>
 
   <section class="specimen__section" id="editing">
-    <h2 class="specimen__section-title">18. Table editing vs. form editing</h2>
+    <h2 class="specimen__section-title">19. Table editing vs. form editing</h2>
     <p class="wp-prose">Where should a value change: in the table cell, or in the record form the row opens? Products that refuse inline editing are usually not lazy — a form has room for labels, help and errors beside each field, one visible Save, and a shape that approval workflows can review; a grid has none of that by default. Products that embrace inline editing serve a real need: correcting one field across forty rows through a form is miserable. The industry's reconciliation is the draft-plus-save-bar pattern (option B below): edits are held as a draft — changes made on screen but not yet written — tinted cell by cell, counted in a bar with one Save and one Cancel, validated by the server as a batch. That submitted draft is the same object an approval review needs, which is why the pattern fits governed data.</p>
     <p class="specimen__note">Where should a value change: in the table itself, or in the record form the row opens? Every serious product picks a spot on this spectrum. The options below are the complete catalog, from safest to most fluid; they are not mutually exclusive — a real screen usually combines two or three.</p>
 
@@ -1182,7 +1302,7 @@
   </section>
 
   <section class="specimen__section" id="recordforms">
-    <h2 class="specimen__section-title">19. Record forms — the presentation styles</h2>
+    <h2 class="specimen__section-title">20. Record forms — the presentation styles</h2>
     <p class="wp-prose">The screen behind a clicked row. Presentation is one axis (how fields and labels are drawn) and workflow is another (how the record is entered, reviewed, and approved); the two compose freely, so they are cataloged separately. The evidence splits by task: entering data wants labels above fields in a single column; reading and scanning a record wants a left label column that the eye can run down. All six styles below are candidates on display; full evidence in the record-forms research file pending its graduation into this chapter.</p>
     <p class="specimen__note">The UI of fields: six graphical treatments of the same record, no workflow involved. The evidence splits by task (research/record-forms.md): entry wants top labels and a single column; reading wants a left label column to scan. Any style composes with any workflow from the next section.</p>
     <div class="specimen__row">
@@ -1337,7 +1457,7 @@
   </section>
 
   <section class="specimen__section" id="workflows">
-    <h2 class="specimen__section-title">20. Record forms — the workflows and processes</h2>
+    <h2 class="specimen__section-title">21. Record forms — the workflows and processes</h2>
     <p class="wp-prose">The second axis: the same fields can arrive as a document-style hybrid, a step-by-step wizard, a spreadsheet-like grid entry, a guided conversational flow, a settings page, or a review-and-diff screen where changes are compared before they land. These are processes, not layouts — each one pairs with any presentation style from the previous chapter.</p>
     <p class="specimen__note">The process around the fields — how a record is created, edited, approved, or composed. Rendered for review; options will be pruned after selection. Any workflow can carry any presentation style from the section above, in any placement.</p>
 
@@ -1467,7 +1587,7 @@
   </section>
 
   <section class="specimen__section" id="filters">
-    <h2 class="specimen__section-title">21. The filter builder</h2>
+    <h2 class="specimen__section-title">22. The filter builder</h2>
     <p class="wp-prose">Conditions are built from segmented rows — field, operator, value as one control sharing hairlines — so a long condition list stays compact. Every change updates the address bar, which means every filtered view is bookmarkable and shareable by copying a URL.</p>
     <p class="specimen__note">Field / operator / value as one segmented control — fields share hairlines the way sections do, so a long condition list stays compact. Every change fires <code>hx-get</code> with <code>hx-push-url="true"</code> — filtered views are bookmarkable and shareable.</p>
     <div class="condition-stack">
@@ -1501,7 +1621,7 @@
   </section>
 
   <section class="specimen__section" id="views">
-    <h2 class="specimen__section-title">22. The view system</h2>
+    <h2 class="specimen__section-title">23. The view system</h2>
     <p class="wp-prose">A view is a saved way of looking at the same data: which columns show, how rows are filtered, grouped and sorted. Views are collaborative or personal, switchable from a menu, and stored server-side as configuration — the interface is the database row, rendered. The field panel below carries the show-all/hide-all pair above its list because, with thirty fields and three wanted, hiding everything and re-enabling three beats flipping twenty-seven switches.</p>
     <p class="specimen__note">The saved-view family (components.md §4) — the filter builder above is part of it. Each panel is a server-rendered fragment; what it edits is a row in the views table, reflected in the URL.</p>
     <div class="specimen__row">
@@ -1573,7 +1693,7 @@
   </section>
 
   <section class="specimen__section" id="keyboard">
-    <h2 class="specimen__section-title">23. Keyboard conventions — what Enter means</h2>
+    <h2 class="specimen__section-title">24. Keyboard conventions — what Enter means</h2>
     <p class="wp-prose">Enter is the most overloaded key in modern software, and chat applications made it worse by teaching millions that Enter sends. The rule that removes the guessing: the kind of control decides what Enter means, identically on every screen — activate in menus, submit in single-line fields (a behavior called implicit submission, built into the web platform), and always a new line in multi-line text boxes, where a surprise submit of a half-written record is the expensive failure. Cmd/Ctrl+Enter is the one universal save-from-anywhere accelerator, taught in place: focus the text box below and the Save button reveals its hint.</p>
     <p class="specimen__note">Enter is the most overloaded key in modern software: in one product it sends, in another it makes a new line, in a third it activates a menu item — and every user carries each habit into the next application, where it misfires. The rule here removes the guessing: the kind of control decides what Enter means, identically on every screen, never the application's mood.</p>
 
@@ -1626,7 +1746,7 @@
   </section>
 
   <section class="specimen__section" id="palette-cmd">
-    <h2 class="specimen__section-title">24. The command palette</h2>
+    <h2 class="specimen__section-title">25. The command palette</h2>
     <p class="wp-prose">One keystroke, one field, every destination: the palette opens with ⌘K, lists commands and records grouped by kind, and is fully keyboard-driven. In this system it is rendered by the server and opened by a declarative trigger — no JavaScript, which proves the zero-script principle holds even for the most "app-like" component.</p>
     <p class="specimen__note">Opened by a pure HTMX trigger — <code>hx-trigger="keydown[(metaKey||ctrlKey)&amp;&amp;key=='k'] from:body"</code> — contents are server-rendered fragments; typeahead is <code>hx-trigger="input changed delay:150ms"</code>. The overlay is the only element that may cast a shadow.</p>
     <div class="palette-demo">
@@ -1644,7 +1764,7 @@
   </section>
 
   <section class="specimen__section" id="empty">
-    <h2 class="specimen__section-title">25. Empty states</h2>
+    <h2 class="specimen__section-title">26. Empty states</h2>
     <p class="wp-prose">Every list, table, and dashboard has a designed first-run state: what this screen is for, one sentence, one primary action. A bare "no results" teaches nothing and dead-ends the person who most needs guidance — the one seeing the screen for the first time.</p>
     <div class="empty-state">
       <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
@@ -1656,14 +1776,14 @@
   </section>
 
   <section class="specimen__section" id="brandcolor">
-    <h2 class="specimen__section-title">26. Brand color vs. the meaning colors</h2>
+    <h2 class="specimen__section-title">27. Brand color vs. the meaning colors</h2>
     <p class="wp-prose">Red means danger and green means success inside an interface — those meanings are load-bearing. A product whose brand color is red or green therefore has a conflict: if the brand hue also paints buttons and links, every error banner and success badge competes with it. The research recommends role separation (the brand hue owns identity moments — logo, marketing, accent details — while interface semantics keep their own reserved hues) and hue distancing (shifting the interface's semantic red or green far enough from the brand hue that the two never read as the same color).</p>
     <p class="wp-prose">Recommendation: role separation plus hue distancing, applied per brand skin. Full evidence in the brand-color research file pending its graduation into this chapter.</p>
     <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
   </section>
 
   <section class="specimen__section" id="appbranding">
-    <h2 class="specimen__section-title">27. App branding — the mark, the favicon, the avatar</h2>
+    <h2 class="specimen__section-title">28. App branding — the mark, the favicon, the avatar</h2>
     <p class="wp-prose">Every application built on the system needs a small identity kit of its own, decided once at the start: the mark that sits in the menu, the icon in the browser tab, and the square image the outside world sees. None of this is the system's identity — it is the application's — and every asset in the kit must work in dark and light, because the application itself does.</p>
     <p class="wp-prose">The brand slot. The mark lives in the top-left of the menu, the first thing the eye meets, as a small square beside the application's name — with an optional quieter line under the name for the product area. The slot is part of the rail, closed by the same hairline the rail uses everywhere. Two marks are on display: the ink mark, drawn from the theme's own text and canvas colors, which inverts itself perfectly when the theme flips; and the accent mark, which puts the application's accent behind the letter — louder, and still theme-safe because both of its colors come from the tokens.</p>
     <div class="specimen__row">
@@ -1717,7 +1837,7 @@
   </section>
 
   <section class="specimen__section" id="decisions">
-    <h2 class="specimen__section-title">28. How decisions get made</h2>
+    <h2 class="specimen__section-title">29. How decisions get made</h2>
     <p class="wp-prose">Each chapter above ends in a status: adopted as principle, recommendation pending, or options on display. The selection pass reads this document top to bottom and turns every pending status into a decision; each decision then flows down — into the agent rulebook as an enforceable rule, into the technical catalog as the surviving specification, and into both this document and the specimen, from which the losing options are removed in the same change.</p>
     <p class="wp-prose">Two documents render the system and evolve in parallel by standing rule: this white paper, where every explanation sits beside its living example, and the specimen, the same catalog with no words. A change to any example lands in both, always, in the same commit.</p>
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>

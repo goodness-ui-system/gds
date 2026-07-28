@@ -24,6 +24,7 @@
     "r-theme-control":  { title: "The Appearance Control", src: "pages/system/research-theme-control.html", bleed: false },
     "r-selection":      { title: "Selection Controls",  src: "pages/system/research-selection-controls.html", bleed: false },
     "r-menus":          { title: "Menus",               src: "pages/system/research-menus.html", bleed: false },
+    "r-tablescroll":    { title: "Table Scroll",        src: "pages/system/research-table-scroll.html", bleed: false },
 
     "get-started":      { title: "Get Started",       src: "pages/get-started.html",       bleed: false },
     "tokens":           { title: "Design Tokens",     src: "pages/tokens.html",            bleed: false },

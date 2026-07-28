@@ -268,6 +268,7 @@ One size per row, never mixed — a mixed row reads as a hierarchy nobody intend
 ### 2.9 Pagination
 Prev/next + mono status (`1–50 of 248`); `hx-get` + `hx-push-url` so every page is
 a bookmarkable URL. Server-side "load more" is the infinite-scroll variant.
+One of three scroll models — see 3.12 for the full menu and the recommendation.
 
 ### 2.10 Breadcrumbs
 Path context for deep hierarchies: `Workspaces / Templates / Reports`. Links all the
@@ -620,6 +621,23 @@ navigable. The only element (with menus/dialogs) casting `--shadow-overlay`.
 ### 3.11 Empty state
 First-run teacher: icon, title, one sentence, one primary action. Every list,
 table, and dashboard has one designed — never a bare "No results."
+
+### 3.12 Table scroll — how the table meets the bottom of the screen
+Three models, all in the catalog; the choice is by task, not by taste.
+
+- **Pages** — fixed row count, prev/next footer. The only model with a stable
+  address (bookmarkable, back-button-safe) and bounded server work. Right when
+  position in the set is part of the task; wrong as the working-grid default.
+- **Scrolling page** — the document grows; rows arrive as the scroll nears the
+  end (`hx-trigger="revealed"` on a sentinel row, degrading to a "more" link).
+  **Rule: nothing may sit at the bottom of the screen.** The bottom edge
+  belongs to the last visible row; selected count, bulk actions, and summary
+  all move above the table, and the toolbar states the true total.
+- **Contained scroll (recommended)** — the grid's box fills the viewport
+  height and rows scroll inside it; sticky column header at the box top;
+  toolbar above and bulk bar + summary below never move; no next button.
+  One demand: the shell hands the grid its height exactly — a page that
+  scrolls and a grid that scrolls is the double-scrollbar trap.
 
 ## 4 · The View System
 

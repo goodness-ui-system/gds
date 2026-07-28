@@ -936,6 +936,122 @@
   </section>
 
   <!-- ================= ROW ACTIONS ================= -->
+  <section class="specimen__section" id="table-scroll">
+    <h2 class="specimen__section-title">Table scroll — how the table meets the bottom of the screen</h2>
+    <p class="specimen__note">Three models for a table larger than the screen. The frames below play the role of the screen. The rule: in a scrolling page, nothing may sit at the bottom of the screen — the bottom edge belongs to the last visible row.</p>
+    <div class="specimen__label">Option A — pages (the fixed count and the next button)</div>
+    <div class="scroll-study">
+      <div class="scroll-study__chrome"><span>The screen</span><span>model: pages</span></div>
+      <div class="scroll-study__body">
+      <table class="data-table__table">
+        <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
+        <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">71</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="scroll-study__foot">
+        <span>1–6 of 248 · view: “High-priority, active”</span>
+        <span class="scroll-study__actions"><button class="button button--ghost" type="button" disabled>← Prev</button><button class="button button--ghost" type="button">Next →</button></span>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option B — the page scrolls: nothing may sit at the bottom of the screen</div>
+    <div class="scroll-study">
+      <div class="scroll-study__chrome"><span>The screen</span><span>model: scrolling page</span></div>
+      <div class="scroll-study__page">
+        <div class="scroll-study__bar scroll-study__bar--sticky">
+          <span class="scroll-study__count">2 selected</span>
+          <button class="button button--ghost" type="button">Export</button>
+          <button class="button button--ghost" type="button">Archive</button>
+          <span>248 accounts · avg 62</span>
+        </div>
+      <table class="data-table__table">
+        <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
+        <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">31</td></tr>
+          <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td></tr>
+          <tr><td>Massive Dynamic</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">78</td></tr>
+          <tr><td>Monarch Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">66</td></tr>
+          <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">49</td></tr>
+          <tr><td>Northwind Cloud</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">42</td></tr>
+          <tr><td>Oceanic Freight</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">80</td></tr>
+          <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">58</td></tr>
+          <tr><td>Pied Piper Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">76</td></tr>
+          <tr><td>Soylent Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">52</td></tr>
+          <tr><td>Stark Logistics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">29</td></tr>
+          <tr><td>Sterling Media</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">84</td></tr>
+          <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td></tr>
+          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">38</td></tr>
+          <tr><td>Vandelay Exports</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">82</td></tr>
+          <tr><td>Wayne Foundry</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">45</td></tr>
+          <tr><td>Wonka Metrics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">70</td></tr>
+        </tbody>
+      </table>
+        <span class="scroll-study__more">… rows keep arriving as the scroll nears the end — the bottom edge belongs to the last row</span>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option C — the contained scroll: the grid fills the screen and scrolls inside (recommended)</div>
+    <div class="scroll-study">
+      <div class="scroll-study__chrome"><span>The screen</span><span>model: contained scroll</span></div>
+      <div class="scroll-study__bar">
+        <span class="chip"><span class="chip__key">priority:</span> high+</span>
+        <button class="button button--ghost" type="button">Fields</button>
+        <button class="button button--ghost" type="button">Sort · 2</button>
+        <button class="button button--ghost" type="button">Group · 1</button>
+      </div>
+      <div class="scroll-study__grid">
+      <table class="data-table__table">
+        <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
+        <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">31</td></tr>
+          <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td></tr>
+          <tr><td>Massive Dynamic</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">78</td></tr>
+          <tr><td>Monarch Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">66</td></tr>
+          <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">49</td></tr>
+          <tr><td>Northwind Cloud</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">42</td></tr>
+          <tr><td>Oceanic Freight</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">80</td></tr>
+          <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">58</td></tr>
+          <tr><td>Pied Piper Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">76</td></tr>
+          <tr><td>Soylent Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">52</td></tr>
+          <tr><td>Stark Logistics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">29</td></tr>
+          <tr><td>Sterling Media</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">84</td></tr>
+          <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td></tr>
+          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">38</td></tr>
+          <tr><td>Vandelay Exports</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">82</td></tr>
+          <tr><td>Wayne Foundry</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">45</td></tr>
+          <tr><td>Wonka Metrics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">70</td></tr>
+        </tbody>
+      </table>
+        <span class="scroll-study__more">… more arriving as the scroll nears the end — the header stays pinned, the chrome below never moves</span>
+      </div>
+      <div class="scroll-study__foot">
+        <span class="scroll-study__actions"><span class="scroll-study__count">2 selected</span><button class="button button--ghost" type="button">Export</button><button class="button button--ghost" type="button">Archive</button></span>
+        <span>248 accounts · avg 62 · no next button</span>
+      </div>
+    </div>
+  </section>
+
   <section class="specimen__section" id="row-actions">
     <h2 class="specimen__section-title">Row actions — visible icons vs. the overflow menu</h2>
 
