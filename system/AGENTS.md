@@ -298,6 +298,14 @@ the Honest enforcement stack:
   dark-mode ceilings (body text never pure white and never brighter than `#EBEBEB`
   effective — the halation band; canvas never pure black). Run:
   `python3 enforcement/check_contrast.py` (exit 1 on any violation).
+- `enforcement/check_rhythm.mjs` — the air rule (R11): nothing begins flush
+  against the end of the block before it. Every block that starts after another
+  block carries vertical air (base rhythm `var(--space-4)`; labels that open a
+  group get `var(--space-6)`); the only sanctioned tight pairs are a caption
+  with the object it captions and a component's own internal anatomy. Static
+  lint cannot see rendered geometry, so this check renders every page and
+  measures every adjacent sibling pair. Run: `node enforcement/check_rhythm.mjs`
+  (Playwright; exit 1 on any flush pair).
 - `enforcement/design-enforcement.feature` — the same rules as Gherkin scenarios;
   binds to pytest-bdd step definitions at app integration and runs in CI.
 - `specimen.html` is the living conformance proof — it renders the entire system and
@@ -339,6 +347,7 @@ Honest is Gherkin-first; UI behaviour is behaviour.
 | Accent colour as decoration | Accent = primary action + active only |
 | A second stylesheet for light/dark | Re-pointed `[data-theme]` aliases |
 | A one-off "just this screen" style | Add a variant to the matrix, or a token |
+| A block flush against the block before it | The air rule — base rhythm `var(--space-4)`, check R11 |
 | Client-side saved views / filters | Server-side config row, URL state |
 | CDN fonts or icon fonts | Self-hosted `@font-face`; inline Lucide SVG |
 

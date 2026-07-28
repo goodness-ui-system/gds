@@ -406,6 +406,16 @@ The adjacent-sibling selector *is* the principle: the separator belongs to the p
 not to either section. No margins between sections; rhythm comes from internal
 padding (`--space-4/5`), not gaps.
 
+**The air rule (R11).** Everywhere outside a fused section-stack, the opposite
+law applies: nothing begins flush against the end of the block before it. Any
+element that opens a new block after another block — a paragraph after a demo
+frame, a label after a table, a panel after a paragraph — carries vertical air
+above it: base rhythm `var(--space-4)`, and `var(--space-6)` for a label that
+opens a group. The only sanctioned tight pairs are a caption with the object
+it captions (label, heading, legend) and a component's own internal anatomy.
+The rule is enforced by rendering, not by trust: `enforcement/check_rhythm.mjs`
+measures every adjacent pair on every page and fails on any flush pair.
+
 ### 3.1 App shell
 Sidebar + topbar + main. Options: sidebar expanded/collapsed (a `preferences`
 row); active item via `aria-current="page"` from the request path; `hx-boost` for
