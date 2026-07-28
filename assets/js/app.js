@@ -7,8 +7,8 @@
     "":                 { title: "Home",              src: "pages/hero.html",              bleed: true  },
     "home":             { title: "Home",              src: "pages/hero.html",              bleed: true  },
 
-    "whitepaper":       { title: "White Paper",         src: "system/whitepaper.html",                bleed: true  },
-    "specimen":         { title: "Specimen",            src: "system/specimen.html",                  bleed: true, subnav: true },
+    "whitepaper":       { title: "White Paper",         src: "system/whitepaper.html",                bleed: true, subnav: "whitepaper" },
+    "specimen":         { title: "Specimen",            src: "system/specimen.html",                  bleed: true, subnav: "specimen" },
     "sys-components":   { title: "Components Catalog",  src: "pages/system/components-catalog.html",  bleed: false },
     "sys-agents":       { title: "Agent Manual",        src: "pages/system/agent-manual.html",        bleed: false },
     "sys-enforcement":  { title: "Enforcement",         src: "pages/system/enforcement.html",         bleed: false },
@@ -64,6 +64,8 @@
     if (tbTitle) tbTitle.textContent = route.title;
     setActive(key);
     document.body.classList.toggle("subnav-open", !!route.subnav);
+    if (route.subnav) document.body.setAttribute("data-subnav", route.subnav);
+    else document.body.removeAttribute("data-subnav");
     document.body.classList.remove("nav-open"); // close mobile nav on navigate
   }
 
