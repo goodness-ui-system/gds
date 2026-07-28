@@ -14,8 +14,9 @@
   <div class="specimen__controls">
     <label class="control-switch" for="opt-family">Family
       <select class="select" id="opt-family">
-        <option value="mono" selected>Mono</option>
+        <option value="goodness" selected>Goodness</option>
         <option value="warm">Warm</option>
+        <option value="mono">Mono</option>
         <option value="cool">Cool</option>
       </select>
     </label>
@@ -36,8 +37,29 @@
 
 
   <!-- ================= COLOR ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="color">
     <h2 class="specimen__section-title">Color — palette families</h2>
+    <div class="palette-family palette-family--goodness">
+    <div class="specimen__label">Goodness family — the house look, the opening default</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv0"></div><div class="swatch__meta"><div class="swatch__name">navy-0</div><div class="swatch__value">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv25"></div><div class="swatch__meta"><div class="swatch__name">navy-25</div><div class="swatch__value">#f6fafd</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv100"></div><div class="swatch__meta"><div class="swatch__name">navy-100</div><div class="swatch__value">#dce9f6</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv300"></div><div class="swatch__meta"><div class="swatch__name">navy-300</div><div class="swatch__value">#9cc0e2</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv500"></div><div class="swatch__meta"><div class="swatch__name">navy-500</div><div class="swatch__value">#52739b</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv700"></div><div class="swatch__meta"><div class="swatch__name">navy-700</div><div class="swatch__value">#24436b</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv800"></div><div class="swatch__meta"><div class="swatch__name">navy-800</div><div class="swatch__value">#0c2b54</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv900"></div><div class="swatch__meta"><div class="swatch__name">navy-900</div><div class="swatch__value">#0a2244</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv950"></div><div class="swatch__meta"><div class="swatch__name">navy-950</div><div class="swatch__value">#071528</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv1000"></div><div class="swatch__meta"><div class="swatch__name">navy-1000</div><div class="swatch__value">#040d1c</div></div></div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint300"></div><div class="swatch__meta"><div class="swatch__name">mint-300</div><div class="swatch__value">#8beed6</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint400"></div><div class="swatch__meta"><div class="swatch__name">mint-400</div><div class="swatch__value">#5fe0c0</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint500"></div><div class="swatch__meta"><div class="swatch__name">mint-500</div><div class="swatch__value">#14907c</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint600"></div><div class="swatch__meta"><div class="swatch__name">mint-600</div><div class="swatch__value">#0d7263</div></div></div>
+    </div>
+    </div>
     <div class="palette-family palette-family--warm">
     <div class="specimen__label">Warm family</div>
     <div class="swatch-grid">
@@ -81,7 +103,7 @@
     </div>
     </div>
     <div class="palette-family palette-family--mono">
-    <div class="specimen__label">Mono family — the opening default</div>
+    <div class="specimen__label">Mono family</div>
     <div class="swatch-grid">
       <div class="swatch"><div class="swatch__chip swatch__chip--g0"></div><div class="swatch__meta"><div class="swatch__name">gray-0</div><div class="swatch__value">#ffffff</div></div></div>
       <div class="swatch"><div class="swatch__chip swatch__chip--g25"></div><div class="swatch__meta"><div class="swatch__name">gray-25</div><div class="swatch__value">#fafafa</div></div></div>
@@ -117,7 +139,7 @@
   </section>
 
   <!-- ================= TYPOGRAPHY ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="typography">
     <h2 class="specimen__section-title">Typography — sans for UI, mono for meaning</h2>
     <div class="type-demo">
       <div class="type-demo__sample"><span class="type-demo__tag">text-2xl 600</span><span class="type-demo__t2xl">Signal over noise</span></div>
@@ -132,7 +154,7 @@
   </section>
 
   <!-- ================= BUTTONS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="buttons">
     <h2 class="specimen__section-title">Buttons</h2>
     <div class="specimen__row">
       <button class="button button--primary" type="button">Run analysis</button>
@@ -154,7 +176,7 @@
   </section>
 
   <!-- ================= FORMS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="inputs-form-fields">
     <h2 class="specimen__section-title">Inputs &amp; form fields</h2>
     <div class="specimen__row">
       <div class="field">
@@ -182,8 +204,102 @@
     </div>
   </section>
 
+  <!-- ================= SELECTION CONTROLS ================= -->
+  <section class="specimen__section" id="selection-controls">
+    <h2 class="specimen__section-title">Selection controls — the choice family</h2>
+
+    <div class="specimen__label">Checkbox, drawing option A — native (browser-drawn, accent-color)</div>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox" type="checkbox" checked> Checked</label>
+      <label class="choice"><input class="checkbox" type="checkbox"> Unchecked</label>
+      <label class="choice"><input class="checkbox" type="checkbox" checked disabled> Disabled</label>
+    </div>
+    <div class="specimen__label">Checkbox, drawing option B — custom-drawn, with the mixed state</div>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" checked> Checked</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox"> Unchecked</label>
+      <label class="choice"><input class="checkbox checkbox--drawn checkbox--mixed" type="checkbox"> Mixed — some of a set</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" checked disabled> Disabled</label>
+    </div>
+
+    <div class="specimen__label">Radio, drawing option A — native · drawing option B — custom-drawn</div>
+    <div class="specimen__row">
+      <label class="choice"><input class="radio" type="radio" name="sr1" checked> Monthly</label>
+      <label class="choice"><input class="radio" type="radio" name="sr1"> Quarterly</label>
+      <label class="choice"><input class="radio radio--drawn" type="radio" name="sr2" checked> Monthly</label>
+      <label class="choice"><input class="radio radio--drawn" type="radio" name="sr2"> Quarterly</label>
+      <label class="choice"><input class="radio radio--drawn" type="radio" name="sr2" disabled> Disabled</label>
+    </div>
+
+    <div class="specimen__label">Switch — md · sm · disabled (immediate effect; never beside a Save button)</div>
+    <div class="specimen__row">
+      <label class="switch"><input class="switch__track" type="checkbox" switch role="switch" checked> Auto-refresh</label>
+      <label class="switch"><input class="switch__track" type="checkbox" switch role="switch"> Live totals</label>
+      <label class="switch switch--sm"><input class="switch__track" type="checkbox" switch role="switch" checked> Compact</label>
+      <label class="switch"><input class="switch__track" type="checkbox" switch role="switch" disabled> Disabled</label>
+    </div>
+    <div class="specimen__label">Switch rows — the settings-list presentation</div>
+    <div class="section-stack">
+      <label class="switch-row">
+        <span class="switch-row__text"><span class="switch-row__title">Email digests</span><span class="switch-row__desc">A morning summary of changes in watched views.</span></span>
+        <input class="switch__track" type="checkbox" switch role="switch" checked>
+      </label>
+      <label class="switch-row">
+        <span class="switch-row__text"><span class="switch-row__title">Sound on completion</span><span class="switch-row__desc">Play a tone when a long export finishes.</span></span>
+        <input class="switch__track" type="checkbox" switch role="switch">
+      </label>
+    </div>
+    <div class="specimen__label">The anti-pattern — state words inside the track (shown to be rejected)</div>
+    <div class="specimen__row">
+      <label class="switch"><input class="switch__track switch__track--worded" type="checkbox" switch role="switch" checked> Notifications</label>
+      <label class="switch"><input class="switch__track switch__track--worded" type="checkbox" switch role="switch"> Notifications</label>
+    </div>
+
+    <div class="specimen__label">Segmented control, option A — raised segment · option B — tinted accent · with counts</div>
+    <div class="specimen__row">
+      <div class="segmented">
+        <input class="segmented__input" type="radio" name="seg1" id="seg1-d" checked><label class="segmented__btn" for="seg1-d">Day</label>
+        <input class="segmented__input" type="radio" name="seg1" id="seg1-w"><label class="segmented__btn" for="seg1-w">Week</label>
+        <input class="segmented__input" type="radio" name="seg1" id="seg1-m"><label class="segmented__btn" for="seg1-m">Month</label>
+      </div>
+      <div class="segmented segmented--accent">
+        <input class="segmented__input" type="radio" name="seg2" id="seg2-a" checked><label class="segmented__btn" for="seg2-a">All</label>
+        <input class="segmented__input" type="radio" name="seg2" id="seg2-o"><label class="segmented__btn" for="seg2-o">Open</label>
+        <input class="segmented__input" type="radio" name="seg2" id="seg2-c"><label class="segmented__btn" for="seg2-c">Closed</label>
+      </div>
+      <div class="segmented">
+        <input class="segmented__input" type="radio" name="seg3" id="seg3-a" checked><label class="segmented__btn" for="seg3-a">All <span class="segmented__count">128</span></label>
+        <input class="segmented__input" type="radio" name="seg3" id="seg3-o"><label class="segmented__btn" for="seg3-o">Open <span class="segmented__count">34</span></label>
+        <input class="segmented__input" type="radio" name="seg3" id="seg3-x"><label class="segmented__btn" for="seg3-x">Overdue <span class="segmented__count">7</span></label>
+      </div>
+    </div>
+
+    <div class="specimen__label">Toggle button — pressed state via aria-pressed · labeled · icon-only pair</div>
+    <div class="specimen__row">
+      <button class="toggle-btn" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Watch</button>
+      <button class="toggle-btn" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Watch</button>
+      <button class="toggle-btn toggle-btn--icon" type="button" aria-pressed="true" aria-label="Bold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/><path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/></svg></button>
+      <button class="toggle-btn toggle-btn--icon" type="button" aria-pressed="false" aria-label="Italic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg></button>
+    </div>
+
+    <div class="specimen__label">Choice chips — many-of-many as compact pills (a checkbox group in chip clothing)</div>
+    <div class="specimen__row">
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox" checked><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> Open</span></label>
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox" checked><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> In review</span></label>
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox"><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> Blocked</span></label>
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox"><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> Done</span></label>
+    </div>
+
+    <div class="specimen__label">Option tiles — a radio dressed as a small card, for choices that need a description</div>
+    <div class="specimen__row">
+      <label class="option-tile"><input class="option-tile__input" type="radio" name="tier" checked><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Standard</span><span class="option-tile__desc">Nightly sync, 30-day history.</span></span></span></label>
+      <label class="option-tile"><input class="option-tile__input" type="radio" name="tier"><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Extended</span><span class="option-tile__desc">Hourly sync, 1-year history.</span></span></span></label>
+      <label class="option-tile"><input class="option-tile__input" type="radio" name="tier"><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Audit</span><span class="option-tile__desc">Continuous sync, full history.</span></span></span></label>
+    </div>
+  </section>
+
   <!-- ================= STATUS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="badges-chips-status">
     <h2 class="specimen__section-title">Badges, chips &amp; status</h2>
     <div class="specimen__row">
       <span class="badge"><span class="badge__dot"></span> Neutral</span>
@@ -211,7 +327,7 @@
   </section>
 
   <!-- ================= ALERTS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="alerts">
     <h2 class="specimen__section-title">Alerts</h2>
     <div class="alert alert--success"><div><div class="alert__title">Report ready</div><div class="alert__text">All 34 sections generated. The export is ready to download.</div></div></div>
     <div class="alert alert--warning"><div><div class="alert__title">Renewal approaching</div><div class="alert__text">The annual agreement on file renews in 14 days.</div></div></div>
@@ -220,7 +336,7 @@
   </section>
 
   <!-- ================= SECTIONS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="sections-not-cards">
     <h2 class="specimen__section-title">Sections, not cards — one separator between neighbors</h2>
     <div class="specimen__row">
       <div class="section-stack">
@@ -255,7 +371,7 @@
   </section>
 
   <!-- ================= NAV ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="navigation">
     <h2 class="specimen__section-title">Navigation — sidebar, tabs, menu</h2>
     <div class="shell-demo">
       <nav class="sidenav" aria-label="Demo sidebar">
@@ -277,6 +393,130 @@
         <p class="section-stack__text">Tabs draw one shared baseline; the selected tab carries the only accent. The content area starts here, one hairline away from the rail — no box around either side.</p>
       </div>
     </div>
+    <div class="specimen__label">Side menu — group label: option A uppercase eyebrow · option B sentence case</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Group label, uppercase eyebrow">
+        <div class="sidenav__section">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Improvements</a>
+      </nav>
+      <nav class="sidenav" aria-label="Group label, sentence case">
+        <div class="sidenav__section sidenav__section--sentence">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Improvements</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Item casing: option A title case · option B sentence case (one is chosen, never mixed)</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Items in title case">
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item" href="#nav">Firm Locations</a>
+        <a class="sidenav__item" href="#nav">Field Offices</a>
+        <a class="sidenav__item" href="#nav">Access Requests</a>
+      </nav>
+      <nav class="sidenav" aria-label="Items in sentence case">
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item" href="#nav">Firm locations</a>
+        <a class="sidenav__item" href="#nav">Field offices</a>
+        <a class="sidenav__item" href="#nav">Access requests</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Icons: option A none · option B small (matches the text) · option C large (leads the row) — all-or-none per menu</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="No icons">
+        <a class="sidenav__item" href="#nav" aria-current="page">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Tables</a>
+        <a class="sidenav__item" href="#nav">People</a>
+      </nav>
+      <nav class="sidenav" aria-label="Small icons, matching the text">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--icons-lg" aria-label="Large icons, leading the row">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Active item: option A tinted pill · option B solid ink pill · option C left accent bar</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Active as tinted pill">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--active-solid" aria-label="Active as solid ink pill">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--active-bar" aria-label="Active as left bar">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Separators — a titled group when it has a name; a bare divider when it does not; never both</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Titled group then untitled divider">
+        <div class="sidenav__section">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <hr class="sidenav__divider">
+        <a class="sidenav__item" href="#nav">Settings</a>
+        <a class="sidenav__item" href="#nav">Help &amp; Support</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Submenus: option A always open (connector line) · option B collapsible (native disclosure, zero JS; chevron right → down)</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Submenu always open">
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
+        <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
+        <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+        <a class="sidenav__item" href="#nav">Implementation</a>
+      </nav>
+      <nav class="sidenav" aria-label="Submenu collapsible">
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <details class="sidenav__group" open>
+          <summary class="sidenav__group-summary">Directories <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+        </details>
+        <details class="sidenav__group">
+          <summary class="sidenav__group-summary">Evidence <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Improvements</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Tables</a>
+        </details>
+        <a class="sidenav__item" href="#nav">Implementation</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Submenu overflow — the second column: a parent with dozens of children gets its own rail (the drill-in)</div>
+    <div class="specimen__row">
+      <div class="shell-demo">
+        <nav class="sidenav" aria-label="Primary rail">
+          <a class="sidenav__item" href="#nav">Home</a>
+          <a class="sidenav__item" href="#nav" aria-current="page">Specimen</a>
+          <a class="sidenav__item" href="#nav">Enforcement</a>
+        </nav>
+        <nav class="sidenav sidenav--secondary" aria-label="Section list">
+          <div class="sidenav__section">Specimen · Sections</div>
+          <a class="sidenav__item" href="#nav">Color</a>
+          <a class="sidenav__item" href="#nav">Typography</a>
+          <a class="sidenav__item" href="#nav" aria-current="page">Selection Controls</a>
+          <a class="sidenav__item" href="#nav">Navigation</a>
+          <a class="sidenav__item" href="#nav">Data Table</a>
+        </nav>
+      </div>
+    </div>
     <div class="specimen__label">Dropdown menu — the one legitimate floating box</div>
     <div class="specimen__row">
       <div class="menu" role="menu" aria-label="Demo menu">
@@ -290,7 +530,7 @@
   </section>
 
   <!-- ================= APPEARANCE ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="appearance-control">
     <h2 class="specimen__section-title">Appearance control — System · Light · Dark</h2>
 
     <div class="specimen__label">Trigger options — sun/moon (reports the current appearance; flip the Light switch above) · contrast circle (neutral)</div>
@@ -319,7 +559,7 @@
   </section>
 
   <!-- ================= DASHBOARD ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="dashboard">
     <h2 class="specimen__section-title">Dashboard — KPI tiles &amp; cards</h2>
 
     <div class="specimen__label">Figure size, option A — display figures (glance-first)</div>
@@ -394,7 +634,7 @@
   </section>
 
   <!-- ================= RATIO & PROGRESS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="progress-ratio">
     <h2 class="specimen__section-title">Progress &amp; ratio — a number against a total</h2>
 
     <div class="specimen__label">Ratio tiles, size option A — display percent (glance-first)</div>
@@ -509,7 +749,7 @@
   </section>
 
   <!-- ================= TABLE ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="data-table">
     <h2 class="specimen__section-title">Data table — a saved view in action</h2>
     <div class="data-table">
       <div class="data-table__viewbar">
@@ -616,7 +856,7 @@
   </section>
 
   <!-- ================= ROW ACTIONS ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="row-actions">
     <h2 class="specimen__section-title">Row actions — visible icons vs. the overflow menu</h2>
 
     <div class="specimen__label">Option A — overflow menu only (the default)</div>
@@ -676,7 +916,7 @@
   </section>
 
   <!-- ================= TABLE EDITING ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="table-editing-vs-form-editing">
     <h2 class="specimen__section-title">Table editing vs. form editing — the full menu of options</h2>
 
     <div class="specimen__label">Option A — read-only table, form editing (the default)</div>
@@ -763,7 +1003,7 @@
   </section>
 
   <!-- ================= RECORD FORM ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="record-forms">
     <h2 class="specimen__section-title">Record forms — presentation styles</h2>
     <div class="specimen__row">
       <div>
@@ -916,7 +1156,7 @@
   </section>
 
   <!-- ================= RECORD FORM CANDIDATES ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="record-forms-workflows">
     <h2 class="specimen__section-title">Record forms — workflows and processes (candidates)</h2>
 
     <div class="specimen__label">Workflow — document hybrid: the record as a page (prose heart + properties)</div>
@@ -1044,7 +1284,7 @@
   </section>
 
   <!-- ================= KEYBOARD ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="keyboard-conventions">
     <h2 class="specimen__section-title">Keyboard conventions — what Enter means</h2>
 
     <div class="specimen__label">Choice surfaces — Enter activates the highlighted item</div>
@@ -1089,7 +1329,7 @@
   </section>
 
   <!-- ================= FILTER BUILDER ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="filter-builder">
     <h2 class="specimen__section-title">Filter builder</h2>
     <div class="condition-stack">
       <div class="condition">
@@ -1121,7 +1361,7 @@
   </section>
 
   <!-- ================= VIEW SYSTEM ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="view-system">
     <h2 class="specimen__section-title">View system — switcher, fields, sort, view menu</h2>
     <div class="specimen__row">
       <div>
@@ -1191,7 +1431,7 @@
   </section>
 
   <!-- ================= COMMAND PALETTE ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="command-palette">
     <h2 class="specimen__section-title">Command palette — ⌘K, zero JavaScript</h2>
     <div class="palette-demo">
       <div class="palette" role="dialog" aria-label="Command palette demo">
@@ -1207,13 +1447,62 @@
   </section>
 
   <!-- ================= EMPTY STATE ================= -->
-  <section class="specimen__section">
+  <section class="specimen__section" id="empty-state">
     <h2 class="specimen__section-title">Empty state — teaches, never dead-ends</h2>
     <div class="empty-state">
       <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
       <div class="empty-state__title">No saved views yet</div>
       <div class="empty-state__text">Build a filter, then save it as a view. Saved views keep your columns, sort, and filters — and they're shareable with your team.</div>
       <button class="button button--primary" type="button">Create your first view</button>
+    </div>
+  </section>
+
+  <!-- ================= APP BRANDING ================= -->
+  <section class="specimen__section" id="app-branding">
+    <h2 class="specimen__section-title">App branding — mark, favicon, avatar</h2>
+    <div class="specimen__label">Brand slot — top-left of the rail: option A ink mark · option B accent mark</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Brand slot demo">
+        <div class="brand-slot">
+          <span class="brandmark brandmark--32">A</span>
+          <span class="brand-slot__name">Acme<span class="brand-slot__sub">Operations</span></span>
+        </div>
+        <a class="sidenav__item" href="#nav" aria-current="page">Dashboard</a>
+        <a class="sidenav__item" href="#nav">Accounts</a>
+        <a class="sidenav__item" href="#nav">Reports</a>
+      </nav>
+      <nav class="sidenav" aria-label="Brand slot, accent mark">
+        <div class="brand-slot">
+          <span class="brandmark brandmark--accent brandmark--32">A</span>
+          <span class="brand-slot__name">Acme<span class="brand-slot__sub">Operations</span></span>
+        </div>
+        <a class="sidenav__item" href="#nav" aria-current="page">Dashboard</a>
+        <a class="sidenav__item" href="#nav">Accounts</a>
+        <a class="sidenav__item" href="#nav">Reports</a>
+      </nav>
+    </div>
+    <div class="specimen__label">Both grounds — the same marks on the canvas and its opposite (flip the Light switch; the pair holds)</div>
+    <div class="specimen__row">
+      <div class="brandkit__panel brandkit__panel--ground">
+        <span class="brandmark brandmark--48">A</span>
+        <span class="brandmark brandmark--accent brandmark--48">A</span>
+        <span class="brandkit__size">on the canvas</span>
+      </div>
+      <div class="brandkit__panel brandkit__panel--inverse">
+        <span class="brandmark brandmark--paper brandmark--48">A</span>
+        <span class="brandmark brandmark--accent brandmark--48">A</span>
+        <span class="brandkit__size">on the opposite ground</span>
+      </div>
+    </div>
+    <div class="specimen__label">Favicon &amp; avatar ladder — first letter of the brand name; 16 · 32 · 48 · 180 touch · 512 avatar</div>
+    <div class="specimen__row">
+      <div class="brandkit">
+        <span class="brandkit__item"><span class="brandmark brandmark--16">A</span><span class="brandkit__size">16</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--32">A</span><span class="brandkit__size">32</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--48">A</span><span class="brandkit__size">48</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--180">A</span><span class="brandkit__size">180 · touch</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--512">A</span><span class="brandkit__size">512 · avatar</span></span>
+      </div>
     </div>
   </section>
 

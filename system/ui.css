@@ -95,12 +95,21 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
 .swatch__chip--c950 { background: var(--cool-950); }   .swatch__chip--c1000 { background: var(--cool-1000); }
 .swatch__chip--az300 { background: var(--azure-300); } .swatch__chip--az400 { background: var(--azure-400); }
 .swatch__chip--az600 { background: var(--azure-600); }
+.swatch__chip--nv0 { background: var(--navy-0); }      .swatch__chip--nv25 { background: var(--navy-25); }
+.swatch__chip--nv100 { background: var(--navy-100); }
+.swatch__chip--nv300 { background: var(--navy-300); }  .swatch__chip--nv500 { background: var(--navy-500); }
+.swatch__chip--nv700 { background: var(--navy-700); }  .swatch__chip--nv800 { background: var(--navy-800); }
+.swatch__chip--nv900 { background: var(--navy-900); }  .swatch__chip--nv950 { background: var(--navy-950); }
+.swatch__chip--nv1000 { background: var(--navy-1000); }
+.swatch__chip--mint300 { background: var(--mint-300); } .swatch__chip--mint400 { background: var(--mint-400); }
+.swatch__chip--mint500 { background: var(--mint-500); } .swatch__chip--mint600 { background: var(--mint-600); }
 
 /* ---- palette families: only the ACTIVE family's primitives are shown ----- */
 .palette-family { display: none; }
 html:has(#opt-family [value="warm"]:checked) .palette-family--warm { display: block; }
 html:has(#opt-family [value="cool"]:checked) .palette-family--cool { display: block; }
 html:has(#opt-family [value="mono"]:checked) .palette-family--mono { display: block; }
+html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { display: block; }
 
 /* ---- surface ladder ------------------------------------------------------ */
 .surface-demo { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--space-3); }
@@ -161,7 +170,168 @@ html:has(#opt-family [value="mono"]:checked) .palette-family--mono { display: bl
 .field__error { font-size: var(--text-xs); color: var(--color-danger); }
 
 .checkbox, .radio { accent-color: var(--color-action); width: 1rem; height: 1rem; cursor: pointer; }
-.choice { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); cursor: pointer; }
+.choice { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); cursor: pointer; min-height: var(--target-min); }
+
+/* ---- selection controls: the choice family --------------------------------
+   Candidates on display (whitepaper "Selection controls" chapter). Two drawing
+   schools per box control: native (accent-color, above) vs custom-drawn
+   (appearance:none, below). All zero-JS; state via :checked / aria-pressed. */
+
+/* checkbox, custom-drawn */
+.checkbox--drawn {
+  appearance: none; width: 1.125rem; height: 1.125rem; flex: none;
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-xs);
+  background: var(--color-well); display: inline-grid; place-content: center;
+  transition: background var(--motion-fast) var(--ease), border-color var(--motion-fast) var(--ease);
+}
+.checkbox--drawn::before {
+  content: ""; width: 0.7rem; height: 0.7rem; scale: 0;
+  transition: scale var(--motion-fast) var(--ease);
+  background: var(--color-on-action);
+  clip-path: polygon(14% 44%, 0 62%, 42% 100%, 100% 14%, 84% 0, 40% 68%);
+}
+.checkbox--drawn:checked, .checkbox--drawn.checkbox--mixed { background: var(--color-action); border-color: var(--color-action); }
+.checkbox--drawn:checked::before { scale: 1; }
+.checkbox--mixed::before { scale: 1; clip-path: inset(38% 10% 38% 10%); }
+.checkbox--drawn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* radio, custom-drawn */
+.radio--drawn {
+  appearance: none; width: 1.125rem; height: 1.125rem; flex: none;
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-pill);
+  background: var(--color-well); display: inline-grid; place-content: center;
+  transition: border-color var(--motion-fast) var(--ease);
+}
+.radio--drawn::before {
+  content: ""; width: 0.5rem; height: 0.5rem; border-radius: var(--radius-pill);
+  background: var(--color-action); scale: 0; transition: scale var(--motion-fast) var(--ease);
+}
+.radio--drawn:checked { border-color: var(--color-action); }
+.radio--drawn:checked::before { scale: 1; }
+.radio--drawn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* switch — an on/off control that acts immediately; never next to a Save button */
+.switch { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); cursor: pointer; min-height: var(--target-min); }
+.switch__track {
+  appearance: none; flex: none; width: 2.25rem; height: 1.25rem;
+  border-radius: var(--radius-pill); background: var(--color-border-strong);
+  position: relative; cursor: pointer;
+  transition: background var(--motion-base) var(--ease);
+}
+.switch__track::after {
+  content: ""; position: absolute; top: 0.125rem; left: 0.125rem;
+  width: 1rem; height: 1rem; border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  transition: translate var(--motion-base) var(--ease);
+}
+.switch__track:checked { background: var(--color-action); }
+.switch__track:checked::after { translate: 1rem 0; }
+.switch__track:disabled { opacity: 0.45; cursor: not-allowed; }
+.switch--sm .switch__track { width: 1.75rem; height: 1rem; }
+.switch--sm .switch__track::after { width: 0.75rem; height: 0.75rem; }
+.switch--sm .switch__track:checked::after { translate: 0.75rem 0; }
+/* the worded track — state words inside the control (shown to be rejected) */
+.switch__track--worded { width: 3.5rem; }
+.switch__track--worded::before {
+  content: "OFF"; position: absolute; top: 50%; translate: 0 -50%; right: 0.375rem;
+  font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted);
+}
+.switch__track--worded:checked::before { content: "ON"; right: auto; left: 0.375rem; color: var(--color-on-action); }
+.switch__track--worded:checked::after { translate: 2.25rem 0; }
+
+/* switch row — the settings-list presentation: text left, switch right */
+.switch-row { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--space-4); }
+.switch-row + .switch-row { border-top: 1px solid var(--color-border); }
+.switch-row__text { flex: 1; }
+.switch-row__title { display: block; font-size: var(--text-sm); font-weight: var(--weight-medium); }
+.switch-row__desc { display: block; font-size: var(--text-xs); color: var(--color-text-muted); }
+
+/* segmented control — one-of-few as adjacent buttons; a radio group in button clothing */
+.segmented { display: inline-flex; align-items: stretch; height: var(--control-h); background: var(--color-well); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); padding: 2px; gap: 2px; }
+.segmented__input { position: absolute; opacity: 0; pointer-events: none; }
+.segmented__btn {
+  display: inline-flex; align-items: center; gap: var(--space-2); padding: 0 var(--space-3);
+  border: 1px solid transparent; border-radius: var(--radius-xs);
+  font-size: var(--text-sm); color: var(--color-text-muted); cursor: pointer;
+  transition: background var(--motion-fast) var(--ease), color var(--motion-fast) var(--ease);
+}
+.segmented__btn:hover { color: var(--color-text); }
+.segmented__input:checked + .segmented__btn { background: var(--color-surface); border-color: var(--color-border-strong); color: var(--color-text); font-weight: var(--weight-medium); }
+.segmented--accent .segmented__input:checked + .segmented__btn { background: var(--color-selected-bg); border-color: var(--color-action); color: var(--color-action); }
+.segmented__input:focus-visible + .segmented__btn { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: 0; z-index: 1; }
+.segmented__count { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); }
+
+/* toggle button — a button that stays pressed; state is aria-pressed, server-rendered */
+.toggle-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  height: var(--control-h); padding: 0 var(--space-3);
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
+  background: var(--color-surface); color: var(--color-text-muted);
+  font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer;
+  transition: background var(--motion-fast) var(--ease), color var(--motion-fast) var(--ease);
+}
+.toggle-btn:hover { background: var(--color-surface-hover); color: var(--color-text); }
+.toggle-btn[aria-pressed="true"] { background: var(--color-selected-bg); border-color: var(--color-action); color: var(--color-action); }
+.toggle-btn--icon { width: var(--control-h); padding: 0; }
+
+/* choice chip — many-of-many as compact pills; a checkbox group in chip clothing */
+.chip-choice { display: inline-flex; cursor: pointer; }
+.chip-choice__input { position: absolute; opacity: 0; pointer-events: none; }
+.chip-choice__face {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  height: 1.75rem; padding: 0 var(--space-3);
+  background: var(--color-surface); border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill); font-size: var(--text-sm); color: var(--color-text-muted);
+  transition: background var(--motion-fast) var(--ease), color var(--motion-fast) var(--ease);
+}
+.chip-choice__check { display: none; }
+.chip-choice__input:checked + .chip-choice__face { background: var(--color-selected-bg); border-color: var(--color-action); color: var(--color-action); }
+.chip-choice__input:checked + .chip-choice__face .chip-choice__check { display: inline-flex; }
+.chip-choice__input:focus-visible + .chip-choice__face { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
+
+/* option tile — a radio dressed as a small card, for choices that need a description */
+.option-tile { display: flex; cursor: pointer; }
+.option-tile__input { position: absolute; opacity: 0; pointer-events: none; }
+.option-tile__face {
+  flex: 1; display: flex; gap: var(--space-3); align-items: flex-start;
+  padding: var(--space-3) var(--space-4); min-width: 13rem; max-width: 16rem;
+  background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
+  transition: border-color var(--motion-fast) var(--ease), background var(--motion-fast) var(--ease);
+}
+.option-tile__dot {
+  flex: none; width: 1.125rem; height: 1.125rem; margin-top: 1px;
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-pill);
+  display: inline-grid; place-content: center;
+}
+.option-tile__dot::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: var(--radius-pill); background: var(--color-action); scale: 0; transition: scale var(--motion-fast) var(--ease); }
+.option-tile__title { display: block; font-size: var(--text-sm); font-weight: var(--weight-medium); }
+.option-tile__desc { display: block; font-size: var(--text-xs); color: var(--color-text-muted); margin-top: 1px; }
+.option-tile__input:checked + .option-tile__face { border-color: var(--color-action); background: var(--color-selected-bg); }
+.option-tile__input:checked + .option-tile__face .option-tile__dot { border-color: var(--color-action); }
+.option-tile__input:checked + .option-tile__face .option-tile__dot::before { scale: 1; }
+.option-tile__input:focus-visible + .option-tile__face { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
+
+@media (prefers-reduced-motion: reduce) {
+  .checkbox--drawn, .checkbox--drawn::before, .radio--drawn, .radio--drawn::before,
+  .switch__track, .switch__track::after, .segmented__btn, .toggle-btn,
+  .chip-choice__face, .option-tile__face, .option-tile__dot::before { transition: none; }
+}
+
+/* Forced-colors (high-contrast) mode strips backgrounds: hand the drawn inputs
+   back to the browser, and carry selected state on system colors elsewhere. */
+@media (forced-colors: active) {
+  .checkbox--drawn, .radio--drawn, .switch__track { appearance: revert; }
+  .segmented__input:checked + .segmented__btn,
+  .chip-choice__input:checked + .chip-choice__face,
+  .toggle-btn[aria-pressed="true"],
+  .option-tile__input:checked + .option-tile__face {
+    forced-color-adjust: none;
+    background: Highlight; color: HighlightText; border-color: Highlight;
+  }
+  .option-tile__input:checked + .option-tile__face .option-tile__dot { border-color: HighlightText; }
+  .option-tile__input:checked + .option-tile__face .option-tile__dot::before { background: HighlightText; }
+  .option-tile__input:checked + .option-tile__face .option-tile__desc { color: HighlightText; }
+}
 
 /* ---- badges, chips, avatar, loading -------------------------------------- */
 .badge {
@@ -297,6 +467,29 @@ html:has(#opt-family [value="mono"]:checked) .palette-family--mono { display: bl
 .sidenav__item:hover { background: var(--color-surface-hover); }
 .sidenav__item[aria-current="page"] { background: var(--color-selected-bg); color: var(--color-action); font-weight: var(--weight-medium); }
 .sidenav__count { margin-left: auto; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); }
+
+/* ---- side menu anatomy: candidates on display ----------------------------
+   Group-label style, item casing, icon presence + size, active-item style,
+   separators, and collapsible groups (native details/summary — zero JS). */
+.sidenav__section--sentence { text-transform: none; letter-spacing: normal; }
+.sidenav__divider { height: 1px; background: var(--color-border); border: none; margin: var(--space-2) var(--space-3); }
+.sidenav__icon { flex: none; width: 1rem; height: 1rem; display: inline-flex; color: var(--color-text-muted); }
+.sidenav__item[aria-current="page"] .sidenav__icon,
+.sidenav__item:hover .sidenav__icon { color: inherit; }
+.sidenav--icons-lg .sidenav__icon { width: 1.25rem; height: 1.25rem; }
+.sidenav--active-bar .sidenav__item[aria-current="page"] { background: none; color: var(--color-action); border-left: 2px solid var(--color-action); border-radius: 0; font-weight: var(--weight-medium); }
+.sidenav--active-solid .sidenav__item[aria-current="page"] { background: var(--color-text); color: var(--color-canvas); font-weight: var(--weight-medium); }
+.sidenav--active-solid .sidenav__item[aria-current="page"] .sidenav__icon { color: inherit; }
+.sidenav__group-summary { display: flex; align-items: center; gap: var(--space-2); padding: var(--menu-pad-y) var(--space-3); border-radius: var(--radius-xs); font-size: var(--text-sm); color: var(--color-text); cursor: pointer; list-style: none; min-height: var(--target-min); }
+.sidenav__group-summary::-webkit-details-marker { display: none; }
+.sidenav__group-summary::marker { content: ""; }
+.sidenav__group-summary:hover { background: var(--color-surface-hover); }
+.sidenav__chev { margin-left: auto; flex: none; display: inline-flex; width: 0.875rem; height: 0.875rem; color: var(--color-text-muted); transition: rotate var(--motion-fast) var(--ease); }
+.sidenav__group[open] > .sidenav__group-summary .sidenav__chev { rotate: 90deg; }
+.sidenav__item--sub { margin-left: var(--space-5); padding-left: var(--space-3); border-left: 1px solid var(--color-border); border-radius: 0 var(--radius-xs) var(--radius-xs) 0; }
+.sidenav__item--sub[aria-current="page"] { border-left-color: var(--color-action); }
+.sidenav--secondary { width: 12rem; }
+@media (prefers-reduced-motion: reduce) { .sidenav__chev { transition: none; } }
 
 .menu { width: 14rem; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); padding: var(--space-1); box-shadow: var(--shadow-overlay); }
 .menu__item { display: flex; align-items: center; gap: var(--space-2); width: 100%; padding: var(--menu-pad-y) var(--space-3); border: none; background: none; text-align: left; font-family: var(--font-sans); font-size: var(--text-sm); color: var(--color-text); border-radius: var(--radius-xs); cursor: pointer; }
@@ -603,6 +796,38 @@ html:has(#opt-family [value="cool"]:checked):has(#opt-light:checked) {
   --color-selected-bg:   color-mix(in srgb, var(--azure-600) 12%, transparent);
   --color-focus:         var(--azure-600);
 }
+html:has(#opt-family [value="goodness"]:checked) {
+  --color-canvas:        var(--navy-950);
+  --color-surface:       var(--navy-900);
+  --color-surface-hover: var(--navy-800);
+  --color-well:          var(--navy-1000);
+  --color-border:        var(--navy-800);
+  --color-border-strong: var(--navy-700);
+  --color-text:          var(--navy-100);
+  --color-text-muted:    var(--navy-400);
+  --color-action:        var(--mint-400);
+  --color-action-hover:  var(--mint-300);
+  --color-action-active: var(--mint-600);
+  --color-on-action:     var(--navy-1000);
+  --color-selected-bg:   color-mix(in srgb, var(--mint-400) 14%, transparent);
+  --color-focus:         var(--mint-400);
+}
+html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
+  --color-canvas:        var(--navy-25);
+  --color-surface:       var(--navy-0);
+  --color-surface-hover: var(--navy-50);
+  --color-well:          var(--navy-50);
+  --color-border:        var(--navy-200);
+  --color-border-strong: var(--navy-300);
+  --color-text:          var(--navy-900);
+  --color-text-muted:    var(--navy-500);
+  --color-action:        var(--mint-600);
+  --color-action-hover:  var(--mint-500);
+  --color-action-active: var(--mint-600);
+  --color-on-action:     var(--navy-0);
+  --color-selected-bg:   color-mix(in srgb, var(--mint-600) 12%, transparent);
+  --color-focus:         var(--mint-600);
+}
 html:has(#opt-density [value="tight"]:checked) {
   --control-h: var(--control-h-tight);
   --row-pad-y: var(--space-1);
@@ -613,6 +838,33 @@ html:has(#opt-density [value="loose"]:checked) {
   --row-pad-y: var(--space-3);
   --menu-pad-y: var(--space-2);
 }
+
+/* ---- app branding: mark, favicon, avatar (candidates) --------------------- */
+.brandmark {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  background: var(--color-text); color: var(--color-canvas);
+  font-family: var(--font-sans); font-weight: var(--weight-semibold);
+  border-radius: var(--radius-sm); line-height: 1;
+}
+.brandmark--accent { background: var(--color-action); color: var(--color-on-action); }
+.brandmark--outline { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border-strong); }
+.brandmark--16 { width: 1rem; height: 1rem; font-size: 0.625rem; border-radius: 2px; }
+.brandmark--32 { width: 2rem; height: 2rem; font-size: var(--text-md); border-radius: var(--radius-xs); }
+.brandmark--48 { width: 3rem; height: 3rem; font-size: var(--text-xl); }
+.brandmark--180 { width: 5.5rem; height: 5.5rem; font-size: 2.75rem; border-radius: var(--radius-md); }
+.brandmark--512 { width: 8rem; height: 8rem; font-size: 4rem; border-radius: var(--radius-md); }
+
+.brand-slot { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-3); border-bottom: 1px solid var(--color-border); margin-bottom: var(--space-2); }
+.brand-slot__name { font-weight: var(--weight-semibold); font-size: var(--text-md); letter-spacing: var(--tracking-tight); }
+.brand-slot__sub { display: block; font-size: var(--text-xs); color: var(--color-text-muted); font-weight: var(--weight-regular); letter-spacing: normal; }
+
+.brandkit { display: flex; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
+.brandkit__item { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); }
+.brandkit__size { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); }
+.brandkit__panel { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+.brandkit__panel--ground { background: var(--color-canvas); }
+.brandkit__panel--inverse { background: var(--color-text); }
+.brandmark--paper { background: var(--color-canvas); color: var(--color-text); }
 
 /* ---- white paper ---------------------------------------------------------- */
 .wp-prose { max-width: 48rem; font-size: var(--text-base); line-height: var(--leading-relaxed, 1.6); color: var(--color-text); margin-bottom: var(--space-3); }

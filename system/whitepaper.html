@@ -14,8 +14,9 @@
   <div class="specimen__controls">
     <label class="control-switch" for="opt-family">Family
       <select class="select" id="opt-family">
-        <option value="mono" selected>Mono</option>
+        <option value="goodness" selected>Goodness</option>
         <option value="warm">Warm</option>
+        <option value="mono">Mono</option>
         <option value="cool">Cool</option>
       </select>
     </label>
@@ -44,25 +45,27 @@
       <a class="wp-toc__item" href="#density"><span class="wp-toc__num">05</span>Density — one axis, three steps</a>
       <a class="wp-toc__item" href="#buttons"><span class="wp-toc__num">06</span>Buttons</a>
       <a class="wp-toc__item" href="#inputs"><span class="wp-toc__num">07</span>Inputs and form fields</a>
-      <a class="wp-toc__item" href="#status"><span class="wp-toc__num">08</span>Badges, chips and status</a>
-      <a class="wp-toc__item" href="#alerts"><span class="wp-toc__num">09</span>Alerts</a>
-      <a class="wp-toc__item" href="#sections"><span class="wp-toc__num">10</span>Sections, not cards</a>
-      <a class="wp-toc__item" href="#navigation"><span class="wp-toc__num">11</span>Navigation — sidebar, tabs, menu</a>
-      <a class="wp-toc__item" href="#consequential"><span class="wp-toc__num">12</span>The consequential action</a>
-      <a class="wp-toc__item" href="#dashboard"><span class="wp-toc__num">13</span>Dashboards and the size of a number</a>
-      <a class="wp-toc__item" href="#ratio"><span class="wp-toc__num">14</span>Progress and ratio — a number against a total</a>
-      <a class="wp-toc__item" href="#table"><span class="wp-toc__num">15</span>The data table — a saved view in action</a>
-      <a class="wp-toc__item" href="#rowactions"><span class="wp-toc__num">16</span>Row actions — visible icons vs. the overflow menu</a>
-      <a class="wp-toc__item" href="#editing"><span class="wp-toc__num">17</span>Table editing vs. form editing</a>
-      <a class="wp-toc__item" href="#recordforms"><span class="wp-toc__num">18</span>Record forms — the presentation styles</a>
-      <a class="wp-toc__item" href="#workflows"><span class="wp-toc__num">19</span>Record forms — the workflows and processes</a>
-      <a class="wp-toc__item" href="#filters"><span class="wp-toc__num">20</span>The filter builder</a>
-      <a class="wp-toc__item" href="#views"><span class="wp-toc__num">21</span>The view system</a>
-      <a class="wp-toc__item" href="#keyboard"><span class="wp-toc__num">22</span>Keyboard conventions — what Enter means</a>
-      <a class="wp-toc__item" href="#palette-cmd"><span class="wp-toc__num">23</span>The command palette</a>
-      <a class="wp-toc__item" href="#empty"><span class="wp-toc__num">24</span>Empty states</a>
-      <a class="wp-toc__item" href="#brandcolor"><span class="wp-toc__num">25</span>Brand color vs. the meaning colors</a>
-      <a class="wp-toc__item" href="#decisions"><span class="wp-toc__num">26</span>How decisions get made</a>
+      <a class="wp-toc__item" href="#selection"><span class="wp-toc__num">08</span>Selection controls — the choice family</a>
+      <a class="wp-toc__item" href="#status"><span class="wp-toc__num">09</span>Badges, chips and status</a>
+      <a class="wp-toc__item" href="#alerts"><span class="wp-toc__num">10</span>Alerts</a>
+      <a class="wp-toc__item" href="#sections"><span class="wp-toc__num">11</span>Sections, not cards</a>
+      <a class="wp-toc__item" href="#navigation"><span class="wp-toc__num">12</span>Navigation — sidebar, tabs, menu</a>
+      <a class="wp-toc__item" href="#consequential"><span class="wp-toc__num">13</span>The consequential action</a>
+      <a class="wp-toc__item" href="#dashboard"><span class="wp-toc__num">14</span>Dashboards and the size of a number</a>
+      <a class="wp-toc__item" href="#ratio"><span class="wp-toc__num">15</span>Progress and ratio — a number against a total</a>
+      <a class="wp-toc__item" href="#table"><span class="wp-toc__num">16</span>The data table — a saved view in action</a>
+      <a class="wp-toc__item" href="#rowactions"><span class="wp-toc__num">17</span>Row actions — visible icons vs. the overflow menu</a>
+      <a class="wp-toc__item" href="#editing"><span class="wp-toc__num">18</span>Table editing vs. form editing</a>
+      <a class="wp-toc__item" href="#recordforms"><span class="wp-toc__num">19</span>Record forms — the presentation styles</a>
+      <a class="wp-toc__item" href="#workflows"><span class="wp-toc__num">20</span>Record forms — the workflows and processes</a>
+      <a class="wp-toc__item" href="#filters"><span class="wp-toc__num">21</span>The filter builder</a>
+      <a class="wp-toc__item" href="#views"><span class="wp-toc__num">22</span>The view system</a>
+      <a class="wp-toc__item" href="#keyboard"><span class="wp-toc__num">23</span>Keyboard conventions — what Enter means</a>
+      <a class="wp-toc__item" href="#palette-cmd"><span class="wp-toc__num">24</span>The command palette</a>
+      <a class="wp-toc__item" href="#empty"><span class="wp-toc__num">25</span>Empty states</a>
+      <a class="wp-toc__item" href="#brandcolor"><span class="wp-toc__num">26</span>Brand color vs. the meaning colors</a>
+      <a class="wp-toc__item" href="#appbranding"><span class="wp-toc__num">27</span>App branding — the mark, the favicon, the avatar</a>
+      <a class="wp-toc__item" href="#decisions"><span class="wp-toc__num">28</span>How decisions get made</a>
     </nav>
   </section>
 
@@ -78,8 +81,29 @@
   <section class="specimen__section" id="color">
     <h2 class="specimen__section-title">2. Color — the palette families and the shared contract</h2>
     <p class="wp-prose">Every color in the system lives in one file of named values called tokens (a token is a named design decision, like <code>--color-text</code>, that components reference instead of raw values). Tokens come in three tiers: primitives (the raw palette below), semantic aliases (names that describe a job, like text or danger), and component references. Components may only use the middle tier — which is what makes whole-system reskinning a one-file change.</p>
-    <p class="wp-prose">Three palette families exist — warm, cool, and mono — and a contract guarantees they are interchangeable: every family defines exactly the same named steps (fourteen neutrals and four accent steps), enforced by an automated check. A product picks a family the way it picks a typeface; nothing else in the system needs to know.</p>
+    <p class="wp-prose">Four palette families exist — goodness, warm, cool, and mono — and a contract guarantees they are interchangeable: every family defines exactly the same named steps (fourteen neutrals and four accent steps), enforced by an automated check. Goodness is the house family, drawn from this documentation site's own blueprint blues and mint accent. A product picks a family the way it picks a typeface; nothing else in the system needs to know.</p>
     <p class="specimen__note">Primitives (tier 1) of the <em>active</em> family. Components never touch these directly — they consume the semantic aliases. The family switch (top right) replaces this palette entirely; only one family is ever on screen.</p>
+    <div class="palette-family palette-family--goodness">
+    <div class="specimen__label">Goodness family — the house look, the opening default</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv0"></div><div class="swatch__meta"><div class="swatch__name">navy-0</div><div class="swatch__value">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv25"></div><div class="swatch__meta"><div class="swatch__name">navy-25</div><div class="swatch__value">#f6fafd</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv100"></div><div class="swatch__meta"><div class="swatch__name">navy-100</div><div class="swatch__value">#dce9f6</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv300"></div><div class="swatch__meta"><div class="swatch__name">navy-300</div><div class="swatch__value">#9cc0e2</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv500"></div><div class="swatch__meta"><div class="swatch__name">navy-500</div><div class="swatch__value">#52739b</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv700"></div><div class="swatch__meta"><div class="swatch__name">navy-700</div><div class="swatch__value">#24436b</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv800"></div><div class="swatch__meta"><div class="swatch__name">navy-800</div><div class="swatch__value">#0c2b54</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv900"></div><div class="swatch__meta"><div class="swatch__name">navy-900</div><div class="swatch__value">#0a2244</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv950"></div><div class="swatch__meta"><div class="swatch__name">navy-950</div><div class="swatch__value">#071528</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv1000"></div><div class="swatch__meta"><div class="swatch__name">navy-1000</div><div class="swatch__value">#040d1c</div></div></div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint300"></div><div class="swatch__meta"><div class="swatch__name">mint-300</div><div class="swatch__value">#8beed6</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint400"></div><div class="swatch__meta"><div class="swatch__name">mint-400</div><div class="swatch__value">#5fe0c0</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint500"></div><div class="swatch__meta"><div class="swatch__name">mint-500</div><div class="swatch__value">#14907c</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint600"></div><div class="swatch__meta"><div class="swatch__name">mint-600</div><div class="swatch__value">#0d7263</div></div></div>
+    </div>
+    </div>
     <div class="palette-family palette-family--warm">
     <div class="specimen__label">Warm family</div>
     <div class="swatch-grid">
@@ -123,7 +147,7 @@
     </div>
     </div>
     <div class="palette-family palette-family--mono">
-    <div class="specimen__label">Mono family — the opening default</div>
+    <div class="specimen__label">Mono family</div>
     <div class="swatch-grid">
       <div class="swatch"><div class="swatch__chip swatch__chip--g0"></div><div class="swatch__meta"><div class="swatch__name">gray-0</div><div class="swatch__value">#ffffff</div></div></div>
       <div class="swatch"><div class="swatch__chip swatch__chip--g25"></div><div class="swatch__meta"><div class="swatch__name">gray-25</div><div class="swatch__value">#fafafa</div></div></div>
@@ -156,7 +180,7 @@
       <div class="surface-demo__panel surface-demo__panel--canvas"><div class="surface-demo__name">canvas</div><div class="surface-demo__desc">the page itself</div></div>
       <div class="surface-demo__panel surface-demo__panel--surface"><div class="surface-demo__name">surface</div><div class="surface-demo__desc">raised — cards, panels, table chrome</div></div>
     </div>
-    <p class="wp-prose">Recommendation: mono as the opening default — grayscale plus an ink accent keeps data screens quiet and makes every use of color meaningful. Warm and cool remain full citizens for products whose identity wants them.</p>
+    <p class="wp-prose">The documents themselves open on the goodness family, so the system is first seen wearing the same blueprint blues as the site around it. For products, the recommendation stands: mono as the working default — grayscale plus an ink accent keeps data screens quiet and makes every use of color meaningful. Goodness, warm, and cool remain full citizens for products whose identity wants them.</p>
     <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
   </section>
 
@@ -269,8 +293,117 @@
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
   </section>
 
+  <section class="specimen__section" id="selection">
+    <h2 class="specimen__section-title">8. Selection controls — the choice family</h2>
+    <p class="wp-prose">A working screen asks its reader to choose all day: which rows, which columns, which interval, on or off. Behind every one of those moments sit just two questions, and together they decide which control belongs there. First, what shape is the choice — one of a set, many of a set, or a single yes/no? Second, when does it take effect — immediately, or only when a form is saved? Each control in this family is one cell of that grid; drift happens when a control is picked for its looks instead of its cell.</p>
+
+    <div class="specimen__label">Checkbox, drawing option A — native (browser-drawn, accent-color)</div>
+    <p class="wp-prose">The checkbox is the many-of-a-set control, and also the single opt-in ("include archived"), and it always means: collected now, applied when the form is saved. Two ways of drawing it are on display. Option A lets the browser draw the box and only tints it with the accent token — one line of style, and specialized displays (high-contrast modes, print) handle it natively because nothing was overridden.</p>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox" type="checkbox" checked> Checked</label>
+      <label class="choice"><input class="checkbox" type="checkbox"> Unchecked</label>
+      <label class="choice"><input class="checkbox" type="checkbox" checked disabled> Disabled</label>
+    </div>
+    <div class="specimen__label">Checkbox, drawing option B — custom-drawn, with the mixed state</div>
+    <p class="wp-prose">Option B draws the box from the system's own tokens: identical in every browser, and every state — including the mixed state — styled deliberately. The mixed state (the dash) belongs to a parent checkbox standing over a partly-selected set, familiar from the select-all box in a table header: some rows checked, not all. It is a visual state the server renders as a class, and an honest limitation comes with it: the web platform offers no script-free way to announce "partly checked" to assistive technology, and bolting the announcement on with an attribute is forbidden on a native checkbox — so where the mixed reading matters, the honest control is a server-rendered select-all button instead. The cost of option B in general is responsibility: what the browser guaranteed for free, the drawn control must re-earn, which is why both options stay on display rather than one being assumed better.</p>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" checked> Checked</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox"> Unchecked</label>
+      <label class="choice"><input class="checkbox checkbox--drawn checkbox--mixed" type="checkbox"> Mixed — some of a set</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" checked disabled> Disabled</label>
+    </div>
+
+    <div class="specimen__label">Radio, drawing option A — native · drawing option B — custom-drawn</div>
+    <p class="wp-prose">The radio button is the one-of-a-set control: choosing one releases the others, which is exactly what it should signal that a checkbox does not. The same two drawing options apply. Radios earn their place when every option deserves to be seen before choosing — a handful of visible answers beats a dropdown that hides them behind a click. Stack them vertically when they stand alone in a form; one option per line scans faster than a row.</p>
+    <div class="specimen__row">
+      <label class="choice"><input class="radio" type="radio" name="sr1" checked> Monthly</label>
+      <label class="choice"><input class="radio" type="radio" name="sr1"> Quarterly</label>
+      <label class="choice"><input class="radio radio--drawn" type="radio" name="sr2" checked> Monthly</label>
+      <label class="choice"><input class="radio radio--drawn" type="radio" name="sr2"> Quarterly</label>
+      <label class="choice"><input class="radio radio--drawn" type="radio" name="sr2" disabled> Disabled</label>
+    </div>
+    <p class="wp-prose">The radio carries a genuine standing debate: should one option come pre-selected? One school says always — a pre-selected group can never be submitted empty, and people overwhelmingly keep defaults, so the common case is fast. The other says never — a preselected answer gets submitted unread, becoming false data, and once any radio is picked the group cannot be un-picked, so a mistaken click has no way back to "no answer". Most of the war dissolves on a distinction: a settings screen re-rendering the saved value is displaying state, not preselecting — every school accepts it. The debate only truly applies to first-time questions, and there the resolution is by consequence: preselect a safe, honest default where one exists (an interval, a sort order — never merely the first option); start empty when the answer is itself data and no default is defensible, give the list an honest escape option ("None of these"), and let required-field validation catch the skip.</p>
+
+    <div class="specimen__label">Switch — md · sm · disabled (immediate effect; never beside a Save button)</div>
+    <p class="wp-prose">The switch is the on/off control with one extra promise: the effect happens the moment it flips, like a light switch. That promise is the entire difference from a checkbox — same state, different tense. From it follows the rule that a switch never sits in a form that ends in a Save button: a control that promises "now" inside a container that means "later" misleads twice at once. In this system the switch is a checkbox carrying the switch role — current screen readers announce a true switch, and the failure mode is a correctly-stated checkbox — plus HTML's own emerging <code>switch</code> attribute for browsers that know it natively; the checked state stays native, never restated in an attribute. It is styled as a track and thumb. Its label always names the thing being turned on, never the current state; a separate state word beside the control is a permitted variant where research shows confusion.</p>
+    <div class="specimen__row">
+      <label class="switch"><input class="switch__track" type="checkbox" switch role="switch" checked> Auto-refresh</label>
+      <label class="switch"><input class="switch__track" type="checkbox" switch role="switch"> Live totals</label>
+      <label class="switch switch--sm"><input class="switch__track" type="checkbox" switch role="switch" checked> Compact</label>
+      <label class="switch"><input class="switch__track" type="checkbox" switch role="switch" disabled> Disabled</label>
+    </div>
+    <div class="specimen__label">Switch rows — the settings-list presentation</div>
+    <p class="wp-prose">Settings screens give the switch its natural home: a row per setting, title and explanation on the left, the switch on the right edge where the thumb expects it, each row one hairline apart. The whole row is the click target.</p>
+    <div class="section-stack">
+      <label class="switch-row">
+        <span class="switch-row__text"><span class="switch-row__title">Email digests</span><span class="switch-row__desc">A morning summary of changes in watched views.</span></span>
+        <input class="switch__track" type="checkbox" switch role="switch" checked>
+      </label>
+      <label class="switch-row">
+        <span class="switch-row__text"><span class="switch-row__title">Sound on completion</span><span class="switch-row__desc">Play a tone when a long export finishes.</span></span>
+        <input class="switch__track" type="checkbox" switch role="switch">
+      </label>
+    </div>
+    <div class="specimen__label">The anti-pattern — state words inside the track (shown to be rejected)</div>
+    <p class="wp-prose">Writing ON and OFF inside the track is rejected. The words cannot answer their own question — does the word describe the state the switch is in, or the state it will go to? — different products have meant both, so the reader must flip it to find out. And words baked into a control break the moment the interface is translated: the track cannot grow with the language. Position and fill already say everything; the label beside the control says what is being switched.</p>
+    <div class="specimen__row">
+      <label class="switch"><input class="switch__track switch__track--worded" type="checkbox" switch role="switch" checked> Notifications</label>
+      <label class="switch"><input class="switch__track switch__track--worded" type="checkbox" switch role="switch"> Notifications</label>
+    </div>
+
+    <div class="specimen__label">Segmented control, option A — raised segment · option B — tinted accent · with counts</div>
+    <p class="wp-prose">The segmented control is a radio group in button clothing: one-of-few, every option visible, in a single compact bar. It earns its place in toolbars and dashboards where a labeled radio list would be too tall — picking an interval, a scope, a facet of the data. The discipline: it changes a value or a filter, never the screen — switching between whole views is the job of tabs, and dressing one as the other teaches readers the wrong reflex. Two to five segments; past five, the bar stops being scannable and a dropdown takes over. Underneath it is made of real radio inputs, so keyboard and assistive behavior come from the browser, not from script. Two skins are on display — the raised segment, quiet and structural; the tinted accent, louder about which value is active — and a variant with mono counts, for when the numbers themselves inform the choice.</p>
+    <div class="specimen__row">
+      <div class="segmented">
+        <input class="segmented__input" type="radio" name="seg1" id="seg1-d" checked><label class="segmented__btn" for="seg1-d">Day</label>
+        <input class="segmented__input" type="radio" name="seg1" id="seg1-w"><label class="segmented__btn" for="seg1-w">Week</label>
+        <input class="segmented__input" type="radio" name="seg1" id="seg1-m"><label class="segmented__btn" for="seg1-m">Month</label>
+      </div>
+      <div class="segmented segmented--accent">
+        <input class="segmented__input" type="radio" name="seg2" id="seg2-a" checked><label class="segmented__btn" for="seg2-a">All</label>
+        <input class="segmented__input" type="radio" name="seg2" id="seg2-o"><label class="segmented__btn" for="seg2-o">Open</label>
+        <input class="segmented__input" type="radio" name="seg2" id="seg2-c"><label class="segmented__btn" for="seg2-c">Closed</label>
+      </div>
+      <div class="segmented">
+        <input class="segmented__input" type="radio" name="seg3" id="seg3-a" checked><label class="segmented__btn" for="seg3-a">All <span class="segmented__count">128</span></label>
+        <input class="segmented__input" type="radio" name="seg3" id="seg3-o"><label class="segmented__btn" for="seg3-o">Open <span class="segmented__count">34</span></label>
+        <input class="segmented__input" type="radio" name="seg3" id="seg3-x"><label class="segmented__btn" for="seg3-x">Overdue <span class="segmented__count">7</span></label>
+      </div>
+    </div>
+
+    <div class="specimen__label">Toggle button — pressed state via aria-pressed · labeled · icon-only pair</div>
+    <p class="wp-prose">The toggle button is a button that stays pressed — on/off wearing a button's clothes, for places where the action is the point: watch this view, bold this text. Its state lives in the pressed attribute, rendered by the server, and the pressed look must never be color alone — fill and border change together, so the difference survives grayscale and color-blindness. One discipline keeps it honest: the label never changes with the state — the same word stays put ("Watch", pressed or not) and the pressed state carries the answer, because a control that changes its word and its state at once leaves the reader unsure which one it just announced. Icon-only toggles carry a known ambiguity (does a filled star mean "starred" or "press to star"?), which is why the labeled form is preferred wherever space allows.</p>
+    <div class="specimen__row">
+      <button class="toggle-btn" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Watch</button>
+      <button class="toggle-btn" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Watch</button>
+      <button class="toggle-btn toggle-btn--icon" type="button" aria-pressed="true" aria-label="Bold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/><path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/></svg></button>
+      <button class="toggle-btn toggle-btn--icon" type="button" aria-pressed="false" aria-label="Italic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg></button>
+    </div>
+
+    <div class="specimen__label">Choice chips — many-of-many as compact pills (a checkbox group in chip clothing)</div>
+    <p class="wp-prose">Choice chips are a checkbox group in chip clothing: many-of-many, horizontal, compact — the filter facets above a table. Each chip is a real checkbox under a pill face; selecting one adds a check mark alongside the fill change, so the state never rests on color alone. They differ from the removable chip of chapter 9, which displays an already-applied value: the choice chip is the act of choosing itself.</p>
+    <div class="specimen__row">
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox" checked><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> Open</span></label>
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox" checked><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> In review</span></label>
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox"><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> Blocked</span></label>
+      <label class="chip-choice"><input class="chip-choice__input" type="checkbox"><span class="chip-choice__face"><span class="chip-choice__check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M2.5 8.5l3.5 3.5 7-8"/></svg></span> Done</span></label>
+    </div>
+
+    <div class="specimen__label">Option tiles — a radio dressed as a small card, for choices that need a description</div>
+    <p class="wp-prose">When each option needs a sentence of explanation — a plan, a sync mode — a bare radio label runs out of room. The option tile gives each choice a small card: title, description, and a visible radio dot, because a bordered card alone does not read as "pick one of these". One rule keeps tiles honest: nothing else interactive lives inside one — a link or button nested in a choice makes two targets fight for one click.</p>
+    <div class="specimen__row">
+      <label class="option-tile"><input class="option-tile__input" type="radio" name="tier" checked><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Standard</span><span class="option-tile__desc">Nightly sync, 30-day history.</span></span></span></label>
+      <label class="option-tile"><input class="option-tile__input" type="radio" name="tier"><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Extended</span><span class="option-tile__desc">Hourly sync, 1-year history.</span></span></span></label>
+      <label class="option-tile"><input class="option-tile__input" type="radio" name="tier"><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Audit</span><span class="option-tile__desc">Continuous sync, full history.</span></span></span></label>
+    </div>
+
+    <p class="wp-prose">The whole family folds into one decision path. On/off that acts now: switch. On/off collected by a form: checkbox. One of up to about five, in a form: radios, stacked; in a toolbar: a segmented control. One of many: the dropdown select, the control of last resort once options stop fitting on screen. Many of a set, in a form: a checkbox list; above a table: choice chips. A choice whose options need explaining: option tiles. An action that stays on: a toggle button. Recommendation: adopt the family with this decision path, and pick one drawing option — native or drawn — for checkbox and radio rather than shipping both.</p>
+    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-sources">Sources: W3C ARIA Authoring Practices (checkbox, radio group, switch, button patterns) · WCAG 2.2 (non-text contrast, target size, on-input) · Nielsen Norman Group, toggle-switch and radio-default guidelines · GOV.UK Design System radios, checkboxes, select and the none-checkbox research · Microsoft WinUI ("checkbox is for status, switch is for action") · Apple Human Interface Guidelines, toggles and segmented controls · IBM Carbon toggle and data-table selection · WebKit, "An HTML Switch Control" · Adrian Roselli, "Switch Role Support" · Sarah Higley, "Playing with state" · Sara Soueidan, one-checkbox-or-two-radios · full record: research/selection-controls.md</div>
+  </section>
+
   <section class="specimen__section" id="status">
-    <h2 class="specimen__section-title">8. Badges, chips and status</h2>
+    <h2 class="specimen__section-title">9. Badges, chips and status</h2>
     <p class="wp-prose">A badge states a condition; a chip states an applied choice and can be removed. Both follow the compound-signal rule: a semantic color never appears alone — always with a word or a dot-plus-word — so meaning survives grayscale, color-blindness, and printing.</p>
     <div class="specimen__row">
       <span class="badge"><span class="badge__dot"></span> Neutral</span>
@@ -299,7 +432,7 @@
   </section>
 
   <section class="specimen__section" id="alerts">
-    <h2 class="specimen__section-title">9. Alerts</h2>
+    <h2 class="specimen__section-title">10. Alerts</h2>
     <p class="wp-prose">Four intents — success, warning, danger, info — one anatomy: a title that states the fact and one sentence that says what happens next. Alerts describe the situation; they never scold.</p>
     <div class="alert alert--success"><div><div class="alert__title">Report ready</div><div class="alert__text">All 34 sections generated. The export is ready to download.</div></div></div>
     <div class="alert alert--warning"><div><div class="alert__title">Renewal approaching</div><div class="alert__text">The annual agreement on file renews in 14 days.</div></div></div>
@@ -309,7 +442,7 @@
   </section>
 
   <section class="specimen__section" id="sections">
-    <h2 class="specimen__section-title">10. Sections, not cards</h2>
+    <h2 class="specimen__section-title">11. Sections, not cards</h2>
     <p class="wp-prose">The default layout unit for working screens is the full-bleed section: blocks that touch, sharing a single hairline separator. Two cards cost the eye three elements between two pieces of content (edge, gap, edge); two sections cost one. The result is calmer, denser screens where separation is information, not decoration.</p>
     <p class="wp-prose">Cards are not forbidden — they are scoped. Independent, glanceable content earns a card: executive dashboards, widget grids, control environments. The duality is deliberate and documented, so the choice is always an argument, never a habit.</p>
     <p class="specimen__note">The default layout unit for day-to-day data screens. Flush sections share a single 1px hairline: two cards cost the eye three elements (edge + gap + edge); two sections cost one. Cards stay legitimate for glanceable, independent content — executive dashboards, widget grids, control environments (see components.md §2.7 for the duality).</p>
@@ -347,7 +480,7 @@
   </section>
 
   <section class="specimen__section" id="navigation">
-    <h2 class="specimen__section-title">11. Navigation — sidebar, tabs, menu</h2>
+    <h2 class="specimen__section-title">12. Navigation — sidebar, tabs, menu</h2>
     <p class="wp-prose">Navigation is the sections-not-cards rule turned sideways: the sidebar is a flat rail on the page background, separated from content by one vertical hairline, with the current item as the only filled shape. Overlays — dropdown menus, dialogs, palettes — are the legitimate exception: something that floats above other content needs an edge and a shadow to read as a separate layer. Navigation rows also run tighter than data rows, because a menu item is targeted, not read.</p>
     <p class="specimen__note">The sidebar is not a card. It is a flat rail sitting directly on the page background, separated from the content by a single vertical hairline — the same sections-not-cards rule, turned sideways. Only the current item gets a filled pill; everything else is plain text.</p>
     <div class="shell-demo">
@@ -370,6 +503,132 @@
         <p class="section-stack__text">Tabs draw one shared baseline; the selected tab carries the only accent. The content area starts here, one hairline away from the rail — no box around either side.</p>
       </div>
     </div>
+    <div class="specimen__label">The side menu — anatomy</div>
+    <p class="wp-prose">The rail's principle is settled; its anatomy still holds open choices, and each one below is shown as options to pick from. The questions: how a group announces itself, how the items are written, whether they carry icons and at what size, how the current item is marked, what separates one run of items from the next, and how a group folds.</p>
+    <p class="wp-prose">The group label. The small heading above a group of items comes in two styles. The uppercase eyebrow, letterspaced and muted, reads unmistakably as furniture — nobody tries to click it. The sentence-case label is quieter and closer to the items' own voice, and it carries the readability argument: all-capitals text is measurably slower to read because word shapes disappear, which is why several major systems ban it. Either way the label is static text, never a link — and if uppercase is chosen, the transform lives in the stylesheet, never typed into the content, so the style can change later without touching a word.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Group label, uppercase eyebrow">
+        <div class="sidenav__section">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Improvements</a>
+      </nav>
+      <nav class="sidenav" aria-label="Group label, sentence case">
+        <div class="sidenav__section sidenav__section--sentence">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Improvements</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Item casing. Two schools govern how the items themselves are written. Title case capitalizes every main word and gives each item the weight of a proper name. Sentence case capitalizes only the first word; most published content style guides prescribe it for interfaces, partly because it survives translation better and stays calm when labels grow long. The system picks one and never mixes the two in one application.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Items in title case">
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item" href="#nav">Firm Locations</a>
+        <a class="sidenav__item" href="#nav">Field Offices</a>
+        <a class="sidenav__item" href="#nav">Access Requests</a>
+      </nav>
+      <nav class="sidenav" aria-label="Items in sentence case">
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item" href="#nav">Firm locations</a>
+        <a class="sidenav__item" href="#nav">Field offices</a>
+        <a class="sidenav__item" href="#nav">Access requests</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Icons. Whether items carry a leading icon is an all-or-none decision per menu — one icon-less row in an icon'd menu looks broken, so a menu commits either way. With icons on, two sizes are on display: small, matching the text's own size, so the icon reads as part of the line; and large, one step bigger, so the icon leads the row and the eye can navigate by shape alone. Icons come from the system's single line-icon set, drawn with the same stroke as the interface, and never carry meaning alone — the word is always there.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="No icons">
+        <a class="sidenav__item" href="#nav" aria-current="page">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <a class="sidenav__item" href="#nav">Tables</a>
+        <a class="sidenav__item" href="#nav">People</a>
+      </nav>
+      <nav class="sidenav" aria-label="Small icons, matching the text">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--icons-lg" aria-label="Large icons, leading the row">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+    </div>
+    <p class="wp-prose">The active item. Three markings are on display. The tinted pill — the accent color at low strength behind the row — is the system's standing default: visible, quiet, and it keeps the accent's meaning (the accent marks the current place). The solid ink pill inverts the row entirely — the loudest option, unmistakable at any glance, at the cost of a heavy shape on an otherwise flat rail. The left accent bar is the quietest: the rail stays completely flat and a two-pixel bar marks the place. Whichever is chosen, the marking never rests on color alone — the filled or barred shape carries it.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Active as tinted pill">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--active-solid" aria-label="Active as solid ink pill">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+      <nav class="sidenav sidenav--active-bar" aria-label="Active as left bar">
+        <a class="sidenav__item" href="#nav" aria-current="page"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Tables</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Event Reporting</a>
+        <a class="sidenav__item" href="#nav"><svg class="sidenav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> People</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Separators. A group with a name gets a titled label; a run of items that merely changes topic gets a bare hairline divider — settings and help pinned at the bottom of a rail are the classic case. Never both between the same neighbors: a title already separates.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Titled group then untitled divider">
+        <div class="sidenav__section">Evidence</div>
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <a class="sidenav__item" href="#nav">Event Reporting</a>
+        <hr class="sidenav__divider">
+        <a class="sidenav__item" href="#nav">Settings</a>
+        <a class="sidenav__item" href="#nav">Help &amp; Support</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Submenus. Two candidates fold a group of children under a parent. Always-open shows everything: children sit indented under a connector line, nothing is ever hidden, and the cost is a longer rail. Collapsible puts the children behind the parent row: the native disclosure element supplies the open-and-close behavior with no script at all, the chevron sits at the row's end pointing right when closed and turning down when open — the prevailing convention, though timed testing mildly favors a leading chevron for its constant click position — and the whole row is the toggle target, never just the icon. The server can render frequently-used groups already open, and a third route exists that needs no toggle at all: the group holding the current page renders open because the server knows the route. One discipline keeps collapsible groups honest: a parent row either navigates or toggles, never both — a row that does two things from one click teaches the reader to trust neither. Nesting stops at one level of children; a third level is a sign the navigation needs restructuring, not deeper indentation. The connector line beside the children in the always-open example is honestly labeled a borrowed look — it comes from tree views, not from any surveyed side menu.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Submenu always open">
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <div class="sidenav__section">Directories</div>
+        <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
+        <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
+        <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+        <a class="sidenav__item" href="#nav">Implementation</a>
+      </nav>
+      <nav class="sidenav" aria-label="Submenu collapsible">
+        <a class="sidenav__item" href="#nav">Recurring Tasks</a>
+        <details class="sidenav__group" open>
+          <summary class="sidenav__group-summary">Directories <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+        </details>
+        <details class="sidenav__group">
+          <summary class="sidenav__group-summary">Evidence <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Improvements</a>
+          <a class="sidenav__item sidenav__item--sub" href="#nav">Tables</a>
+        </details>
+        <a class="sidenav__item" href="#nav">Implementation</a>
+      </nav>
+    </div>
+    <p class="wp-prose">When a group outgrows the rail — a document’s sections, a deep settings tree, dozens of children — neither folding nor indentation saves it: a fold that tall still scrolls, and indentation that deep stops reading as structure. The third candidate is the second column: the parent stays a single item on the rail, and its children move into a column of their own beside it, one hairline away, with a quiet title of its own. This site’s own specimen menu works exactly this way. The rule of thumb: fold a handful of children under a parent; give a parent with dozens its own column.</p>
+    <div class="specimen__row">
+      <div class="shell-demo">
+        <nav class="sidenav" aria-label="Primary rail">
+          <a class="sidenav__item" href="#nav">Home</a>
+          <a class="sidenav__item" href="#nav" aria-current="page">Specimen</a>
+          <a class="sidenav__item" href="#nav">Enforcement</a>
+        </nav>
+        <nav class="sidenav sidenav--secondary" aria-label="Section list">
+          <div class="sidenav__section">Specimen · Sections</div>
+          <a class="sidenav__item" href="#nav">Color</a>
+          <a class="sidenav__item" href="#nav">Typography</a>
+          <a class="sidenav__item" href="#nav" aria-current="page">Selection Controls</a>
+          <a class="sidenav__item" href="#nav">Navigation</a>
+          <a class="sidenav__item" href="#nav">Data Table</a>
+        </nav>
+      </div>
+    </div>
     <div class="specimen__label">Dropdown menu — the one legitimate floating box</div>
     <p class="specimen__note">A dropdown is an overlay: it floats above other content, so it needs an edge and a shadow to read as a separate layer. That is a requirement of floating, not a card by choice — overlays (menus, dialogs, palettes) are the exception the no-cards rule allows.</p>
     <div class="specimen__row">
@@ -381,11 +640,12 @@
         <button class="menu__item menu__item--danger" type="button" role="menuitem">Archive</button>
       </div>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Rail principle adopted</span> <span class="badge badge--info"><span class="badge__dot"></span> Anatomy options on display — decision pending</span></div>
+    <div class="wp-sources">Sources: W3C ARIA Authoring Practices (disclosure navigation; the anti-menubar caution) · Nielsen Norman Group (hidden navigation, vertical navigation, accordion icons) · IBM Carbon UI shell and writing style · GitHub Primer NavList and the details reset · Shopify Polaris navigation · Microsoft Fluent 2 Nav and Style Guide · Salesforce Lightning vertical navigation · Google Material navigation drawer · GOV.UK and MoJ side navigation and accordion research · Adrian Roselli, "Don't Use ARIA Menu Roles for Site Nav" · full record: research/menus.md</div>
   </section>
 
   <section class="specimen__section" id="consequential">
-    <h2 class="specimen__section-title">12. The consequential action</h2>
+    <h2 class="specimen__section-title">13. The consequential action</h2>
     <p class="wp-prose">In any list of actions, one choice is usually graver than the rest — delete, archive, remove. The rule: that choice never dresses like its neighbors. It takes the danger color, sits last, and is separated by a divider, so the eye finds it instantly and never hits it by accident. One consequential action per list; anything destructive still asks for confirmation.</p>
     <div class="specimen__row">
       <div class="menu" role="menu" aria-label="Consequential action demo">
@@ -400,7 +660,7 @@
   </section>
 
   <section class="specimen__section" id="dashboard">
-    <h2 class="specimen__section-title">13. Dashboards and the size of a number</h2>
+    <h2 class="specimen__section-title">14. Dashboards and the size of a number</h2>
     <p class="wp-prose">Dashboards are where cards are legitimate — each tile is independent, glanceable content — and where the loudest typographic decision in the system lives: how big should the number be? The options below show the same data at three volumes. The trade is always the same: the bigger the number, the further away it can be read and the fewer of them a screen can hold before none of them is the headline.</p>
     <p class="specimen__note">Users compose their own dashboards from these widgets; the layout is a server-side config row, each tile a fragment loaded with <code>hx-get hx-trigger="load"</code>. Dashboards are the place where cards are legitimate: each tile is independent, glanceable content.</p>
 
@@ -481,7 +741,7 @@
   </section>
 
   <section class="specimen__section" id="ratio">
-    <h2 class="specimen__section-title">14. Progress and ratio — a number against a total</h2>
+    <h2 class="specimen__section-title">15. Progress and ratio — a number against a total</h2>
     <p class="wp-prose">The "20 of 200 reviewed" figure appears everywhere in operational software. The catalog covers the tile variants (percent-led, count-led, delta), the three figure sizes, the meter-row list form for many metrics, and the segmented meter for totals that split into states. Throughout, length carries the value and color stays quiet: a semantic color enters only when a threshold genuinely means something, and then always with a word.</p>
     <p class="specimen__note">The "20 of 200 reviewed" figure, five ways. Adjacency rules: one variant per row, one quiet hue for every tile (length carries the value, not color), identical formats (integer percents, counts in mono), and the meter track is a lighter step of the same hue so the bar reads as one object. A semantic color enters only when a threshold has meaning — and then with a word, never alone. Past four or five metrics, leave tiles for stacked meter rows.</p>
 
@@ -602,7 +862,7 @@
   </section>
 
   <section class="specimen__section" id="table">
-    <h2 class="specimen__section-title">15. The data table — a saved view in action</h2>
+    <h2 class="specimen__section-title">16. The data table — a saved view in action</h2>
     <p class="wp-prose">The data table is the core primitive of data-dense software, and this example composes the whole view system on one screen: a named collaborative view, grouped rows, color-rule edge markers, applied filters as removable chips, multi-column sorting, a summary row, bulk actions on selection — and a URL that carries the entire state, so copying the address bar shares the exact screen. Everything is rendered by the server; there is no JavaScript.</p>
     <p class="specimen__note">The whole view system composed on one screen: a named collaborative view, rows grouped by tier, color-rule edge markers, applied filters in the chip-bar, multi-sort, a summary row, bulk actions on selection — and the URL at the bottom carrying the entire state. Server-rendered; zero JavaScript; switch the density above (tight / normal / loose) and it re-flows from tokens alone.</p>
     <div class="data-table">
@@ -711,7 +971,7 @@
   </section>
 
   <section class="specimen__section" id="rowactions">
-    <h2 class="specimen__section-title">16. Row actions — visible icons vs. the overflow menu</h2>
+    <h2 class="specimen__section-title">17. Row actions — visible icons vs. the overflow menu</h2>
     <p class="wp-prose">Every table row carries actions; the question is how many deserve to be visible. The research is unambiguous about the failure mode: an icon repeated on every row stops reading as a button and becomes texture, bare icons beyond a handful of universal symbols are routinely misread, and a destructive icon on every row puts an irreversible act one accidental click from everything. The overflow menu's cost is the mirror image: whatever lives inside it is invisible until clicked. The reconciliation is a frequency budget, shown below.</p>
     <p class="specimen__note">Every table row carries actions; the question is how many of them deserve to be visible. An icon repeated on every row stops being a button and becomes texture — the eye tunes it out like wallpaper — and beyond a handful of universal symbols, icons alone are routinely misread. The overflow menu (the ⋯ button) hides everything behind one click, which is its cost: an action people need constantly should not live there. The options below are the catalog; the budget rule underneath is the recommendation.</p>
 
@@ -779,7 +1039,7 @@
   </section>
 
   <section class="specimen__section" id="editing">
-    <h2 class="specimen__section-title">17. Table editing vs. form editing</h2>
+    <h2 class="specimen__section-title">18. Table editing vs. form editing</h2>
     <p class="wp-prose">Where should a value change: in the table cell, or in the record form the row opens? Products that refuse inline editing are usually not lazy — a form has room for labels, help and errors beside each field, one visible Save, and a shape that approval workflows can review; a grid has none of that by default. Products that embrace inline editing serve a real need: correcting one field across forty rows through a form is miserable. The industry's reconciliation is the draft-plus-save-bar pattern (option B below): edits are held as a draft — changes made on screen but not yet written — tinted cell by cell, counted in a bar with one Save and one Cancel, validated by the server as a batch. That submitted draft is the same object an approval review needs, which is why the pattern fits governed data.</p>
     <p class="specimen__note">Where should a value change: in the table itself, or in the record form the row opens? Every serious product picks a spot on this spectrum. The options below are the complete catalog, from safest to most fluid; they are not mutually exclusive — a real screen usually combines two or three.</p>
 
@@ -876,7 +1136,7 @@
   </section>
 
   <section class="specimen__section" id="recordforms">
-    <h2 class="specimen__section-title">18. Record forms — the presentation styles</h2>
+    <h2 class="specimen__section-title">19. Record forms — the presentation styles</h2>
     <p class="wp-prose">The screen behind a clicked row. Presentation is one axis (how fields and labels are drawn) and workflow is another (how the record is entered, reviewed, and approved); the two compose freely, so they are cataloged separately. The evidence splits by task: entering data wants labels above fields in a single column; reading and scanning a record wants a left label column that the eye can run down. All six styles below are candidates on display; full evidence in the record-forms research file pending its graduation into this chapter.</p>
     <p class="specimen__note">The UI of fields: six graphical treatments of the same record, no workflow involved. The evidence splits by task (research/record-forms.md): entry wants top labels and a single column; reading wants a left label column to scan. Any style composes with any workflow from the next section.</p>
     <div class="specimen__row">
@@ -1031,7 +1291,7 @@
   </section>
 
   <section class="specimen__section" id="workflows">
-    <h2 class="specimen__section-title">19. Record forms — the workflows and processes</h2>
+    <h2 class="specimen__section-title">20. Record forms — the workflows and processes</h2>
     <p class="wp-prose">The second axis: the same fields can arrive as a document-style hybrid, a step-by-step wizard, a spreadsheet-like grid entry, a guided conversational flow, a settings page, or a review-and-diff screen where changes are compared before they land. These are processes, not layouts — each one pairs with any presentation style from the previous chapter.</p>
     <p class="specimen__note">The process around the fields — how a record is created, edited, approved, or composed. Rendered for review; options will be pruned after selection. Any workflow can carry any presentation style from the section above, in any placement.</p>
 
@@ -1161,7 +1421,7 @@
   </section>
 
   <section class="specimen__section" id="filters">
-    <h2 class="specimen__section-title">20. The filter builder</h2>
+    <h2 class="specimen__section-title">21. The filter builder</h2>
     <p class="wp-prose">Conditions are built from segmented rows — field, operator, value as one control sharing hairlines — so a long condition list stays compact. Every change updates the address bar, which means every filtered view is bookmarkable and shareable by copying a URL.</p>
     <p class="specimen__note">Field / operator / value as one segmented control — fields share hairlines the way sections do, so a long condition list stays compact. Every change fires <code>hx-get</code> with <code>hx-push-url="true"</code> — filtered views are bookmarkable and shareable.</p>
     <div class="condition-stack">
@@ -1195,7 +1455,7 @@
   </section>
 
   <section class="specimen__section" id="views">
-    <h2 class="specimen__section-title">21. The view system</h2>
+    <h2 class="specimen__section-title">22. The view system</h2>
     <p class="wp-prose">A view is a saved way of looking at the same data: which columns show, how rows are filtered, grouped and sorted. Views are collaborative or personal, switchable from a menu, and stored server-side as configuration — the interface is the database row, rendered. The field panel below carries the show-all/hide-all pair above its list because, with thirty fields and three wanted, hiding everything and re-enabling three beats flipping twenty-seven switches.</p>
     <p class="specimen__note">The saved-view family (components.md §4) — the filter builder above is part of it. Each panel is a server-rendered fragment; what it edits is a row in the views table, reflected in the URL.</p>
     <div class="specimen__row">
@@ -1267,7 +1527,7 @@
   </section>
 
   <section class="specimen__section" id="keyboard">
-    <h2 class="specimen__section-title">22. Keyboard conventions — what Enter means</h2>
+    <h2 class="specimen__section-title">23. Keyboard conventions — what Enter means</h2>
     <p class="wp-prose">Enter is the most overloaded key in modern software, and chat applications made it worse by teaching millions that Enter sends. The rule that removes the guessing: the kind of control decides what Enter means, identically on every screen — activate in menus, submit in single-line fields (a behavior called implicit submission, built into the web platform), and always a new line in multi-line text boxes, where a surprise submit of a half-written record is the expensive failure. Cmd/Ctrl+Enter is the one universal save-from-anywhere accelerator, taught in place: focus the text box below and the Save button reveals its hint.</p>
     <p class="specimen__note">Enter is the most overloaded key in modern software: in one product it sends, in another it makes a new line, in a third it activates a menu item — and every user carries each habit into the next application, where it misfires. The rule here removes the guessing: the kind of control decides what Enter means, identically on every screen, never the application's mood.</p>
 
@@ -1320,7 +1580,7 @@
   </section>
 
   <section class="specimen__section" id="palette-cmd">
-    <h2 class="specimen__section-title">23. The command palette</h2>
+    <h2 class="specimen__section-title">24. The command palette</h2>
     <p class="wp-prose">One keystroke, one field, every destination: the palette opens with ⌘K, lists commands and records grouped by kind, and is fully keyboard-driven. In this system it is rendered by the server and opened by a declarative trigger — no JavaScript, which proves the zero-script principle holds even for the most "app-like" component.</p>
     <p class="specimen__note">Opened by a pure HTMX trigger — <code>hx-trigger="keydown[(metaKey||ctrlKey)&amp;&amp;key=='k'] from:body"</code> — contents are server-rendered fragments; typeahead is <code>hx-trigger="input changed delay:150ms"</code>. The overlay is the only element that may cast a shadow.</p>
     <div class="palette-demo">
@@ -1338,7 +1598,7 @@
   </section>
 
   <section class="specimen__section" id="empty">
-    <h2 class="specimen__section-title">24. Empty states</h2>
+    <h2 class="specimen__section-title">25. Empty states</h2>
     <p class="wp-prose">Every list, table, and dashboard has a designed first-run state: what this screen is for, one sentence, one primary action. A bare "no results" teaches nothing and dead-ends the person who most needs guidance — the one seeing the screen for the first time.</p>
     <div class="empty-state">
       <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
@@ -1350,14 +1610,67 @@
   </section>
 
   <section class="specimen__section" id="brandcolor">
-    <h2 class="specimen__section-title">25. Brand color vs. the meaning colors</h2>
+    <h2 class="specimen__section-title">26. Brand color vs. the meaning colors</h2>
     <p class="wp-prose">Red means danger and green means success inside an interface — those meanings are load-bearing. A product whose brand color is red or green therefore has a conflict: if the brand hue also paints buttons and links, every error banner and success badge competes with it. The research recommends role separation (the brand hue owns identity moments — logo, marketing, accent details — while interface semantics keep their own reserved hues) and hue distancing (shifting the interface's semantic red or green far enough from the brand hue that the two never read as the same color).</p>
     <p class="wp-prose">Recommendation: role separation plus hue distancing, applied per brand skin. Full evidence in the brand-color research file pending its graduation into this chapter.</p>
     <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
   </section>
 
+  <section class="specimen__section" id="appbranding">
+    <h2 class="specimen__section-title">27. App branding — the mark, the favicon, the avatar</h2>
+    <p class="wp-prose">Every application built on the system needs a small identity kit of its own, decided once at the start: the mark that sits in the menu, the icon in the browser tab, and the square image the outside world sees. None of this is the system's identity — it is the application's — and every asset in the kit must work in dark and light, because the application itself does.</p>
+    <p class="wp-prose">The brand slot. The mark lives in the top-left of the menu, the first thing the eye meets, as a small square beside the application's name — with an optional quieter line under the name for the product area. The slot is part of the rail, closed by the same hairline the rail uses everywhere. Two marks are on display: the ink mark, drawn from the theme's own text and canvas colors, which inverts itself perfectly when the theme flips; and the accent mark, which puts the application's accent behind the letter — louder, and still theme-safe because both of its colors come from the tokens.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Brand slot demo">
+        <div class="brand-slot">
+          <span class="brandmark brandmark--32">A</span>
+          <span class="brand-slot__name">Acme<span class="brand-slot__sub">Operations</span></span>
+        </div>
+        <a class="sidenav__item" href="#nav" aria-current="page">Dashboard</a>
+        <a class="sidenav__item" href="#nav">Accounts</a>
+        <a class="sidenav__item" href="#nav">Reports</a>
+      </nav>
+      <nav class="sidenav" aria-label="Brand slot, accent mark">
+        <div class="brand-slot">
+          <span class="brandmark brandmark--accent brandmark--32">A</span>
+          <span class="brand-slot__name">Acme<span class="brand-slot__sub">Operations</span></span>
+        </div>
+        <a class="sidenav__item" href="#nav" aria-current="page">Dashboard</a>
+        <a class="sidenav__item" href="#nav">Accounts</a>
+        <a class="sidenav__item" href="#nav">Reports</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Dark and light. A mark that only works on one ground is half a mark. The default letter-mark cannot fail this test — its colors are the theme's own — but any drawn logo that replaces it must pass the same check: one ink on dark, one ink on light, verified on both before it ships. The panels below show the same marks on the two opposite grounds; flip the Light switch above and the pair holds.</p>
+    <div class="specimen__row">
+      <div class="brandkit__panel brandkit__panel--ground">
+        <span class="brandmark brandmark--48">A</span>
+        <span class="brandmark brandmark--accent brandmark--48">A</span>
+        <span class="brandkit__size">on the canvas</span>
+      </div>
+      <div class="brandkit__panel brandkit__panel--inverse">
+        <span class="brandmark brandmark--paper brandmark--48">A</span>
+        <span class="brandmark brandmark--accent brandmark--48">A</span>
+        <span class="brandkit__size">on the opposite ground</span>
+      </div>
+    </div>
+    <p class="wp-prose">The favicon. The default favicon is the first letter of the application's name on a rounded square — the letter-mark again, exported. The modern icon is one small vector file that carries both renderings and follows the device's dark or light preference on its own; alongside it, fixed-size fallbacks cover the older corners of the platform: 16, 32, and 48 pixels for tabs and taskbars, 180 for the touch-screen home icon, and 192 and 512 for the installable-app manifest. The ladder below shows the same mark surviving every size — which is the real test of a favicon: the letter must stay readable at 16 pixels, which is why the default is one letter and not a word.</p>
+    <div class="specimen__row">
+      <div class="brandkit">
+        <span class="brandkit__item"><span class="brandmark brandmark--16">A</span><span class="brandkit__size">16</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--32">A</span><span class="brandkit__size">32</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--48">A</span><span class="brandkit__size">48</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--180">A</span><span class="brandkit__size">180 · touch</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--512">A</span><span class="brandkit__size">512 · avatar</span></span>
+      </div>
+    </div>
+    <p class="wp-prose">The avatar. The same 512-pixel square serves as the application's avatar wherever it holds an account or a directory entry. It ships in both grounds — the ink mark and its inverse — and choosing which to upload where stays a human decision; the kit's job is that both exist, both are current, and both come from the same letter-mark so the application is recognizably itself everywhere.</p>
+    <p class="wp-prose">Recommendation: every application starts with the generated letter-mark kit — brand slot, favicon set, avatar pair — on the day it is created, so no application ever ships bare. A drawn logo, when one arrives, replaces the letter in the same slots under the same two-grounds test. The letter-mark options (ink or accent) stay on display for selection.</p>
+    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-sources">Sources: MDN, defining icons for a site (link rel="icon", sizes) · web-app manifest icons (192 and 512) · Apple touch icon (180) · the vector favicon with a built-in dark-mode preference is documented in the current favicon guides (Evil Martians, "How to Favicon"; MDN SVG favicon support) · full anatomy of the rail's brand slot: this document's Navigation chapter.</div>
+  </section>
+
   <section class="specimen__section" id="decisions">
-    <h2 class="specimen__section-title">26. How decisions get made</h2>
+    <h2 class="specimen__section-title">28. How decisions get made</h2>
     <p class="wp-prose">Each chapter above ends in a status: adopted as principle, recommendation pending, or options on display. The selection pass reads this document top to bottom and turns every pending status into a decision; each decision then flows down — into the agent rulebook as an enforceable rule, into the technical catalog as the surviving specification, and into both this document and the specimen, from which the losing options are removed in the same change.</p>
     <p class="wp-prose">Two documents render the system and evolve in parallel by standing rule: this white paper, where every explanation sits beside its living example, and the specimen, the same catalog with no words. A change to any example lands in both, always, in the same commit.</p>
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>

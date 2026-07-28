@@ -162,9 +162,11 @@ tier 3  component  →  optional per-component hook (--button-bg: var(--color-ac
 
 - Theming = re-pointing tier-2 aliases under `[data-theme="light"]` — already in the
   file. A palette family is the same move one level up, selected with
-  `[data-palette]`. Three families fill the contract, each with both themes: warm
+  `[data-palette]`. Four families fill the contract, each with both themes: warm
   (taupe ramp + clay accent, the token-level fallback), cool (gray-blue + azure),
-  and mono (pure grayscale + achromatic ink accent — the specimen's opening state).
+  mono (pure grayscale + achromatic ink accent), and goodness (navy + mint — the
+  house family, drawn from the documentation site's own shell; the specimen and
+  white paper open on it).
   A brand skin re-points just the accent under `[data-brand="…"]` (commented
   example). Never edit a component to re-theme.
 - The palette contract: every family defines the identical set of named steps —
@@ -198,7 +200,12 @@ example and explanation, including the full View System — is `components.md`.
 | Button | `primary · secondary · ghost · danger · link` | primary = clay pill, the only one; icon-only variant; loading via `hx-indicator` |
 | Input / Textarea | `default · invalid` | native validation; server-rendered error |
 | Select | `default · invalid` | native `<select>`; multiselect = chips |
-| Checkbox / Radio / Switch | — | native inputs, `accent-color` token |
+| Checkbox / Radio | `native · drawn` (candidates) | wrapped in `.choice`; mixed state server-rendered (`aria-checked="mixed"`) |
+| Switch | `md · sm`; row presentation | immediate effect only — never beside a Save button; checkbox + `role="switch"` (+ native `switch` attr), never `aria-checked` |
+| Segmented control | `raised · accent`; counts | candidate; one-of-few values/scopes, 2–5 segments; hidden radios, zero JS |
+| Toggle button | `labeled · icon-only` | candidate; `aria-pressed` server-rendered; pressed ≠ color alone |
+| Choice chip | — | candidate; many-of-many filter facets; hidden checkbox + pill |
+| Option tile | — | candidate; radio-as-card with visible dot; one interactive element per tile |
 | Badge | `neutral · success · warning · danger · info · accent` | dot + tinted field |
 | Chip (removable) | `default` | filter tokens; `hx-delete` to remove |
 | Avatar | `sm · md · lg` | initials fallback |
@@ -219,7 +226,7 @@ example and explanation, including the full View System — is `components.md`.
 
 | Organism | Purpose | Customization surface |
 |---|---|---|
-| App shell | sidebar + topbar + main | collapsed/expanded; `aria-current` nav |
+| App shell | sidebar + topbar + main | collapsed/expanded; `aria-current` nav; menu-anatomy candidates (label style, casing, icons ×3, active ×3, separators, submenu ×3) in `components.md` §3.2 |
 | Data table | the core primitive | density, columns, sort, selection, saved views |
 | Table toolbar | search + chips + view controls | column show/hide, saved-view picker |
 | Filter builder | stacked filter rows | saved filters, URL state |

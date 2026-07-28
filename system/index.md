@@ -27,7 +27,7 @@ example change lands in both, in the same commit.
 
 ## For developers — the technical reference
 - [components.md](components.md) — the catalog: every atom/molecule/organism with options, states, and code idioms (Jinja + BEM + HTMX), the View System, and the gaps list.
-- [tokens.css](tokens.css) — the single source of truth for every value: primitives → semantic aliases, three palette families under one contract, system-first theming, three-step density.
+- [tokens.css](tokens.css) — the single source of truth for every value: primitives → semantic aliases, four palette families under one contract, system-first theming, three-step density.
 - [ui.css](ui.css) — shared component styles consumed by both rendered documents; token references only.
 
 ## Workbench — investigations in progress (not for readers)

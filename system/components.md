@@ -53,12 +53,44 @@ Native `<select>`, restyled by tokens. Options: `default · invalid`. Multi-sele
 is not a variant — it's the Chip-bar molecule fed by repeated params.
 
 ### 1.4 Checkbox / Radio
-Native inputs, `accent-color: var(--color-action)`. Always wrapped in a `.choice`
-label for a full-size click target.
+Two drawing options are on display (whitepaper, Selection controls chapter;
+decision pending). Option A: native inputs, `accent-color: var(--color-action)`.
+Option B: custom-drawn (`.checkbox--drawn` / `.radio--drawn`, `appearance: none`,
+state drawn from semantic tokens — identical in every browser, styleable disabled
+and mixed states). Either way, always wrapped in a `.choice` label for a full-size
+click target ≥ `--target-min`.
+```html
+<label class="choice"><input class="checkbox checkbox--drawn" type="checkbox"
+  name="notify" checked> Notify on change</label>
+```
+The mixed state (a parent checkbox over a partly-selected set) is server-rendered as
+`class="checkbox--mixed"` — a visual state only. The platform's mixed flag is
+script-only, and `aria-checked` is forbidden on a native checkbox (ARIA in HTML;
+the native state wins and some readers double-announce), so where the mixed reading
+must reach assistive technology the control is a server-rendered select-all button,
+not a tri-state checkbox. Checkbox = deferred form data, submitted later. A checkbox
+group is the many-of-many control; a lone checkbox is the opt-in control. Submission
+contract: an unchecked checkbox submits nothing at all — the server treats an absent
+name as false, always; no hidden-input companions.
 
 ### 1.5 Switch
-A styled checkbox for on/off settings (`.control-switch`). Use for immediate-effect
-toggles (a field's visibility); use Checkbox for form data submitted later.
+An on/off control whose effect applies immediately (`.switch`, a checkbox carrying
+`role="switch"` — the pattern the major component vendors converged on: current
+screen readers announce a true switch, and the failure mode is a correctly-stated
+checkbox — plus HTML's emerging native `switch` attribute for browsers that know
+it; the checked state stays native, never restated with `aria-checked`).
+Options: `md · sm`; label trailing, or the
+`.switch-row` settings-list presentation (title + description left, switch right).
+Never inside a form that ends in a Save button — that job belongs to Checkbox.
+The flip is one request with honest feedback: never move the thumb before the
+server confirms. State words inside the track are rejected (localization, and the
+state-vs-action ambiguity); a separate localizable state word beside the control
+is a permitted variant where research shows confusion.
+```html
+<label class="switch"><input class="switch__track" type="checkbox" switch role="switch"
+  name="visible" value="status" checked hx-post="/views/current/fields"
+  hx-target="#table"> Auto-refresh</label>
+```
 
 ### 1.6 Badge
 Status at a glance: dot + label, hairline border, tinted field. Options: `neutral ·
@@ -89,6 +121,48 @@ fills a fragment target while `hx-trigger="load"` content arrives.
 
 ### 1.11 Kbd
 Keyboard hint in mono (`⌘K`, `↵`) inside menus and the palette. Never decorative.
+
+### 1.12 Segmented control (candidate)
+One-of-few, every option visible, as adjacent buttons — a radio group in button
+clothing (`.segmented`: visually hidden radio inputs + styled labels, zero JS).
+For picking a value or a data scope (interval, filter facet), never for switching
+views — that is Tabs. Options: raised segment (neutral) or tinted accent
+(`.segmented--accent`); optional mono counts (`.segmented__count`); 2–5 segments.
+Keyboard note: arrow keys check radios as they move, so a request fires per arrow
+press — permitted only when the swap is an inline, non-context-changing update
+(a tile re-render, never navigation or focus loss); anything heavier gets an
+explicit Apply button per WCAG 3.2.2.
+```html
+<div class="segmented">
+  <input class="segmented__input" type="radio" name="interval" id="i-d" checked
+         hx-get="/dash?interval=day" hx-target="#tiles" hx-push-url="true">
+  <label class="segmented__btn" for="i-d">Day</label>
+  <input class="segmented__input" type="radio" name="interval" id="i-w"
+         hx-get="/dash?interval=week" hx-target="#tiles" hx-push-url="true">
+  <label class="segmented__btn" for="i-w">Week</label>
+</div>
+```
+
+### 1.13 Toggle button (candidate)
+A button that stays pressed (`.toggle-btn`, state = `aria-pressed`, server-rendered).
+For repeated-action states: watch/unwatch, formatting marks. Options: labeled;
+icon-only (`.toggle-btn--icon`, always with `aria-label`). The pressed state must
+survive grayscale — border + fill change together, never color alone. The label
+and icon never change with the state (stable name, state carries the answer);
+a name-flipping pair (start/stop) is a different control and takes no
+`aria-pressed` — never both at once.
+
+### 1.14 Choice chip (candidate)
+Many-of-many as compact pills (`.chip-choice`: hidden checkbox + pill face with a
+check mark when selected). The horizontal, space-tight form of the checkbox group —
+filter facets above a table. Distinct from Chip (1.7), which shows an applied value
+and removes; the choice chip toggles membership in place.
+
+### 1.15 Option tile (candidate)
+A radio dressed as a small card (`.option-tile`) for one-of-few choices that need a
+description line — a plan, a sync mode, a placement. The tile keeps a visible radio
+dot: without it, a bordered card does not read as a single choice in a group. One
+interactive element per tile — never a link or button nested inside the label.
 
 ---
 
@@ -337,8 +411,26 @@ row); active item via `aria-current="page"` from the request path; `hx-boost` fo
 instant transitions.
 
 ### 3.2 Sidebar nav
-Sections (uppercase xs labels), items with optional mono counts, collapsible groups
-(`<details>`), active state in `--color-selected-bg`.
+Anatomy options on display (whitepaper, Navigation chapter; decision pending):
+
+- Group label: uppercase eyebrow (`.sidenav__section`) · sentence case
+  (`.sidenav__section--sentence`). Static text, never a link.
+- Item casing: title case · sentence case — one is chosen per application,
+  never mixed.
+- Icons: none · small (`.sidenav__icon`, 1rem — matches the text) · large
+  (`.sidenav--icons-lg`, 1.25rem — leads the row). All-or-none per menu;
+  Lucide only; the word is always present.
+- Active item: tinted pill (default) · solid ink pill (`.sidenav--active-solid`)
+  · left accent bar (`.sidenav--active-bar`). Never color alone.
+- Separators: titled group when the group has a name; bare hairline
+  (`.sidenav__divider`) when it does not; never both between the same neighbors.
+- Submenus: always-open with connector line (`.sidenav__item--sub`) ·
+  collapsible native `<details>` group (`.sidenav__group` +
+  `.sidenav__group-summary`, chevron right→down, zero JS; server renders
+  frequent groups `open`) · second column (`.sidenav--secondary`) when a parent
+  has dozens of children — the drill-in. One level of nesting; a parent either
+  navigates or toggles, never both.
+- Items may carry mono counts (`.sidenav__count`).
 
 Not a card: the sidebar is a flat rail sitting directly on the page background,
 separated from the content by a single vertical hairline — the sections-not-cards
@@ -688,7 +780,37 @@ permitting). The benchmark platforms document this as a feature; here it falls o
 
 ---
 
-## 5 · Gaps found & suggestions
+## 5 · App branding
+
+The identity kit every application decides once at creation (whitepaper, App
+branding chapter; options on display, decision pending). Not the system's
+branding — the application's.
+
+### 5.1 Brand slot
+The mark in the top-left of the rail: a small square beside the application
+name, optional product-area line under it, closed by the rail's own hairline
+(`.brand-slot`, `.brandmark`). Mark options: ink (`.brandmark` — theme text on
+theme canvas, self-inverting) · accent (`.brandmark--accent`). A drawn logo,
+when one exists, replaces the letter in the same slot.
+
+### 5.2 The two-grounds test
+Every mark ships verified on both grounds — one ink on dark, one ink on light.
+The letter-mark passes by construction (its colors are semantic tokens); a
+drawn replacement must pass the same check before shipping.
+
+### 5.3 Favicon
+Default: first letter of the brand name on a rounded square. One vector icon
+file carrying both renderings (it follows the device's dark/light preference),
+plus fixed-size fallbacks: 16 · 32 · 48 (tabs, taskbars) · 180 (touch icon)
+· 192/512 (web-app manifest). The letter must stay readable at 16px — the
+reason the default is a letter, not a word. Self-hosted, like every asset.
+
+### 5.4 Avatar
+The 512px square as the application's identity on external platforms, shipped
+in both grounds (ink and inverse); which one is uploaded where stays a human
+decision — the kit guarantees both exist and match.
+
+## 6 · Gaps found & suggestions
 
 Studying the benchmark tools surfaced elements the system did not yet name — added above:
 Detail panel (3.8), Bulk-actions bar (3.9), Breadcrumbs (2.10), Dialog (2.11),

@@ -71,8 +71,7 @@
   --azure-500: #4b76d3;   /* hover step (mirrors clay-500)               */
   --azure-600: #3a5fbf;   /* accent, cool light (5.7:1 on cool cream)   */
 
-  /* Gray ramp — mono palette family: pure achromatic, no tint.
-     The specimen opens on this family. */
+  /* Gray ramp — mono palette family: pure achromatic, no tint. */
   --gray-0:    #ffffff;
   --gray-25:   #fafafa;   /* mono light canvas */
   --gray-50:   #f5f5f5;
@@ -96,12 +95,39 @@
   --ink-500: #3d3d3d;   /* hover step, mono light                       */
   --ink-600: #262626;   /* accent, mono light (14.5:1 on gray canvas)  */
 
+  /* Navy ramp — goodness palette family: the house family, drawn from the
+     documentation site's own blueprint blues. The dark anchors are the site
+     shell verbatim (canvas, panel, elevated panel); the light half is the
+     same hue solved for paper. The specimen and white paper open on this
+     family. */
+  --navy-0:    #ffffff;
+  --navy-25:   #f6fafd;   /* goodness light canvas */
+  --navy-50:   #ebf3fa;
+  --navy-100:  #dce9f6;   /* dark-mode text — inside the halation band */
+  --navy-200:  #c2d8ec;
+  --navy-300:  #9cc0e2;
+  --navy-400:  #8fb0d6;   /* muted, goodness dark (8.1:1 on navy canvas) */
+  --navy-500:  #52739b;   /* muted, goodness light (4.9:1 on white)      */
+  --navy-600:  #3a5a82;
+  --navy-700:  #24436b;
+  --navy-800:  #0c2b54;   /* the site's elevated panel */
+  --navy-900:  #0a2244;   /* the site's panel          */
+  --navy-950:  #071528;   /* the site's canvas         */
+  --navy-1000: #040d1c;
+
+  /* Mint accent — pairs with the navy family; the site's own action color */
+  --mint-300: #8beed6;
+  --mint-400: #5fe0c0;   /* accent, goodness dark  (11.3:1 on navy canvas) */
+  --mint-500: #14907c;   /* hover step, goodness light                      */
+  --mint-600: #0d7263;   /* accent, goodness light (5.8:1 on white)         */
+
   /* PALETTE CONTRACT — every palette family defines the IDENTICAL set of
      named steps: 14 neutrals (0·25·50·100·200·300·400·500·600·700·800·
      900·950·1000) and 4 accent steps (300·400·500·600). Semantic aliases
      re-point across families one-to-one; a family missing a step is a
-     bug (lint rule R10 fails the build). Three families fill the contract:
-     warm (neutral + clay), cool (cool + azure), mono (gray + ink).
+     bug (lint rule R10 fails the build). Four families fill the contract:
+     warm (neutral + clay), cool (cool + azure), mono (gray + ink),
+     goodness (navy + mint).
      Adding a family = filling this exact contract with new values. */
 
   /* Type */
@@ -278,11 +304,29 @@
     --color-selected-bg:   color-mix(in srgb, var(--ink-600) 12%, transparent);
     --color-focus:         var(--ink-600);
   }
+  [data-palette="goodness"]:not([data-theme]) {
+    --color-canvas:        var(--navy-25);
+    --color-surface:       var(--navy-0);
+    --color-surface-hover: var(--navy-50);
+    --color-well:          var(--navy-50);
+    --color-border:        var(--navy-200);
+    --color-border-strong: var(--navy-300);
+    --color-text:          var(--navy-900);
+    --color-text-muted:    var(--navy-500);
+
+    --color-action:        var(--mint-600);
+    --color-action-hover:  var(--mint-500);
+    --color-action-active: var(--mint-600);
+    --color-on-action:     var(--navy-0);
+    --color-selected-bg:   color-mix(in srgb, var(--mint-600) 12%, transparent);
+    --color-focus:         var(--mint-600);
+  }
 }
 
-/* PALETTE FAMILIES — the warm ramp is the default; [data-palette="cool"]
-   re-points the same aliases to the cool ramp + azure accent. All contrast
-   pairs verified AA in both themes of both families (32 pairs total). */
+/* PALETTE FAMILIES — the warm ramp is the default; [data-palette="cool"],
+   [data-palette="mono"], and [data-palette="goodness"] re-point the same
+   aliases to their own ramp + accent. All contrast pairs verified AA in
+   both themes of every family by enforcement/check_contrast.py. */
 [data-palette="cool"] {
   --color-canvas:        var(--cool-950);
   --color-surface:       var(--cool-900);
@@ -358,6 +402,42 @@
   --color-warning: var(--amber-600);
   --color-danger:  var(--red-400);
   --color-info:    var(--blue-600);
+}
+
+[data-palette="goodness"] {
+  --color-canvas:        var(--navy-950);
+  --color-surface:       var(--navy-900);
+  --color-surface-hover: var(--navy-800);
+  --color-well:          var(--navy-1000);
+  --color-border:        var(--navy-800);
+  --color-border-strong: var(--navy-700);
+  --color-text:          var(--navy-100);
+  --color-text-muted:    var(--navy-400);
+
+  --color-action:        var(--mint-400);
+  --color-action-hover:  var(--mint-300);
+  --color-action-active: var(--mint-600);
+  --color-on-action:     var(--navy-1000);
+  --color-selected-bg:   color-mix(in srgb, var(--mint-400) 14%, transparent);
+  --color-focus:         var(--mint-400);
+}
+
+[data-palette="goodness"][data-theme="light"] {
+  --color-canvas:        var(--navy-25);
+  --color-surface:       var(--navy-0);
+  --color-surface-hover: var(--navy-50);
+  --color-well:          var(--navy-50);
+  --color-border:        var(--navy-200);
+  --color-border-strong: var(--navy-300);
+  --color-text:          var(--navy-900);
+  --color-text-muted:    var(--navy-500);
+
+  --color-action:        var(--mint-600);
+  --color-action-hover:  var(--mint-500);
+  --color-action-active: var(--mint-600);
+  --color-on-action:     var(--navy-0);
+  --color-selected-bg:   color-mix(in srgb, var(--mint-600) 12%, transparent);
+  --color-focus:         var(--mint-600);
 }
 
 /* A brand skin is the same move at accent level. Example (uncomment per brand):
