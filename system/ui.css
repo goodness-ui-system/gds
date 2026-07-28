@@ -13,7 +13,12 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { background: var(--color-canvas); }
+html {
+  background: var(--color-canvas);
+  /* Anchor jumps (subnav, table of contents) land below the sticky header:
+     header = control height + vertical padding, plus breathing room. */
+  scroll-padding-top: calc(var(--control-h) + var(--space-3) * 2 + var(--space-4));
+}
 
 body.specimen {
   font-family: var(--font-sans);

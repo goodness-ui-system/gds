@@ -805,6 +805,15 @@ plus fixed-size fallbacks: 16 · 32 · 48 (tabs, taskbars) · 180 (touch icon)
 · 192/512 (web-app manifest). The letter must stay readable at 16px — the
 reason the default is a letter, not a word. Self-hosted, like every asset.
 
+**Rule — the favicon follows the system, never the app.** The favicon lives
+in the browser tab, and the tab is painted by the operating system's theme,
+not the application's. An application switched to dark on a light desktop
+still sits in a light tab bar — an icon keyed to the in-app theme would
+vanish against the chrome it actually lives in. The vector icon keys its two
+renderings to the system preference alone (`prefers-color-scheme` inside the
+SVG); the application's own theme switch must never touch it. Binding the
+favicon to the in-app theme is a defect.
+
 ### 5.4 Avatar
 The 512px square as the application's identity on external platforms, shipped
 in both grounds (ink and inverse); which one is uploaded where stays a human
