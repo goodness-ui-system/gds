@@ -14,8 +14,9 @@
   <div class="specimen__controls">
     <label class="control-switch" for="opt-family">Family
       <select class="select" id="opt-family">
-        <option value="mono" selected>Mono</option>
+        <option value="goodness" selected>Goodness</option>
         <option value="warm">Warm</option>
+        <option value="mono">Mono</option>
         <option value="cool">Cool</option>
       </select>
     </label>
@@ -80,8 +81,29 @@
   <section class="specimen__section" id="color">
     <h2 class="specimen__section-title">2. Color — the palette families and the shared contract</h2>
     <p class="wp-prose">Every color in the system lives in one file of named values called tokens (a token is a named design decision, like <code>--color-text</code>, that components reference instead of raw values). Tokens come in three tiers: primitives (the raw palette below), semantic aliases (names that describe a job, like text or danger), and component references. Components may only use the middle tier — which is what makes whole-system reskinning a one-file change.</p>
-    <p class="wp-prose">Three palette families exist — warm, cool, and mono — and a contract guarantees they are interchangeable: every family defines exactly the same named steps (fourteen neutrals and four accent steps), enforced by an automated check. A product picks a family the way it picks a typeface; nothing else in the system needs to know.</p>
+    <p class="wp-prose">Four palette families exist — goodness, warm, cool, and mono — and a contract guarantees they are interchangeable: every family defines exactly the same named steps (fourteen neutrals and four accent steps), enforced by an automated check. Goodness is the house family, drawn from this documentation site's own blueprint blues and mint accent. A product picks a family the way it picks a typeface; nothing else in the system needs to know.</p>
     <p class="specimen__note">Primitives (tier 1) of the <em>active</em> family. Components never touch these directly — they consume the semantic aliases. The family switch (top right) replaces this palette entirely; only one family is ever on screen.</p>
+    <div class="palette-family palette-family--goodness">
+    <div class="specimen__label">Goodness family — the house look, the opening default</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv0"></div><div class="swatch__meta"><div class="swatch__name">navy-0</div><div class="swatch__value">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv25"></div><div class="swatch__meta"><div class="swatch__name">navy-25</div><div class="swatch__value">#f6fafd</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv100"></div><div class="swatch__meta"><div class="swatch__name">navy-100</div><div class="swatch__value">#dce9f6</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv300"></div><div class="swatch__meta"><div class="swatch__name">navy-300</div><div class="swatch__value">#9cc0e2</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv500"></div><div class="swatch__meta"><div class="swatch__name">navy-500</div><div class="swatch__value">#52739b</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv700"></div><div class="swatch__meta"><div class="swatch__name">navy-700</div><div class="swatch__value">#24436b</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv800"></div><div class="swatch__meta"><div class="swatch__name">navy-800</div><div class="swatch__value">#0c2b54</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv900"></div><div class="swatch__meta"><div class="swatch__name">navy-900</div><div class="swatch__value">#0a2244</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv950"></div><div class="swatch__meta"><div class="swatch__name">navy-950</div><div class="swatch__value">#071528</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--nv1000"></div><div class="swatch__meta"><div class="swatch__name">navy-1000</div><div class="swatch__value">#040d1c</div></div></div>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint300"></div><div class="swatch__meta"><div class="swatch__name">mint-300</div><div class="swatch__value">#8beed6</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint400"></div><div class="swatch__meta"><div class="swatch__name">mint-400</div><div class="swatch__value">#5fe0c0</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint500"></div><div class="swatch__meta"><div class="swatch__name">mint-500</div><div class="swatch__value">#14907c</div></div></div>
+      <div class="swatch"><div class="swatch__chip swatch__chip--mint600"></div><div class="swatch__meta"><div class="swatch__name">mint-600</div><div class="swatch__value">#0d7263</div></div></div>
+    </div>
+    </div>
     <div class="palette-family palette-family--warm">
     <div class="specimen__label">Warm family</div>
     <div class="swatch-grid">
@@ -125,7 +147,7 @@
     </div>
     </div>
     <div class="palette-family palette-family--mono">
-    <div class="specimen__label">Mono family — the opening default</div>
+    <div class="specimen__label">Mono family</div>
     <div class="swatch-grid">
       <div class="swatch"><div class="swatch__chip swatch__chip--g0"></div><div class="swatch__meta"><div class="swatch__name">gray-0</div><div class="swatch__value">#ffffff</div></div></div>
       <div class="swatch"><div class="swatch__chip swatch__chip--g25"></div><div class="swatch__meta"><div class="swatch__name">gray-25</div><div class="swatch__value">#fafafa</div></div></div>
@@ -158,7 +180,7 @@
       <div class="surface-demo__panel surface-demo__panel--canvas"><div class="surface-demo__name">canvas</div><div class="surface-demo__desc">the page itself</div></div>
       <div class="surface-demo__panel surface-demo__panel--surface"><div class="surface-demo__name">surface</div><div class="surface-demo__desc">raised — cards, panels, table chrome</div></div>
     </div>
-    <p class="wp-prose">Recommendation: mono as the opening default — grayscale plus an ink accent keeps data screens quiet and makes every use of color meaningful. Warm and cool remain full citizens for products whose identity wants them.</p>
+    <p class="wp-prose">The documents themselves open on the goodness family, so the system is first seen wearing the same blueprint blues as the site around it. For products, the recommendation stands: mono as the working default — grayscale plus an ink accent keeps data screens quiet and makes every use of color meaningful. Goodness, warm, and cool remain full citizens for products whose identity wants them.</p>
     <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
   </section>
 

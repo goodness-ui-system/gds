@@ -206,8 +206,8 @@ def check_named_entities(name: str, text: str, in_research: bool = False) -> lis
     return out
 
 
-PALETTE_FAMILIES = {"neutral": ("neutral", "cool", "gray"),
-                    "accent": ("clay", "azure", "ink")}
+PALETTE_FAMILIES = {"neutral": ("neutral", "cool", "gray", "navy"),
+                    "accent": ("clay", "azure", "ink", "mint")}
 
 
 def check_palette_contract(name: str, text: str) -> list[dict]:

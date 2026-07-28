@@ -95,12 +95,21 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
 .swatch__chip--c950 { background: var(--cool-950); }   .swatch__chip--c1000 { background: var(--cool-1000); }
 .swatch__chip--az300 { background: var(--azure-300); } .swatch__chip--az400 { background: var(--azure-400); }
 .swatch__chip--az600 { background: var(--azure-600); }
+.swatch__chip--nv0 { background: var(--navy-0); }      .swatch__chip--nv25 { background: var(--navy-25); }
+.swatch__chip--nv100 { background: var(--navy-100); }
+.swatch__chip--nv300 { background: var(--navy-300); }  .swatch__chip--nv500 { background: var(--navy-500); }
+.swatch__chip--nv700 { background: var(--navy-700); }  .swatch__chip--nv800 { background: var(--navy-800); }
+.swatch__chip--nv900 { background: var(--navy-900); }  .swatch__chip--nv950 { background: var(--navy-950); }
+.swatch__chip--nv1000 { background: var(--navy-1000); }
+.swatch__chip--mint300 { background: var(--mint-300); } .swatch__chip--mint400 { background: var(--mint-400); }
+.swatch__chip--mint500 { background: var(--mint-500); } .swatch__chip--mint600 { background: var(--mint-600); }
 
 /* ---- palette families: only the ACTIVE family's primitives are shown ----- */
 .palette-family { display: none; }
 html:has(#opt-family [value="warm"]:checked) .palette-family--warm { display: block; }
 html:has(#opt-family [value="cool"]:checked) .palette-family--cool { display: block; }
 html:has(#opt-family [value="mono"]:checked) .palette-family--mono { display: block; }
+html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { display: block; }
 
 /* ---- surface ladder ------------------------------------------------------ */
 .surface-demo { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--space-3); }
@@ -786,6 +795,38 @@ html:has(#opt-family [value="cool"]:checked):has(#opt-light:checked) {
   --color-on-action:     var(--cool-0);
   --color-selected-bg:   color-mix(in srgb, var(--azure-600) 12%, transparent);
   --color-focus:         var(--azure-600);
+}
+html:has(#opt-family [value="goodness"]:checked) {
+  --color-canvas:        var(--navy-950);
+  --color-surface:       var(--navy-900);
+  --color-surface-hover: var(--navy-800);
+  --color-well:          var(--navy-1000);
+  --color-border:        var(--navy-800);
+  --color-border-strong: var(--navy-700);
+  --color-text:          var(--navy-100);
+  --color-text-muted:    var(--navy-400);
+  --color-action:        var(--mint-400);
+  --color-action-hover:  var(--mint-300);
+  --color-action-active: var(--mint-600);
+  --color-on-action:     var(--navy-1000);
+  --color-selected-bg:   color-mix(in srgb, var(--mint-400) 14%, transparent);
+  --color-focus:         var(--mint-400);
+}
+html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
+  --color-canvas:        var(--navy-25);
+  --color-surface:       var(--navy-0);
+  --color-surface-hover: var(--navy-50);
+  --color-well:          var(--navy-50);
+  --color-border:        var(--navy-200);
+  --color-border-strong: var(--navy-300);
+  --color-text:          var(--navy-900);
+  --color-text-muted:    var(--navy-500);
+  --color-action:        var(--mint-600);
+  --color-action-hover:  var(--mint-500);
+  --color-action-active: var(--mint-600);
+  --color-on-action:     var(--navy-0);
+  --color-selected-bg:   color-mix(in srgb, var(--mint-600) 12%, transparent);
+  --color-focus:         var(--mint-600);
 }
 html:has(#opt-density [value="tight"]:checked) {
   --control-h: var(--control-h-tight);

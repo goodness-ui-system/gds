@@ -162,9 +162,11 @@ tier 3  component  →  optional per-component hook (--button-bg: var(--color-ac
 
 - Theming = re-pointing tier-2 aliases under `[data-theme="light"]` — already in the
   file. A palette family is the same move one level up, selected with
-  `[data-palette]`. Three families fill the contract, each with both themes: warm
+  `[data-palette]`. Four families fill the contract, each with both themes: warm
   (taupe ramp + clay accent, the token-level fallback), cool (gray-blue + azure),
-  and mono (pure grayscale + achromatic ink accent — the specimen's opening state).
+  mono (pure grayscale + achromatic ink accent), and goodness (navy + mint — the
+  house family, drawn from the documentation site's own shell; the specimen and
+  white paper open on it).
   A brand skin re-points just the accent under `[data-brand="…"]` (commented
   example). Never edit a component to re-theme.
 - The palette contract: every family defines the identical set of named steps —

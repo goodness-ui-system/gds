@@ -109,8 +109,8 @@ about `#F5F5F5` are reserved for small accents, and `#FFFFFF` for nothing.
 Secondary text sits near 60% effective lightness while staying at or above the
 4.5:1 floor, which remains the non-negotiable minimum in both directions —
 contrast has a ceiling in dark mode, but never a basement. The system's tokens
-already conform: the three families' dark-mode text steps (`#e9e6dd`,
-`#e8ebf1`, `#e8e8e8`) sit at the upper edge of the recommended band, their
+already conform: the four families' dark-mode text steps (`#e9e6dd`,
+`#e8ebf1`, `#e8e8e8`, `#dce9f6`) sit at the upper edge of the recommended band, their
 muted steps hold above the accessibility floor rather than falling to the 38%
 disabled level, and the achromatic accent tops out at `#f5f5f5`. One point of
 honest nuance from the record: for fully sighted readers in good light, dark

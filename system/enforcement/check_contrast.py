@@ -73,7 +73,7 @@ def resolve_mappings(css: str) -> dict:
     root = parse_block(css, r":root")
     light = parse_block(css, r'\[data-theme="light"\]')
     combos = {("warm", "dark"): [root], ("warm", "light"): [root, light]}
-    for fam in ("cool", "mono"):
+    for fam in ("cool", "mono", "goodness"):
         fam_block = parse_block(css, r'\[data-palette="' + fam + r'"\]')
         both = parse_block(
             css, r'\[data-palette="' + fam + r'"\]\[data-theme="light"\]')
