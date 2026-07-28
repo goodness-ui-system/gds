@@ -53,7 +53,12 @@ svg.art{width:min(74%,540px);height:auto;overflow:visible}
 @keyframes pen{0%,12%{offset-distance:0%;opacity:0}13%{opacity:1}52%{offset-distance:100%;opacity:1}55%{opacity:0}100%{offset-distance:100%;opacity:0}}
 @keyframes circDraw{0%{opacity:0}4%{opacity:0}12%{opacity:.75}88%{opacity:.6}98%{opacity:0}100%{opacity:0}}
 @keyframes cross{0%,3%{opacity:0}9%{opacity:.8}88%{opacity:.7}98%{opacity:0}100%{opacity:0}}
-@keyframes dim{0%,56%{opacity:0}66%{opacity:.9}88%{opacity:.85}98%{opacity:0}100%{opacity:0}}
+@keyframes dimA{0%,13%{opacity:0}17%{opacity:.9}88%{opacity:.85}98%{opacity:0}100%{opacity:0}}
+@keyframes dimB{0%,28%{opacity:0}32%{opacity:.9}88%{opacity:.85}98%{opacity:0}100%{opacity:0}}
+@keyframes dimC{0%,50%{opacity:0}54%{opacity:.9}88%{opacity:.85}98%{opacity:0}100%{opacity:0}}
+.dim--a,.dimtxt--a{animation-name:dimA}
+.dim--b,.dimtxt--b{animation-name:dimB}
+.dim--c,.dimtxt--c{animation-name:dimC}
 @keyframes fadeEnd{0%{}100%{}}
 @keyframes n0{0%,12.0%{opacity:0;transform:scale(.2)}15.0%{opacity:1;transform:scale(1.25)}17.0%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n1{0%,18.0%{opacity:0;transform:scale(.2)}21.0%{opacity:1;transform:scale(1.25)}23.0%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n2{0%,24.2%{opacity:0;transform:scale(.2)}27.2%{opacity:1;transform:scale(1.25)}29.2%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n3{0%,30.4%{opacity:0;transform:scale(.2)}33.4%{opacity:1;transform:scale(1.25)}35.4%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n4{0%,36.8%{opacity:0;transform:scale(.2)}39.8%{opacity:1;transform:scale(1.25)}41.8%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n5{0%,43.1%{opacity:0;transform:scale(.2)}46.1%{opacity:1;transform:scale(1.25)}48.1%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n6{0%,47.5%{opacity:0;transform:scale(.2)}50.5%{opacity:1;transform:scale(1.25)}52.5%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}@keyframes n7{0%,52.0%{opacity:0;transform:scale(.2)}55.0%{opacity:1;transform:scale(1.25)}57.0%{transform:scale(1)}88%{opacity:1;transform:scale(1)}98%{opacity:0}100%{opacity:0}}
 .n0{transform-box:fill-box;transform-origin:center;animation:n0 var(--T) linear infinite}.n1{transform-box:fill-box;transform-origin:center;animation:n1 var(--T) linear infinite}.n2{transform-box:fill-box;transform-origin:center;animation:n2 var(--T) linear infinite}.n3{transform-box:fill-box;transform-origin:center;animation:n3 var(--T) linear infinite}.n4{transform-box:fill-box;transform-origin:center;animation:n4 var(--T) linear infinite}.n5{transform-box:fill-box;transform-origin:center;animation:n5 var(--T) linear infinite}.n6{transform-box:fill-box;transform-origin:center;animation:n6 var(--T) linear infinite}.n7{transform-box:fill-box;transform-origin:center;animation:n7 var(--T) linear infinite}
@@ -79,14 +84,15 @@ svg.art{width:min(74%,540px);height:auto;overflow:visible}
         <line class="corner" x1="230" y1="10" x2="214" y2="10"/><line class="corner" x1="230" y1="10" x2="230" y2="26"/>
         <line class="corner" x1="10" y1="230" x2="26" y2="230"/><line class="corner" x1="10" y1="230" x2="10" y2="214"/>
         <line class="corner" x1="230" y1="230" x2="214" y2="230"/><line class="corner" x1="230" y1="230" x2="230" y2="214"/>
-        <!-- dimension line R62 -->
-        <line class="dim" x1="56" y1="206" x2="180" y2="206"/>
-        <line class="dim" x1="56" y1="202" x2="56" y2="210"/><line class="dim" x1="180" y1="202" x2="180" y2="210"/>
-        <text class="dimtxt" x="118" y="218" text-anchor="middle">R62</text>
-        <!-- node diameter leader -->
-        <line class="dim" x1="172" y1="86" x2="206" y2="60"/>
-        <text class="dimtxt" x="208" y="58">⌀18</text>
-        <text class="dimtxt" x="16" y="120">t5.0</text>
+        <!-- dimension line R62 — third callout, lands one dot before the end -->
+        <line class="dim dim--c" x1="56" y1="206" x2="180" y2="206"/>
+        <line class="dim dim--c" x1="56" y1="202" x2="56" y2="210"/><line class="dim dim--c" x1="180" y1="202" x2="180" y2="210"/>
+        <text class="dimtxt dimtxt--c" x="118" y="218" text-anchor="middle">R62</text>
+        <!-- node diameter leader — first callout, lands with the first dot -->
+        <line class="dim dim--a" x1="172" y1="86" x2="206" y2="60"/>
+        <text class="dimtxt dimtxt--a" x="208" y="58">⌀18</text>
+        <!-- thickness — second callout, lands after the third dot -->
+        <text class="dimtxt dimtxt--b" x="16" y="120">t5.0</text>
         <!-- the G -->
         <path class="g" d="M172,86 L120,60 L68,90 L62,150 L112,188 L170,168 L170,126 L126,126"/>
         <circle class="nd n0" cx="172" cy="86" r="9"/><circle class="nd n1" cx="120" cy="60" r="9"/><circle class="nd n2" cx="68" cy="90" r="9"/><circle class="nd n3" cx="62" cy="150" r="9"/><circle class="nd n4" cx="112" cy="188" r="9"/><circle class="nd n5" cx="170" cy="168" r="9"/><circle class="nd n6" cx="170" cy="126" r="9"/><circle class="nd n7" cx="126" cy="126" r="9"/>

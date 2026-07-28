@@ -58,11 +58,11 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
 .specimen__note { color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-4); }
 .specimen__row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; margin-bottom: var(--space-4); }
 .specimen__label { width: 100%; font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-1); }
-/* Air between labeled sub-blocks: every label that follows another block
-   opens a new group and gets breathing room above; the first label after
-   the section title stays tight to it. */
-.specimen__section > * + .specimen__label { margin-top: var(--space-6); }
-.specimen__section > .specimen__section-title + .specimen__label { margin-top: 0; }
+/* Air between labeled sub-blocks: every label that follows anything opens
+   a new group and gets breathing room above, at any nesting depth; only a
+   label directly after the section title stays tight to it. */
+* + .specimen__label { margin-top: var(--space-6); }
+.specimen__section-title + .specimen__label { margin-top: 0; }
 
 /* ---- control switch (specimen chrome only) ------------------------------ */
 .control-switch { display: inline-flex; gap: var(--space-2); align-items: center; font-size: var(--text-sm); color: var(--color-text-muted); cursor: pointer; }
