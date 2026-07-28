@@ -211,6 +211,12 @@
   --color-selected-bg:   color-mix(in srgb, var(--clay-400) 14%, transparent);
   --color-focus:         var(--clay-400);
 
+  /* zebra stripe: a half-step between canvas and surface. Derived from the
+     two ground aliases, so every theme and family re-solves it on its own —
+     defined once, never re-pointed. Decorative only; sits strictly below
+     hover and selection in the background ladder. */
+  --color-row-alt: color-mix(in srgb, var(--color-canvas) 45%, var(--color-surface));
+
   --color-success: var(--green-400);
   --color-warning: var(--amber-400);
   --color-danger:  var(--red-300);

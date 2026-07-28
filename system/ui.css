@@ -613,6 +613,23 @@ html:has(#opt-light:checked) .theme-glyph--moon { display: none; }
 .data-table__viewdesc { color: var(--color-text-muted); font-size: var(--text-xs); }
 .data-table__group td { background: var(--color-well); color: var(--color-text-muted); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; padding: var(--space-1) var(--space-4); }
 .data-table__count { font-family: var(--font-mono); text-transform: none; }
+/* ---- row differentiation options (rows chapter) -------------------------- */
+/* Zebra: the banded-ledger lane for wide flat grids. Even rows take the
+   quiet stripe; hover and selection outrank it by exclusion, keeping the
+   background ladder strict: stripe < hover < selected. */
+.data-table--zebra .data-table__table tbody tr:nth-child(even):not(:hover):not(.data-table__row--selected) { background: var(--color-row-alt); }
+/* Airy: whitespace only — no row borders; the header keeps its strong line. */
+.data-table--airy .data-table__table td { border-bottom: none; }
+/* Wide grid: the table keeps its natural width and the box scrolls sideways. */
+.data-table--wide .data-table__table { min-width: 76rem; }
+.data-table--wide .data-table__table td { white-space: nowrap; }
+/* Pinned identity column: the first column stays while the rest scroll. */
+.data-table--pin-first .data-table__table th:first-child,
+.data-table--pin-first .data-table__table td:first-child { position: sticky; left: 0; z-index: 2; background: var(--color-surface); }
+.data-table--pin-first .data-table__table th:first-child { z-index: 3; }
+.data-table--pin-first.data-table--zebra .data-table__table tbody tr:nth-child(even):not(:hover):not(.data-table__row--selected) td:first-child { background: var(--color-row-alt); }
+.data-table--pin-first .data-table__table tbody tr:hover td:first-child { background: var(--color-surface-hover); }
+
 .data-table__row--mark-danger td:first-child { border-left: 2px solid var(--color-danger); }
 .data-table__row--mark-warning td:first-child { border-left: 2px solid var(--color-warning); }
 .data-table__table tfoot td { background: var(--color-well); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); padding: var(--space-1) var(--space-4); border-top: 1px solid var(--color-border-strong); }

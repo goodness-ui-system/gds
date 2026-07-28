@@ -467,6 +467,19 @@ The core primitive. Options: density (token switch) · sticky header · sortable
 columns · selectable rows · numeric mono columns · row actions (ghost ⋯ menu) ·
 footer with Pagination. Server-sorted, server-filtered; rows are `_row.html`
 fragments.
+
+Row delimitation — how the eye crosses a wide table. Hairlines
+(`border-bottom` per row) and the hover lane are the resting default on every
+table. The quiet stripe (`.data-table--zebra`) is the sanctioned variant for
+wide, flat, dense grids: even rows take `--color-row-alt`, a half-step
+between canvas and surface derived from the ground aliases (defined once,
+re-solves in every theme and family), decorative only, never meaning. The
+background ladder is strict — stripe < hover < selected — enforced by
+exclusion in the selector. Wide grids additionally pin the identity column
+(`.data-table--pin-first`, sticky first column). Whitespace-only
+(`.data-table--airy`) is a narrow-table nicety. Grouped tables always skip
+the stripe: group headers already band the table, and stripe parity restarts
+at each break. Full record and citations: the Table Rows research note.
 ```html
 <th><a class="data-table__sort data-table__sort--active"
        href="?sort=name&dir=desc" hx-get="/accounts?sort=name&dir=desc"

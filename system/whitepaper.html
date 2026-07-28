@@ -1136,8 +1136,104 @@
     <div class="wp-sources">Sources: the published usability record on infinite scrolling, pagination, and the load-more hybrid — citations live in the Table Scroll research note · sticky positioning inside scroll containers is native CSS · incremental loading via the reveal trigger: the stack's own documentation.</div>
   </section>
 
+  <section class="specimen__section" id="tablerows">
+    <h2 class="specimen__section-title">18. Rows and the eye — following a record across a wide table</h2>
+    <p class="wp-prose">Look at the record name in the first column of a wide table, then read the number in the fifteenth. Somewhere in the crossing, the eye slips a row — and the wider the screen, the longer the tightrope. Row delimitation is the set of devices that keep the eye on its lane: the hairline between rows, the alternating background, bare whitespace, the hover highlight, and the pinned identity column. The oldest evidence predates the screen: ledger paper ships ruled, and the wide-format tradition went further — the continuous banded paper that line printers fed for decades alternates pale and white bands precisely so a reader can follow one record across a yard-wide printout. The alternating background is not a web fashion; it is the banded ledger, digitized. Bands exist for horizontal tracking, and their value grows with width.</p>
+    <p class="wp-prose">The hairline is the crispest possible row edge: almost no ink, no collision with any state color, no suspicion of meaning. Its limit — a line is a fence, not a lane. It separates neighbors, but gives the crossing eye nothing to ride; at fifteen columns the reader is counting fences.</p>
+    <div class="specimen__label">Option A — hairlines (the resting default)</div>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="wp-prose">Whitespace alone — no lines, rhythm from padding — is the calmest of the three and the first to fail: it holds for a handful of columns and collapses exactly where the tracking problem begins. A narrow-table nicety, not a wide-table answer.</p>
+    <div class="specimen__label">Option B — whitespace only (a narrow-table nicety)</div>
+    <div class="data-table data-table--airy">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="wp-prose">The band is a lane: the eye rides one continuous ground from the first column to the last. The best-known controlled experiments found what the banded-paper tradition already knew — gains that are modest on narrow tables and grow with width, fewer row-slip errors, and a clear reader preference — while the guidance literature recommends the stripe for dense and wide tables and leaves narrow ones plain. The costs are specific, and each has its mitigation written into this system. Shading can be mistaken for state, so the stripe is one quiet half-step between canvas and surface, derived from the theme's own ground aliases — it re-solves itself in every theme and family, and it never carries meaning. The stripe is a second ground, so it joins the contrast checker's jurisdiction. And states must not vanish on striped rows, so the background ladder is strict: stripe below hover, hover below selection. Grouped tables skip the stripe — group headers already band the table at a coarser rhythm, and stripe parity restarts arbitrarily at each break.</p>
+    <div class="specimen__label">Option C — zebra stripes (the banded ledger), with the state ladder intact</div>
+    <div class="data-table data-table--zebra">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr class="data-table__row--selected"><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="wp-prose">Two companions answer the fifteenth-column problem more directly than any row treatment. The hover lane — a highlight that follows the pointer — is the strongest tracking aid of all, and it is on by default in every table here; its limit is that it serves pointer users only. And the pinned identity column: the record's name stays put while the columns scroll beneath it, so the reader never loses which row because the answer never leaves the screen. Compare the two wide grids below — scroll the second one sideways.</p>
+    <div class="specimen__label">The wide-grid test — hairlines only: count the fences to the twelfth column</div>
+    <div class="data-table data-table--wide">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Jan</th><th class="data-table__cell--num">Feb</th><th class="data-table__cell--num">Mar</th><th class="data-table__cell--num">Apr</th><th class="data-table__cell--num">May</th><th class="data-table__cell--num">Jun</th><th class="data-table__cell--num">Jul</th><th class="data-table__cell--num">Aug</th><th class="data-table__cell--num">Sep</th><th class="data-table__cell--num">Oct</th><th class="data-table__cell--num">Nov</th><th class="data-table__cell--num">Dec</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">39</td><td class="data-table__cell--num">52</td><td class="data-table__cell--num">65</td><td class="data-table__cell--num">78</td><td class="data-table__cell--num">91</td><td class="data-table__cell--num">14</td><td class="data-table__cell--num">27</td><td class="data-table__cell--num">40</td><td class="data-table__cell--num">53</td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">88</td><td class="data-table__cell--num">11</td><td class="data-table__cell--num">24</td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">44</td><td class="data-table__cell--num">57</td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">96</td><td class="data-table__cell--num">19</td><td class="data-table__cell--num">32</td><td class="data-table__cell--num">45</td><td class="data-table__cell--num">58</td><td class="data-table__cell--num">71</td><td class="data-table__cell--num">84</td><td class="data-table__cell--num">97</td><td class="data-table__cell--num">20</td><td class="data-table__cell--num">33</td><td class="data-table__cell--num">31</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="specimen__label">The wide-grid test — the striped lane plus the pinned identity column: scroll sideways, ride the band</div>
+    <div class="data-table data-table--zebra data-table--pin-first data-table--wide">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Jan</th><th class="data-table__cell--num">Feb</th><th class="data-table__cell--num">Mar</th><th class="data-table__cell--num">Apr</th><th class="data-table__cell--num">May</th><th class="data-table__cell--num">Jun</th><th class="data-table__cell--num">Jul</th><th class="data-table__cell--num">Aug</th><th class="data-table__cell--num">Sep</th><th class="data-table__cell--num">Oct</th><th class="data-table__cell--num">Nov</th><th class="data-table__cell--num">Dec</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">39</td><td class="data-table__cell--num">52</td><td class="data-table__cell--num">65</td><td class="data-table__cell--num">78</td><td class="data-table__cell--num">91</td><td class="data-table__cell--num">14</td><td class="data-table__cell--num">27</td><td class="data-table__cell--num">40</td><td class="data-table__cell--num">53</td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">88</td><td class="data-table__cell--num">11</td><td class="data-table__cell--num">24</td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">44</td><td class="data-table__cell--num">57</td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">96</td><td class="data-table__cell--num">19</td><td class="data-table__cell--num">32</td><td class="data-table__cell--num">45</td><td class="data-table__cell--num">58</td><td class="data-table__cell--num">71</td><td class="data-table__cell--num">84</td><td class="data-table__cell--num">97</td><td class="data-table__cell--num">20</td><td class="data-table__cell--num">33</td><td class="data-table__cell--num">31</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="wp-prose">Recommendation: hairlines and the hover lane remain the resting default for every table. The quiet stripe is the sanctioned variant for wide, flat, dense grids, and wide grids additionally pin the identity column. Narrow tables stay plain; grouped tables always stay plain.</p>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted — hairlines default; the quiet stripe sanctioned for wide flat grids; identity column pins on wide grids</span></div>
+    <div class="wp-sources">Sources: the controlled zebra-striping experiments and the data-table guidance literature — citations live in the Table Rows research note · the banded-ledger and continuous-form paper tradition · sticky positioning for frozen columns is native CSS · the stripe token derives from the ground aliases in tokens.css.</div>
+  </section>
+
   <section class="specimen__section" id="rowactions">
-    <h2 class="specimen__section-title">18. Row actions — visible icons vs. the overflow menu</h2>
+    <h2 class="specimen__section-title">19. Row actions — visible icons vs. the overflow menu</h2>
     <p class="wp-prose">Every table row carries actions; the question is how many deserve to be visible. The research is unambiguous about the failure mode: an icon repeated on every row stops reading as a button and becomes texture, bare icons beyond a handful of universal symbols are routinely misread, and a destructive icon on every row puts an irreversible act one accidental click from everything. The overflow menu's cost is the mirror image: whatever lives inside it is invisible until clicked. The reconciliation is a frequency budget, shown below.</p>
     <p class="specimen__note">Every table row carries actions; the question is how many of them deserve to be visible. An icon repeated on every row stops being a button and becomes texture — the eye tunes it out like wallpaper — and beyond a handful of universal symbols, icons alone are routinely misread. The overflow menu (the ⋯ button) hides everything behind one click, which is its cost: an action people need constantly should not live there. The options below are the catalog; the budget rule underneath is the recommendation.</p>
 
@@ -1205,7 +1301,7 @@
   </section>
 
   <section class="specimen__section" id="editing">
-    <h2 class="specimen__section-title">19. Table editing vs. form editing</h2>
+    <h2 class="specimen__section-title">20. Table editing vs. form editing</h2>
     <p class="wp-prose">Where should a value change: in the table cell, or in the record form the row opens? Products that refuse inline editing are usually not lazy — a form has room for labels, help and errors beside each field, one visible Save, and a shape that approval workflows can review; a grid has none of that by default. Products that embrace inline editing serve a real need: correcting one field across forty rows through a form is miserable. The industry's reconciliation is the draft-plus-save-bar pattern (option B below): edits are held as a draft — changes made on screen but not yet written — tinted cell by cell, counted in a bar with one Save and one Cancel, validated by the server as a batch. That submitted draft is the same object an approval review needs, which is why the pattern fits governed data.</p>
     <p class="specimen__note">Where should a value change: in the table itself, or in the record form the row opens? Every serious product picks a spot on this spectrum. The options below are the complete catalog, from safest to most fluid; they are not mutually exclusive — a real screen usually combines two or three.</p>
 
@@ -1302,7 +1398,7 @@
   </section>
 
   <section class="specimen__section" id="recordforms">
-    <h2 class="specimen__section-title">20. Record forms — the presentation styles</h2>
+    <h2 class="specimen__section-title">21. Record forms — the presentation styles</h2>
     <p class="wp-prose">The screen behind a clicked row. Presentation is one axis (how fields and labels are drawn) and workflow is another (how the record is entered, reviewed, and approved); the two compose freely, so they are cataloged separately. The evidence splits by task: entering data wants labels above fields in a single column; reading and scanning a record wants a left label column that the eye can run down. All six styles below are candidates on display; full evidence in the record-forms research file pending its graduation into this chapter.</p>
     <p class="specimen__note">The UI of fields: six graphical treatments of the same record, no workflow involved. The evidence splits by task (research/record-forms.md): entry wants top labels and a single column; reading wants a left label column to scan. Any style composes with any workflow from the next section.</p>
     <div class="specimen__row">
@@ -1457,7 +1553,7 @@
   </section>
 
   <section class="specimen__section" id="workflows">
-    <h2 class="specimen__section-title">21. Record forms — the workflows and processes</h2>
+    <h2 class="specimen__section-title">22. Record forms — the workflows and processes</h2>
     <p class="wp-prose">The second axis: the same fields can arrive as a document-style hybrid, a step-by-step wizard, a spreadsheet-like grid entry, a guided conversational flow, a settings page, or a review-and-diff screen where changes are compared before they land. These are processes, not layouts — each one pairs with any presentation style from the previous chapter.</p>
     <p class="specimen__note">The process around the fields — how a record is created, edited, approved, or composed. Rendered for review; options will be pruned after selection. Any workflow can carry any presentation style from the section above, in any placement.</p>
 
@@ -1587,7 +1683,7 @@
   </section>
 
   <section class="specimen__section" id="filters">
-    <h2 class="specimen__section-title">22. The filter builder</h2>
+    <h2 class="specimen__section-title">23. The filter builder</h2>
     <p class="wp-prose">Conditions are built from segmented rows — field, operator, value as one control sharing hairlines — so a long condition list stays compact. Every change updates the address bar, which means every filtered view is bookmarkable and shareable by copying a URL.</p>
     <p class="specimen__note">Field / operator / value as one segmented control — fields share hairlines the way sections do, so a long condition list stays compact. Every change fires <code>hx-get</code> with <code>hx-push-url="true"</code> — filtered views are bookmarkable and shareable.</p>
     <div class="condition-stack">
@@ -1621,7 +1717,7 @@
   </section>
 
   <section class="specimen__section" id="views">
-    <h2 class="specimen__section-title">23. The view system</h2>
+    <h2 class="specimen__section-title">24. The view system</h2>
     <p class="wp-prose">A view is a saved way of looking at the same data: which columns show, how rows are filtered, grouped and sorted. Views are collaborative or personal, switchable from a menu, and stored server-side as configuration — the interface is the database row, rendered. The field panel below carries the show-all/hide-all pair above its list because, with thirty fields and three wanted, hiding everything and re-enabling three beats flipping twenty-seven switches.</p>
     <p class="specimen__note">The saved-view family (components.md §4) — the filter builder above is part of it. Each panel is a server-rendered fragment; what it edits is a row in the views table, reflected in the URL.</p>
     <div class="specimen__row">
@@ -1693,7 +1789,7 @@
   </section>
 
   <section class="specimen__section" id="keyboard">
-    <h2 class="specimen__section-title">24. Keyboard conventions — what Enter means</h2>
+    <h2 class="specimen__section-title">25. Keyboard conventions — what Enter means</h2>
     <p class="wp-prose">Enter is the most overloaded key in modern software, and chat applications made it worse by teaching millions that Enter sends. The rule that removes the guessing: the kind of control decides what Enter means, identically on every screen — activate in menus, submit in single-line fields (a behavior called implicit submission, built into the web platform), and always a new line in multi-line text boxes, where a surprise submit of a half-written record is the expensive failure. Cmd/Ctrl+Enter is the one universal save-from-anywhere accelerator, taught in place: focus the text box below and the Save button reveals its hint.</p>
     <p class="specimen__note">Enter is the most overloaded key in modern software: in one product it sends, in another it makes a new line, in a third it activates a menu item — and every user carries each habit into the next application, where it misfires. The rule here removes the guessing: the kind of control decides what Enter means, identically on every screen, never the application's mood.</p>
 
@@ -1746,7 +1842,7 @@
   </section>
 
   <section class="specimen__section" id="palette-cmd">
-    <h2 class="specimen__section-title">25. The command palette</h2>
+    <h2 class="specimen__section-title">26. The command palette</h2>
     <p class="wp-prose">One keystroke, one field, every destination: the palette opens with ⌘K, lists commands and records grouped by kind, and is fully keyboard-driven. In this system it is rendered by the server and opened by a declarative trigger — no JavaScript, which proves the zero-script principle holds even for the most "app-like" component.</p>
     <p class="specimen__note">Opened by a pure HTMX trigger — <code>hx-trigger="keydown[(metaKey||ctrlKey)&amp;&amp;key=='k'] from:body"</code> — contents are server-rendered fragments; typeahead is <code>hx-trigger="input changed delay:150ms"</code>. The overlay is the only element that may cast a shadow.</p>
     <div class="palette-demo">
@@ -1764,7 +1860,7 @@
   </section>
 
   <section class="specimen__section" id="empty">
-    <h2 class="specimen__section-title">26. Empty states</h2>
+    <h2 class="specimen__section-title">27. Empty states</h2>
     <p class="wp-prose">Every list, table, and dashboard has a designed first-run state: what this screen is for, one sentence, one primary action. A bare "no results" teaches nothing and dead-ends the person who most needs guidance — the one seeing the screen for the first time.</p>
     <div class="empty-state">
       <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
@@ -1776,14 +1872,14 @@
   </section>
 
   <section class="specimen__section" id="brandcolor">
-    <h2 class="specimen__section-title">27. Brand color vs. the meaning colors</h2>
+    <h2 class="specimen__section-title">28. Brand color vs. the meaning colors</h2>
     <p class="wp-prose">Red means danger and green means success inside an interface — those meanings are load-bearing. A product whose brand color is red or green therefore has a conflict: if the brand hue also paints buttons and links, every error banner and success badge competes with it. The research recommends role separation (the brand hue owns identity moments — logo, marketing, accent details — while interface semantics keep their own reserved hues) and hue distancing (shifting the interface's semantic red or green far enough from the brand hue that the two never read as the same color).</p>
     <p class="wp-prose">Recommendation: role separation plus hue distancing, applied per brand skin. Full evidence in the brand-color research file pending its graduation into this chapter.</p>
     <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
   </section>
 
   <section class="specimen__section" id="appbranding">
-    <h2 class="specimen__section-title">28. App branding — the mark, the favicon, the avatar</h2>
+    <h2 class="specimen__section-title">29. App branding — the mark, the favicon, the avatar</h2>
     <p class="wp-prose">Every application built on the system needs a small identity kit of its own, decided once at the start: the mark that sits in the menu, the icon in the browser tab, and the square image the outside world sees. None of this is the system's identity — it is the application's — and every asset in the kit must work in dark and light, because the application itself does.</p>
     <p class="wp-prose">The brand slot. The mark lives in the top-left of the menu, the first thing the eye meets, as a small square beside the application's name — with an optional quieter line under the name for the product area. The slot is part of the rail, closed by the same hairline the rail uses everywhere. Two marks are on display: the ink mark, drawn from the theme's own text and canvas colors, which inverts itself perfectly when the theme flips; and the accent mark, which puts the application's accent behind the letter — louder, and still theme-safe because both of its colors come from the tokens.</p>
     <div class="specimen__row">
@@ -1837,7 +1933,7 @@
   </section>
 
   <section class="specimen__section" id="decisions">
-    <h2 class="specimen__section-title">29. How decisions get made</h2>
+    <h2 class="specimen__section-title">30. How decisions get made</h2>
     <p class="wp-prose">Each chapter above ends in a status: adopted as principle, recommendation pending, or options on display. The selection pass reads this document top to bottom and turns every pending status into a decision; each decision then flows down — into the agent rulebook as an enforceable rule, into the technical catalog as the surviving specification, and into both this document and the specimen, from which the losing options are removed in the same change.</p>
     <p class="wp-prose">Two documents render the system and evolve in parallel by standing rule: this white paper, where every explanation sits beside its living example, and the specimen, the same catalog with no words. A change to any example lands in both, always, in the same commit.</p>
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
