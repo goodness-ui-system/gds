@@ -551,6 +551,7 @@
       </nav>
       <div class="shell-demo__content">
         <p class="section-stack__text">The controls row sits directly under the brand slot: icon-only, muted, each with a label and a tooltip. Collapse-all and expand-all sit at the row's end, vertically over the per-group chevrons they command. Every choice is a server-rendered preference — the shell arrives with the state already applied and never flashes into place; client storage is the named anti-pattern.</p>
+        <p class="section-stack__text">The hide cycle: click — the rail disappears and content takes the full width. Pointer to the screen's left edge — the rail peeks back as an overlay, and slides away when the pointer leaves; the stored state stays hidden. Click the same control while peeked — the rail is pinned again. Three states, two stored (pinned, hidden); the peek is ephemeral, pure CSS on the edge zone.</p>
       </div>
     </div>
 

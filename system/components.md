@@ -475,9 +475,14 @@ exactly what the system exists to prevent. An application adopts any subset
 of `hide/peek · move-side · collapse-all/expand-all · resize` and invents
 nothing beyond it:
 
-- Hide / pin — the rail disappears entirely; hovering the screen edge peeks
-  it back (pure CSS, `:hover` on a fixed edge zone); clicking while peeked
-  re-pins it.
+- Hide / pin — three states, two of them stored. Pinned (default): the rail
+  occupies its column. Click: the rail disappears entirely, content takes the
+  full width, the stored preference becomes hidden. While hidden, the screen's
+  left edge peeks the rail back as a temporary overlay (pure CSS, `:hover` on
+  a fixed edge zone) — leaving lets it slide away, and peeking never changes
+  the stored state. Clicking the same control while peeked re-pins the rail.
+  The peek is the recovery path: the button is never unreachable. Only the
+  two clicks touch the server — one preference flip each.
 - Move side — the whole rail, with its second column when open, mirrors to
   the other screen edge.
 - Collapse all / expand all — two stateless chevrons acting on every nav
