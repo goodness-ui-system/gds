@@ -63,7 +63,8 @@
       <a class="wp-toc__item" href="#palette-cmd"><span class="wp-toc__num">24</span>The command palette</a>
       <a class="wp-toc__item" href="#empty"><span class="wp-toc__num">25</span>Empty states</a>
       <a class="wp-toc__item" href="#brandcolor"><span class="wp-toc__num">26</span>Brand color vs. the meaning colors</a>
-      <a class="wp-toc__item" href="#decisions"><span class="wp-toc__num">27</span>How decisions get made</a>
+      <a class="wp-toc__item" href="#appbranding"><span class="wp-toc__num">27</span>App branding — the mark, the favicon, the avatar</a>
+      <a class="wp-toc__item" href="#decisions"><span class="wp-toc__num">28</span>How decisions get made</a>
     </nav>
   </section>
 
@@ -1593,8 +1594,61 @@
     <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
   </section>
 
+  <section class="specimen__section" id="appbranding">
+    <h2 class="specimen__section-title">27. App branding — the mark, the favicon, the avatar</h2>
+    <p class="wp-prose">Every application built on the system needs a small identity kit of its own, decided once at the start: the mark that sits in the menu, the icon in the browser tab, and the square image the outside world sees. None of this is the system's identity — it is the application's — and every asset in the kit must work in dark and light, because the application itself does.</p>
+    <p class="wp-prose">The brand slot. The mark lives in the top-left of the menu, the first thing the eye meets, as a small square beside the application's name — with an optional quieter line under the name for the product area. The slot is part of the rail, closed by the same hairline the rail uses everywhere. Two marks are on display: the ink mark, drawn from the theme's own text and canvas colors, which inverts itself perfectly when the theme flips; and the accent mark, which puts the application's accent behind the letter — louder, and still theme-safe because both of its colors come from the tokens.</p>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Brand slot demo">
+        <div class="brand-slot">
+          <span class="brandmark brandmark--32">A</span>
+          <span class="brand-slot__name">Acme<span class="brand-slot__sub">Operations</span></span>
+        </div>
+        <a class="sidenav__item" href="#nav" aria-current="page">Dashboard</a>
+        <a class="sidenav__item" href="#nav">Accounts</a>
+        <a class="sidenav__item" href="#nav">Reports</a>
+      </nav>
+      <nav class="sidenav" aria-label="Brand slot, accent mark">
+        <div class="brand-slot">
+          <span class="brandmark brandmark--accent brandmark--32">A</span>
+          <span class="brand-slot__name">Acme<span class="brand-slot__sub">Operations</span></span>
+        </div>
+        <a class="sidenav__item" href="#nav" aria-current="page">Dashboard</a>
+        <a class="sidenav__item" href="#nav">Accounts</a>
+        <a class="sidenav__item" href="#nav">Reports</a>
+      </nav>
+    </div>
+    <p class="wp-prose">Dark and light. A mark that only works on one ground is half a mark. The default letter-mark cannot fail this test — its colors are the theme's own — but any drawn logo that replaces it must pass the same check: one ink on dark, one ink on light, verified on both before it ships. The panels below show the same marks on the two opposite grounds; flip the Light switch above and the pair holds.</p>
+    <div class="specimen__row">
+      <div class="brandkit__panel brandkit__panel--ground">
+        <span class="brandmark brandmark--48">A</span>
+        <span class="brandmark brandmark--accent brandmark--48">A</span>
+        <span class="brandkit__size">on the canvas</span>
+      </div>
+      <div class="brandkit__panel brandkit__panel--inverse">
+        <span class="brandmark brandmark--paper brandmark--48">A</span>
+        <span class="brandmark brandmark--accent brandmark--48">A</span>
+        <span class="brandkit__size">on the opposite ground</span>
+      </div>
+    </div>
+    <p class="wp-prose">The favicon. The default favicon is the first letter of the application's name on a rounded square — the letter-mark again, exported. The modern icon is one small vector file that carries both renderings and follows the device's dark or light preference on its own; alongside it, fixed-size fallbacks cover the older corners of the platform: 16, 32, and 48 pixels for tabs and taskbars, 180 for the touch-screen home icon, and 192 and 512 for the installable-app manifest. The ladder below shows the same mark surviving every size — which is the real test of a favicon: the letter must stay readable at 16 pixels, which is why the default is one letter and not a word.</p>
+    <div class="specimen__row">
+      <div class="brandkit">
+        <span class="brandkit__item"><span class="brandmark brandmark--16">A</span><span class="brandkit__size">16</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--32">A</span><span class="brandkit__size">32</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--48">A</span><span class="brandkit__size">48</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--180">A</span><span class="brandkit__size">180 · touch</span></span>
+        <span class="brandkit__item"><span class="brandmark brandmark--512">A</span><span class="brandkit__size">512 · avatar</span></span>
+      </div>
+    </div>
+    <p class="wp-prose">The avatar. The same 512-pixel square serves as the application's avatar wherever it holds an account or a directory entry. It ships in both grounds — the ink mark and its inverse — and choosing which to upload where stays a human decision; the kit's job is that both exist, both are current, and both come from the same letter-mark so the application is recognizably itself everywhere.</p>
+    <p class="wp-prose">Recommendation: every application starts with the generated letter-mark kit — brand slot, favicon set, avatar pair — on the day it is created, so no application ever ships bare. A drawn logo, when one arrives, replaces the letter in the same slots under the same two-grounds test. The letter-mark options (ink or accent) stay on display for selection.</p>
+    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-sources">Sources: MDN, defining icons for a site (link rel="icon", sizes) · web-app manifest icons (192 and 512) · Apple touch icon (180) · the vector favicon with a built-in dark-mode preference is documented in the current favicon guides (Evil Martians, "How to Favicon"; MDN SVG favicon support) · full anatomy of the rail's brand slot: this document's Navigation chapter.</div>
+  </section>
+
   <section class="specimen__section" id="decisions">
-    <h2 class="specimen__section-title">27. How decisions get made</h2>
+    <h2 class="specimen__section-title">28. How decisions get made</h2>
     <p class="wp-prose">Each chapter above ends in a status: adopted as principle, recommendation pending, or options on display. The selection pass reads this document top to bottom and turns every pending status into a decision; each decision then flows down — into the agent rulebook as an enforceable rule, into the technical catalog as the surviving specification, and into both this document and the specimen, from which the losing options are removed in the same change.</p>
     <p class="wp-prose">Two documents render the system and evolve in parallel by standing rule: this white paper, where every explanation sits beside its living example, and the specimen, the same catalog with no words. A change to any example lands in both, always, in the same commit.</p>
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>

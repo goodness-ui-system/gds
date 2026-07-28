@@ -780,7 +780,37 @@ permitting). The benchmark platforms document this as a feature; here it falls o
 
 ---
 
-## 5 · Gaps found & suggestions
+## 5 · App branding
+
+The identity kit every application decides once at creation (whitepaper, App
+branding chapter; options on display, decision pending). Not the system's
+branding — the application's.
+
+### 5.1 Brand slot
+The mark in the top-left of the rail: a small square beside the application
+name, optional product-area line under it, closed by the rail's own hairline
+(`.brand-slot`, `.brandmark`). Mark options: ink (`.brandmark` — theme text on
+theme canvas, self-inverting) · accent (`.brandmark--accent`). A drawn logo,
+when one exists, replaces the letter in the same slot.
+
+### 5.2 The two-grounds test
+Every mark ships verified on both grounds — one ink on dark, one ink on light.
+The letter-mark passes by construction (its colors are semantic tokens); a
+drawn replacement must pass the same check before shipping.
+
+### 5.3 Favicon
+Default: first letter of the brand name on a rounded square. One vector icon
+file carrying both renderings (it follows the device's dark/light preference),
+plus fixed-size fallbacks: 16 · 32 · 48 (tabs, taskbars) · 180 (touch icon)
+· 192/512 (web-app manifest). The letter must stay readable at 16px — the
+reason the default is a letter, not a word. Self-hosted, like every asset.
+
+### 5.4 Avatar
+The 512px square as the application's identity on external platforms, shipped
+in both grounds (ink and inverse); which one is uploaded where stays a human
+decision — the kit guarantees both exist and match.
+
+## 6 · Gaps found & suggestions
 
 Studying the benchmark tools surfaced elements the system did not yet name — added above:
 Detail panel (3.8), Bulk-actions bar (3.9), Breadcrumbs (2.10), Dialog (2.11),
