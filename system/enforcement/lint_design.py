@@ -20,8 +20,11 @@ Rules enforced (see enforcement/design-enforcement.feature):
   R10 the palette contract: every family in tokens.css defines the
       identical set of named steps — neutral ramps match step-for-step,
       accent ramps match step-for-step; a missing or extra step fails
+  R12 adoption mode (--adoption legacy_tokens.txt): during incremental
+      adoption (AGENTS.md §10) tokens.css must mount under [data-gds],
+      never :root, and no scanned rule may read a declared legacy token
 
-Run:  python3 enforcement/lint_design.py [root]
+Run:  python3 enforcement/lint_design.py [--adoption legacy_tokens.txt] [root]
 Exit: 0 clean, 1 violations found.
 """
 
@@ -228,17 +231,44 @@ def check_palette_contract(name: str, text: str) -> list[dict]:
     return out
 
 
-def find_violations(name: str, text: str, in_research: bool = False) -> list[dict]:
+def check_adoption(name: str, text: str, legacy: tuple[str, ...]) -> list[dict]:
+    """R12. Pure. Active only when a legacy vocabulary is declared."""
+    if not legacy:
+        return []
+    out = []
+    if name == TOKENS_FILE:
+        for m in re.finditer(r"^\s*:root\b", text, re.MULTILINE):
+            out.append({"rule": "R12-adoption-scope", "line": line_of(text, m.start()),
+                        "detail": "tokens.css mounts on :root during adoption"})
+    for css, off in css_contexts(name, text):
+        for tok in legacy:
+            for m in re.finditer(r"var\(\s*" + re.escape(tok) + r"\b", css):
+                out.append({"rule": "R12-legacy-token", "line": line_of(text, off + m.start()),
+                            "detail": tok})
+    return out
+
+
+def find_violations(name: str, text: str, in_research: bool = False,
+                    legacy: tuple[str, ...] = ()) -> list[dict]:
     """Pure. All violations for one file."""
     found = [v for check in CHECKS for v in check(name, text)]
     found += check_first_person(name, text)
     found += check_named_entities(name, text, in_research)
     found += check_palette_contract(name, text)
+    found += check_adoption(name, text, legacy)
     return found
 
 
 def main() -> int:
-    root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent
+    args = sys.argv[1:]
+    legacy: tuple[str, ...] = ()
+    if "--adoption" in args:
+        i = args.index("--adoption")
+        legacy_file = Path(args[i + 1])
+        legacy = tuple(line.strip() for line in legacy_file.read_text().splitlines()
+                       if line.strip().startswith("--"))
+        args = args[:i] + args[i + 2:]
+    root = Path(args[0]) if args else Path(__file__).resolve().parent.parent
     files = [p for p in sorted(root.rglob("*"))
              if p.suffix in (".css", ".html", ".md", ".feature")
              and not any(part.startswith(".") for part in p.parts)]
@@ -246,7 +276,7 @@ def main() -> int:
     for path in files:
         in_research = "research" in path.parts
         violations = find_violations(path.name, path.read_text(encoding="utf-8"),
-                                     in_research)
+                                     in_research, legacy)
         for v in violations:
             total += 1
             print(f"{path.relative_to(root)}:{v['line']}  {v['rule']}  {v['detail']}")

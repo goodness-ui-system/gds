@@ -529,6 +529,31 @@
     </div>
   </section>
 
+    <div class="specimen__label">Utility controls — the finite set: hide/peek · move side · resize · collapse/expand all</div>
+    <div class="shell-demo">
+      <nav class="sidenav" aria-label="Sidebar with utility controls">
+        <div class="brand-slot">
+          <span class="brandmark brandmark--32">A</span>
+          <span class="brand-slot__name">Acme<span class="brand-slot__sub">Operations</span></span>
+        </div>
+        <div class="sidenav__utils">
+          <button class="sidenav__util" type="button" aria-label="Hide sidebar" title="Hide — the screen edge peeks it back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="m15 10-2 2 2 2"/></svg></button>
+          <button class="sidenav__util" type="button" aria-label="Move sidebar to the other side" title="Move side"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/></svg></button>
+          <button class="sidenav__util" type="button" aria-label="Resize sidebar" title="Resize — arrows nudge, Home resets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 8 4 4-4 4"/><path d="m6 8-4 4 4 4"/><path d="M2 12h20"/></svg></button>
+          <button class="sidenav__util sidenav__util--end" type="button" aria-label="Collapse all groups" title="Collapse all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 5-5 5 5"/><path d="m7 4 5 5 5-5"/></svg></button>
+          <button class="sidenav__util" type="button" aria-label="Expand all groups" title="Expand all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7 9 5-5 5 5"/><path d="m7 15 5 5 5-5"/></svg></button>
+        </div>
+        <div class="sidenav__section">Workspace</div>
+        <a class="sidenav__item" href="#nav" aria-current="page">Dashboard</a>
+        <a class="sidenav__item" href="#nav">Accounts <span class="sidenav__count">248</span></a>
+        <div class="sidenav__section">Admin</div>
+        <a class="sidenav__item" href="#nav">Settings</a>
+      </nav>
+      <div class="shell-demo__content">
+        <p class="section-stack__text">The controls row sits directly under the brand slot: icon-only, muted, each with a label and a tooltip. Collapse-all and expand-all sit at the row's end, vertically over the per-group chevrons they command. Every choice is a server-rendered preference — the shell arrives with the state already applied and never flashes into place; client storage is the named anti-pattern.</p>
+      </div>
+    </div>
+
   <!-- ================= APPEARANCE ================= -->
   <section class="specimen__section" id="appearance-control">
     <h2 class="specimen__section-title">Appearance control — System · Light · Dark</h2>

@@ -166,6 +166,17 @@ interactive element per tile — never a link or button nested inside the label.
 
 ---
 
+### 1.16 Digits in columns (rule)
+Any component presenting digits in columns — numeric table cells, count
+columns, meter and ratio number pairs, stacked deltas, pagination status —
+either uses the mono face (tabular by construction) or declares
+`font-variant-numeric: tabular-nums`. Single display numbers (a KPI headline,
+a ratio percent) keep proportional figures: the rule triggers on columns, not
+on numbers. Font contract, the palette contract's idea applied to type: a
+sans face qualifies for the system only if it ships a `tnum` feature with
+uniform-width alternates; `enforcement/check_figures.py` opens the shipped
+binaries and verifies — a face missing the step is a bug, not a preference.
+
 ## 2 · Molecules
 
 ### 2.1 Form field
@@ -456,6 +467,39 @@ business applications burn sidebar space fast, and the reference tools run their
 sidebars at roughly 32–36px of row pitch. The floor is `--target-min` (24px);
 tight density tightens one step further. Applies to sidebar items, dropdown
 and view menus, panel rows, and palette items alike.
+
+
+Utility controls — a finite option set. Real deployments grow shell
+conveniences; without a catalog entry they live as per-application forks,
+exactly what the system exists to prevent. An application adopts any subset
+of `hide/peek · move-side · collapse-all/expand-all · resize` and invents
+nothing beyond it:
+
+- Hide / pin — the rail disappears entirely; hovering the screen edge peeks
+  it back (pure CSS, `:hover` on a fixed edge zone); clicking while peeked
+  re-pins it.
+- Move side — the whole rail, with its second column when open, mirrors to
+  the other screen edge.
+- Collapse all / expand all — two stateless chevrons acting on every nav
+  group at once (the native `<details>` groups, acted on server-side).
+- Resize — a drag handle on the rail edge; double-click resets the default
+  width. The one control that must capture live DOM state (the dragged
+  width): domx territory, posting the final value — never hand-written JS.
+
+Placement: one controls row directly under the brand slot — icon-only
+buttons at muted color, targets ≥ `--target-min`, every button with an
+`aria-label` and tooltip. Icon-only is permitted here: a small fixed set of
+universal symbols used once, not repeated per row (consistent with the
+row-actions repetition rule, §3.4). Collapse-all / expand-all sit at the
+row's end so they align vertically with the per-group chevrons they command
+— the lever sits over the thing it moves. Keyboard: every control tabbable;
+the resize handle is a button (arrow keys nudge by one spacing step, Home
+resets) so the pointer drag is never the sole path. Persistence: a
+`preferences` row rendered server-side — the shell arrives with
+`data-menu="hidden"` / `data-menu-side="right"` / the width already applied,
+never flashing into place. Client storage is the named anti-pattern: it is
+client state, and it desynchronizes across devices. A fifth control enters
+by the standard workflow (AGENTS.md §11), never as a private feature.
 
 ### 3.3 Dashboard grid
 User-composed widget grid. Layout is a `views` row (`{"tiles":[{"w":…}]}`); each
@@ -889,5 +933,24 @@ Worth adding next, in rough priority order:
 8. CSV import — the reverse of View menu → export; column-mapping UI on a
    staged upload.
 
-Each of these enters the system the standard way (AGENTS.md §10): scenario first,
+Each of these enters the system the standard way (AGENTS.md §11): scenario first,
 matrix row here, rendering in the specimen, lint clean.
+
+Recorded from the first production adoption audit (accepted as candidates,
+not yet argued in full):
+
+- A wordmark variant for the brand slot (§5.1): a type-only brand — a live-text
+  wordmark in a display face used nowhere else — occupying the slot, closed by
+  the same hairline. The wordmark face is a brand asset (exempt from the UI
+  face rule) but its inks must still be the semantic text/canvas pair, so the
+  two-grounds test passes by construction.
+- An orphan-token lint: every token defined in `tokens.css` must be consumed
+  by `ui.css` or a component file, or carry an explicit `reserved:` comment.
+  Exit 1 on any orphan — the audit found a dead token consumed by nothing for
+  two years while the documentation still described it as rendering.
+- A density-control spec (§2.16): the user-facing control for application-wide
+  density — a twin of the appearance control (§2.15), three labeled options,
+  the active one checked, stored per user, no System row.
+- A casing lint for navigation: §3.2 rules one casing per application; a
+  pure-function classifier over rendered nav labels (title case vs sentence
+  case, fail on mixture) moves the rule from prose to machinery.

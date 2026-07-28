@@ -235,7 +235,7 @@ example and explanation, including the full View System — is `components.md`.
 | Empty state | first-run guidance | teaches, never dead-ends |
 
 Each shipped cell gets: the BEM class, the tokens it consumes, a row in its matrix table,
-a live rendering in `specimen.html`, and a Gherkin scenario for any behaviour (§10).
+a live rendering in `specimen.html`, and a Gherkin scenario for any behaviour (§11).
 
 ## 6. Customization = server-rendered config (DATAOS)
 
@@ -292,12 +292,21 @@ the Honest enforcement stack:
   R3 no `!important` · R4 no shadow outside `var(--shadow-overlay)`/`none` ·
   R5 no px literals outside `tokens.css` except 0/1/2px ·
   R6 every class selector is BEM · R7 no imperative JS in templates.
+  Adoption mode (`--adoption legacy_tokens.txt`) adds R12: during an
+  incremental adoption (§10) `tokens.css` must not mount on `:root`, and no
+  migrated rule may read a declared legacy token name.
 - `enforcement/check_contrast.py` — the color-math checker. Resolves every palette
   family in every theme from `tokens.css` and enforces the floors (every
   text-capable pair ≥ 4.5:1 on canvas and surface, on-action ≥ 4.5:1) and the
   dark-mode ceilings (body text never pure white and never brighter than `#EBEBEB`
   effective — the halation band; canvas never pure black). Run:
   `python3 enforcement/check_contrast.py` (exit 1 on any violation).
+- `enforcement/check_figures.py` — the tabular-figures contract. Opens the
+  shipped font binaries: every digit advance in each mono face must be
+  uniform, and each sans face must carry a `tnum` feature with uniform-width
+  alternates. Skips (with a notice) where no faces ship — the binding moment
+  is app integration, where fonts are self-hosted. Run:
+  `python3 enforcement/check_figures.py`.
 - `enforcement/check_rhythm.mjs` — the air rule (R11): nothing begins flush
   against the end of the block before it. Every block that starts after another
   block carries vertical air (base rhythm `var(--space-4)`; labels that open a
@@ -312,7 +321,53 @@ the Honest enforcement stack:
   must itself pass the lint. If a component isn't in the specimen, it doesn't exist.
 - At integration, add the lint as a pre-commit hook next to the app's existing hooks.
 
-## 10. Workflow — how to add or change UI
+## 10. Adopting into an existing application
+
+The sections above describe the end state. Any application old enough to be
+worth migrating already has a token vocabulary of its own, and the moment
+`tokens.css` loads on `:root`, two vocabularies occupy one namespace. The
+semantic aliases are safe (`--color-…` collides with nothing in practice);
+the scale primitives are not — `--text-sm`, `--space-4`, `--radius-md`,
+`--font-mono` are exactly the names a reasonable application already uses,
+with different values. Custom properties inherit and re-resolve everywhere,
+so mounting Goodness values for those names on `:root` silently reflows every
+un-migrated screen on day one. The adoption contract prevents that:
+
+1. During incremental adoption, `tokens.css` mounts under a scope attribute,
+   never on `:root`. The documented scope is `[data-gds]`. The transform is
+   mechanical and lossless: every `:root { … }` block becomes
+   `[data-gds] { … }`; every `[data-theme="light"] { … }` block becomes
+   `[data-theme="light"] [data-gds] { … }` (the theme attribute lives on the
+   document element, above the scope — the same descendant form applies to
+   the `prefers-color-scheme` mirror blocks and to `[data-palette]` and
+   `[data-density]`). `@font-face` blocks stay global: faces cannot be
+   scoped, and need not be — a face loads only when something uses it.
+2. The scope is stamped on region containers, one region per migration phase
+   — a column, a panel, a page. Inside a stamped region the Goodness value
+   wins by proximity; every un-stamped region keeps resolving the legacy
+   value from `:root`. Scopes are never nested — a nested scope means the
+   region boundary was drawn wrong.
+3. Legacy tokens stay on `:root`, untouched, for the whole migration. They
+   are the working values of everything not yet migrated.
+4. Migrated components consume semantic aliases only and never read a legacy
+   token name. The adopting application declares its legacy names in one
+   tracked file; the lint's adoption mode does the remembering
+   (`python3 enforcement/lint_design.py --adoption legacy_tokens.txt`).
+5. Completion is a single commit: reverse the mechanical transform
+   (`[data-gds]` back to `:root`), delete the legacy families, delete the
+   now-inert scope attributes. The end state is stock Goodness — no prefix,
+   no permanent fork, no adoption residue.
+
+Why not prefix every token (`--gds-…`) instead? The prefix would live in
+every component rule of every application forever; the system's own files
+would no longer be stock. The scope-then-lift contract keeps the component
+layer byte-identical between a fresh application and a migrated one, and the
+migration artifact disappears at the end. A rule that leaves no trace once
+obeyed is the better rule. The adopting application keeps its list of
+stamped regions in one tracked file, so migration progress is read from one
+place rather than grepped from templates.
+
+## 11. Workflow — how to add or change UI
 
 Honest is Gherkin-first; UI behaviour is behaviour.
 
@@ -332,7 +387,7 @@ Honest is Gherkin-first; UI behaviour is behaviour.
 7. Validate contrast & focus (§8) for anything colour-touching.
 8. Branch + PR; a human reviews and merges (human gate).
 
-## 11. Forbidden — design edition
+## 12. Forbidden — design edition
 
 | Forbidden | Honest equivalent |
 |---|---|
@@ -351,7 +406,7 @@ Honest is Gherkin-first; UI behaviour is behaviour.
 | Client-side saved views / filters | Server-side config row, URL state |
 | CDN fonts or icon fonts | Self-hosted `@font-face`; inline Lucide SVG |
 
-## 12. Definition of done
+## 13. Definition of done
 
 A UI change is done when: it uses only semantic tokens; it has a Gherkin scenario for any
 behaviour; it renders in BOTH `specimen.html` and `whitepaper.html` (the
