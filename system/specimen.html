@@ -1701,15 +1701,29 @@
 
   <!-- ================= VIEW SYSTEM ================= -->
   <section class="specimen__section" id="view-system">
-    <h2 class="specimen__section-title">View system — switcher, fields, sort, view menu</h2>
-    <div class="specimen__label">The toolbar row — five controls, each wearing its count, each opening its panel</div>
+    <h2 class="specimen__section-title">View system — the view panel, fields, sort</h2>
+    <div class="specimen__label">The toolbar row — no view created yet: the view control shows its bare name</div>
     <div class="data-table">
-      <div class="data-table__viewbar">
-        <span class="data-table__viewname">≡ High-priority, active ▾</span>
-        <span class="data-table__viewdesc">the title is a control too — it opens the view switcher</span>
-      </div>
       <div class="table-toolbar">
         <div class="table-toolbar__group">
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 8.5 5L12 12 3.5 7Z"/><path d="m20.5 12-8.5 5-8.5-5"/><path d="m20.5 17-8.5 5-8.5-5"/></svg></span> View ▾</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 8 10 8a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/></svg></span> Hide fields</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></span> Filter</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9.5h10"/><path d="M7 14.5h6"/></svg></span> Group</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg></span> Sort</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18"/><path d="M3 12h18"/><path d="M3 19h18"/></svg></span> Row height</button>
+        </div>
+        <div class="table-toolbar__group">
+          <button class="button button--primary" type="button">Add account</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="specimen__label">A view selected — the control wears the view's name, and the counts appear</div>
+    <div class="data-table">
+      <div class="table-toolbar">
+        <div class="table-toolbar__group">
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 8.5 5L12 12 3.5 7Z"/><path d="m20.5 12-8.5 5-8.5-5"/><path d="m20.5 17-8.5 5-8.5-5"/></svg></span> High-priority, active ▾</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 8 10 8a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/></svg></span> Hide fields · 2</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></span> Filter · 2</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9.5h10"/><path d="M7 14.5h6"/></svg></span> Group · 1</button>
@@ -1721,21 +1735,33 @@
         </div>
       </div>
     </div>
-    <div class="specimen__row">
-      <div>
-        <div class="specimen__label">View switcher</div>
-        <nav class="panel" aria-label="Views">
-          <input class="input panel__search" type="search" placeholder="Find a view">
-          <div class="panel__row">+ Create new…</div>
-          <hr class="panel__divider">
-          <div class="panel__row panel__row--active">High-priority, active</div>
-          <div class="panel__row">Enterprise only</div>
-          <div class="panel__row">Quarterly review</div>
-          <hr class="panel__divider">
-          <div class="panel__hint">PERSONAL</div>
-          <div class="panel__row">My triage</div>
-        </nav>
+
+    <div class="specimen__label">The view panel — one popover, two panes, one hairline: every view · this view</div>
+    <div class="panel view-panel">
+      <div class="view-panel__pane">
+        <input class="input panel__search" type="search" placeholder="Find a view">
+        <div class="panel__row">+ Create new…</div>
+        <hr class="panel__divider">
+        <div class="panel__row panel__row--active">High-priority, active</div>
+        <div class="panel__row">Enterprise only</div>
+        <div class="panel__row">Quarterly review</div>
+        <hr class="panel__divider">
+        <div class="panel__hint">PERSONAL</div>
+        <div class="panel__row">My triage</div>
       </div>
+      <div class="view-panel__pane">
+        <div class="view-panel__title">This view — High-priority, active</div>
+        <div class="panel__row">Rename view</div>
+        <div class="panel__row">Edit description</div>
+        <div class="panel__row">Duplicate view</div>
+        <div class="panel__row">Copy another view's configuration</div>
+        <hr class="panel__divider">
+        <div class="panel__row">Download CSV</div>
+        <hr class="panel__divider">
+        <div class="panel__row panel__row--danger">Delete view</div>
+      </div>
+    </div>
+    <div class="specimen__row">
       <div>
         <div class="specimen__label">Field visibility</div>
         <div class="panel">
@@ -1770,19 +1796,6 @@
           </div>
           <div class="panel__row">+ Add another sort</div>
           <div class="panel__footer"><input class="control-switch__box" type="checkbox" checked> Automatically sort records</div>
-        </div>
-      </div>
-      <div>
-        <div class="specimen__label">View menu</div>
-        <div class="menu" role="menu" aria-label="View actions">
-          <button class="menu__item" type="button" role="menuitem">Rename view</button>
-          <button class="menu__item" type="button" role="menuitem">Edit description</button>
-          <button class="menu__item" type="button" role="menuitem">Duplicate view</button>
-          <button class="menu__item" type="button" role="menuitem">Copy another view's configuration</button>
-          <hr class="menu__divider">
-          <button class="menu__item" type="button" role="menuitem">Download CSV</button>
-          <hr class="menu__divider">
-          <button class="menu__item menu__item--danger" type="button" role="menuitem">Delete view</button>
         </div>
       </div>
     </div>

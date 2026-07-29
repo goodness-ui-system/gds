@@ -1775,16 +1775,30 @@
     <p class="wp-prose">A view is a saved way of looking at the same data: which columns show, how rows are filtered, grouped and sorted. Views are collaborative or personal, switchable from a menu, and stored server-side as configuration — the interface is the database row, rendered. The field panel below carries the show-all/hide-all pair above its list because, with thirty fields and three wanted, hiding everything and re-enabling three beats flipping twenty-seven switches.</p>
     <p class="specimen__note">The saved-view family (components.md §4) — the filter builder above is part of it. Each panel is a server-rendered fragment; what it edits is a row in the views table, reflected in the URL.</p>
     <p class="wp-prose">The toolbar row is the view's cockpit, and every element of it answers the same two questions: what does it say at rest, and what does a click open. At rest, each control wears its active count — Filter · 2, Group · 1, Sort · 2 — so the view's whole configuration is readable without opening anything; a control with nothing active shows its bare name. A click opens that control's panel, anchored beneath the button, server-rendered like everything else; each change inside a panel is one request that updates the view's row and re-renders the table, with the URL following along so the state is shareable and the back button honest.</p>
-    <p class="wp-prose">The elements, left to right. The view title — the name in the bar above the toolbar — is a control too: clicking it opens the view switcher, with search, the create action, and the collaborative and personal lists; the view menu behind its chevron holds rename, describe, duplicate, and the configuration actions. Hide fields opens the field visibility panel — one switch per field, with show-all and hide-all first, for the thirty-fields-three-wanted arithmetic. Filter opens the filter builder — condition rows, add-condition, add-group. Group opens the group menu — one grouping field and a direction; group headers band the table (which is why grouped tables skip the zebra stripe). Sort opens the ordered sort list — several sorts stacked, a direction each. Row height is the compact-to-roomy control: the three density steps — tight, normal, loose — applied to this view's rows alone, so one crowded review view can pack rows while a presentation view breathes; the choice is part of the view, stored like every other part.</p>
+    <p class="wp-prose">The elements, left to right. The View button leads the row, and it is the one control whose resting label changes: before any view exists it says only View; once a view is selected it wears the view's name — the control states which view, the way every neighbor states its count. Clicking it opens the view panel: one popover, two panes sharing one vertical hairline — the pane law applied to a menu. The left pane is every view: find-a-view search, the create action, the collaborative list and the personal group, the current view marked. The right pane is this view: rename, edit description, duplicate, copy another view's configuration, download CSV, and delete last in the danger color — and it is titled with the view's name, so its target is never ambiguous. The panes act on the current view only; acting on another view means switching to it first, which re-renders the panel with the new name in the title. On narrow screens the panes stack. The earlier shape — a title that opened one panel and a chevron beside it that opened another — is retired as a split target: two invisible click zones on one label. Hide fields opens the field visibility panel — one switch per field, with show-all and hide-all first, for the thirty-fields-three-wanted arithmetic. Filter opens the filter builder — condition rows, add-condition, add-group. Group opens the group menu — one grouping field and a direction; group headers band the table (which is why grouped tables skip the zebra stripe). Sort opens the ordered sort list — several sorts stacked, a direction each. Row height is the compact-to-roomy control: the three density steps — tight, normal, loose — applied to this view's rows alone, so one crowded review view can pack rows while a presentation view breathes; the choice is part of the view, stored like every other part.</p>
     <p class="wp-prose">One control is deliberately absent: a color button. Painting rows from the toolbar puts meaning into decoration, and meaning belongs to the semantic colors — badges, marks, and a rule the view declares in its description line. Whatever colors a row must already mean something; a color picker in the toolbar manufactures color that means nothing.</p>
-    <div class="specimen__label">The toolbar row — five controls, each wearing its count, each opening its panel</div>
+    <div class="specimen__label">The toolbar row — no view created yet: the view control shows its bare name</div>
     <div class="data-table">
-      <div class="data-table__viewbar">
-        <span class="data-table__viewname">≡ High-priority, active ▾</span>
-        <span class="data-table__viewdesc">the title is a control too — it opens the view switcher</span>
-      </div>
       <div class="table-toolbar">
         <div class="table-toolbar__group">
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 8.5 5L12 12 3.5 7Z"/><path d="m20.5 12-8.5 5-8.5-5"/><path d="m20.5 17-8.5 5-8.5-5"/></svg></span> View ▾</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 8 10 8a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/></svg></span> Hide fields</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></span> Filter</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9.5h10"/><path d="M7 14.5h6"/></svg></span> Group</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg></span> Sort</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18"/><path d="M3 12h18"/><path d="M3 19h18"/></svg></span> Row height</button>
+        </div>
+        <div class="table-toolbar__group">
+          <button class="button button--primary" type="button">Add account</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="specimen__label">A view selected — the control wears the view's name, and the counts appear</div>
+    <div class="data-table">
+      <div class="table-toolbar">
+        <div class="table-toolbar__group">
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 8.5 5L12 12 3.5 7Z"/><path d="m20.5 12-8.5 5-8.5-5"/><path d="m20.5 17-8.5 5-8.5-5"/></svg></span> High-priority, active ▾</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 8 10 8a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/></svg></span> Hide fields · 2</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></span> Filter · 2</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9.5h10"/><path d="M7 14.5h6"/></svg></span> Group · 1</button>
@@ -1796,21 +1810,33 @@
         </div>
       </div>
     </div>
-    <div class="specimen__row">
-      <div>
-        <div class="specimen__label">View switcher</div>
-        <nav class="panel" aria-label="Views">
-          <input class="input panel__search" type="search" placeholder="Find a view">
-          <div class="panel__row">+ Create new…</div>
-          <hr class="panel__divider">
-          <div class="panel__row panel__row--active">High-priority, active</div>
-          <div class="panel__row">Enterprise only</div>
-          <div class="panel__row">Quarterly review</div>
-          <hr class="panel__divider">
-          <div class="panel__hint">PERSONAL</div>
-          <div class="panel__row">My triage</div>
-        </nav>
+
+    <div class="specimen__label">The view panel — one popover, two panes, one hairline: every view · this view</div>
+    <div class="panel view-panel">
+      <div class="view-panel__pane">
+        <input class="input panel__search" type="search" placeholder="Find a view">
+        <div class="panel__row">+ Create new…</div>
+        <hr class="panel__divider">
+        <div class="panel__row panel__row--active">High-priority, active</div>
+        <div class="panel__row">Enterprise only</div>
+        <div class="panel__row">Quarterly review</div>
+        <hr class="panel__divider">
+        <div class="panel__hint">PERSONAL</div>
+        <div class="panel__row">My triage</div>
       </div>
+      <div class="view-panel__pane">
+        <div class="view-panel__title">This view — High-priority, active</div>
+        <div class="panel__row">Rename view</div>
+        <div class="panel__row">Edit description</div>
+        <div class="panel__row">Duplicate view</div>
+        <div class="panel__row">Copy another view's configuration</div>
+        <hr class="panel__divider">
+        <div class="panel__row">Download CSV</div>
+        <hr class="panel__divider">
+        <div class="panel__row panel__row--danger">Delete view</div>
+      </div>
+    </div>
+    <div class="specimen__row">
       <div>
         <div class="specimen__label">Field visibility</div>
         <div class="panel">
@@ -1845,19 +1871,6 @@
           </div>
           <div class="panel__row">+ Add another sort</div>
           <div class="panel__footer"><input class="control-switch__box" type="checkbox" checked> Automatically sort records</div>
-        </div>
-      </div>
-      <div>
-        <div class="specimen__label">View menu</div>
-        <div class="menu" role="menu" aria-label="View actions">
-          <button class="menu__item" type="button" role="menuitem">Rename view</button>
-          <button class="menu__item" type="button" role="menuitem">Edit description</button>
-          <button class="menu__item" type="button" role="menuitem">Duplicate view</button>
-          <button class="menu__item" type="button" role="menuitem">Copy another view's configuration</button>
-          <hr class="menu__divider">
-          <button class="menu__item" type="button" role="menuitem">Download CSV</button>
-          <hr class="menu__divider">
-          <button class="menu__item menu__item--danger" type="button" role="menuitem">Delete view</button>
         </div>
       </div>
     </div>

@@ -596,10 +596,11 @@ anything; a control with nothing active shows its bare name.
 
 The elements, and what a click opens:
 
-- View title (`≡ name ▾`, in the bar above the toolbar) — a control too:
-  click opens the view switcher (4.1: search, create, collaborative and
-  personal lists); the chevron's view menu (4.2) holds rename, describe,
-  duplicate, and configuration actions.
+- View button — first in the row, the one control whose resting label
+  changes: `View ▾` before any view exists, the view's name once one is
+  selected (the control states which view, as every neighbor states its
+  count). Click opens the view panel (4.1–4.2): one popover, two panes,
+  one shared hairline.
 - Hide fields → the field visibility panel (4.3): one switch per field,
   show-all/hide-all first (the thirty-fields-three-wanted arithmetic).
 - Filter → the filter builder (4.4): condition rows, add-condition,
@@ -771,11 +772,15 @@ even travel in a URL. That model maps one-to-one onto DATAOS: a view is a row �
 carries the live overrides, and the server renders the result. Below, each
 component of the family; together they land in the Table toolbar and view sidebar.
 
-### 4.1 View switcher
-The benchmark pattern: create new, find-a-view search, typed icons per view kind,
-the named-view list, active highlighted.
+### 4.1 View panel — pane one: every view
+The View button (first in the toolbar, 3.5) opens one popover of two panes
+sharing one vertical hairline — the pane law applied to a menu. Pane one is
+every view: create new, find-a-view search, typed icons per view kind, the
+named-view list with the current view highlighted.
 Options: view kinds (`table` now; `dashboard`, others later) · find-a-view
 (typeahead over view names) · create new · personal section vs shared section.
+The list scrolls internally past about six views; on narrow screens the two
+panes stack.
 ```html
 <nav class="view-switcher">
   <button class="view-switcher__new" hx-post="/views?resource=accounts">+ Create new…</button>
@@ -790,9 +795,13 @@ Options: view kinds (`table` now; `dashboard`, others later) · find-a-view
 </nav>
 ```
 
-### 4.2 View menu
-Per-view management: rename, edit description, duplicate, copy
-another view's configuration, export CSV, delete. Plus the ownership levels
+### 4.2 View panel — pane two: this view
+Per-view management, as the second pane of the same popover: rename, edit
+description, duplicate, copy another view's configuration, export CSV, delete
+(last, danger color, divider above — the consequential-action rule). The pane
+is titled with the current view's name so its target is never ambiguous, and
+it acts on the current view only — acting on another view means switching to
+it first; no per-row menus in pane one. Plus the ownership levels
 worth adopting outright: *collaborative* (team-editable), *personal* (only the
 owner edits its config), *locked* (config frozen — audit-friendly).
 Options: the seven actions above · ownership level · view description.
