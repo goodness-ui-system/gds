@@ -152,7 +152,21 @@ explicit Apply button per WCAG 3.2.2.
 ### 1.13 Toggle button (candidate)
 A button that stays pressed (`.toggle-btn`, state = `aria-pressed`, server-rendered).
 For repeated-action states: watch/unwatch, formatting marks. Options: labeled;
-icon-only (`.toggle-btn--icon`, always with `aria-label`). The pressed state must
+icon-only (`.toggle-btn--icon`, always with `aria-label`).
+
+The lens toggle — a named use. An orthogonal record flag (a favorite, a
+watched item) worn as one earned icon beside the scopes: left side of the
+toolbar, after the scope group. A lens composes rather than partitions — it
+combines with any scope, filter, and sort — so it is never a member of a
+scope row (a favorite can belong to any type; adding it breaks the row's
+one-facet grammar), never only inside the filter builder (a daily flip
+cannot cost a panel-open), and not only a saved view (a view swaps the whole
+configuration; the lens narrows the current one). Pressed state tinted;
+count at rest permitted (the star wearing the favorites count in the current
+scope); state URL-reflected like every part of the view. A personal saved
+view may bake the same flag in — the same server state, worn two ways.
+
+The pressed state must
 survive grayscale — border + fill change together, never color alone. The label
 and icon never change with the state (stable name, state carries the answer);
 a name-flipping pair (start/stop) is a different control and takes no
