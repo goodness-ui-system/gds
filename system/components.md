@@ -166,6 +166,34 @@ count at rest permitted (the star wearing the favorites count in the current
 scope); state URL-reflected like every part of the view. A personal saved
 view may bake the same flag in — the same server state, worn two ways.
 
+Favorites — the five-part anatomy (the lens is one part):
+
+1. Marker column (`.data-table__cell--fav`) — a star in the leading position
+   beside the identity column. Filled with the accent on favorites; on
+   unmarked rows drawn only on hover or keyboard focus, because a column of
+   hollow stars is the badge-dot mistake repeated (1.6).
+2. The marker is the toggle — one click in place, no menu round trip. The
+   repeated-icon caution (3.4) does not apply: this icon is primarily a state
+   marker that happens to be clickable, the action is trivially reversible,
+   and no destructive action sits nearby.
+3. Overflow-menu entry — the discoverable, keyboard-obvious path, with a
+   state-honest label pair (`Add to favorites` / `Remove from favorites`,
+   matching the row's current state).
+4. Bulk pair — the bulk-actions bar (3.9) gains add and remove, so clearing a
+   collection is lens + select-all + remove: three existing components
+   composing. Deliberate: wiping curation deserves the selection ceremony; a
+   standing clear-all would put an irreversible-feeling erasure one click
+   from everything.
+5. Empty lens — the empty state (3.11) when the lens is on and nothing is
+   starred: teach the gesture in one sentence, never a bare grid.
+
+Semantics: favorites are always personal — per user, server-side, synced
+across devices; a colleague's star never moves a reader's (contrast views,
+which may be collaborative). The filled star takes the accent (a
+user-selected state), never the warning color (a favorite is not a warning).
+Favorites never auto-sort to the top: silently reordering breaks the sort the
+toolbar claims — the lens is the honest way to see them together.
+
 The pressed state must
 survive grayscale — border + fill change together, never color alone. The label
 and icon never change with the state (stable name, state carries the answer);

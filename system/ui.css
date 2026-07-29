@@ -619,6 +619,16 @@ html:has(#opt-light:checked) .theme-glyph--moon { display: none; }
 .data-table__sort--active { color: var(--color-action); }
 .data-table__cell--num { font-family: var(--font-mono); text-align: right; font-size: var(--text-sm); }
 .data-table__cell--check { width: 2rem; }
+/* favorites marker column: the star is the state and the toggle. Marked rows
+   always show; unmarked rows reveal on hover or keyboard focus, so a column
+   of hollow stars never becomes texture. */
+.data-table__cell--fav { width: 2rem; }
+.data-table__fav { display: inline-flex; align-items: center; justify-content: center; width: 1.25rem; height: 1.25rem; border: none; background: none; padding: 0; color: var(--color-text-muted); cursor: pointer; visibility: hidden; }
+.data-table__fav svg { width: 1rem; height: 1rem; }
+.data-table__fav--on { visibility: visible; color: var(--color-action); }
+tr:hover .data-table__fav, tr:focus-within .data-table__fav { visibility: visible; }
+.data-table__fav-head { display: inline-flex; color: var(--color-text-muted); }
+.data-table__fav-head svg { width: 1rem; height: 1rem; }
 .data-table__footer { display: flex; justify-content: space-between; align-items: center; padding: var(--space-2) var(--space-4); border-top: 1px solid var(--color-border); }
 
 .pagination { display: flex; gap: var(--space-1); align-items: center; }
