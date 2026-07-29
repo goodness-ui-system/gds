@@ -44,8 +44,18 @@
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
   </section>
 
+  <section class="specimen__section" id="invisible">
+    <h2 class="specimen__section-title">2. The invisible interface — the concept behind the system</h2>
+    <p class="wp-prose">Two letters get fused into one buzzword, but they name different things. The interface — UI — is what the screen looks like: the colors, the type, the shapes, where things sit. The experience — UX — is how a person moves through it: how they navigate, how the application answers, and whether the goal they came with gets reached. A system can be judged only against both at once, and the judgment has one test: how much of the person's attention does the screen spend on itself?</p>
+    <p class="wp-prose">A generation of websites treated novelty as craft. As the platform's limits fell away, interfaces grew inventive — and every inventive interface bills its users a learning tax. Arrive, and before anything else you must discover how this one works: what the hover reveals, where the menu hides, what the mouse is supposed to do, which gesture was somebody's clever idea. For a site visited once, that tax is an annoyance. For an application someone works in all day, it is a salary deduction — paid in attention, daily.</p>
+    <p class="wp-prose">The words people reach for — minimalist, zen, clean — are buzzwords wrapping one plain request: do not bring more work. A working person is interrupted enough all day; the screen should be the one place that stays calm. No elements buzzing for attention, no gizmos, nothing that exists to be admired. When the application opens, the reader should be able to relax — and put the whole of their attention on the work, none of it on the app. That is what an invisible interface means: not empty, but silent. Everything present is load-bearing; nothing present is decoration; and decoration, in a working tool, is work.</p>
+    <p class="wp-prose">This is why the card retreats here. Consumer applications made the card the universal container, and a screen of cards is a screen of edges, gaps, and shadows — dozens of elements that exist to hold content rather than be content. For day-to-day working screens this system replaces them with full-bleed sections sharing single hairlines (the Sections chapter carries the argument); the card survives only where content is genuinely glanceable and independent and the space affords it — a dashboard tile, not a layout habit.</p>
+    <p class="wp-prose">What remains is the chain the whole system serves: see the data, find the thing quickly, act on it, and finish the workflow that was the point of coming. Every element that serves that chain earns its place; every element that does not is a small theft of attention. That is the concept behind Goodness — and every chapter after this one is the same sentence applied to one component at a time.</p>
+    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle — the founding one</span></div>
+  </section>
+
   <section class="specimen__section" id="color">
-    <h2 class="specimen__section-title">2. Color — the palette families and the shared contract</h2>
+    <h2 class="specimen__section-title">3. Color — the palette families and the shared contract</h2>
     <p class="wp-prose">Every color in the system lives in one file of named values called tokens (a token is a named design decision, like <code>--color-text</code>, that components reference instead of raw values). Tokens come in three tiers: primitives (the raw palette below), semantic aliases (names that describe a job, like text or danger), and component references. Components may only use the middle tier — which is what makes whole-system reskinning a one-file change.</p>
     <p class="wp-prose">Four palette families exist — goodness, warm, cool, and mono — and a contract guarantees they are interchangeable: every family defines exactly the same named steps (fourteen neutrals and four accent steps), enforced by an automated check. Goodness is the house family, drawn from this documentation site's own blueprint blues and mint accent. A product picks a family the way it picks a typeface; nothing else in the system needs to know.</p>
     <p class="specimen__note">Primitives (tier 1) of the <em>active</em> family. Components never touch these directly — they consume the semantic aliases. The family switch (top right) replaces this palette entirely; only one family is ever on screen.</p>
@@ -151,7 +161,7 @@
   </section>
 
   <section class="specimen__section" id="themes">
-    <h2 class="specimen__section-title">3. Dark and light as equals — and the halation problem</h2>
+    <h2 class="specimen__section-title">4. Dark and light as equals — and the halation problem</h2>
     <p class="wp-prose">The system treats dark and light as two equal renderings of the same design, not a main theme and an afterthought. The operating system's preference leads (via the standard <code>prefers-color-scheme</code> signal), and a stored per-user choice overrides it. Every color pair is contrast-solved independently in both themes and verified by an automated checker against the WCAG accessibility floors (WCAG is the international standard for readable contrast).</p>
     <p class="wp-prose">Dark mode has a trap of its own called halation: pure white text on a dark background scatters in the eye and appears to glow, with a halo around each letter — especially for readers with astigmatism. The published evidence converges on the fix: dark-theme text is never pure white but a light gray in the #DEDEDE–#EBEBEB band, and the canvas is never pure black. Those ceilings are enforced by the same checker that enforces the contrast floors — flip the Light theme switch above and note that both renderings hold.</p>
 
@@ -182,7 +192,7 @@
   </section>
 
   <section class="specimen__section" id="typography">
-    <h2 class="specimen__section-title">4. Typography — sans for interface, mono for meaning</h2>
+    <h2 class="specimen__section-title">5. Typography — sans for interface, mono for meaning</h2>
     <p class="wp-prose">Two typefaces, each with a job. The sans-serif face carries the interface: labels, body text, headings, in a small fixed ramp of sizes so every screen uses the same few steps. The monospaced face is reserved for values that carry meaning in their exact characters — identifiers, timestamps, amounts, counts — where aligned digits and unmistakable characters earn their keep. Type never wears decoration; hierarchy comes from size and weight, not color.</p>
     <div class="type-demo">
       <div class="type-demo__sample"><span class="type-demo__tag">text-2xl 600</span><span class="type-demo__t2xl">Signal over noise</span></div>
@@ -199,14 +209,14 @@
   </section>
 
   <section class="specimen__section" id="density">
-    <h2 class="specimen__section-title">5. Density — one axis, three steps</h2>
+    <h2 class="specimen__section-title">6. Density — one axis, three steps</h2>
     <p class="wp-prose">Density is how much information fits on a screen before it stops being comfortable. In this system density is a setting, not a redesign: three named steps on one axis, switched by a single attribute. Tight packs the most rows per screen for heavy data review (28px controls); normal is the default reading rhythm (34px); loose adds air for touch use, presentations, and long reading sessions (40px). Two options would assume one kind of user; three cover the spectrum while staying finite.</p>
     <p class="wp-prose">The switch changes only the rhythm of repeated things — control heights, table rows, menu and panel rows. Text sizes, section padding, and page structure do not move, so switching density never feels like zooming. Every step keeps click targets at or above the 24px accessibility floor. Try it: the Density control in the header re-flows every example in this document.</p>
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="buttons">
-    <h2 class="specimen__section-title">6. Buttons</h2>
+    <h2 class="specimen__section-title">7. Buttons</h2>
     <p class="wp-prose">One accent, one pill: the primary action is the only element on a screen wearing the accent color and the only pill shape, which is what lets the eye find it instantly. Everything else stays quiet — secondary buttons carry a hairline, ghost buttons carry nothing until hovered.</p>
     <p class="specimen__note">One accent, one pill: <code>primary</code> is the only clay element and the only pill. Everything else stays quiet.</p>
     <div class="specimen__row">
@@ -230,7 +240,7 @@
   </section>
 
   <section class="specimen__section" id="inputs">
-    <h2 class="specimen__section-title">7. Inputs and form fields</h2>
+    <h2 class="specimen__section-title">8. Inputs and form fields</h2>
     <p class="wp-prose">Fields are built from a fixed anatomy: label above, control, and a message line below that carries help or an error — never a tooltip that disappears. Invalid state is a color plus a message, never color alone (color-blind readers must get the same information).</p>
     <p class="specimen__note">Validation is declared (<code>type</code>, <code>required</code>, <code>min</code>) — the browser and the server enforce; errors render as server fragments.</p>
     <div class="specimen__row">
@@ -261,7 +271,7 @@
   </section>
 
   <section class="specimen__section" id="selection">
-    <h2 class="specimen__section-title">8. Selection controls — the choice family</h2>
+    <h2 class="specimen__section-title">9. Selection controls — the choice family</h2>
     <p class="wp-prose">A working screen asks its reader to choose all day: which rows, which columns, which interval, on or off. Behind every one of those moments sit just two questions, and together they decide which control belongs there. First, what shape is the choice — one of a set, many of a set, or a single yes/no? Second, when does it take effect — immediately, or only when a form is saved? Each control in this family is one cell of that grid; drift happens when a control is picked for its looks instead of its cell.</p>
 
     <div class="specimen__label">Checkbox, drawing option A — native (browser-drawn, accent-color)</div>
@@ -396,7 +406,7 @@
   </section>
 
   <section class="specimen__section" id="status">
-    <h2 class="specimen__section-title">9. Badges, chips and status</h2>
+    <h2 class="specimen__section-title">10. Badges, chips and status</h2>
     <p class="wp-prose">A badge states a condition; a chip states an applied choice and can be removed. Both follow the compound-signal rule: a semantic color never appears alone — always with a word or a dot-plus-word — so meaning survives grayscale, color-blindness, and printing.</p>
     <div class="specimen__row">
       <span class="badge"><span class="badge__dot"></span> Neutral</span>
@@ -425,7 +435,7 @@
   </section>
 
   <section class="specimen__section" id="alerts">
-    <h2 class="specimen__section-title">10. Alerts</h2>
+    <h2 class="specimen__section-title">11. Alerts</h2>
     <p class="wp-prose">Four intents — success, warning, danger, info — one anatomy: a title that states the fact and one sentence that says what happens next. Alerts describe the situation; they never scold.</p>
     <div class="alert alert--success"><div><div class="alert__title">Report ready</div><div class="alert__text">All 34 sections generated. The export is ready to download.</div></div></div>
     <div class="alert alert--warning"><div><div class="alert__title">Renewal approaching</div><div class="alert__text">The annual agreement on file renews in 14 days.</div></div></div>
@@ -435,7 +445,7 @@
   </section>
 
   <section class="specimen__section" id="sections">
-    <h2 class="specimen__section-title">11. Sections, not cards</h2>
+    <h2 class="specimen__section-title">12. Sections, not cards</h2>
     <p class="wp-prose">The default layout unit for working screens is the full-bleed section: blocks that touch, sharing a single hairline separator. Two cards cost the eye three elements between two pieces of content (edge, gap, edge); two sections cost one. The result is calmer, denser screens where separation is information, not decoration.</p>
     <p class="wp-prose">Cards are not forbidden — they are scoped. Independent, glanceable content earns a card: executive dashboards, widget grids, control environments. The duality is deliberate and documented, so the choice is always an argument, never a habit.</p>
     <p class="specimen__note">The default layout unit for day-to-day data screens. Flush sections share a single 1px hairline: two cards cost the eye three elements (edge + gap + edge); two sections cost one. Cards stay legitimate for glanceable, independent content — executive dashboards, widget grids, control environments (see components.md §2.7 for the duality).</p>
@@ -473,7 +483,7 @@
   </section>
 
   <section class="specimen__section" id="navigation">
-    <h2 class="specimen__section-title">12. Navigation — sidebar, tabs, menu</h2>
+    <h2 class="specimen__section-title">13. Navigation — sidebar, tabs, menu</h2>
     <p class="wp-prose">Navigation is the sections-not-cards rule turned sideways: the sidebar is a flat rail on the page background, separated from content by one vertical hairline, with the current item as the only filled shape. Overlays — dropdown menus, dialogs, palettes — are the legitimate exception: something that floats above other content needs an edge and a shadow to read as a separate layer. Navigation rows also run tighter than data rows, because a menu item is targeted, not read.</p>
     <p class="specimen__note">The sidebar is not a card. It is a flat rail sitting directly on the page background, separated from the content by a single vertical hairline — the same sections-not-cards rule, turned sideways. Only the current item gets a filled pill; everything else is plain text.</p>
     <div class="shell-demo">
@@ -666,7 +676,7 @@
   </section>
 
   <section class="specimen__section" id="consequential">
-    <h2 class="specimen__section-title">13. The consequential action</h2>
+    <h2 class="specimen__section-title">14. The consequential action</h2>
     <p class="wp-prose">In any list of actions, one choice is usually graver than the rest — delete, archive, remove. The rule: that choice never dresses like its neighbors. It takes the danger color, sits last, and is separated by a divider, so the eye finds it instantly and never hits it by accident. One consequential action per list; anything destructive still asks for confirmation.</p>
     <div class="specimen__row">
       <div class="menu" role="menu" aria-label="Consequential action demo">
@@ -681,7 +691,7 @@
   </section>
 
   <section class="specimen__section" id="dashboard">
-    <h2 class="specimen__section-title">14. Dashboards and the size of a number</h2>
+    <h2 class="specimen__section-title">15. Dashboards and the size of a number</h2>
     <p class="wp-prose">Dashboards are where cards are legitimate — each tile is independent, glanceable content — and where the loudest typographic decision in the system lives: how big should the number be? The options below show the same data at three volumes. The trade is always the same: the bigger the number, the further away it can be read and the fewer of them a screen can hold before none of them is the headline.</p>
     <p class="specimen__note">Users compose their own dashboards from these widgets; the layout is a server-side config row, each tile a fragment loaded with <code>hx-get hx-trigger="load"</code>. Dashboards are the place where cards are legitimate: each tile is independent, glanceable content.</p>
 
@@ -762,7 +772,7 @@
   </section>
 
   <section class="specimen__section" id="ratio">
-    <h2 class="specimen__section-title">15. Progress and ratio — a number against a total</h2>
+    <h2 class="specimen__section-title">16. Progress and ratio — a number against a total</h2>
     <p class="wp-prose">The "20 of 200 reviewed" figure appears everywhere in operational software. The catalog covers the tile variants (percent-led, count-led, delta), the three figure sizes, the meter-row list form for many metrics, and the segmented meter for totals that split into states. Throughout, length carries the value and color stays quiet: a semantic color enters only when a threshold genuinely means something, and then always with a word.</p>
     <p class="specimen__note">The "20 of 200 reviewed" figure, five ways. Adjacency rules: one variant per row, one quiet hue for every tile (length carries the value, not color), identical formats (integer percents, counts in mono), and the meter track is a lighter step of the same hue so the bar reads as one object. A semantic color enters only when a threshold has meaning — and then with a word, never alone. Past four or five metrics, leave tiles for stacked meter rows.</p>
 
@@ -883,7 +893,7 @@
   </section>
 
   <section class="specimen__section" id="table">
-    <h2 class="specimen__section-title">16. The data table — a saved view in action</h2>
+    <h2 class="specimen__section-title">17. The data table — a saved view in action</h2>
     <p class="wp-prose">The data table is the core primitive of data-dense software, and this example composes the whole view system on one screen: a named collaborative view, grouped rows, color-rule edge markers, applied filters as removable chips, multi-column sorting, a summary row, bulk actions on selection — and a URL that carries the entire state, so copying the address bar shares the exact screen. Everything is rendered by the server; there is no JavaScript.</p>
     <p class="specimen__note">The whole view system composed on one screen: a named collaborative view, rows grouped by tier, color-rule edge markers, applied filters in the chip-bar, multi-sort, a summary row, bulk actions on selection — and the URL at the bottom carrying the entire state. Server-rendered; zero JavaScript; switch the density above (tight / normal / loose) and it re-flows from tokens alone.</p>
     <div class="data-table">
@@ -1072,7 +1082,7 @@
   </section>
 
   <section class="specimen__section" id="tablebottom">
-    <h2 class="specimen__section-title">17. How the table meets the bottom of the screen</h2>
+    <h2 class="specimen__section-title">18. How the table meets the bottom of the screen</h2>
     <p class="wp-prose">A table holding two hundred and forty-eight rows cannot show them all, so something gives: either the table is cut into pages, or the rows keep coming and the reader scrolls. The choice decides whether a next button exists, whether anything may sit at the bottom of the screen, and where the summary numbers and bulk actions live. Three models answer it; all three stay on display, and the choice between them is by task, not by taste.</p>
     <p class="wp-prose">Pages. A fixed number of rows and a footer that says where the reader stands. Nobody's favorite — the click tax is measured and real — but it is the only model with a stable address: “page 3, sorted by score” can be bookmarked, shared, and returned to, and the server does bounded work no matter how large the table grows. Right where position in the set is part of the task — search results, an audit log read to a date. Wrong as the default for a grid someone lives in all day.</p>
     <div class="specimen__label">Option A — pages (the fixed count and the next button)</div>
@@ -1192,7 +1202,7 @@
   </section>
 
   <section class="specimen__section" id="tablerows">
-    <h2 class="specimen__section-title">18. Rows and the eye — following a record across a wide table</h2>
+    <h2 class="specimen__section-title">19. Rows and the eye — following a record across a wide table</h2>
     <p class="wp-prose">Look at the record name in the first column of a wide table, then read the number in the fifteenth. Somewhere in the crossing, the eye slips a row — and the wider the screen, the longer the tightrope. Row delimitation is the set of devices that keep the eye on its lane: the hairline between rows, the alternating background, bare whitespace, the hover highlight, and the pinned identity column. The oldest evidence predates the screen: ledger paper ships ruled, and the wide-format tradition went further — the continuous banded paper that line printers fed for decades alternates pale and white bands precisely so a reader can follow one record across a yard-wide printout. The alternating background is not a web fashion; it is the banded ledger, digitized. Bands exist for horizontal tracking, and their value grows with width.</p>
     <p class="wp-prose">The hairline is the crispest possible row edge: almost no ink, no collision with any state color, no suspicion of meaning. Its limit — a line is a fence, not a lane. It separates neighbors, but gives the crossing eye nothing to ride; at fifteen columns the reader is counting fences.</p>
     <div class="specimen__label">Option A — hairlines (the resting default)</div>
@@ -1288,7 +1298,7 @@
   </section>
 
   <section class="specimen__section" id="rowactions">
-    <h2 class="specimen__section-title">19. Row actions — visible icons vs. the overflow menu</h2>
+    <h2 class="specimen__section-title">20. Row actions — visible icons vs. the overflow menu</h2>
     <p class="wp-prose">Every table row carries actions; the question is how many deserve to be visible. The research is unambiguous about the failure mode: an icon repeated on every row stops reading as a button and becomes texture, bare icons beyond a handful of universal symbols are routinely misread, and a destructive icon on every row puts an irreversible act one accidental click from everything. The overflow menu's cost is the mirror image: whatever lives inside it is invisible until clicked. The reconciliation is a frequency budget, shown below.</p>
     <p class="specimen__note">Every table row carries actions; the question is how many of them deserve to be visible. An icon repeated on every row stops being a button and becomes texture — the eye tunes it out like wallpaper — and beyond a handful of universal symbols, icons alone are routinely misread. The overflow menu (the ⋯ button) hides everything behind one click, which is its cost: an action people need constantly should not live there. The options below are the catalog; the budget rule underneath is the recommendation.</p>
 
@@ -1356,7 +1366,7 @@
   </section>
 
   <section class="specimen__section" id="editing">
-    <h2 class="specimen__section-title">20. Table editing vs. form editing</h2>
+    <h2 class="specimen__section-title">21. Table editing vs. form editing</h2>
     <p class="wp-prose">Where should a value change: in the table cell, or in the record form the row opens? Products that refuse inline editing are usually not lazy — a form has room for labels, help and errors beside each field, one visible Save, and a shape that approval workflows can review; a grid has none of that by default. Products that embrace inline editing serve a real need: correcting one field across forty rows through a form is miserable. The industry's reconciliation is the draft-plus-save-bar pattern (option B below): edits are held as a draft — changes made on screen but not yet written — tinted cell by cell, counted in a bar with one Save and one Cancel, validated by the server as a batch. That submitted draft is the same object an approval review needs, which is why the pattern fits governed data.</p>
     <p class="specimen__note">Where should a value change: in the table itself, or in the record form the row opens? Every serious product picks a spot on this spectrum. The options below are the complete catalog, from safest to most fluid; they are not mutually exclusive — a real screen usually combines two or three.</p>
 
@@ -1453,7 +1463,7 @@
   </section>
 
   <section class="specimen__section" id="recordforms">
-    <h2 class="specimen__section-title">21. Record forms — the presentation styles</h2>
+    <h2 class="specimen__section-title">22. Record forms — the presentation styles</h2>
     <p class="wp-prose">The screen behind a clicked row. Presentation is one axis (how fields and labels are drawn) and workflow is another (how the record is entered, reviewed, and approved); the two compose freely, so they are cataloged separately. The evidence splits by task: entering data wants labels above fields in a single column; reading and scanning a record wants a left label column that the eye can run down. All six styles below are candidates on display; full evidence in the record-forms research file pending its graduation into this chapter.</p>
     <p class="specimen__note">The UI of fields: six graphical treatments of the same record, no workflow involved. The evidence splits by task (research/record-forms.md): entry wants top labels and a single column; reading wants a left label column to scan. Any style composes with any workflow from the next section.</p>
     <div class="specimen__row">
@@ -1608,7 +1618,7 @@
   </section>
 
   <section class="specimen__section" id="workflows">
-    <h2 class="specimen__section-title">22. Record forms — the workflows and processes</h2>
+    <h2 class="specimen__section-title">23. Record forms — the workflows and processes</h2>
     <p class="wp-prose">The second axis: the same fields can arrive as a document-style hybrid, a step-by-step wizard, a spreadsheet-like grid entry, a guided conversational flow, a settings page, or a review-and-diff screen where changes are compared before they land. These are processes, not layouts — each one pairs with any presentation style from the previous chapter.</p>
     <p class="specimen__note">The process around the fields — how a record is created, edited, approved, or composed. Rendered for review; options will be pruned after selection. Any workflow can carry any presentation style from the section above, in any placement.</p>
 
@@ -1738,7 +1748,7 @@
   </section>
 
   <section class="specimen__section" id="filters">
-    <h2 class="specimen__section-title">23. The filter builder</h2>
+    <h2 class="specimen__section-title">24. The filter builder</h2>
     <p class="wp-prose">Conditions are built from segmented rows — field, operator, value as one control sharing hairlines — so a long condition list stays compact. Every change updates the address bar, which means every filtered view is bookmarkable and shareable by copying a URL.</p>
     <p class="specimen__note">Field / operator / value as one segmented control — fields share hairlines the way sections do, so a long condition list stays compact. Every change fires <code>hx-get</code> with <code>hx-push-url="true"</code> — filtered views are bookmarkable and shareable.</p>
     <div class="condition-stack">
@@ -1772,7 +1782,7 @@
   </section>
 
   <section class="specimen__section" id="views">
-    <h2 class="specimen__section-title">24. The view system</h2>
+    <h2 class="specimen__section-title">25. The view system</h2>
     <p class="wp-prose">A view is a saved way of looking at the same data: which columns show, how rows are filtered, grouped and sorted. Views are collaborative or personal, switchable from a menu, and stored server-side as configuration — the interface is the database row, rendered. The field panel below carries the show-all/hide-all pair above its list because, with thirty fields and three wanted, hiding everything and re-enabling three beats flipping twenty-seven switches.</p>
     <p class="specimen__note">The saved-view family (components.md §4) — the filter builder above is part of it. Each panel is a server-rendered fragment; what it edits is a row in the views table, reflected in the URL.</p>
     <p class="wp-prose">The toolbar row is the view's cockpit, and every element of it answers the same two questions: what does it say at rest, and what does a click open. At rest, each control wears its active count — Filter · 2, Group · 1, Sort · 2 — so the view's whole configuration is readable without opening anything; a control with nothing active shows its bare name. A click opens that control's panel, anchored beneath the button, server-rendered like everything else; each change inside a panel is one request that updates the view's row and re-renders the table, with the URL following along so the state is shareable and the back button honest.</p>
@@ -1879,7 +1889,7 @@
   </section>
 
   <section class="specimen__section" id="keyboard">
-    <h2 class="specimen__section-title">25. Keyboard conventions — what Enter means</h2>
+    <h2 class="specimen__section-title">26. Keyboard conventions — what Enter means</h2>
     <p class="wp-prose">Enter is the most overloaded key in modern software, and chat applications made it worse by teaching millions that Enter sends. The rule that removes the guessing: the kind of control decides what Enter means, identically on every screen — activate in menus, submit in single-line fields (a behavior called implicit submission, built into the web platform), and always a new line in multi-line text boxes, where a surprise submit of a half-written record is the expensive failure. Cmd/Ctrl+Enter is the one universal save-from-anywhere accelerator, taught in place: focus the text box below and the Save button reveals its hint.</p>
     <p class="specimen__note">Enter is the most overloaded key in modern software: in one product it sends, in another it makes a new line, in a third it activates a menu item — and every user carries each habit into the next application, where it misfires. The rule here removes the guessing: the kind of control decides what Enter means, identically on every screen, never the application's mood.</p>
 
@@ -1932,7 +1942,7 @@
   </section>
 
   <section class="specimen__section" id="palette-cmd">
-    <h2 class="specimen__section-title">26. The command palette</h2>
+    <h2 class="specimen__section-title">27. The command palette</h2>
     <p class="wp-prose">One keystroke, one field, every destination: the palette opens with ⌘K, lists commands and records grouped by kind, and is fully keyboard-driven. In this system it is rendered by the server and opened by a declarative trigger — no JavaScript, which proves the zero-script principle holds even for the most "app-like" component.</p>
     <p class="specimen__note">Opened by a pure HTMX trigger — <code>hx-trigger="keydown[(metaKey||ctrlKey)&amp;&amp;key=='k'] from:body"</code> — contents are server-rendered fragments; typeahead is <code>hx-trigger="input changed delay:150ms"</code>. The overlay is the only element that may cast a shadow.</p>
     <div class="palette-demo">
@@ -1950,7 +1960,7 @@
   </section>
 
   <section class="specimen__section" id="empty">
-    <h2 class="specimen__section-title">27. Empty states</h2>
+    <h2 class="specimen__section-title">28. Empty states</h2>
     <p class="wp-prose">Every list, table, and dashboard has a designed first-run state: what this screen is for, one sentence, one primary action. A bare "no results" teaches nothing and dead-ends the person who most needs guidance — the one seeing the screen for the first time.</p>
     <div class="empty-state">
       <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
@@ -1962,14 +1972,14 @@
   </section>
 
   <section class="specimen__section" id="brandcolor">
-    <h2 class="specimen__section-title">28. Brand color vs. the meaning colors</h2>
+    <h2 class="specimen__section-title">29. Brand color vs. the meaning colors</h2>
     <p class="wp-prose">Red means danger and green means success inside an interface — those meanings are load-bearing. A product whose brand color is red or green therefore has a conflict: if the brand hue also paints buttons and links, every error banner and success badge competes with it. The research recommends role separation (the brand hue owns identity moments — logo, marketing, accent details — while interface semantics keep their own reserved hues) and hue distancing (shifting the interface's semantic red or green far enough from the brand hue that the two never read as the same color).</p>
     <p class="wp-prose">Recommendation: role separation plus hue distancing, applied per brand skin. Full evidence in the brand-color research file pending its graduation into this chapter.</p>
     <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
   </section>
 
   <section class="specimen__section" id="appbranding">
-    <h2 class="specimen__section-title">29. App branding — the mark, the favicon, the avatar</h2>
+    <h2 class="specimen__section-title">30. App branding — the mark, the favicon, the avatar</h2>
     <p class="wp-prose">Every application built on the system needs a small identity kit of its own, decided once at the start: the mark that sits in the menu, the icon in the browser tab, and the square image the outside world sees. None of this is the system's identity — it is the application's — and every asset in the kit must work in dark and light, because the application itself does.</p>
     <p class="wp-prose">The brand slot. The mark lives in the top-left of the menu, the first thing the eye meets, as a small square beside the application's name — with an optional quieter line under the name for the product area. The slot is part of the rail, closed by the same hairline the rail uses everywhere. Two marks are on display: the ink mark, drawn from the theme's own text and canvas colors, which inverts itself perfectly when the theme flips; and the accent mark, which puts the application's accent behind the letter — louder, and still theme-safe because both of its colors come from the tokens.</p>
     <div class="specimen__row">
@@ -2023,7 +2033,7 @@
   </section>
 
   <section class="specimen__section" id="decisions">
-    <h2 class="specimen__section-title">30. How decisions get made</h2>
+    <h2 class="specimen__section-title">31. How decisions get made</h2>
     <p class="wp-prose">Each chapter above ends in a status: adopted as principle, recommendation pending, or options on display. The selection pass reads this document top to bottom and turns every pending status into a decision; each decision then flows down — into the agent rulebook as an enforceable rule, into the technical catalog as the surviving specification, and into both this document and the specimen, from which the losing options are removed in the same change.</p>
     <p class="wp-prose">Two documents render the system and evolve in parallel by standing rule: this white paper, where every explanation sits beside its living example, and the specimen, the same catalog with no words. A change to any example lands in both, always, in the same commit.</p>
     <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
