@@ -588,9 +588,36 @@ All four states are rendered in the specimen (options A–C plus the rejected
 anti-pattern). Evidence and sources: research/row-actions.md.
 
 ### 3.5 Table toolbar
-The table's control strip: Search field · Chip-bar · view controls (Fields, Filter,
-Group, Sort, Row height — see §4) · primary action. Everything in it mutates the
-same URL-backed view state.
+The table's control strip and the view's cockpit. Left to right: Search field ·
+Chip-bar (applied filters) · the five view controls · primary action. Everything
+mutates the same URL-backed view state, and each control wears its active count
+at rest (`Filter · 2`), so the view's configuration is readable without opening
+anything; a control with nothing active shows its bare name.
+
+The elements, and what a click opens:
+
+- View title (`≡ name ▾`, in the bar above the toolbar) — a control too:
+  click opens the view switcher (4.1: search, create, collaborative and
+  personal lists); the chevron's view menu (4.2) holds rename, describe,
+  duplicate, and configuration actions.
+- Hide fields → the field visibility panel (4.3): one switch per field,
+  show-all/hide-all first (the thirty-fields-three-wanted arithmetic).
+- Filter → the filter builder (4.4): condition rows, add-condition,
+  add-group.
+- Group → the group menu: one grouping field + direction. Group headers band
+  the table — which is why grouped tables skip the zebra stripe (3.4).
+- Sort → the ordered sort list: several sorts stacked, direction per field.
+- Row height → the compact-to-roomy control: the three density steps
+  (tight · normal · loose) applied per view (§4.7) — one crowded review view
+  packs rows while a presentation view breathes; stored like every other
+  part of the view.
+
+Deliberately absent: a color button. Painting rows from the toolbar puts
+meaning into decoration; meaning belongs to the semantic colors — badges,
+marks, and a rule the view declares in its description line (see the
+brand-vs-meaning chapter). Order rule: the five controls keep this order in
+every application; a sixth control enters by the standard workflow
+(AGENTS.md §11), never ad hoc.
 
 ### 3.6 Table editing vs. form editing — the options catalog
 Where should a value change: in the table cell itself, or in the record form the

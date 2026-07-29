@@ -903,7 +903,7 @@
           <button class="button button--ghost" type="button">Filter · 2</button>
           <button class="button button--ghost" type="button">Group · 1</button>
           <button class="button button--ghost" type="button">Sort · 2</button>
-          <button class="button button--ghost" type="button">Height</button>
+          <button class="button button--ghost" type="button">Row height</button>
           <button class="button button--primary" type="button">Add account</button>
         </div>
       </div>
@@ -1774,6 +1774,28 @@
     <h2 class="specimen__section-title">24. The view system</h2>
     <p class="wp-prose">A view is a saved way of looking at the same data: which columns show, how rows are filtered, grouped and sorted. Views are collaborative or personal, switchable from a menu, and stored server-side as configuration — the interface is the database row, rendered. The field panel below carries the show-all/hide-all pair above its list because, with thirty fields and three wanted, hiding everything and re-enabling three beats flipping twenty-seven switches.</p>
     <p class="specimen__note">The saved-view family (components.md §4) — the filter builder above is part of it. Each panel is a server-rendered fragment; what it edits is a row in the views table, reflected in the URL.</p>
+    <p class="wp-prose">The toolbar row is the view's cockpit, and every element of it answers the same two questions: what does it say at rest, and what does a click open. At rest, each control wears its active count — Filter · 2, Group · 1, Sort · 2 — so the view's whole configuration is readable without opening anything; a control with nothing active shows its bare name. A click opens that control's panel, anchored beneath the button, server-rendered like everything else; each change inside a panel is one request that updates the view's row and re-renders the table, with the URL following along so the state is shareable and the back button honest.</p>
+    <p class="wp-prose">The elements, left to right. The view title — the name in the bar above the toolbar — is a control too: clicking it opens the view switcher, with search, the create action, and the collaborative and personal lists; the view menu behind its chevron holds rename, describe, duplicate, and the configuration actions. Hide fields opens the field visibility panel — one switch per field, with show-all and hide-all first, for the thirty-fields-three-wanted arithmetic. Filter opens the filter builder — condition rows, add-condition, add-group. Group opens the group menu — one grouping field and a direction; group headers band the table (which is why grouped tables skip the zebra stripe). Sort opens the ordered sort list — several sorts stacked, a direction each. Row height is the compact-to-roomy control: the three density steps — tight, normal, loose — applied to this view's rows alone, so one crowded review view can pack rows while a presentation view breathes; the choice is part of the view, stored like every other part.</p>
+    <p class="wp-prose">One control is deliberately absent: a color button. Painting rows from the toolbar puts meaning into decoration, and meaning belongs to the semantic colors — badges, marks, and a rule the view declares in its description line. Whatever colors a row must already mean something; a color picker in the toolbar manufactures color that means nothing.</p>
+    <div class="specimen__label">The toolbar row — five controls, each wearing its count, each opening its panel</div>
+    <div class="data-table">
+      <div class="data-table__viewbar">
+        <span class="data-table__viewname">≡ High-priority, active ▾</span>
+        <span class="data-table__viewdesc">the title is a control too — it opens the view switcher</span>
+      </div>
+      <div class="table-toolbar">
+        <div class="table-toolbar__group">
+          <button class="button button--ghost" type="button">Hide fields · 2</button>
+          <button class="button button--ghost" type="button">Filter · 2</button>
+          <button class="button button--ghost" type="button">Group · 1</button>
+          <button class="button button--ghost" type="button">Sort · 2</button>
+          <button class="button button--ghost" type="button">Row height · Normal</button>
+        </div>
+        <div class="table-toolbar__group">
+          <button class="button button--primary" type="button">Add account</button>
+        </div>
+      </div>
+    </div>
     <div class="specimen__row">
       <div>
         <div class="specimen__label">View switcher</div>
