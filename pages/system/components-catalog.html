@@ -90,10 +90,16 @@ is a permitted variant where research shows confusion.</p>
   hx-target=&quot;#table&quot;&gt; Auto-refresh&lt;/label&gt;
 </code></pre>
 <h3>1.6 Badge</h3>
-<p>Status at a glance: dot + label, hairline border, tinted field. Options: <code>neutral ·
+<p>Status at a glance: label, hairline border, tinted field. Options: <code>neutral ·
 success · warning · danger · info · accent</code>.</p>
-<pre><code class="language-html">&lt;span class=&quot;badge badge--danger&quot;&gt;&lt;span class=&quot;badge__dot&quot;&gt;&lt;/span&gt; Overdue&lt;/span&gt;
+<pre><code class="language-html">&lt;span class=&quot;badge badge--danger&quot;&gt;Overdue&lt;/span&gt;
 </code></pre>
+<p>No dot. The label is the accessible signal (never color alone — the word does
+that job), the tinted text and border are the color layer, and a dot beside a
+static word is a third coding carrying nothing — in a twenty-row status
+column it is twenty circles meaning nothing. The dot (<code>badge__dot</code>) survives
+as one reserved variant: liveness — a state happening right now ("recording",
+"running") — which the static word cannot say.</p>
 <h3>1.7 Chip (removable)</h3>
 <p>An applied token — an active filter, a selected value. Options: with/without key
 prefix; removable.</p>

@@ -93,11 +93,17 @@ is a permitted variant where research shows confusion.
 ```
 
 ### 1.6 Badge
-Status at a glance: dot + label, hairline border, tinted field. Options: `neutral ·
+Status at a glance: label, hairline border, tinted field. Options: `neutral ·
 success · warning · danger · info · accent`.
 ```html
-<span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span>
+<span class="badge badge--danger">Overdue</span>
 ```
+No dot. The label is the accessible signal (never color alone — the word does
+that job), the tinted text and border are the color layer, and a dot beside a
+static word is a third coding carrying nothing — in a twenty-row status
+column it is twenty circles meaning nothing. The dot (`badge__dot`) survives
+as one reserved variant: liveness — a state happening right now ("recording",
+"running") — which the static word cannot say.
 
 ### 1.7 Chip (removable)
 An applied token — an active filter, a selected value. Options: with/without key

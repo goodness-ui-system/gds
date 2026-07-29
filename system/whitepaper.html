@@ -41,7 +41,7 @@
     <p class="wp-prose">Each chapter follows the same rhythm: the question in plain language, the options that exist, the live example right after the words that describe it, the trade-offs, the recommendation, and a status marker saying whether the matter is decided or still open. Terms of art are defined in ordinary words the first time they appear.</p>
     <p class="wp-prose">Until a selection pass happens, this document is a catalog of candidates, not a verdict: wherever several ways of doing the same thing exist, every credible option is shown side by side so the final system can be chosen by looking at real examples. A companion file, the specimen, renders the same catalog with no text at all — a pure visual reference — and the two evolve in parallel: any change to an example is made in both places.</p>
     <p class="wp-prose">The switches in the top-right corner work on this whole document: the palette family, the light theme, and the density scale re-point the same design tokens applications switch with server-rendered attributes. There is no JavaScript on this page.</p>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="invisible">
@@ -51,7 +51,7 @@
     <p class="wp-prose">The words people reach for — minimalist, zen, clean — are buzzwords wrapping one plain request: do not bring more work. A working person is interrupted enough all day; the screen should be the one place that stays calm. No elements buzzing for attention, no gizmos, nothing that exists to be admired. When the application opens, the reader should be able to relax — and put the whole of their attention on the work, none of it on the app. That is what an invisible interface means: not empty, but silent. Everything present is load-bearing; nothing present is decoration; and decoration, in a working tool, is work.</p>
     <p class="wp-prose">This is why the card retreats here. Consumer applications made the card the universal container, and a screen of cards is a screen of edges, gaps, and shadows — dozens of elements that exist to hold content rather than be content. For day-to-day working screens this system replaces them with full-bleed sections sharing single hairlines (the Sections chapter carries the argument); the card survives only where content is genuinely glanceable and independent and the space affords it — a dashboard tile, not a layout habit.</p>
     <p class="wp-prose">What remains is the chain the whole system serves: see the data, find the thing quickly, act on it, and finish the workflow that was the point of coming. Every element that serves that chain earns its place; every element that does not is a small theft of attention. That is the concept behind Goodness — and every chapter after this one is the same sentence applied to one component at a time.</p>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle — the founding one</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle — the founding one</span></div>
   </section>
 
   <section class="specimen__section" id="color">
@@ -157,7 +157,7 @@
       <div class="surface-demo__panel surface-demo__panel--surface"><div class="surface-demo__name">surface</div><div class="surface-demo__desc">raised — cards, panels, table chrome</div></div>
     </div>
     <p class="wp-prose">The documents themselves open on the goodness family, so the system is first seen wearing the same blueprint blues as the site around it. For products, the recommendation stands: mono as the working default — grayscale plus an ink accent keeps data screens quiet and makes every use of color meaningful. Goodness, warm, and cool remain full citizens for products whose identity wants them.</p>
-    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--info">Options on display — decision pending</span></div>
   </section>
 
   <section class="specimen__section" id="themes">
@@ -187,7 +187,7 @@
     </div>
     <p class="wp-prose">One question stays open: how long an override lasts. Session-scoped memory treats the device setting as the source of truth — a one-time choice never hijacks future visits, and the site greets every session in System. A stored per-user choice, rendered by the server so the page never flashes the wrong theme, respects a person who has decided once and means it. The first suits public sites; the second suits the signed-in working applications this system targets. Both remain on the table.</p>
     <p class="wp-prose">Recommendation: the three-option menu with the resolves-to line, always opening in System; sun/moon as the default trigger; the cycling toggle never. Persistence — session-scoped vs. stored per user — is the pending decision, and may legitimately differ between public sites and signed-in applications.</p>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
     <p class="wp-sources">Sources: <a href="https://m2.material.io/design/color/dark-theme.html">Material Design — dark theme (87% white)</a> · <a href="https://www.nngroup.com/articles/dark-mode-users-issues/">Nielsen Norman Group — dark mode research</a> · <a href="https://git.apcacontrast.com/documentation/WhyAPCA">APCA contrast method</a> · <a href="research/theme-parity.md">full evidence record</a></p>
   </section>
 
@@ -204,7 +204,7 @@
       <div class="type-demo__sample"><span class="type-demo__tag">text-xs 400</span><span class="type-demo__txs">CAPTION — LABELS, COLUMN HEADERS, TIMESTAMPS</span></div>
       <div class="type-demo__sample"><span class="type-demo__tag">mono</span><span class="type-demo__mono">a1b2c3d4 · 2026-07-23 14:02 · $1,284,600.00 — IDs, timestamps, numbers</span></div>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
     <p class="wp-prose">One rule joined the typography contract from the first production adoption: digits that form columns must align. The mono face is tabular by construction — every digit the same width — which is part of why it marks numeric table columns. But digits also stack in sans contexts: KPI deltas, ratio pairs, count columns. A proportional sans wobbles those columns by up to a third of a character per digit, invisibly in mockups and only once real data stacks. So any component presenting digits in columns either uses the mono face or declares tabular figures, and a sans face qualifies for the system only if it ships the tabular-figures feature with uniform-width alternates — the palette contract's idea applied to type, verified by opening the shipped font files, not by trusting the specimen sheet.</p>
   </section>
 
@@ -212,7 +212,7 @@
     <h2 class="specimen__section-title">6. Density — one axis, three steps</h2>
     <p class="wp-prose">Density is how much information fits on a screen before it stops being comfortable. In this system density is a setting, not a redesign: three named steps on one axis, switched by a single attribute. Tight packs the most rows per screen for heavy data review (28px controls); normal is the default reading rhythm (34px); loose adds air for touch use, presentations, and long reading sessions (40px). Two options would assume one kind of user; three cover the spectrum while staying finite.</p>
     <p class="wp-prose">The switch changes only the rhythm of repeated things — control heights, table rows, menu and panel rows. Text sizes, section padding, and page structure do not move, so switching density never feels like zooming. Every step keeps click targets at or above the 24px accessibility floor. Try it: the Density control in the header re-flows every example in this document.</p>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="buttons">
@@ -236,7 +236,7 @@
         With icon
       </button>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="inputs">
@@ -267,7 +267,7 @@
       <label class="choice"><input class="radio" type="radio" name="r1" checked> Quarterly</label>
       <label class="choice"><input class="radio" type="radio" name="r1"> Annual</label>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="selection">
@@ -401,20 +401,20 @@
     </div>
     <p class="wp-prose">Two companions complete the rule. When two or more specifics are active, a clear action appears at the group's end — the universal escape hatch, and the device the e-commerce filter testing found readers actually look for. And a form group is a different animal: there the empty set means none chosen, not everything, so the honest device is the exclusive none-of-the-above option where none is a legitimate answer — the pattern the government systems researched into their checkbox guidance — or the clear action otherwise. One shape is refused outright: All as an ordinary option that can sit active beside specifics. Active All plus active specifics is unanswerable — everything, or just these? — and every system that ships the pattern makes the exclusivity strict.</p>
     <p class="wp-prose">The whole family folds into one decision path. On/off that acts now: switch. On/off collected by a form: checkbox. One of up to about five, in a form: radios, stacked; in a toolbar: a segmented control. One of many: the dropdown select, the control of last resort once options stop fitting on screen. Many of a set, in a form: a checkbox list; above a table: choice chips. A choice whose options need explaining: option tiles. An action that stays on: a toggle button. Recommendation: adopt the family with this decision path, and pick one drawing option — native or drawn — for checkbox and radio rather than shipping both.</p>
-    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--info">Options on display — decision pending</span></div>
     <div class="wp-sources">Sources: W3C ARIA Authoring Practices (checkbox, radio group, switch, button patterns) · WCAG 2.2 (non-text contrast, target size, on-input) · Nielsen Norman Group, toggle-switch and radio-default guidelines · GOV.UK Design System radios, checkboxes, select and the none-checkbox (exclusive option) research · Baymard Institute, filter clearing and reset · Nielsen Norman Group, applied-filters visibility · Microsoft WinUI ("checkbox is for status, switch is for action") · Apple Human Interface Guidelines, toggles and segmented controls · IBM Carbon toggle and data-table selection · WebKit, "An HTML Switch Control" · Adrian Roselli, "Switch Role Support" · Sarah Higley, "Playing with state" · Sara Soueidan, one-checkbox-or-two-radios · full record: research/selection-controls.md</div>
   </section>
 
   <section class="specimen__section" id="status">
     <h2 class="specimen__section-title">10. Badges, chips and status</h2>
-    <p class="wp-prose">A badge states a condition; a chip states an applied choice and can be removed. Both follow the compound-signal rule: a semantic color never appears alone — always with a word or a dot-plus-word — so meaning survives grayscale, color-blindness, and printing.</p>
+    <p class="wp-prose">A badge states a condition; a chip states an applied choice and can be removed. Both follow the compound-signal rule: a semantic color never appears alone — always with a word — so meaning survives grayscale, color-blindness, and printing. The dot the badge once carried is gone, and the reasoning is the founding chapter applied to one circle: the word is the accessible signal, the tinted text and border are the color layer, and a dot beside a static word is a third coding that says nothing — a twenty-row status column would carry twenty circles meaning nothing. The dot survives as one reserved variant, liveness: a state happening right now — recording, running — which a static word cannot say.</p>
     <div class="specimen__row">
-      <span class="badge"><span class="badge__dot"></span> Neutral</span>
-      <span class="badge badge--success"><span class="badge__dot"></span> On track</span>
-      <span class="badge badge--warning"><span class="badge__dot"></span> Review due</span>
-      <span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span>
-      <span class="badge badge--info"><span class="badge__dot"></span> In review</span>
-      <span class="badge badge--accent"><span class="badge__dot"></span> Active</span>
+      <span class="badge">Neutral</span>
+      <span class="badge badge--success">On track</span>
+      <span class="badge badge--warning">Review due</span>
+      <span class="badge badge--danger">Overdue</span>
+      <span class="badge badge--info">In review</span>
+      <span class="badge badge--accent">Active</span>
     </div>
     <div class="specimen__label">Filter chips (removable)</div>
     <div class="specimen__row">
@@ -431,7 +431,7 @@
       <span class="skeleton skeleton--line"></span>
       <span class="skeleton skeleton--line-short"></span>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="alerts">
@@ -441,7 +441,7 @@
     <div class="alert alert--warning"><div><div class="alert__title">Renewal approaching</div><div class="alert__text">The annual agreement on file renews in 14 days.</div></div></div>
     <div class="alert alert--danger"><div><div class="alert__title">Sync failed</div><div class="alert__text">The upstream feed returned 503. Retry is scheduled.</div></div></div>
     <div class="alert alert--info"><div><div class="alert__title">New template available</div><div class="alert__text">A new report template can now be enabled per workspace.</div></div></div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="sections">
@@ -479,7 +479,7 @@
         </div>
       </div>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="navigation">
@@ -644,7 +644,7 @@
       </div>
     </div>
     <p class="wp-prose">How tall may a floating box grow? As tall as the window allows. Any popover opened from a control — a dropdown menu, the view panel, the sort list, the field panel — sizes itself to its content and grows downward until it stops one gutter short of the window's bottom edge (about a hundred pixels, the popover-gutter token); only past that point does its list begin to scroll internally. The rule exists so the scrolling is honest: a taller window simply shows more items, a short window scrolls sooner, and no popover ever caps itself at an arbitrary item count while the screen below it sits empty. Where the space beneath the control is too shallow, the box opens upward under the same gutter. The one exception is the command palette, which sizes from the center of the screen by its own rule.</p>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Rail principle adopted</span> <span class="badge badge--info"><span class="badge__dot"></span> Anatomy options on display — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--success">Rail principle adopted</span> <span class="badge badge--info">Anatomy options on display — decision pending</span></div>
     <div class="wp-sources">Sources: W3C ARIA Authoring Practices (disclosure navigation; the anti-menubar caution) · Nielsen Norman Group (hidden navigation, vertical navigation, accordion icons) · IBM Carbon UI shell and writing style · GitHub Primer NavList and the details reset · Shopify Polaris navigation · Microsoft Fluent 2 Nav and Style Guide · Salesforce Lightning vertical navigation · Google Material navigation drawer · GOV.UK and MoJ side navigation and accordion research · Adrian Roselli, "Don't Use ARIA Menu Roles for Site Nav" · full record: research/menus.md</div>
       <p class="wp-prose">Real deployments grow shell conveniences, and without a catalog entry they live as per-application forks — exactly what the system exists to prevent. The utility controls are therefore a finite option set, adopted by subset and never extended privately: hide the rail (the screen edge peeks it back on hover — pure CSS), move it to the other side, collapse or expand every group at once, and resize by a drag handle that is also a keyboard-operable button. Placement is one row directly under the brand slot, icon-only with labels and tooltips; the collapse and expand pair sits at the row's end, vertically over the per-group chevrons it commands — the lever sits over the thing it moves. Every choice persists as a server-rendered preference: the shell arrives with the state already applied and never flashes into place. Storing the choice in the browser is the named anti-pattern — client state, desynchronized across devices.</p>
     <p class="wp-prose">The hide control deserves its cycle spelled out, because one button performs two different jobs and the reader must never be stranded. The rail has three states, and only two of them are stored. Pinned is the default: the rail occupies its column. Clicking the hide control collapses the rail entirely — the content takes the full width, and the stored preference becomes hidden. From then on, moving the pointer to the screen's left edge peeks the rail back: it slides over the content as a temporary overlay, reflowing nothing, and leaving it lets it slide away again — peeking never changes the stored state, so the rail stays hidden until told otherwise. Clicking the same control while the rail is peeked re-pins it: back to the pinned state, stored. The peek is the recovery path — the button is never unreachable, because the edge always brings it back — and it is pure CSS on a fixed edge zone; only the two clicks touch the server, each one flip of the preference.</p>
@@ -687,7 +687,7 @@
         <button class="menu__item menu__item--danger" type="button" role="menuitem">Archive</button>
       </div>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="dashboard">
@@ -768,7 +768,7 @@
       </div>
     </div>
     <p class="wp-prose">Recommendation: display figures for a handful of numbers a team steers by; mid figures for working dashboards someone sits in front of; the stat list once the metric count passes five or six. One size per row, never mixed.</p>
-    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--info">Options on display — decision pending</span></div>
   </section>
 
   <section class="specimen__section" id="ratio">
@@ -889,7 +889,7 @@
       </div>
     </div>
     <p class="wp-prose">Recommendation: percent-led tiles as the default; meter rows past four or five metrics; the delta variant only where the movement is the story.</p>
-    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--info">Options on display — decision pending</span></div>
   </section>
 
   <section class="specimen__section" id="table">
@@ -936,40 +936,40 @@
             <tr class="data-table__group"><td colspan="8">Critical <span class="data-table__count">· 5</span></td></tr>
             <tr class="data-table__row--mark-danger">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Hooli Storage</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Critical</span></td>
-              <td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td>
+              <td>Hooli Storage</td><td><span class="badge badge--danger">Critical</span></td>
+              <td><span class="badge badge--danger">Overdue</span></td>
               <td><span class="avatar avatar--sm">AM</span></td>
               <td class="data-table__cell--num">31</td><td class="data-table__cell--num">2026-02-27</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr class="data-table__row--mark-danger">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Northwind Cloud</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Critical</span></td>
-              <td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td>
+              <td>Northwind Cloud</td><td><span class="badge badge--danger">Critical</span></td>
+              <td><span class="badge badge--info">In review</span></td>
               <td><span class="avatar avatar--sm">AM</span></td>
               <td class="data-table__cell--num">42</td><td class="data-table__cell--num">2026-06-30</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr class="data-table__row--mark-danger">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Stark Logistics</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Critical</span></td>
-              <td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td>
+              <td>Stark Logistics</td><td><span class="badge badge--danger">Critical</span></td>
+              <td><span class="badge badge--danger">Overdue</span></td>
               <td><span class="avatar avatar--sm">JD</span></td>
               <td class="data-table__cell--num">29</td><td class="data-table__cell--num">2026-01-19</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr class="data-table__row--mark-danger">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Umbrella Hosting</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Critical</span></td>
-              <td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td>
+              <td>Umbrella Hosting</td><td><span class="badge badge--danger">Critical</span></td>
+              <td><span class="badge badge--danger">Overdue</span></td>
               <td><span class="avatar avatar--sm">AM</span></td>
               <td class="data-table__cell--num">38</td><td class="data-table__cell--num">2026-03-11</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr class="data-table__row--mark-danger">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Wayne Foundry</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Critical</span></td>
-              <td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td>
+              <td>Wayne Foundry</td><td><span class="badge badge--danger">Critical</span></td>
+              <td><span class="badge badge--info">In review</span></td>
               <td><span class="avatar avatar--sm">KL</span></td>
               <td class="data-table__cell--num">45</td><td class="data-table__cell--num">2026-06-12</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -977,48 +977,48 @@
             <tr class="data-table__group"><td colspan="8">High <span class="data-table__count">· 6</span></td></tr>
             <tr class="data-table__row--selected">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" checked aria-label="Select row"></td>
-              <td>Acme Payments</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
-              <td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td>
+              <td>Acme Payments</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--success">On track</span></td>
               <td><span class="avatar avatar--sm">KL</span></td>
               <td class="data-table__cell--num">87</td><td class="data-table__cell--num">2026-07-18</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr class="data-table__row--mark-warning">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Cyberdyne Metrics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
-              <td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td>
+              <td>Cyberdyne Metrics</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--warning">Review due</span></td>
               <td><span class="avatar avatar--sm">TS</span></td>
               <td class="data-table__cell--num">64</td><td class="data-table__cell--num">2026-04-21</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr class="data-table__row--selected data-table__row--mark-warning">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" checked aria-label="Select row"></td>
-              <td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
-              <td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td>
+              <td>Globex Analytics</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--warning">Review due</span></td>
               <td><span class="avatar avatar--sm">JD</span></td>
               <td class="data-table__cell--num">71</td><td class="data-table__cell--num">2026-05-02</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Massive Dynamic</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
-              <td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td>
+              <td>Massive Dynamic</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--success">On track</span></td>
               <td><span class="avatar avatar--sm">JD</span></td>
               <td class="data-table__cell--num">78</td><td class="data-table__cell--num">2026-07-05</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Soylent Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
-              <td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td>
+              <td>Soylent Ledger</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--info">In review</span></td>
               <td><span class="avatar avatar--sm">AM</span></td>
               <td class="data-table__cell--num">58</td><td class="data-table__cell--num">2026-06-08</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr class="data-table__row--mark-warning">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Tyrell Accounts</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td>
-              <td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td>
+              <td>Tyrell Accounts</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--warning">Review due</span></td>
               <td><span class="avatar avatar--sm">TS</span></td>
               <td class="data-table__cell--num">52</td><td class="data-table__cell--num">2026-03-30</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -1026,32 +1026,32 @@
             <tr class="data-table__group"><td colspan="8">Moderate <span class="data-table__count">· 4</span></td></tr>
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Aperture Billing</td><td><span class="badge"><span class="badge__dot"></span> Moderate</span></td>
-              <td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td>
+              <td>Aperture Billing</td><td><span class="badge">Moderate</span></td>
+              <td><span class="badge badge--success">On track</span></td>
               <td><span class="avatar avatar--sm">KL</span></td>
               <td class="data-table__cell--num">90</td><td class="data-table__cell--num">2026-06-25</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Initech Legal</td><td><span class="badge"><span class="badge__dot"></span> Moderate</span></td>
-              <td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td>
+              <td>Initech Legal</td><td><span class="badge">Moderate</span></td>
+              <td><span class="badge badge--success">On track</span></td>
               <td><span class="avatar avatar--sm">TS</span></td>
               <td class="data-table__cell--num">93</td><td class="data-table__cell--num">2026-07-01</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Pied Piper Data</td><td><span class="badge"><span class="badge__dot"></span> Moderate</span></td>
-              <td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td>
+              <td>Pied Piper Data</td><td><span class="badge">Moderate</span></td>
+              <td><span class="badge badge--info">In review</span></td>
               <td><span class="avatar avatar--sm">JD</span></td>
               <td class="data-table__cell--num">76</td><td class="data-table__cell--num">2026-05-27</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
             </tr>
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
-              <td>Vandelay Exports</td><td><span class="badge"><span class="badge__dot"></span> Moderate</span></td>
-              <td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td>
+              <td>Vandelay Exports</td><td><span class="badge">Moderate</span></td>
+              <td><span class="badge badge--success">On track</span></td>
               <td><span class="avatar avatar--sm">AM</span></td>
               <td class="data-table__cell--num">82</td><td class="data-table__cell--num">2026-06-03</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -1078,7 +1078,7 @@
       </div>
       <div class="data-table__url">/accounts?view=high-priority&amp;filterHasNoneOf_priority=low&amp;filterContains_status=&amp;group=priority&amp;sort=score,account&amp;dir=desc — the URL is the view: copy the address bar, a colleague sees this exact screen</div>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="tablebottom">
@@ -1092,12 +1092,12 @@
       <table class="data-table__table">
         <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
         <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td></tr>
-          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">90</td></tr>
-          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">73</td></tr>
-          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">71</td></tr>
         </tbody>
       </table>
       </div>
@@ -1120,30 +1120,30 @@
       <table class="data-table__table">
         <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
         <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td></tr>
-          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">90</td></tr>
-          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">73</td></tr>
-          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">71</td></tr>
-          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">68</td></tr>
-          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">31</td></tr>
-          <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td></tr>
-          <tr><td>Massive Dynamic</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">78</td></tr>
-          <tr><td>Monarch Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">66</td></tr>
-          <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">49</td></tr>
-          <tr><td>Northwind Cloud</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">42</td></tr>
-          <tr><td>Oceanic Freight</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">80</td></tr>
-          <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">58</td></tr>
-          <tr><td>Pied Piper Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">76</td></tr>
-          <tr><td>Soylent Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">52</td></tr>
-          <tr><td>Stark Logistics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">29</td></tr>
-          <tr><td>Sterling Media</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">84</td></tr>
-          <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td></tr>
-          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">38</td></tr>
-          <tr><td>Vandelay Exports</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">82</td></tr>
-          <tr><td>Wayne Foundry</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">45</td></tr>
-          <tr><td>Wonka Metrics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">70</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">31</td></tr>
+          <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td></tr>
+          <tr><td>Massive Dynamic</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">78</td></tr>
+          <tr><td>Monarch Data</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">66</td></tr>
+          <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">49</td></tr>
+          <tr><td>Northwind Cloud</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">42</td></tr>
+          <tr><td>Oceanic Freight</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">80</td></tr>
+          <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">58</td></tr>
+          <tr><td>Pied Piper Data</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">76</td></tr>
+          <tr><td>Soylent Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">52</td></tr>
+          <tr><td>Stark Logistics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">29</td></tr>
+          <tr><td>Sterling Media</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">84</td></tr>
+          <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">61</td></tr>
+          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">38</td></tr>
+          <tr><td>Vandelay Exports</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">82</td></tr>
+          <tr><td>Wayne Foundry</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">45</td></tr>
+          <tr><td>Wonka Metrics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">70</td></tr>
         </tbody>
       </table>
         <span class="scroll-study__more">… rows keep arriving as the scroll nears the end — the bottom edge belongs to the last row</span>
@@ -1163,30 +1163,30 @@
       <table class="data-table__table">
         <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
         <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td></tr>
-          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">90</td></tr>
-          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">73</td></tr>
-          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">71</td></tr>
-          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">68</td></tr>
-          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">31</td></tr>
-          <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td></tr>
-          <tr><td>Massive Dynamic</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">78</td></tr>
-          <tr><td>Monarch Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">66</td></tr>
-          <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">49</td></tr>
-          <tr><td>Northwind Cloud</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">42</td></tr>
-          <tr><td>Oceanic Freight</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">80</td></tr>
-          <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">58</td></tr>
-          <tr><td>Pied Piper Data</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">76</td></tr>
-          <tr><td>Soylent Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">52</td></tr>
-          <tr><td>Stark Logistics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">29</td></tr>
-          <tr><td>Sterling Media</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">84</td></tr>
-          <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td></tr>
-          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">38</td></tr>
-          <tr><td>Vandelay Exports</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">82</td></tr>
-          <tr><td>Wayne Foundry</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">45</td></tr>
-          <tr><td>Wonka Metrics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">70</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">31</td></tr>
+          <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td></tr>
+          <tr><td>Massive Dynamic</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">78</td></tr>
+          <tr><td>Monarch Data</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">66</td></tr>
+          <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">49</td></tr>
+          <tr><td>Northwind Cloud</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">42</td></tr>
+          <tr><td>Oceanic Freight</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">80</td></tr>
+          <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">58</td></tr>
+          <tr><td>Pied Piper Data</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">76</td></tr>
+          <tr><td>Soylent Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">52</td></tr>
+          <tr><td>Stark Logistics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">29</td></tr>
+          <tr><td>Sterling Media</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">84</td></tr>
+          <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">61</td></tr>
+          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">38</td></tr>
+          <tr><td>Vandelay Exports</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">82</td></tr>
+          <tr><td>Wayne Foundry</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">45</td></tr>
+          <tr><td>Wonka Metrics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">70</td></tr>
         </tbody>
       </table>
         <span class="scroll-study__more">… more arriving as the scroll nears the end — the header stays pinned, the chrome below never moves</span>
@@ -1197,7 +1197,7 @@
       </div>
     </div>
     <p class="wp-prose">Recommendation: the contained scroll as the default for working grids — the only model that abolishes the next button while keeping every piece of chrome reachable. The scrolling page where the table is the page — a feed, a log — with the bottom-of-screen rule enforced strictly. Pages where position in the set is part of the task.</p>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as rule — nothing at the bottom of a scrolling page; contained scroll is the working-grid default</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as rule — nothing at the bottom of a scrolling page; contained scroll is the working-grid default</span></div>
     <div class="wp-sources">Sources: the published usability record on infinite scrolling, pagination, and the load-more hybrid — citations live in the Table Scroll research note · sticky positioning inside scroll containers is native CSS · incremental loading via the reveal trigger: the stack's own documentation.</div>
   </section>
 
@@ -1211,12 +1211,12 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
-          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
-          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
-          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
           </tbody>
         </table>
       </div>
@@ -1228,12 +1228,12 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
-          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
-          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
-          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
           </tbody>
         </table>
       </div>
@@ -1245,12 +1245,12 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
-          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
-          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr class="data-table__row--selected"><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
-          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
+          <tr class="data-table__row--selected"><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
           </tbody>
         </table>
       </div>
@@ -1262,14 +1262,14 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Jan</th><th class="data-table__cell--num">Feb</th><th class="data-table__cell--num">Mar</th><th class="data-table__cell--num">Apr</th><th class="data-table__cell--num">May</th><th class="data-table__cell--num">Jun</th><th class="data-table__cell--num">Jul</th><th class="data-table__cell--num">Aug</th><th class="data-table__cell--num">Sep</th><th class="data-table__cell--num">Oct</th><th class="data-table__cell--num">Nov</th><th class="data-table__cell--num">Dec</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
-          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">39</td><td class="data-table__cell--num">52</td><td class="data-table__cell--num">65</td><td class="data-table__cell--num">78</td><td class="data-table__cell--num">91</td><td class="data-table__cell--num">14</td><td class="data-table__cell--num">27</td><td class="data-table__cell--num">40</td><td class="data-table__cell--num">53</td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">90</td></tr>
-          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
-          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">88</td><td class="data-table__cell--num">11</td><td class="data-table__cell--num">24</td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
-          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">44</td><td class="data-table__cell--num">57</td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">68</td></tr>
-          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">96</td><td class="data-table__cell--num">19</td><td class="data-table__cell--num">32</td><td class="data-table__cell--num">45</td><td class="data-table__cell--num">58</td><td class="data-table__cell--num">71</td><td class="data-table__cell--num">84</td><td class="data-table__cell--num">97</td><td class="data-table__cell--num">20</td><td class="data-table__cell--num">33</td><td class="data-table__cell--num">31</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">39</td><td class="data-table__cell--num">52</td><td class="data-table__cell--num">65</td><td class="data-table__cell--num">78</td><td class="data-table__cell--num">91</td><td class="data-table__cell--num">14</td><td class="data-table__cell--num">27</td><td class="data-table__cell--num">40</td><td class="data-table__cell--num">53</td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">88</td><td class="data-table__cell--num">11</td><td class="data-table__cell--num">24</td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">44</td><td class="data-table__cell--num">57</td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">96</td><td class="data-table__cell--num">19</td><td class="data-table__cell--num">32</td><td class="data-table__cell--num">45</td><td class="data-table__cell--num">58</td><td class="data-table__cell--num">71</td><td class="data-table__cell--num">84</td><td class="data-table__cell--num">97</td><td class="data-table__cell--num">20</td><td class="data-table__cell--num">33</td><td class="data-table__cell--num">31</td></tr>
           </tbody>
         </table>
       </div>
@@ -1280,20 +1280,20 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Jan</th><th class="data-table__cell--num">Feb</th><th class="data-table__cell--num">Mar</th><th class="data-table__cell--num">Apr</th><th class="data-table__cell--num">May</th><th class="data-table__cell--num">Jun</th><th class="data-table__cell--num">Jul</th><th class="data-table__cell--num">Aug</th><th class="data-table__cell--num">Sep</th><th class="data-table__cell--num">Oct</th><th class="data-table__cell--num">Nov</th><th class="data-table__cell--num">Dec</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
-          <tr><td>Aperture Billing</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">39</td><td class="data-table__cell--num">52</td><td class="data-table__cell--num">65</td><td class="data-table__cell--num">78</td><td class="data-table__cell--num">91</td><td class="data-table__cell--num">14</td><td class="data-table__cell--num">27</td><td class="data-table__cell--num">40</td><td class="data-table__cell--num">53</td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">90</td></tr>
-          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
-          <tr><td>Gekko Capital</td><td><span class="badge badge--danger"><span class="badge__dot"></span> Overdue</span></td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">88</td><td class="data-table__cell--num">11</td><td class="data-table__cell--num">24</td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
-          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">44</td><td class="data-table__cell--num">57</td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">68</td></tr>
-          <tr><td>Hooli Storage</td><td><span class="badge badge--info"><span class="badge__dot"></span> In review</span></td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">96</td><td class="data-table__cell--num">19</td><td class="data-table__cell--num">32</td><td class="data-table__cell--num">45</td><td class="data-table__cell--num">58</td><td class="data-table__cell--num">71</td><td class="data-table__cell--num">84</td><td class="data-table__cell--num">97</td><td class="data-table__cell--num">20</td><td class="data-table__cell--num">33</td><td class="data-table__cell--num">31</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">39</td><td class="data-table__cell--num">52</td><td class="data-table__cell--num">65</td><td class="data-table__cell--num">78</td><td class="data-table__cell--num">91</td><td class="data-table__cell--num">14</td><td class="data-table__cell--num">27</td><td class="data-table__cell--num">40</td><td class="data-table__cell--num">53</td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">90</td></tr>
+          <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">64</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">88</td><td class="data-table__cell--num">11</td><td class="data-table__cell--num">24</td><td class="data-table__cell--num">55</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">44</td><td class="data-table__cell--num">57</td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">68</td></tr>
+          <tr><td>Hooli Storage</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">96</td><td class="data-table__cell--num">19</td><td class="data-table__cell--num">32</td><td class="data-table__cell--num">45</td><td class="data-table__cell--num">58</td><td class="data-table__cell--num">71</td><td class="data-table__cell--num">84</td><td class="data-table__cell--num">97</td><td class="data-table__cell--num">20</td><td class="data-table__cell--num">33</td><td class="data-table__cell--num">31</td></tr>
           </tbody>
         </table>
       </div>
     </div>
     <p class="wp-prose">Recommendation: hairlines and the hover lane remain the resting default for every table. The quiet stripe is the sanctioned variant for wide, flat, dense grids, and wide grids additionally pin the identity column. Narrow tables stay plain; grouped tables always stay plain.</p>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted — hairlines default; the quiet stripe sanctioned for wide flat grids; identity column pins on wide grids</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted — hairlines default; the quiet stripe sanctioned for wide flat grids; identity column pins on wide grids</span></div>
     <div class="wp-sources">Sources: the controlled zebra-striping experiments and the data-table guidance literature — citations live in the Table Rows research note · the banded-ledger and continuous-form paper tradition · sticky positioning for frozen columns is native CSS · the stripe token derives from the ground aliases in tokens.css.</div>
   </section>
 
@@ -1309,9 +1309,9 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
           <tbody>
-            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
-            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
-            <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -1324,8 +1324,8 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
           <tbody>
-            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
-            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -1338,9 +1338,9 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
           <tbody>
-            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
-            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
-            <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -1353,15 +1353,15 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th></th></tr></thead>
           <tbody>
-            <tr><td>Acme Payments</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
-            <tr><td>Globex Analytics</td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
-            <tr><td>Initech Legal</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+            <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+            <tr><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
           </tbody>
         </table>
       </div>
     </div>
     <p class="wp-prose">Recommendation: the ⋯ menu alone is the default; a visible row icon is an exception argued per case (constantly used, harmless if misclicked, universally understood symbol); a destructive action never appears as a bare row icon; the hover-quiet variant must also reveal on keyboard focus.</p>
-    <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--warning">Recommendation made — decision pending</span></div>
     <p class="wp-sources">Sources: <a href="https://www.nngroup.com/articles/contextual-menus-guidelines/">NN/g — contextual menus</a> · <a href="https://www.nngroup.com/topic/icons/">NN/g — icon usability</a> · <a href="https://carbondesignsystem.com/components/overflow-menu/usage/">IBM Carbon — overflow menu</a> · <a href="https://primer.style/components/action-bar">GitHub Primer — action bar</a></p>
   </section>
 
@@ -1377,8 +1377,8 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Priority</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-            <tr><td>Acme Payments</td><td><span class="badge badge--warning"><span class="badge__dot"></span> High</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
-            <tr><td>Initech Legal</td><td><span class="badge"><span class="badge__dot"></span> Moderate</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">93</td></tr>
+            <tr><td>Acme Payments</td><td><span class="badge badge--warning">High</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge">Moderate</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">93</td></tr>
           </tbody>
         </table>
       </div>
@@ -1389,7 +1389,7 @@
     <p class="specimen__note">An Edit button flips the grid into a spreadsheet-like mode. Changes are held as a draft — nothing is written yet — and edited cells are tinted so the reader can see exactly what will change. A bar counts the pending changes and offers one Save and one Cancel for the whole batch, so the server can check all the changes together and reject the batch with per-cell errors. This is the pattern the large business platforms converged on, and it maps directly onto a server-side pending changeset.</p>
     <div class="data-table">
       <div class="table-toolbar">
-        <div class="table-toolbar__group"><span class="badge badge--info"><span class="badge__dot"></span> Edit mode</span></div>
+        <div class="table-toolbar__group"><span class="badge badge--info">Edit mode</span></div>
         <div class="table-toolbar__group"><button class="button button--ghost" type="button">Exit edit mode</button></div>
       </div>
       <div class="data-table__scroll">
@@ -1404,7 +1404,7 @@
             </tr>
             <tr>
               <td>Initech Legal</td>
-              <td><span class="badge"><span class="badge__dot"></span> Moderate</span></td>
+              <td><span class="badge">Moderate</span></td>
               <td><span class="avatar avatar--sm">TS</span></td>
               <td class="data-table__cell--num data-table__cell--edited"><input class="input input--cell" type="number" value="95" aria-label="Score"></td>
             </tr>
@@ -1443,7 +1443,7 @@
           <tbody>
             <tr>
               <td>Acme Payments <span class="cell-edit-hint">read-only</span></td>
-              <td><span class="badge badge--warning"><span class="badge__dot"></span> High</span> <span class="cell-edit-hint">✎</span></td>
+              <td><span class="badge badge--warning">High</span> <span class="cell-edit-hint">✎</span></td>
               <td><span class="avatar avatar--sm">KL</span> <span class="cell-edit-hint">✎</span></td>
               <td class="data-table__cell--num">87 <span class="cell-edit-hint">read-only</span></td>
             </tr>
@@ -1458,7 +1458,7 @@
     <div class="specimen__label">Choosing between them</div>
     <p class="specimen__note">Form editing wins when records are rich, fields interact, or changes need review — which is why it is the default here. The draft-and-save-bar grid wins for repetitive corrections across many rows, and its batch submit is the same thing as a pending changeset, so it feeds the existing review/diff form unchanged. Instant commit is a convenience reserved for pickers with an Undo. These are candidates on display, pending selection — like everything on this page.</p>
     <p class="wp-prose">Recommendation: option A (read-only table, form editing) as the default; option B (draft + save bar) for repetitive multi-row correction; option C (instant commit) reserved for single pickers with Undo; option D (per-column whitelist) governs which fields ever edit inline. Open decisions: whether C exists at all before an undo toast ships, and whether records under approval rules always force B's draft mode.</p>
-    <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--warning">Recommendation made — decision pending</span></div>
     <p class="wp-sources">Sources: <a href="https://www.lightningdesignsystem.com/components/data-tables/">Salesforce Lightning — data table inline edit</a> · <a href="https://primer.style/ui-patterns/saving">GitHub Primer — saving patterns</a> · <a href="https://www.w3.org/WAI/ARIA/apg/patterns/grid/">W3C ARIA APG — grid pattern</a></p>
   </section>
 
@@ -1514,12 +1514,12 @@
           </div>
           <div class="prop">
             <span class="prop__label">Status</span>
-            <span class="prop__value"><span class="badge badge--success"><span class="badge__dot"></span> On track</span></span>
+            <span class="prop__value"><span class="badge badge--success">On track</span></span>
             <span class="prop__edit-hint">✎</span>
           </div>
           <div class="prop">
             <span class="prop__label">Priority</span>
-            <span class="prop__value"><span class="badge badge--warning"><span class="badge__dot"></span> High</span></span>
+            <span class="prop__value"><span class="badge badge--warning">High</span></span>
             <span class="prop__edit-hint">✎</span>
           </div>
           <div class="prop">
@@ -1614,7 +1614,7 @@
         </div>
       </div>
     </div>
-    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--info">Options on display — decision pending</span></div>
   </section>
 
   <section class="specimen__section" id="workflows">
@@ -1631,8 +1631,8 @@
           <p class="doc-record__prose">The account renews next quarter. Usage grew 22% year over year, and the expansion conversation should lead with the reporting module. Click the title or this text to edit in place.</p>
         </div>
         <div class="doc-record__props">
-          <div class="prop"><span class="prop__label">Status</span><span class="prop__value"><span class="badge badge--success"><span class="badge__dot"></span> On track</span></span><span class="prop__edit-hint">✎</span></div>
-          <div class="prop"><span class="prop__label">Priority</span><span class="prop__value"><span class="badge badge--warning"><span class="badge__dot"></span> High</span></span><span class="prop__edit-hint">✎</span></div>
+          <div class="prop"><span class="prop__label">Status</span><span class="prop__value"><span class="badge badge--success">On track</span></span><span class="prop__edit-hint">✎</span></div>
+          <div class="prop"><span class="prop__label">Priority</span><span class="prop__value"><span class="badge badge--warning">High</span></span><span class="prop__edit-hint">✎</span></div>
         </div>
       </div>
     </div>
@@ -1674,9 +1674,9 @@
           <table class="data-table__table">
             <thead><tr><th>Account</th><th class="data-table__cell--num">Score</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td>Acme Payments</td><td class="data-table__cell--num">87</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td></tr>
-              <tr><td>Globex Analytics</td><td class="data-table__cell--num"><input class="grid-entry__input" value="71" aria-label="Score, editing"></td><td><span class="badge badge--warning"><span class="badge__dot"></span> Review due</span></td></tr>
-              <tr><td>Initech Legal</td><td class="data-table__cell--num">93</td><td><span class="badge badge--success"><span class="badge__dot"></span> On track</span></td></tr>
+              <tr><td>Acme Payments</td><td class="data-table__cell--num">87</td><td><span class="badge badge--success">On track</span></td></tr>
+              <tr><td>Globex Analytics</td><td class="data-table__cell--num"><input class="grid-entry__input" value="71" aria-label="Score, editing"></td><td><span class="badge badge--warning">Review due</span></td></tr>
+              <tr><td>Initech Legal</td><td class="data-table__cell--num">93</td><td><span class="badge badge--success">On track</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -1712,7 +1712,7 @@
     <div class="specimen__label">Workflow — review / diff: old value struck, new value proposed (approvals)</div>
     <div class="specimen__row">
       <div class="prop-grid">
-        <div class="prop"><span class="prop__label">Priority</span><span class="prop__value"><span class="diff-form__old">Moderate</span> <span class="diff-form__arrow">→</span> <span class="badge badge--warning"><span class="badge__dot"></span> High</span></span></div>
+        <div class="prop"><span class="prop__label">Priority</span><span class="prop__value"><span class="diff-form__old">Moderate</span> <span class="diff-form__arrow">→</span> <span class="badge badge--warning">High</span></span></div>
         <div class="prop"><span class="prop__label">Owner</span><span class="prop__value"><span class="diff-form__old">J. Doe</span> <span class="diff-form__arrow">→</span> K. Lane</span></div>
         <div class="prop form-actions"><button class="button button--ghost" type="button">Reject</button><button class="button button--primary" type="button">Approve changes</button></div>
       </div>
@@ -1744,7 +1744,7 @@
         </div>
       </div>
     </div>
-    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--info">Options on display — decision pending</span></div>
   </section>
 
   <section class="specimen__section" id="filters">
@@ -1778,7 +1778,7 @@
       <button class="button button--ghost" type="button">+ Add condition group</button>
       <button class="button button--ghost" type="button">Copy from another view</button>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="views">
@@ -1885,7 +1885,7 @@
         </div>
       </div>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="keyboard">
@@ -1937,7 +1937,7 @@
       <span class="kbd-row__pair"><kbd>←→↑↓</kbd> travel the grid</span>
     </div>
     <p class="wp-prose">Recommendation as stated above; Shift+Enter tolerated as a harmless newline synonym. The one place Enter-to-send would ever be correct is a true chat surface, which does not exist in the system today.</p>
-    <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--warning">Recommendation made — decision pending</span></div>
     <p class="wp-sources">Sources: <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#implicit-submission">HTML standard — implicit submission</a> · <a href="https://www.w3.org/WAI/ARIA/apg/patterns/">W3C ARIA APG — keyboard patterns</a> · <a href="https://www.tjvantoll.com/2013/01/01/enter-should-submit-forms-stop-messing-with-that/">TJ VanToll — Enter should submit forms</a> · <a href="https://meta.discourse.org/t/enter-to-newline-shift-enter-to-submit-message-in-chat/289280">Discourse — the Enter debate</a></p>
   </section>
 
@@ -1956,7 +1956,7 @@
         <div class="palette__item">Globex Analytics — <strong>pro</strong>ject 2026-Q2</div>
       </div>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="empty">
@@ -1968,14 +1968,14 @@
       <div class="empty-state__text">Build a filter, then save it as a view. Saved views keep your columns, sort, and filters — and they're shareable with your team.</div>
       <button class="button button--primary" type="button">Create your first view</button>
     </div>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
   <section class="specimen__section" id="brandcolor">
     <h2 class="specimen__section-title">29. Brand color vs. the meaning colors</h2>
     <p class="wp-prose">Red means danger and green means success inside an interface — those meanings are load-bearing. A product whose brand color is red or green therefore has a conflict: if the brand hue also paints buttons and links, every error banner and success badge competes with it. The research recommends role separation (the brand hue owns identity moments — logo, marketing, accent details — while interface semantics keep their own reserved hues) and hue distancing (shifting the interface's semantic red or green far enough from the brand hue that the two never read as the same color).</p>
     <p class="wp-prose">Recommendation: role separation plus hue distancing, applied per brand skin. Full evidence in the brand-color research file pending its graduation into this chapter.</p>
-    <div class="wp-status"><span class="badge badge--warning"><span class="badge__dot"></span> Recommendation made — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--warning">Recommendation made — decision pending</span></div>
   </section>
 
   <section class="specimen__section" id="appbranding">
@@ -2028,7 +2028,7 @@
     </div>
     <p class="wp-prose">The avatar. The same 512-pixel square serves as the application's avatar wherever it holds an account or a directory entry. It ships in both grounds — the ink mark and its inverse — and choosing which to upload where stays a human decision; the kit's job is that both exist, both are current, and both come from the same letter-mark so the application is recognizably itself everywhere.</p>
     <p class="wp-prose">Recommendation: every application starts with the generated letter-mark kit — brand slot, favicon set, avatar pair — on the day it is created, so no application ever ships bare. A drawn logo, when one arrives, replaces the letter in the same slots under the same two-grounds test. The letter-mark options (ink or accent) stay on display for selection.</p>
-    <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
+    <div class="wp-status"><span class="badge badge--info">Options on display — decision pending</span></div>
     <div class="wp-sources">Sources: MDN, defining icons for a site (link rel="icon", sizes) · web-app manifest icons (192 and 512) · Apple touch icon (180) · the vector favicon with a built-in dark-mode preference is documented in the current favicon guides (Evil Martians, "How to Favicon"; MDN SVG favicon support) · full anatomy of the rail's brand slot: this document's Navigation chapter.</div>
   </section>
 
@@ -2036,7 +2036,7 @@
     <h2 class="specimen__section-title">31. How decisions get made</h2>
     <p class="wp-prose">Each chapter above ends in a status: adopted as principle, recommendation pending, or options on display. The selection pass reads this document top to bottom and turns every pending status into a decision; each decision then flows down — into the agent rulebook as an enforceable rule, into the technical catalog as the surviving specification, and into both this document and the specimen, from which the losing options are removed in the same change.</p>
     <p class="wp-prose">Two documents render the system and evolve in parallel by standing rule: this white paper, where every explanation sits beside its living example, and the specimen, the same catalog with no words. A change to any example lands in both, always, in the same commit.</p>
-    <div class="wp-status"><span class="badge badge--success"><span class="badge__dot"></span> Adopted as principle</span></div>
+    <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
   </section>
 
 </main>

@@ -381,6 +381,10 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 .badge--danger  { color: var(--color-danger);  border-color: var(--color-danger);  background: color-mix(in srgb, var(--color-danger) 10%, transparent); }
 .badge--info    { color: var(--color-info);    border-color: var(--color-info);    background: color-mix(in srgb, var(--color-info) 10%, transparent); }
 .badge--accent  { color: var(--color-action);  border-color: var(--color-action);  background: var(--color-selected-bg); }
+/* Reserved for liveness only ("recording", "running") — a state happening
+   right now, which the static word cannot say. Never decoration: the label
+   carries the meaning, the tint carries the color; a dot beside a static
+   word is a third coding that says nothing (see catalog 1.6). */
 .badge__dot { width: 0.375rem; height: 0.375rem; border-radius: var(--radius-pill); background: currentColor; }
 
 .chip {
