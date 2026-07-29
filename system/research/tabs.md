@@ -1,0 +1,113 @@
+# Tabs — one row, two jobs: scoping a list and sectioning a record
+
+Research note. Named products and sources are cited here because this folder is
+the one place citations are allowed; operating documents stay generic. Live
+renderings of every candidate discussed here are in the white paper's
+Navigation chapter and in the specimen.
+
+## The question
+
+The same row of tabs appears above a table reading "All · In review ·
+Reviewed", and across the top of a record reading "Score · Files · Due
+diligence". These look identical and do entirely different things: the first
+narrows one collection to a subset — every column, every control, every
+behavior stays put; the second replaces the whole panel below with different
+content. Is one element allowed to hold both jobs, or is one of the uses a
+misuse?
+
+## What the record says the element is
+
+The canonical guidance — Nielsen Norman Group's "Tabs, Used Right" — defines
+tabs as alternate views within the same context: the user stays in place and
+the content area changes. Its load-bearing rules transfer directly to both
+jobs: one row only; short parallel labels; the selected tab unmistakable;
+never sequential steps dressed as tabs; and never content a reader must
+compare side by side, because tabs hide siblings by construction.
+
+The accessibility record adds a sharper distinction than the visual one. The
+W3C's tabs pattern (tablist, tab, tabpanel, arrow-key movement) describes a
+client-side widget that swaps panels in place; the same body of guidance
+cautions that much of what the web calls tabs is actually navigation styled
+as tabs — links that change the URL — and that those should be marked up as
+links in a nav landmark with the current one marked, not with tab roles. For
+a server-rendered system this settles the implementation for both jobs: every
+tab is a real link, the active tab comes from the URL, and the tab-role
+markup is reserved for the rare client-side swap. One anatomy, honest
+semantics, both jobs.
+
+## Job one — scope tabs: subsets of one collection
+
+The list-scoping row ("All · In review · Reviewed") is an industry-wide
+convention with named precedents: issue trackers ship Open/Closed as styled
+links above the list; Shopify's Polaris explicitly ships its tabs component
+as the switcher for filtered views of index tables — each tab a saved subset
+of the same collection. The contract that makes scope tabs coherent:
+
+- The tabs partition one collection; the surrounding chrome — toolbar,
+  columns, sort, selection — survives a tab switch untouched. Only the rows
+  change.
+- The leading tab is the whole collection, labeled All, and the exclusive-All
+  arithmetic from the choice family applies: All is the unfiltered state,
+  every other tab is one named subset, and the row is never blank.
+- Counts ride the labels ("All 248 · In review 34") — the row doubles as a
+  status summary of the collection, readable without clicking, the same
+  counts-at-rest rule the toolbar follows.
+- The subsets are exhaustive or close to it, few, and stable. A dozen
+  volatile subsets is a saved-view problem, not a tab row — the view system
+  exists for that.
+
+## Job two — section tabs: panels of one record
+
+The record-sectioning row ("Score · Files · Due diligence") is the tab's
+older job — the card-index metaphor the widget is named for. Its contract:
+
+- Each tab names a different kind of content belonging to one parent (the
+  record whose header sits above the row). Labels are nouns naming the
+  panel, not states of a list.
+- There is no All — the sections are different things, and a merged view of
+  different things is a report, not a tab.
+- Counts are permitted where a section is a countable collection ("Files
+  12") and read as content amounts, not subset sizes.
+- Switching replaces the panel wholesale, and the section belongs in the
+  URL, so a deep link lands on the right tab and the back button walks tab
+  history — behavior the styled-links implementation provides for free.
+
+## The rules that keep the two jobs from colliding
+
+Both jobs are legitimate; the failures live at the boundary:
+
+- One row, one job. A row mixing states and sections ("All · In review ·
+  Files") is incoherent — the reader cannot predict what a click preserves.
+  The label grammar is the tell: states of one list, or names of different
+  content — never both.
+- The roles may nest, in one order only: section tabs describe the page;
+  a scope row may sit inside a section, above its list. A section row must
+  never sit inside a scope tab.
+- Tabs against the segmented control: the neighboring control from the
+  choice family picks a parameter of the current view — an interval, a
+  facet — and re-renders content in place without changing what the reader
+  is looking at. Tabs change which thing is on screen (which subset, which
+  section). The placement rule mirrors the semantics: tabs sit on the
+  region's top boundary drawing one shared baseline; the segmented control
+  sits inside toolbars.
+- Tabs are not steps. A sequence with an order is a workflow, and the
+  record-form workflows chapter owns it.
+
+## Recommendation
+
+Adopt both jobs under one anatomy and two named contracts — scope tabs and
+section tabs — distinguished by their label grammar, never by a visual fork.
+Scope tabs: states of one collection, All first with the exclusive-All
+arithmetic, counts at rest, chrome survives switches. Section tabs: noun
+labels for panels of one parent, no All, URL-addressed. Both implemented as
+styled links with the current tab marked, per the accessibility record;
+tab-role markup reserved for client-side swaps the system does not ship.
+One row never mixes jobs.
+
+Sources: Nielsen Norman Group, "Tabs, Used Right" · the W3C ARIA Authoring
+Practices tabs pattern, and its guidance distinguishing navigation styled as
+tabs from the tab-role widget · Shopify Polaris tabs as filtered-view
+switchers on index tables · the Open/Closed convention of issue trackers ·
+Material Design and IBM Carbon tab guidance (related content, one row, short
+labels) · this system's segmented control and exclusive-All entries
+(components.md 1.12, 1.17).

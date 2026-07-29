@@ -426,9 +426,10 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 
 /* ---- tabs ------------------------------------------------------------------ */
 .tabs { display: flex; gap: var(--space-1); border-bottom: 1px solid var(--color-border); }
-.tabs__tab { padding: var(--space-2) var(--space-3); border: none; background: none; color: var(--color-text-muted); font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs__tab { display: inline-flex; align-items: center; text-decoration: none; padding: var(--space-2) var(--space-3); border: none; background: none; color: var(--color-text-muted); font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .tabs__tab:hover { color: var(--color-text); }
-.tabs__tab[aria-selected="true"] { color: var(--color-action); border-bottom-color: var(--color-action); }
+.tabs__tab[aria-selected="true"], .tabs__tab[aria-current="page"] { color: var(--color-action); border-bottom-color: var(--color-action); }
+.tabs__count { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); margin-left: var(--space-1); }
 
 /* ---- cards & KPI ------------------------------------------------------------ */
 .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); max-width: 22rem; }

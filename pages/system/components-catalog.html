@@ -233,11 +233,33 @@ danger · info</code>.</p>
 <p>Transient confirmation in an <code>aria-live="polite"</code> region the server swaps into.
 Same variants as Alert; auto-dismiss via a CSS animation, not JS.</p>
 <h3>2.6 Tabs</h3>
-<p>In-page section switch; the active tab comes from the URL, not client state.</p>
-<pre><code class="language-html">&lt;div role=&quot;tablist&quot; class=&quot;tabs&quot;&gt;
-  &lt;a class=&quot;tabs__tab&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; href=&quot;?tab=overview&quot;&gt;Overview&lt;/a&gt;
-  &lt;a class=&quot;tabs__tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; href=&quot;?tab=history&quot;&gt;History&lt;/a&gt;
-&lt;/div&gt;
+<p>One row, two jobs, two named contracts — distinguished by label grammar,
+never by a visual fork. The active tab always comes from the URL, not client
+state, and every tab is a real link with the current one marked
+(<code>aria-current="page"</code>) — the tab-role widget belongs to client-side swaps
+this system does not ship (the accessibility record's navigation-styled-as-
+tabs guidance; citations in the Tabs research note).</p>
+<ul>
+<li>Scope tabs — subsets of one collection ("All · In review · Reviewed").
+  All first, with the exclusive-All arithmetic (1.17); counts ride the
+  labels (<code>.tabs__count</code>) so the row doubles as a status summary; a switch
+  changes only the rows — toolbar, columns, sort, selection survive. Few,
+  stable, near-exhaustive subsets; a dozen volatile ones is a saved-view
+  problem (§4), not a tab row.</li>
+<li>Section tabs — panels of one record ("Score · Files · Due diligence").
+  Noun labels naming different content of one parent; no All; counts only
+  where a section is a countable collection; the section is in the URL, so
+  deep links land and the back button walks tab history.</li>
+</ul>
+<p>Boundary rules: one row never mixes jobs; nesting in one order only (a scope
+row may sit inside a section, never the reverse); the segmented control
+(1.12) re-renders the same panel with a different parameter, tabs change
+which thing is on screen; steps with an order are a workflow (3.7), never
+tabs.</p>
+<pre><code class="language-html">&lt;nav class=&quot;tabs&quot; aria-label=&quot;List scopes&quot;&gt;
+  &lt;a class=&quot;tabs__tab&quot; aria-current=&quot;page&quot; href=&quot;?scope=all&quot;&gt;All &lt;span class=&quot;tabs__count&quot;&gt;248&lt;/span&gt;&lt;/a&gt;
+  &lt;a class=&quot;tabs__tab&quot; href=&quot;?scope=review&quot;&gt;In review &lt;span class=&quot;tabs__count&quot;&gt;34&lt;/span&gt;&lt;/a&gt;
+&lt;/nav&gt;
 </code></pre>
 <h3>2.7 Card — by intent, not by default</h3>
 <p>Surface + hairline container: title, body, actions. Cards are not forbidden — they

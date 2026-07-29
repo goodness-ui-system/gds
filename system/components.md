@@ -262,12 +262,34 @@ Transient confirmation in an `aria-live="polite"` region the server swaps into.
 Same variants as Alert; auto-dismiss via a CSS animation, not JS.
 
 ### 2.6 Tabs
-In-page section switch; the active tab comes from the URL, not client state.
+One row, two jobs, two named contracts — distinguished by label grammar,
+never by a visual fork. The active tab always comes from the URL, not client
+state, and every tab is a real link with the current one marked
+(`aria-current="page"`) — the tab-role widget belongs to client-side swaps
+this system does not ship (the accessibility record's navigation-styled-as-
+tabs guidance; citations in the Tabs research note).
+
+- Scope tabs — subsets of one collection ("All · In review · Reviewed").
+  All first, with the exclusive-All arithmetic (1.17); counts ride the
+  labels (`.tabs__count`) so the row doubles as a status summary; a switch
+  changes only the rows — toolbar, columns, sort, selection survive. Few,
+  stable, near-exhaustive subsets; a dozen volatile ones is a saved-view
+  problem (§4), not a tab row.
+- Section tabs — panels of one record ("Score · Files · Due diligence").
+  Noun labels naming different content of one parent; no All; counts only
+  where a section is a countable collection; the section is in the URL, so
+  deep links land and the back button walks tab history.
+
+Boundary rules: one row never mixes jobs; nesting in one order only (a scope
+row may sit inside a section, never the reverse); the segmented control
+(1.12) re-renders the same panel with a different parameter, tabs change
+which thing is on screen; steps with an order are a workflow (3.7), never
+tabs.
 ```html
-<div role="tablist" class="tabs">
-  <a class="tabs__tab" role="tab" aria-selected="true" href="?tab=overview">Overview</a>
-  <a class="tabs__tab" role="tab" aria-selected="false" href="?tab=history">History</a>
-</div>
+<nav class="tabs" aria-label="List scopes">
+  <a class="tabs__tab" aria-current="page" href="?scope=all">All <span class="tabs__count">248</span></a>
+  <a class="tabs__tab" href="?scope=review">In review <span class="tabs__count">34</span></a>
+</nav>
 ```
 
 ### 2.7 Card — by intent, not by default
