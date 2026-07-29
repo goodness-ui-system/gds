@@ -1636,6 +1636,41 @@
     </div>
   </section>
 
+  <!-- ================= FAVORITES ================= -->
+  <section class="specimen__section" id="favorites">
+    <h2 class="specimen__section-title">Favorites — the marker, the lens, the bulk pair, the empty state</h2>
+    <p class="specimen__note">A personal collection flag. The toolbar lens (above, in the view system) narrows any view to it; these are the other four parts.</p>
+    <div class="specimen__label">Favorites, the marker column — filled stars mark favorites; unmarked rows reveal a hollow star on hover or keyboard focus</div>
+    <div class="data-table data-table--quiet">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead><tr><th class="data-table__cell--fav"><span class="data-table__fav-head" aria-label="Favorite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></th><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
+          <tbody>
+            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Acme Payments"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td></tr>
+            <tr><td class="data-table__cell--fav"><button class="data-table__fav" type="button" aria-pressed="false" aria-label="Add to favorites: Aperture Billing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">90</td></tr>
+            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Globex Analytics"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">71</td></tr>
+            <tr><td class="data-table__cell--fav"><button class="data-table__fav" type="button" aria-pressed="false" aria-label="Add to favorites: Hooli Storage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Hooli Storage</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">31</td></tr>
+            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Initech Legal"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-table__bulk">
+        <span class="data-table__bulk-count">3 selected</span>
+        <button class="button button--ghost" type="button">Add to favorites</button>
+        <button class="button button--ghost" type="button">Remove from favorites</button>
+        <button class="button button--ghost" type="button">Export</button>
+        <button class="button button--ghost" type="button">Clear</button>
+      </div>
+    </div>
+
+    <div class="specimen__label">Favorites, the empty lens — the lens is on and nothing is starred yet</div>
+    <div class="empty-state">
+      <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="empty-state__title">No favorites yet</div>
+      <div class="empty-state__text">Star a row to collect it here. Favorites are personal — they follow the account, not the team — and the star in the toolbar narrows any view to them.</div>
+    </div>
+  </section>
+
   <!-- ================= KEYBOARD ================= -->
   <section class="specimen__section" id="keyboard-conventions">
     <h2 class="specimen__section-title">Keyboard conventions — what Enter means</h2>
@@ -1767,36 +1802,6 @@
           <button class="button button--primary" type="button">Add account</button>
         </div>
       </div>
-    </div>
-
-    <div class="specimen__label">Favorites, the marker column — filled stars mark favorites; unmarked rows reveal a hollow star on hover or keyboard focus</div>
-    <div class="data-table data-table--quiet">
-      <div class="data-table__scroll">
-        <table class="data-table__table">
-          <thead><tr><th class="data-table__cell--fav"><span class="data-table__fav-head" aria-label="Favorite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></th><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
-          <tbody>
-            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Acme Payments"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td></tr>
-            <tr><td class="data-table__cell--fav"><button class="data-table__fav" type="button" aria-pressed="false" aria-label="Add to favorites: Aperture Billing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">90</td></tr>
-            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Globex Analytics"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">71</td></tr>
-            <tr><td class="data-table__cell--fav"><button class="data-table__fav" type="button" aria-pressed="false" aria-label="Add to favorites: Hooli Storage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Hooli Storage</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">31</td></tr>
-            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Initech Legal"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="data-table__bulk">
-        <span class="data-table__bulk-count">3 selected</span>
-        <button class="button button--ghost" type="button">Add to favorites</button>
-        <button class="button button--ghost" type="button">Remove from favorites</button>
-        <button class="button button--ghost" type="button">Export</button>
-        <button class="button button--ghost" type="button">Clear</button>
-      </div>
-    </div>
-
-    <div class="specimen__label">Favorites, the empty lens — the lens is on and nothing is starred yet</div>
-    <div class="empty-state">
-      <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      <div class="empty-state__title">No favorites yet</div>
-      <div class="empty-state__text">Star a row to collect it here. Favorites are personal — they follow the account, not the team — and the star in the toolbar narrows any view to them.</div>
     </div>
 
     <div class="specimen__label">The view panel — one popover, two panes, one hairline: every view · this view</div>

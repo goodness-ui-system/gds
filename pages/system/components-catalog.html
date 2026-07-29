@@ -151,33 +151,7 @@ configuration; the lens narrows the current one). Pressed state tinted;
 count at rest permitted (the star wearing the favorites count in the current
 scope); state URL-reflected like every part of the view. A personal saved
 view may bake the same flag in — the same server state, worn two ways.</p>
-<p>Favorites — the five-part anatomy (the lens is one part):</p>
-<ol>
-<li>Marker column (<code>.data-table__cell--fav</code>) — a star in the leading position
-   beside the identity column. Filled with the accent on favorites; on
-   unmarked rows drawn only on hover or keyboard focus, because a column of
-   hollow stars is the badge-dot mistake repeated (1.6).</li>
-<li>The marker is the toggle — one click in place, no menu round trip. The
-   repeated-icon caution (3.4) does not apply: this icon is primarily a state
-   marker that happens to be clickable, the action is trivially reversible,
-   and no destructive action sits nearby.</li>
-<li>Overflow-menu entry — the discoverable, keyboard-obvious path, with a
-   state-honest label pair (<code>Add to favorites</code> / <code>Remove from favorites</code>,
-   matching the row's current state).</li>
-<li>Bulk pair — the bulk-actions bar (3.9) gains add and remove, so clearing a
-   collection is lens + select-all + remove: three existing components
-   composing. Deliberate: wiping curation deserves the selection ceremony; a
-   standing clear-all would put an irreversible-feeling erasure one click
-   from everything.</li>
-<li>Empty lens — the empty state (3.11) when the lens is on and nothing is
-   starred: teach the gesture in one sentence, never a bare grid.</li>
-</ol>
-<p>Semantics: favorites are always personal — per user, server-side, synced
-across devices; a colleague's star never moves a reader's (contrast views,
-which may be collaborative). The filled star takes the accent (a
-user-selected state), never the warning color (a favorite is not a warning).
-Favorites never auto-sort to the top: silently reordering breaks the sort the
-toolbar claims — the lens is the honest way to see them together.</p>
+<p>Favorites are the fully specified use of the lens — see 3.13.</p>
 <p>The pressed state must
 survive grayscale — border + fill change together, never color alone. The label
 and icon never change with the state (stable name, state carries the answer);
@@ -795,6 +769,39 @@ table, and dashboard has one designed — never a bare "No results."</p>
   One demand: the shell hands the grid its height exactly — a page that
   scrolls and a grid that scrolls is the double-scrollbar trap.</li>
 </ul>
+<h3>3.13 Favorites</h3>
+<p>A personal collection flag, and the reference case for the lens toggle
+(1.13). Five parts, each answering a question a reader asks:</p>
+<ol>
+<li>Marker column (<code>.data-table__cell--fav</code>) — a star in the leading position
+   beside the identity column. Filled with the accent on favorites; on
+   unmarked rows drawn only on hover or keyboard focus, because a column of
+   hollow stars is the badge-dot mistake repeated (1.6).</li>
+<li>The marker is the toggle — one click in place, no menu round trip. The
+   repeated-icon caution (3.4) does not apply: this icon is primarily a state
+   marker that happens to be clickable, the action is trivially reversible,
+   and no destructive action sits nearby.</li>
+<li>Overflow-menu entry — the discoverable, keyboard-obvious path, with a
+   state-honest label pair (<code>Add to favorites</code> / <code>Remove from favorites</code>,
+   matching the row's current state).</li>
+<li>Bulk pair — the bulk-actions bar (3.9) gains add and remove, so clearing a
+   collection is lens + select-all + remove: three existing components
+   composing. Deliberate: wiping curation deserves the selection ceremony; a
+   standing clear-all would put an irreversible-feeling erasure one click
+   from everything.</li>
+<li>Empty lens — the empty state (3.11) when the lens is on and nothing is
+   starred: teach the gesture in one sentence, never a bare grid.</li>
+</ol>
+<p>Semantics: favorites are always personal — per user, server-side, synced
+across devices; a colleague's star never moves a reader's (contrast views,
+which may be collaborative). The filled star takes the accent (a
+user-selected state), never the warning color (a favorite is not a warning).
+Favorites never auto-sort to the top: silently reordering breaks the sort the
+toolbar claims — the lens is the honest way to see them together.</p>
+<p>The lens itself (1.13) is part six's other half: the toolbar star that
+narrows any view to the collection, wearing its count at rest, composing
+with every scope, filter, and sort. Live renderings: the specimen's
+Favorites section and the white paper's Favorites chapter.</p>
 <h2>4 · The View System</h2>
 <p>Best-of-breed reference: the leading spreadsheet-database platforms, studied from
 their live UIs and documentation. What makes them the benchmark: <em>every</em> aspect of a table's presentation (visible
