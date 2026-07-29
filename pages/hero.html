@@ -2,31 +2,44 @@
 <title>Goodness — Hero (build-up loop)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
-:root{--T:7s;--ink:#EAF3FF;--fur:#5E9BD6;--ann:#8FC2F0}
+:root{--T:7s;color-scheme:light dark;
+  --ink:#0A2244;--fur:#52739b;--ann:#3a5a82;--hero-bg:#f6fafd;
+  --stage-grad:radial-gradient(1100px 620px at 82% 20%,rgba(58,90,130,.10),transparent 60%),linear-gradient(160deg,#ffffff,#eef4fb);
+  --badge-ink:#3a5a82;--badge-line:rgba(10,34,68,.22);--dot:#0d7263;--tag-ink:#52739b;
+  --btnp-bg:#0A2244;--btnp-ink:#ffffff;--btns-line:rgba(10,34,68,.3);--btns-ink:#24436b;
+  --grid-a:rgba(10,34,68,.07);--grid-b:rgba(10,34,68,.13);
+  --glow-g:rgba(10,34,68,.18);--glow-n:rgba(10,34,68,.25);--pen:#24436b;--pen-halo:#52739b}
+@media (prefers-color-scheme:dark){:root{
+  --ink:#EAF3FF;--fur:#5E9BD6;--ann:#8FC2F0;--hero-bg:#071528;
+  --stage-grad:radial-gradient(1100px 620px at 82% 20%,rgba(46,102,180,.30),transparent 60%),linear-gradient(160deg,#0A2244,#071528);
+  --badge-ink:#8FB6E4;--badge-line:rgba(150,185,235,.25);--dot:#5FE0C0;--tag-ink:#B6CDEA;
+  --btnp-bg:#EAF3FF;--btnp-ink:#0A2244;--btns-line:rgba(150,185,235,.35);--btns-ink:#DCEBFF;
+  --grid-a:rgba(140,190,250,.09);--grid-b:rgba(140,190,250,.16);
+  --glow-g:rgba(143,194,238,.35);--glow-n:rgba(143,194,238,.5);--pen:#BFE6FF;--pen-halo:#8FC2F0}}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%}
-body{font-family:'Inter',system-ui,sans-serif;background:#071528;color:#EAF3FF;overflow:hidden}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--hero-bg);color:var(--ink);overflow:hidden}
 .stage{min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:20px;
-  background:radial-gradient(1100px 620px at 82% 20%,rgba(46,102,180,.30),transparent 60%),linear-gradient(160deg,#0A2244,#071528)}
+  background:var(--stage-grad)}
 @media(max-width:860px){.stage{grid-template-columns:1fr;text-align:center}}
 .left{padding:0 6vw}
-.badge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8FB6E4;border:1px solid rgba(150,185,235,.25);border-radius:999px;padding:7px 13px;margin-bottom:22px}
-.badge i{width:7px;height:7px;border-radius:50%;background:#5FE0C0;box-shadow:0 0 10px #5FE0C0;font-style:normal}
+.badge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--badge-ink);border:1px solid var(--badge-line);border-radius:999px;padding:7px 13px;margin-bottom:22px}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--dot);box-shadow:0 0 10px var(--dot);font-style:normal}
 h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(40px,6.5vw,76px);letter-spacing:-.035em;margin:0;line-height:1}
-h1 .d{color:#8FC2F0}
-p.tag{font-family:'Space Grotesk',sans-serif;font-size:clamp(16px,2.2vw,21px);color:#B6CDEA;margin:16px 0 28px}
+h1 .d{color:var(--ann)}
+p.tag{font-family:'Space Grotesk',sans-serif;font-size:clamp(16px,2.2vw,21px);color:var(--tag-ink);margin:16px 0 28px}
 .cta{display:inline-flex;gap:12px}
 .btn{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;border-radius:12px;padding:12px 20px;border:1px solid transparent;cursor:pointer}
-.btn.p{background:#EAF3FF;color:#0A2244}
-.btn.s{background:transparent;border-color:rgba(150,185,235,.35);color:#DCEBFF}
+.btn.p{background:var(--btnp-bg);color:var(--btnp-ink)}
+.btn.s{background:transparent;border-color:var(--btns-line);color:var(--btns-ink)}
 .right{position:relative;height:100vh;min-height:520px}
 /* blueprint plate */
 .plate{position:absolute;inset:0}
 .plate::before{content:"";position:absolute;inset:0;
-  background-image:linear-gradient(rgba(140,190,250,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(140,190,250,.09) 1px,transparent 1px);
+  background-image:linear-gradient(var(--grid-a) 1px,transparent 1px),linear-gradient(90deg,var(--grid-a) 1px,transparent 1px);
   background-size:34px 34px;mask-image:radial-gradient(560px 560px at 50% 50%,#000 55%,transparent 80%)}
 .plate::after{content:"";position:absolute;inset:0;
-  background-image:linear-gradient(rgba(140,190,250,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(140,190,250,.16) 1px,transparent 1px);
+  background-image:linear-gradient(var(--grid-b) 1px,transparent 1px),linear-gradient(90deg,var(--grid-b) 1px,transparent 1px);
   background-size:170px 170px;mask-image:radial-gradient(560px 560px at 50% 50%,#000 45%,transparent 78%)}
 .svgwrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 svg.art{width:min(74%,540px);height:auto;overflow:visible}
@@ -38,12 +51,12 @@ svg.art{width:min(74%,540px);height:auto;overflow:visible}
 /* the G path draws on */
 .g{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;
   stroke-dasharray:389;stroke-dashoffset:389;
-  filter:drop-shadow(0 0 10px rgba(143,194,238,.35));
+  filter:drop-shadow(0 0 10px var(--glow-g));
   animation:draw var(--T) cubic-bezier(.65,0,.35,1) infinite}
-.nd{fill:var(--ink);filter:drop-shadow(0 0 6px rgba(143,194,238,.5))}
+.nd{fill:var(--ink);filter:drop-shadow(0 0 6px var(--glow-n))}
 /* traveling pen */
-.pen{fill:#BFE6FF;offset-path:path("M172,86 L120,60 L68,90 L62,150 L112,188 L170,168 L170,126 L126,126");animation:pen var(--T) cubic-bezier(.65,0,.35,1) infinite}
-.pen-halo{fill:#8FC2F0;opacity:.5;offset-path:path("M172,86 L120,60 L68,90 L62,150 L112,188 L170,168 L170,126 L126,126");animation:pen var(--T) cubic-bezier(.65,0,.35,1) infinite}
+.pen{fill:var(--pen);offset-path:path("M172,86 L120,60 L68,90 L62,150 L112,188 L170,168 L170,126 L126,126");animation:pen var(--T) cubic-bezier(.65,0,.35,1) infinite}
+.pen-halo{fill:var(--pen-halo);opacity:.5;offset-path:path("M172,86 L120,60 L68,90 L62,150 L112,188 L170,168 L170,126 L126,126");animation:pen var(--T) cubic-bezier(.65,0,.35,1) infinite}
 /* dimension callouts */
 .dim{stroke:var(--ann);stroke-width:1.3;opacity:0;animation:dim var(--T) linear infinite}
 .dimtxt{fill:var(--ann);font-family:'JetBrains Mono',monospace;font-size:11px;opacity:0;animation:dim var(--T) linear infinite}

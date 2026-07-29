@@ -901,6 +901,60 @@ html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
   --color-selected-bg:   color-mix(in srgb, var(--mint-600) 12%, transparent);
   --color-focus:         var(--mint-600);
 }
+/* System-first: under a light OS the family mappings resolve light on their
+   own — the light toggle then only matters on a dark OS. Mirrors the
+   :has(#opt-light) blocks above, the way tokens.css mirrors [data-theme]. */
+@media (prefers-color-scheme: light) {
+  html:has(#opt-family [value="cool"]:checked) {
+    --color-canvas:        var(--cool-25);
+    --color-surface:       var(--cool-0);
+    --color-surface-hover: var(--cool-50);
+    --color-well:          var(--cool-50);
+    --color-border:        var(--cool-200);
+    --color-border-strong: var(--cool-300);
+    --color-text:          var(--cool-900);
+    --color-text-muted:    var(--cool-500);
+    --color-action:        var(--azure-600);
+    --color-action-hover:  var(--azure-400);
+    --color-action-active: var(--azure-600);
+    --color-on-action:     var(--cool-0);
+    --color-selected-bg:   color-mix(in srgb, var(--azure-600) 12%, transparent);
+    --color-focus:         var(--azure-600);
+  }
+  html:has(#opt-family [value="mono"]:checked) {
+    --color-canvas:        var(--gray-25);
+    --color-surface:       var(--gray-0);
+    --color-surface-hover: var(--gray-50);
+    --color-well:          var(--gray-50);
+    --color-border:        var(--gray-200);
+    --color-border-strong: var(--gray-300);
+    --color-text:          var(--gray-900);
+    --color-text-muted:    var(--gray-500);
+    --color-action:        var(--ink-600);
+    --color-action-hover:  var(--ink-500);
+    --color-action-active: var(--ink-600);
+    --color-on-action:     var(--gray-0);
+    --color-selected-bg:   color-mix(in srgb, var(--ink-600) 12%, transparent);
+    --color-focus:         var(--ink-600);
+  }
+  html:has(#opt-family [value="goodness"]:checked) {
+    --color-canvas:        var(--navy-25);
+    --color-surface:       var(--navy-0);
+    --color-surface-hover: var(--navy-50);
+    --color-well:          var(--navy-50);
+    --color-border:        var(--navy-200);
+    --color-border-strong: var(--navy-300);
+    --color-text:          var(--navy-900);
+    --color-text-muted:    var(--navy-500);
+    --color-action:        var(--mint-600);
+    --color-action-hover:  var(--mint-500);
+    --color-action-active: var(--mint-600);
+    --color-on-action:     var(--navy-0);
+    --color-selected-bg:   color-mix(in srgb, var(--mint-600) 12%, transparent);
+    --color-focus:         var(--mint-600);
+  }
+}
+
 html:has(#opt-density [value="tight"]:checked) {
   --control-h: var(--control-h-tight);
   --row-pad-y: var(--space-1);
