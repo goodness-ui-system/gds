@@ -10,7 +10,7 @@
 <div class="wrap">
   <p class="eyebrow">The System · Components Catalog</p>
   <h1>Components catalog<span class="d">.</span></h1>
-  <p class="lede">Every atom, molecule, and organism in the system: what it is, its finite options, an example in the system’s idiom, and the reasoning behind each part. The specimen and the white paper render these; this is the specification.</p>
+  <p class="lede">Every atom, molecule, and organism in the system: what it is, its finite options, an example in the system's idiom, and the reasoning behind each part. The specimen and the white paper render these; this is the specification.</p>
 <p>The complete list of components in the UI Design System. One entry per component:
 what it is, its finite options, an example in the system's idiom (Jinja + BEM + HTMX),
 and notes on the Honest mapping. <code>specimen.html</code> renders the visual reference;
@@ -54,11 +54,41 @@ declared (<code>type</code>, <code>required</code>, <code>min</code>, <code>patt
 <p>Native <code>&lt;select&gt;</code>, restyled by tokens. Options: <code>default · invalid</code>. Multi-select
 is not a variant — it's the Chip-bar molecule fed by repeated params.</p>
 <h3>1.4 Checkbox / Radio</h3>
-<p>Native inputs, <code>accent-color: var(--color-action)</code>. Always wrapped in a <code>.choice</code>
-label for a full-size click target.</p>
+<p>Two drawing options are on display (whitepaper, Selection controls chapter;
+decision pending). Option A: native inputs, <code>accent-color: var(--color-action)</code>.
+Option B: custom-drawn (<code>.checkbox--drawn</code> / <code>.radio--drawn</code>, <code>appearance: none</code>,
+state drawn from semantic tokens — identical in every browser, styleable disabled
+and mixed states). Either way, always wrapped in a <code>.choice</code> label for a full-size
+click target ≥ <code>--target-min</code>.</p>
+<pre><code class="language-html">&lt;label class=&quot;choice&quot;&gt;&lt;input class=&quot;checkbox checkbox--drawn&quot; type=&quot;checkbox&quot;
+  name=&quot;notify&quot; checked&gt; Notify on change&lt;/label&gt;
+</code></pre>
+<p>The mixed state (a parent checkbox over a partly-selected set) is server-rendered as
+<code>class="checkbox--mixed"</code> — a visual state only. The platform's mixed flag is
+script-only, and <code>aria-checked</code> is forbidden on a native checkbox (ARIA in HTML;
+the native state wins and some readers double-announce), so where the mixed reading
+must reach assistive technology the control is a server-rendered select-all button,
+not a tri-state checkbox. Checkbox = deferred form data, submitted later. A checkbox
+group is the many-of-many control; a lone checkbox is the opt-in control. Submission
+contract: an unchecked checkbox submits nothing at all — the server treats an absent
+name as false, always; no hidden-input companions.</p>
 <h3>1.5 Switch</h3>
-<p>A styled checkbox for on/off settings (<code>.control-switch</code>). Use for immediate-effect
-toggles (a field's visibility); use Checkbox for form data submitted later.</p>
+<p>An on/off control whose effect applies immediately (<code>.switch</code>, a checkbox carrying
+<code>role="switch"</code> — the pattern the major component vendors converged on: current
+screen readers announce a true switch, and the failure mode is a correctly-stated
+checkbox — plus HTML's emerging native <code>switch</code> attribute for browsers that know
+it; the checked state stays native, never restated with <code>aria-checked</code>).
+Options: <code>md · sm</code>; label trailing, or the
+<code>.switch-row</code> settings-list presentation (title + description left, switch right).
+Never inside a form that ends in a Save button — that job belongs to Checkbox.
+The flip is one request with honest feedback: never move the thumb before the
+server confirms. State words inside the track are rejected (localization, and the
+state-vs-action ambiguity); a separate localizable state word beside the control
+is a permitted variant where research shows confusion.</p>
+<pre><code class="language-html">&lt;label class=&quot;switch&quot;&gt;&lt;input class=&quot;switch__track&quot; type=&quot;checkbox&quot; switch role=&quot;switch&quot;
+  name=&quot;visible&quot; value=&quot;status&quot; checked hx-post=&quot;/views/current/fields&quot;
+  hx-target=&quot;#table&quot;&gt; Auto-refresh&lt;/label&gt;
+</code></pre>
 <h3>1.6 Badge</h3>
 <p>Status at a glance: dot + label, hairline border, tinted field. Options: <code>neutral ·
 success · warning · danger · info · accent</code>.</p>
@@ -81,7 +111,75 @@ No icon fonts, no CDN, no second set.</p>
 fills a fragment target while <code>hx-trigger="load"</code> content arrives.</p>
 <h3>1.11 Kbd</h3>
 <p>Keyboard hint in mono (<code>⌘K</code>, <code>↵</code>) inside menus and the palette. Never decorative.</p>
+<h3>1.12 Segmented control (candidate)</h3>
+<p>One-of-few, every option visible, as adjacent buttons — a radio group in button
+clothing (<code>.segmented</code>: visually hidden radio inputs + styled labels, zero JS).
+For picking a value or a data scope (interval, filter facet), never for switching
+views — that is Tabs. Options: raised segment (neutral) or tinted accent
+(<code>.segmented--accent</code>); optional mono counts (<code>.segmented__count</code>); 2–5 segments.
+Keyboard note: arrow keys check radios as they move, so a request fires per arrow
+press — permitted only when the swap is an inline, non-context-changing update
+(a tile re-render, never navigation or focus loss); anything heavier gets an
+explicit Apply button per WCAG 3.2.2.</p>
+<pre><code class="language-html">&lt;div class=&quot;segmented&quot;&gt;
+  &lt;input class=&quot;segmented__input&quot; type=&quot;radio&quot; name=&quot;interval&quot; id=&quot;i-d&quot; checked
+         hx-get=&quot;/dash?interval=day&quot; hx-target=&quot;#tiles&quot; hx-push-url=&quot;true&quot;&gt;
+  &lt;label class=&quot;segmented__btn&quot; for=&quot;i-d&quot;&gt;Day&lt;/label&gt;
+  &lt;input class=&quot;segmented__input&quot; type=&quot;radio&quot; name=&quot;interval&quot; id=&quot;i-w&quot;
+         hx-get=&quot;/dash?interval=week&quot; hx-target=&quot;#tiles&quot; hx-push-url=&quot;true&quot;&gt;
+  &lt;label class=&quot;segmented__btn&quot; for=&quot;i-w&quot;&gt;Week&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>1.13 Toggle button (candidate)</h3>
+<p>A button that stays pressed (<code>.toggle-btn</code>, state = <code>aria-pressed</code>, server-rendered).
+For repeated-action states: watch/unwatch, formatting marks. Options: labeled;
+icon-only (<code>.toggle-btn--icon</code>, always with <code>aria-label</code>). The pressed state must
+survive grayscale — border + fill change together, never color alone. The label
+and icon never change with the state (stable name, state carries the answer);
+a name-flipping pair (start/stop) is a different control and takes no
+<code>aria-pressed</code> — never both at once.</p>
+<h3>1.14 Choice chip (candidate)</h3>
+<p>Many-of-many as compact pills (<code>.chip-choice</code>: hidden checkbox + pill face with a
+check mark when selected). The horizontal, space-tight form of the checkbox group —
+filter facets above a table. Distinct from Chip (1.7), which shows an applied value
+and removes; the choice chip toggles membership in place.</p>
+<h3>1.15 Option tile (candidate)</h3>
+<p>A radio dressed as a small card (<code>.option-tile</code>) for one-of-few choices that need a
+description line — a plan, a sync mode, a placement. The tile keeps a visible radio
+dot: without it, a bordered card does not read as a single choice in a group. One
+interactive element per tile — never a link or button nested inside the label.</p>
 <hr />
+<h3>1.16 Digits in columns (rule)</h3>
+<p>Any component presenting digits in columns — numeric table cells, count
+columns, meter and ratio number pairs, stacked deltas, pagination status —
+either uses the mono face (tabular by construction) or declares
+<code>font-variant-numeric: tabular-nums</code>. Single display numbers (a KPI headline,
+a ratio percent) keep proportional figures: the rule triggers on columns, not
+on numbers. Font contract, the palette contract's idea applied to type: a
+sans face qualifies for the system only if it ships a <code>tnum</code> feature with
+uniform-width alternates; <code>enforcement/check_figures.py</code> opens the shipped
+binaries and verifies — a face missing the step is a bug, not a preference.</p>
+<h3>1.17 Clearing the group (rule)</h3>
+<p>Deselecting K active options costs K clicks; the empty state must cost one.
+The device depends on the group's role:</p>
+<ul>
+<li>Filter group (empty means "everything"): a leading exclusive <code>All</code> option —
+  radio-like inside the checkbox group. Selecting All deselects every
+  specific; selecting a specific turns All off; deselecting the last specific
+  snaps All back on, so the group is never blank and the empty set is always
+  labeled.</li>
+<li>Any group with 2+ active options: a clear action (<code>.toggle-clear</code>) at the
+  group's end — the universal escape hatch.</li>
+<li>Form group (empty means "none chosen"): the exclusive "None of the above"
+  option where none is a legitimate answer; the clear action otherwise.
+  Never a fake All — a filter word has no place in data entry.</li>
+<li>Long lists (table selection, field pickers): the tri-state select-all
+  parent (1.4) and the hide-all arithmetic (§4.3).</li>
+</ul>
+<p>Refused: All as an ordinary member that can sit active beside specifics —
+"All + Documents" is unanswerable. Exclusivity is server logic: every press
+is one <code>hx-get</code> carrying the next parameter set; the server renders the next
+true state. Full record: the Selection Controls research note.</p>
 <h2>2 · Molecules</h2>
 <h3>2.1 Form field</h3>
 <p>Label + control + hint + error, stacked. Options: required marker; <code>invalid</code> state
@@ -186,7 +284,8 @@ day-to-day app, it isn't.</p>
 <p>One size per row, never mixed — a mixed row reads as a hierarchy nobody intended.</p>
 <h3>2.9 Pagination</h3>
 <p>Prev/next + mono status (<code>1–50 of 248</code>); <code>hx-get</code> + <code>hx-push-url</code> so every page is
-a bookmarkable URL. Server-side "load more" is the infinite-scroll variant.</p>
+a bookmarkable URL. Server-side "load more" is the infinite-scroll variant.
+One of three scroll models — see 3.12 for the full menu and the recommendation.</p>
 <h3>2.10 Breadcrumbs</h3>
 <p>Path context for deep hierarchies: <code>Workspaces / Templates / Reports</code>. Links all the
 way up; current item is plain text with <code>aria-current="page"</code>.</p>
@@ -288,6 +387,19 @@ of truth; every visit greets in System) vs. stored per user (a decision made
 once holds). May legitimately differ between public sites and signed-in
 applications. Evidence and named prior art: research/theme-control.md.</p>
 <hr />
+<h3>2.16 Popover height — fill, then scroll (rule)</h3>
+<p>Any popover opened from a control — the dropdown menu (2.3), the view panel
+(4.1–4.2), the sort list, the group menu, the field visibility panel (4.3) —
+sizes itself to its content and grows downward until it stops one gutter
+short of the window's bottom edge (<code>--popover-gutter</code>, ≈100px); only past
+that point does its list scroll internally. A taller window shows more
+items with no scrolling; a short window scrolls sooner; no popover caps
+itself at an arbitrary item count while the screen below it sits empty.
+Where the space beneath the anchor is too shallow, the box opens upward
+under the same gutter. Implementation: <code>max-height</code> from the viewport
+height minus the anchor's offset and the gutter; pinned parts (a pane
+title, bulk actions) stay put while the list scrolls. Exception: the
+command palette (3.10) sizes from the center of the screen by its own rule.</p>
 <h2>3 · Organisms</h2>
 <h3>3.0 Section &amp; separator — the default layout unit</h3>
 <p>The default layout unit for working screens: full-bleed rectangular sections that
@@ -311,13 +423,41 @@ section (sunken content like code or logs).</p>
 <p>The adjacent-sibling selector <em>is</em> the principle: the separator belongs to the pair,
 not to either section. No margins between sections; rhythm comes from internal
 padding (<code>--space-4/5</code>), not gaps.</p>
+<p><strong>The air rule (R11).</strong> Everywhere outside a fused section-stack, the opposite
+law applies: nothing begins flush against the end of the block before it. Any
+element that opens a new block after another block — a paragraph after a demo
+frame, a label after a table, a panel after a paragraph — carries vertical air
+above it: base rhythm <code>var(--space-4)</code>, and <code>var(--space-6)</code> for a label that
+opens a group. The only sanctioned tight pairs are a caption with the object
+it captions (label, heading, legend) and a component's own internal anatomy.
+The rule is enforced by rendering, not by trust: <code>enforcement/check_rhythm.mjs</code>
+measures every adjacent pair on every page and fails on any flush pair.</p>
 <h3>3.1 App shell</h3>
 <p>Sidebar + topbar + main. Options: sidebar expanded/collapsed (a <code>preferences</code>
 row); active item via <code>aria-current="page"</code> from the request path; <code>hx-boost</code> for
 instant transitions.</p>
 <h3>3.2 Sidebar nav</h3>
-<p>Sections (uppercase xs labels), items with optional mono counts, collapsible groups
-(<code>&lt;details&gt;</code>), active state in <code>--color-selected-bg</code>.</p>
+<p>Anatomy options on display (whitepaper, Navigation chapter; decision pending):</p>
+<ul>
+<li>Group label: uppercase eyebrow (<code>.sidenav__section</code>) · sentence case
+  (<code>.sidenav__section--sentence</code>). Static text, never a link.</li>
+<li>Item casing: title case · sentence case — one is chosen per application,
+  never mixed.</li>
+<li>Icons: none · small (<code>.sidenav__icon</code>, 1rem — matches the text) · large
+  (<code>.sidenav--icons-lg</code>, 1.25rem — leads the row). All-or-none per menu;
+  Lucide only; the word is always present.</li>
+<li>Active item: tinted pill (default) · solid ink pill (<code>.sidenav--active-solid</code>)
+  · left accent bar (<code>.sidenav--active-bar</code>). Never color alone.</li>
+<li>Separators: titled group when the group has a name; bare hairline
+  (<code>.sidenav__divider</code>) when it does not; never both between the same neighbors.</li>
+<li>Submenus: always-open with connector line (<code>.sidenav__item--sub</code>) ·
+  collapsible native <code>&lt;details&gt;</code> group (<code>.sidenav__group</code> +
+  <code>.sidenav__group-summary</code>, chevron right→down, zero JS; server renders
+  frequent groups <code>open</code>) · second column (<code>.sidenav--secondary</code>) when a parent
+  has dozens of children — the drill-in. One level of nesting; a parent either
+  navigates or toggles, never both.</li>
+<li>Items may carry mono counts (<code>.sidenav__count</code>).</li>
+</ul>
 <p>Not a card: the sidebar is a flat rail sitting directly on the page background,
 separated from the content by a single vertical hairline — the sections-not-cards
 rule turned sideways. No box, no rounded border, no fill behind the rail; the only
@@ -330,6 +470,42 @@ business applications burn sidebar space fast, and the reference tools run their
 sidebars at roughly 32–36px of row pitch. The floor is <code>--target-min</code> (24px);
 tight density tightens one step further. Applies to sidebar items, dropdown
 and view menus, panel rows, and palette items alike.</p>
+<p>Utility controls — a finite option set. Real deployments grow shell
+conveniences; without a catalog entry they live as per-application forks,
+exactly what the system exists to prevent. An application adopts any subset
+of <code>hide/peek · move-side · collapse-all/expand-all · resize</code> and invents
+nothing beyond it:</p>
+<ul>
+<li>Hide / pin — three states, two of them stored. Pinned (default): the rail
+  occupies its column. Click: the rail disappears entirely, content takes the
+  full width, the stored preference becomes hidden. While hidden, the screen's
+  left edge peeks the rail back as a temporary overlay (pure CSS, <code>:hover</code> on
+  a fixed edge zone) — leaving lets it slide away, and peeking never changes
+  the stored state. Clicking the same control while peeked re-pins the rail.
+  The peek is the recovery path: the button is never unreachable. Only the
+  two clicks touch the server — one preference flip each.</li>
+<li>Move side — the whole rail, with its second column when open, mirrors to
+  the other screen edge.</li>
+<li>Collapse all / expand all — two stateless chevrons acting on every nav
+  group at once (the native <code>&lt;details&gt;</code> groups, acted on server-side).</li>
+<li>Resize — a drag handle on the rail edge; double-click resets the default
+  width. The one control that must capture live DOM state (the dragged
+  width): domx territory, posting the final value — never hand-written JS.</li>
+</ul>
+<p>Placement: one controls row directly under the brand slot — icon-only
+buttons at muted color, targets ≥ <code>--target-min</code>, every button with an
+<code>aria-label</code> and tooltip. Icon-only is permitted here: a small fixed set of
+universal symbols used once, not repeated per row (consistent with the
+row-actions repetition rule, §3.4). Collapse-all / expand-all sit at the
+row's end so they align vertically with the per-group chevrons they command
+— the lever sits over the thing it moves. Keyboard: every control tabbable;
+the resize handle is a button (arrow keys nudge by one spacing step, Home
+resets) so the pointer drag is never the sole path. Persistence: a
+<code>preferences</code> row rendered server-side — the shell arrives with
+<code>data-menu="hidden"</code> / <code>data-menu-side="right"</code> / the width already applied,
+never flashing into place. Client storage is the named anti-pattern: it is
+client state, and it desynchronizes across devices. A fifth control enters
+by the standard workflow (AGENTS.md §11), never as a private feature.</p>
 <h3>3.3 Dashboard grid</h3>
 <p>User-composed widget grid. Layout is a <code>views</code> row (<code>{"tiles":[{"w":…}]}</code>); each
 tile is a fragment loaded with <code>hx-get hx-trigger="load"</code>; add/remove/rearrange
@@ -339,6 +515,18 @@ posts the new layout. Ships with a designed Empty state.</p>
 columns · selectable rows · numeric mono columns · row actions (ghost ⋯ menu) ·
 footer with Pagination. Server-sorted, server-filtered; rows are <code>_row.html</code>
 fragments.</p>
+<p>Row delimitation — how the eye crosses a wide table. Hairlines
+(<code>border-bottom</code> per row) and the hover lane are the resting default on every
+table. The quiet stripe (<code>.data-table--zebra</code>) is the sanctioned variant for
+wide, flat, dense grids: even rows take <code>--color-row-alt</code>, a half-step
+between canvas and surface derived from the ground aliases (defined once,
+re-solves in every theme and family), decorative only, never meaning. The
+background ladder is strict — stripe &lt; hover &lt; selected — enforced by
+exclusion in the selector. Wide grids additionally pin the identity column
+(<code>.data-table--pin-first</code>, sticky first column). Whitespace-only
+(<code>.data-table--airy</code>) is a narrow-table nicety. Grouped tables always skip
+the stripe: group headers already band the table, and stripe parity restarts
+at each break. Full record and citations: the Table Rows research note.</p>
 <pre><code class="language-html">&lt;th&gt;&lt;a class=&quot;data-table__sort data-table__sort--active&quot;
        href=&quot;?sort=name&amp;dir=desc&quot; hx-get=&quot;/accounts?sort=name&amp;dir=desc&quot;
        hx-target=&quot;#table&quot; hx-push-url=&quot;true&quot;&gt;Account ▲&lt;/a&gt;&lt;/th&gt;
@@ -373,9 +561,39 @@ there. The reconciliation is a frequency budget, and it is the rule:</p>
 <p>All four states are rendered in the specimen (options A–C plus the rejected
 anti-pattern). Evidence and sources: research/row-actions.md.</p>
 <h3>3.5 Table toolbar</h3>
-<p>The table's control strip: Search field · Chip-bar · view controls (Fields, Filter,
-Group, Sort, Row height — see §4) · primary action. Everything in it mutates the
-same URL-backed view state.</p>
+<p>The table's control strip and the view's cockpit. Left to right: Search field ·
+Chip-bar (applied filters) · the five view controls · primary action. Everything
+mutates the same URL-backed view state, and each control wears its active count
+at rest (<code>Filter · 2</code>), so the view's configuration is readable without opening
+anything; a control with nothing active shows its bare name.</p>
+<p>The elements, and what a click opens:</p>
+<ul>
+<li>View button — first in the row, the one control whose resting label
+  changes: <code>View ▾</code> before any view exists, the view's name once one is
+  selected (the control states which view, as every neighbor states its
+  count). Click opens the view panel (4.1–4.2): one popover, two panes,
+  one shared hairline.</li>
+<li>Hide fields → the field visibility panel (4.3): one switch per field,
+  show-all/hide-all first (the thirty-fields-three-wanted arithmetic).
+  State-honest label: <code>Hide fields</code> while nothing is hidden; <code>Hidden
+  fields · N</code> once N are — the count names what is already hidden, and
+  an action verb beside it would misread as an instruction.</li>
+<li>Filter → the filter builder (4.4): condition rows, add-condition,
+  add-group.</li>
+<li>Group → the group menu: one grouping field + direction. Group headers band
+  the table — which is why grouped tables skip the zebra stripe (3.4).</li>
+<li>Sort → the ordered sort list: several sorts stacked, direction per field.</li>
+<li>Row height → the compact-to-roomy control: the three density steps
+  (tight · normal · loose) applied per view (§4.7) — one crowded review view
+  packs rows while a presentation view breathes; stored like every other
+  part of the view.</li>
+</ul>
+<p>Deliberately absent: a color button. Painting rows from the toolbar puts
+meaning into decoration; meaning belongs to the semantic colors — badges,
+marks, and a rule the view declares in its description line (see the
+brand-vs-meaning chapter). Order rule: the five controls keep this order in
+every application; a sixth control enters by the standard workflow
+(AGENTS.md §11), never ad hoc.</p>
 <h3>3.6 Table editing vs. form editing — the options catalog</h3>
 <p>Where should a value change: in the table cell itself, or in the record form the
 row opens? Every option is on display in the specimen, pending selection; a real
@@ -486,6 +704,23 @@ navigable. The only element (with menus/dialogs) casting <code>--shadow-overlay<
 <h3>3.11 Empty state</h3>
 <p>First-run teacher: icon, title, one sentence, one primary action. Every list,
 table, and dashboard has one designed — never a bare "No results."</p>
+<h3>3.12 Table scroll — how the table meets the bottom of the screen</h3>
+<p>Three models, all in the catalog; the choice is by task, not by taste.</p>
+<ul>
+<li><strong>Pages</strong> — fixed row count, prev/next footer. The only model with a stable
+  address (bookmarkable, back-button-safe) and bounded server work. Right when
+  position in the set is part of the task; wrong as the working-grid default.</li>
+<li><strong>Scrolling page</strong> — the document grows; rows arrive as the scroll nears the
+  end (<code>hx-trigger="revealed"</code> on a sentinel row, degrading to a "more" link).
+  <strong>Rule: nothing may sit at the bottom of the screen.</strong> The bottom edge
+  belongs to the last visible row; selected count, bulk actions, and summary
+  all move above the table, and the toolbar states the true total.</li>
+<li><strong>Contained scroll (recommended)</strong> — the grid's box fills the viewport
+  height and rows scroll inside it; sticky column header at the box top;
+  toolbar above and bulk bar + summary below never move; no next button.
+  One demand: the shell hands the grid its height exactly — a page that
+  scrolls and a grid that scrolls is the double-scrollbar trap.</li>
+</ul>
 <h2>4 · The View System</h2>
 <p>Best-of-breed reference: the leading spreadsheet-database platforms, studied from
 their live UIs and documentation. What makes them the benchmark: <em>every</em> aspect of a table's presentation (visible
@@ -495,11 +730,15 @@ even travel in a URL. That model maps one-to-one onto DATAOS: a view is a row �
 <code>views(id, resource, owner_id, name, kind, is_personal, config JSONB)</code> — the URL
 carries the live overrides, and the server renders the result. Below, each
 component of the family; together they land in the Table toolbar and view sidebar.</p>
-<h3>4.1 View switcher</h3>
-<p>The benchmark pattern: create new, find-a-view search, typed icons per view kind,
-the named-view list, active highlighted.
+<h3>4.1 View panel — pane one: every view</h3>
+<p>The View button (first in the toolbar, 3.5) opens one popover of two panes
+sharing one vertical hairline — the pane law applied to a menu. Pane one is
+every view: create new, find-a-view search, typed icons per view kind, the
+named-view list with the current view highlighted.
 Options: view kinds (<code>table</code> now; <code>dashboard</code>, others later) · find-a-view
-(typeahead over view names) · create new · personal section vs shared section.</p>
+(typeahead over view names) · create new · personal section vs shared section.
+The pane fills the window before it scrolls (2.16); on narrow screens the
+two panes stack.</p>
 <pre><code class="language-html">&lt;nav class=&quot;view-switcher&quot;&gt;
   &lt;button class=&quot;view-switcher__new&quot; hx-post=&quot;/views?resource=accounts&quot;&gt;+ Create new…&lt;/button&gt;
   &lt;input class=&quot;input&quot; type=&quot;search&quot; placeholder=&quot;Find a view&quot;
@@ -512,9 +751,13 @@ Options: view kinds (<code>table</code> now; <code>dashboard</code>, others late
   &lt;/div&gt;
 &lt;/nav&gt;
 </code></pre>
-<h3>4.2 View menu</h3>
-<p>Per-view management: rename, edit description, duplicate, copy
-another view's configuration, export CSV, delete. Plus the ownership levels
+<h3>4.2 View panel — pane two: this view</h3>
+<p>Per-view management, as the second pane of the same popover: rename, edit
+description, duplicate, copy another view's configuration, export CSV, delete
+(last, danger color, divider above — the consequential-action rule). The pane
+is titled with the current view's name so its target is never ambiguous, and
+it acts on the current view only — acting on another view means switching to
+it first; no per-row menus in pane one. Plus the ownership levels
 worth adopting outright: <em>collaborative</em> (team-editable), <em>personal</em> (only the
 owner edits its config), <em>locked</em> (config frozen — audit-friendly).
 Options: the seven actions above · ownership level · view description.
@@ -628,7 +871,39 @@ Copy the address bar and a colleague sees exactly your screen (their permissions
 permitting). The benchmark platforms document this as a feature; here it falls out of
 <code>hx-push-url</code> discipline.</p>
 <hr />
-<h2>5 · Gaps found &amp; suggestions</h2>
+<h2>5 · App branding</h2>
+<p>The identity kit every application decides once at creation (whitepaper, App
+branding chapter; options on display, decision pending). Not the system's
+branding — the application's.</p>
+<h3>5.1 Brand slot</h3>
+<p>The mark in the top-left of the rail: a small square beside the application
+name, optional product-area line under it, closed by the rail's own hairline
+(<code>.brand-slot</code>, <code>.brandmark</code>). Mark options: ink (<code>.brandmark</code> — theme text on
+theme canvas, self-inverting) · accent (<code>.brandmark--accent</code>). A drawn logo,
+when one exists, replaces the letter in the same slot.</p>
+<h3>5.2 The two-grounds test</h3>
+<p>Every mark ships verified on both grounds — one ink on dark, one ink on light.
+The letter-mark passes by construction (its colors are semantic tokens); a
+drawn replacement must pass the same check before shipping.</p>
+<h3>5.3 Favicon</h3>
+<p>Default: first letter of the brand name on a rounded square. One vector icon
+file carrying both renderings (it follows the device's dark/light preference),
+plus fixed-size fallbacks: 16 · 32 · 48 (tabs, taskbars) · 180 (touch icon)
+· 192/512 (web-app manifest). The letter must stay readable at 16px — the
+reason the default is a letter, not a word. Self-hosted, like every asset.</p>
+<p><strong>Rule — the favicon follows the system, never the app.</strong> The favicon lives
+in the browser tab, and the tab is painted by the operating system's theme,
+not the application's. An application switched to dark on a light desktop
+still sits in a light tab bar — an icon keyed to the in-app theme would
+vanish against the chrome it actually lives in. The vector icon keys its two
+renderings to the system preference alone (<code>prefers-color-scheme</code> inside the
+SVG); the application's own theme switch must never touch it. Binding the
+favicon to the in-app theme is a defect.</p>
+<h3>5.4 Avatar</h3>
+<p>The 512px square as the application's identity on external platforms, shipped
+in both grounds (ink and inverse); which one is uploaded where stays a human
+decision — the kit guarantees both exist and match.</p>
+<h2>6 · Gaps found &amp; suggestions</h2>
 <p>Studying the benchmark tools surfaced elements the system did not yet name — added above:
 Detail panel (3.8), Bulk-actions bar (3.9), Breadcrumbs (2.10), Dialog (2.11),
 Toast (2.5), Chip-bar (2.12), and the whole §4 family including Color rules,
@@ -655,8 +930,27 @@ Summary row, and view ownership levels.</p>
 <li>CSV import — the reverse of View menu → export; column-mapping UI on a
    staged upload.</li>
 </ol>
-<p>Each of these enters the system the standard way (AGENTS.md §10): scenario first,
+<p>Each of these enters the system the standard way (AGENTS.md §11): scenario first,
 matrix row here, rendering in the specimen, lint clean.</p>
+<p>Recorded from the first production adoption audit (accepted as candidates,
+not yet argued in full):</p>
+<ul>
+<li>A wordmark variant for the brand slot (§5.1): a type-only brand — a live-text
+  wordmark in a display face used nowhere else — occupying the slot, closed by
+  the same hairline. The wordmark face is a brand asset (exempt from the UI
+  face rule) but its inks must still be the semantic text/canvas pair, so the
+  two-grounds test passes by construction.</li>
+<li>An orphan-token lint: every token defined in <code>tokens.css</code> must be consumed
+  by <code>ui.css</code> or a component file, or carry an explicit <code>reserved:</code> comment.
+  Exit 1 on any orphan — the audit found a dead token consumed by nothing for
+  two years while the documentation still described it as rendering.</li>
+<li>A density-control spec (§2.16): the user-facing control for application-wide
+  density — a twin of the appearance control (§2.15), three labeled options,
+  the active one checked, stored per user, no System row.</li>
+<li>A casing lint for navigation: §3.2 rules one casing per application; a
+  pure-function classifier over rendered nav labels (title case vs sentence
+  case, fail on mixture) moves the rule from prose to machinery.</li>
+</ul>
 </div>
 </body>
 </html>

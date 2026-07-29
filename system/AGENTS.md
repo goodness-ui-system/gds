@@ -315,6 +315,10 @@ the Honest enforcement stack:
   lint cannot see rendered geometry, so this check renders every page and
   measures every adjacent sibling pair. Run: `node enforcement/check_rhythm.mjs`
   (Playwright; exit 1 on any flush pair).
+- `enforcement/render_catalog.py` — the catalog page renderer. The site's
+  Components Catalog page is generated from `components.md`, never edited by
+  hand; run after any catalog change so the rendering cannot drift from the
+  specification. Run: `python3 enforcement/render_catalog.py`.
 - `enforcement/design-enforcement.feature` — the same rules as Gherkin scenarios;
   binds to pytest-bdd step definitions at app integration and runs in CI.
 - `specimen.html` is the living conformance proof — it renders the entire system and

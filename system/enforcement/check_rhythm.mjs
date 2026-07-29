@@ -101,6 +101,8 @@ const walk = (minGap) => {
     }
     const es = getComputedStyle(el);
     if (es.position === "absolute" || es.position === "fixed") continue;
+    // inline-level elements are text flow wrapping across lines, not blocks
+    if (es.display.startsWith("inline") || getComputedStyle(prev).display.startsWith("inline")) continue;
     // vertically stacked with horizontal overlap
     if (b.top < a.bottom - 2) continue;
     if (Math.min(a.right, b.right) - Math.max(a.left, b.left) <= 0) continue;
