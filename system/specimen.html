@@ -296,6 +296,30 @@
       <label class="option-tile"><input class="option-tile__input" type="radio" name="tier"><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Extended</span><span class="option-tile__desc">Hourly sync, 1-year history.</span></span></span></label>
       <label class="option-tile"><input class="option-tile__input" type="radio" name="tier"><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Audit</span><span class="option-tile__desc">Continuous sync, full history.</span></span></span></label>
     </div>
+    <div class="specimen__label">Clearing the group — filter role, the exclusive All: resting state, the empty set labeled</div>
+    <div class="specimen__row">
+      <button class="toggle-btn" type="button" aria-pressed="true">All</button>
+      <button class="toggle-btn" type="button" aria-pressed="false">Documents</button>
+      <button class="toggle-btn" type="button" aria-pressed="false">Images</button>
+      <button class="toggle-btn" type="button" aria-pressed="false">Video</button>
+    </div>
+
+    <div class="specimen__label">Two specifics active — All off; the clear action appears at the group's end</div>
+    <div class="specimen__row">
+      <button class="toggle-btn" type="button" aria-pressed="false">All</button>
+      <button class="toggle-btn" type="button" aria-pressed="true">Documents</button>
+      <button class="toggle-btn" type="button" aria-pressed="true">Images</button>
+      <button class="toggle-btn" type="button" aria-pressed="false">Video</button>
+      <button class="toggle-clear" type="button">✕ Clear</button>
+    </div>
+
+    <div class="specimen__label">Form role — none is a real answer: the exclusive last option</div>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" name="contact" checked> Email</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" name="contact"> Phone</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" name="contact"> Post</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" name="contact-none"> None of the above</label>
+    </div>
   </section>
 
   <!-- ================= STATUS ================= -->

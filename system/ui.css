@@ -305,6 +305,9 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 .toggle-btn:hover { background: var(--color-surface-hover); color: var(--color-text); }
 .toggle-btn[aria-pressed="true"] { background: var(--color-selected-bg); border-color: var(--color-action); color: var(--color-action); }
 .toggle-btn--icon { width: var(--control-h); padding: 0; }
+/* group clearing (§1.17): the clear action beside a multi-active group */
+.toggle-clear { display: inline-flex; align-items: center; gap: var(--space-1); border: none; background: none; color: var(--color-text-muted); font-size: var(--text-sm); cursor: pointer; padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm); }
+.toggle-clear:hover { color: var(--color-text); background: var(--color-surface-hover); }
 
 /* choice chip — many-of-many as compact pills; a checkbox group in chip clothing */
 .chip-choice { display: inline-flex; cursor: pointer; }

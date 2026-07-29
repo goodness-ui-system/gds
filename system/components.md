@@ -177,6 +177,28 @@ sans face qualifies for the system only if it ships a `tnum` feature with
 uniform-width alternates; `enforcement/check_figures.py` opens the shipped
 binaries and verifies — a face missing the step is a bug, not a preference.
 
+### 1.17 Clearing the group (rule)
+Deselecting K active options costs K clicks; the empty state must cost one.
+The device depends on the group's role:
+
+- Filter group (empty means "everything"): a leading exclusive `All` option —
+  radio-like inside the checkbox group. Selecting All deselects every
+  specific; selecting a specific turns All off; deselecting the last specific
+  snaps All back on, so the group is never blank and the empty set is always
+  labeled.
+- Any group with 2+ active options: a clear action (`.toggle-clear`) at the
+  group's end — the universal escape hatch.
+- Form group (empty means "none chosen"): the exclusive "None of the above"
+  option where none is a legitimate answer; the clear action otherwise.
+  Never a fake All — a filter word has no place in data entry.
+- Long lists (table selection, field pickers): the tri-state select-all
+  parent (1.4) and the hide-all arithmetic (§4.3).
+
+Refused: All as an ordinary member that can sit active beside specifics —
+"All + Documents" is unanswerable. Exclusivity is server logic: every press
+is one `hx-get` carrying the next parameter set; the server renders the next
+true state. Full record: the Selection Controls research note.
+
 ## 2 · Molecules
 
 ### 2.1 Form field

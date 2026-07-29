@@ -415,6 +415,40 @@ immediacy rule for switches itself — nine authorities state it, none cites a
 controlled study. Convention this strong is still worth adopting; it should
 just be documented as convention, which this note does.
 
+## Clearing the group
+
+A many-of-many group has a cost the family's catalog did not price: undoing.
+Deselecting K active options costs K clicks, and the empty state is reachable
+only by hunting each option down. The filter-usability record treats this as
+a real defect — Baymard's e-commerce testing keeps finding that users need an
+obvious way to reset applied filters and abandon interfaces where clearing is
+manual labor, and Nielsen Norman Group's applied-filters guidance makes the
+same demand: visible current state, one-gesture removal.
+
+The remedy splits by the group's role. In a filter group, the empty set
+already means "everything" — so the group gains a leading exclusive All
+option, radio-like inside the checkbox group: selecting All deselects every
+specific in one click, selecting any specific turns All off, and deselecting
+the last specific snaps All back on, so the group is never blank and the
+empty set is always labeled. This is the filter-chip convention across the
+major platforms, and its form-side twin is documented research: GOV.UK's
+checkboxes guidance ships the "None of the above" exclusive option for
+exactly the same reason — a group whose none-state must be an explicit,
+one-click answer. In a form group, where empty means "none chosen" rather
+than "everything", the exclusive none option is the honest device where none
+is a legitimate answer; a clear action covers the rest. And any group with
+two or more active options exposes a clear action at its end — the universal
+escape hatch. The long-list case (a table's selection column, a field
+picker) already has its device: the tri-state select-all parent, with the
+field panel's hide-all arithmetic as the reasoning on record.
+
+One shape is rejected: All as an ordinary member that can sit active beside
+specifics. "All + Documents" is unanswerable — everything, or just these? —
+and every surveyed implementation makes the exclusivity strict. On a
+zero-script stack the exclusivity is server logic by construction: each
+press is one request carrying the next parameter set, and the server renders
+the next true state.
+
 ## What this system takes from it
 
 The white paper's Selection controls chapter renders the candidates and
@@ -429,6 +463,9 @@ arrow-key caveat; the toggle button keeps a stable name; chips and tiles are
 real inputs under styled faces; the mixed checkbox is visual-only with the
 select-all button as the honest alternative; and the select stays the control
 of last resort for one-of-many, with its multiple variant banned outright.
+Group clearing is role-driven: filters get the leading exclusive All, forms
+get the exclusive none where none is an answer, any group with two or more
+active options gets a clear action, and All-beside-specifics is refused.
 
 ## Sources
 

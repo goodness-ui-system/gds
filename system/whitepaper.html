@@ -364,9 +364,35 @@
       <label class="option-tile"><input class="option-tile__input" type="radio" name="tier"><span class="option-tile__face"><span class="option-tile__dot"></span><span><span class="option-tile__title">Audit</span><span class="option-tile__desc">Continuous sync, full history.</span></span></span></label>
     </div>
 
+    <p class="wp-prose">One gap in the family shows up the first time a reader tries to undo a multi-selection. Three options active means three clicks to deselect — the cost of clearing grows with the mistake — and the empty state is reachable only by hunting down each active option one by one. The published filter research treats that as a defect, not a nuisance: readers need a one-gesture way back to zero, and the remedy depends on the group's role. A filter group gains a leading exclusive All option. It behaves radio-like inside the checkbox group: selecting All deselects every specific option in one click; selecting any specific option turns All off; and deselecting the last specific option snaps All back on, so the group is never blank — in a filter the empty set already means everything, and All makes that state visible, labeled, and one click away. The exclusivity is server logic, free on this stack: every press is one request carrying the next parameter set, and the server renders the next true state, so the group cannot lie.</p>
+    <div class="specimen__label">Clearing the group — filter role, the exclusive All: resting state, the empty set labeled</div>
+    <div class="specimen__row">
+      <button class="toggle-btn" type="button" aria-pressed="true">All</button>
+      <button class="toggle-btn" type="button" aria-pressed="false">Documents</button>
+      <button class="toggle-btn" type="button" aria-pressed="false">Images</button>
+      <button class="toggle-btn" type="button" aria-pressed="false">Video</button>
+    </div>
+
+    <div class="specimen__label">Two specifics active — All off; the clear action appears at the group's end</div>
+    <div class="specimen__row">
+      <button class="toggle-btn" type="button" aria-pressed="false">All</button>
+      <button class="toggle-btn" type="button" aria-pressed="true">Documents</button>
+      <button class="toggle-btn" type="button" aria-pressed="true">Images</button>
+      <button class="toggle-btn" type="button" aria-pressed="false">Video</button>
+      <button class="toggle-clear" type="button">✕ Clear</button>
+    </div>
+
+    <div class="specimen__label">Form role — none is a real answer: the exclusive last option</div>
+    <div class="specimen__row">
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" name="contact" checked> Email</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" name="contact"> Phone</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" name="contact"> Post</label>
+      <label class="choice"><input class="checkbox checkbox--drawn" type="checkbox" name="contact-none"> None of the above</label>
+    </div>
+    <p class="wp-prose">Two companions complete the rule. When two or more specifics are active, a clear action appears at the group's end — the universal escape hatch, and the device the e-commerce filter testing found readers actually look for. And a form group is a different animal: there the empty set means none chosen, not everything, so the honest device is the exclusive none-of-the-above option where none is a legitimate answer — the pattern the government systems researched into their checkbox guidance — or the clear action otherwise. One shape is refused outright: All as an ordinary option that can sit active beside specifics. Active All plus active specifics is unanswerable — everything, or just these? — and every system that ships the pattern makes the exclusivity strict.</p>
     <p class="wp-prose">The whole family folds into one decision path. On/off that acts now: switch. On/off collected by a form: checkbox. One of up to about five, in a form: radios, stacked; in a toolbar: a segmented control. One of many: the dropdown select, the control of last resort once options stop fitting on screen. Many of a set, in a form: a checkbox list; above a table: choice chips. A choice whose options need explaining: option tiles. An action that stays on: a toggle button. Recommendation: adopt the family with this decision path, and pick one drawing option — native or drawn — for checkbox and radio rather than shipping both.</p>
     <div class="wp-status"><span class="badge badge--info"><span class="badge__dot"></span> Options on display — decision pending</span></div>
-    <div class="wp-sources">Sources: W3C ARIA Authoring Practices (checkbox, radio group, switch, button patterns) · WCAG 2.2 (non-text contrast, target size, on-input) · Nielsen Norman Group, toggle-switch and radio-default guidelines · GOV.UK Design System radios, checkboxes, select and the none-checkbox research · Microsoft WinUI ("checkbox is for status, switch is for action") · Apple Human Interface Guidelines, toggles and segmented controls · IBM Carbon toggle and data-table selection · WebKit, "An HTML Switch Control" · Adrian Roselli, "Switch Role Support" · Sarah Higley, "Playing with state" · Sara Soueidan, one-checkbox-or-two-radios · full record: research/selection-controls.md</div>
+    <div class="wp-sources">Sources: W3C ARIA Authoring Practices (checkbox, radio group, switch, button patterns) · WCAG 2.2 (non-text contrast, target size, on-input) · Nielsen Norman Group, toggle-switch and radio-default guidelines · GOV.UK Design System radios, checkboxes, select and the none-checkbox (exclusive option) research · Baymard Institute, filter clearing and reset · Nielsen Norman Group, applied-filters visibility · Microsoft WinUI ("checkbox is for status, switch is for action") · Apple Human Interface Guidelines, toggles and segmented controls · IBM Carbon toggle and data-table selection · WebKit, "An HTML Switch Control" · Adrian Roselli, "Switch Role Support" · Sarah Higley, "Playing with state" · Sara Soueidan, one-checkbox-or-two-radios · full record: research/selection-controls.md</div>
   </section>
 
   <section class="specimen__section" id="status">
