@@ -284,7 +284,14 @@ Boundary rules: one row never mixes jobs; nesting in one order only (a scope
 row may sit inside a section, never the reverse); the segmented control
 (1.12) re-renders the same panel with a different parameter, tabs change
 which thing is on screen; steps with an order are a workflow (3.7), never
-tabs.
+tabs. Across an application the two jobs coexist freely — a list page
+scopes, a record page sections — under two conditions: one solution per
+page type (every list page scopes the same way, every record page sections
+the same way — never the same kind of page solving the same problem two
+ways), and when both rows share a page they never sit adjacent: section
+tabs on the page's top boundary, the scope row down inside its section
+above the list, content between them, so a reader always knows which level
+a click switches.
 ```html
 <nav class="tabs" aria-label="List scopes">
   <a class="tabs__tab" aria-current="page" href="?scope=all">All <span class="tabs__count">248</span></a>
