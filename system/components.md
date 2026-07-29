@@ -413,6 +413,20 @@ applications. Evidence and named prior art: research/theme-control.md.
 
 ---
 
+### 2.16 Popover height — fill, then scroll (rule)
+Any popover opened from a control — the dropdown menu (2.3), the view panel
+(4.1–4.2), the sort list, the group menu, the field visibility panel (4.3) —
+sizes itself to its content and grows downward until it stops one gutter
+short of the window's bottom edge (`--popover-gutter`, ≈100px); only past
+that point does its list scroll internally. A taller window shows more
+items with no scrolling; a short window scrolls sooner; no popover caps
+itself at an arbitrary item count while the screen below it sits empty.
+Where the space beneath the anchor is too shallow, the box opens upward
+under the same gutter. Implementation: `max-height` from the viewport
+height minus the anchor's offset and the gutter; pinned parts (a pane
+title, bulk actions) stay put while the list scrolls. Exception: the
+command palette (3.10) sizes from the center of the screen by its own rule.
+
 ## 3 · Organisms
 ### 3.0 Section & separator — the default layout unit
 The default layout unit for working screens: full-bleed rectangular sections that
@@ -603,6 +617,9 @@ The elements, and what a click opens:
   one shared hairline.
 - Hide fields → the field visibility panel (4.3): one switch per field,
   show-all/hide-all first (the thirty-fields-three-wanted arithmetic).
+  State-honest label: `Hide fields` while nothing is hidden; `Hidden
+  fields · N` once N are — the count names what is already hidden, and
+  an action verb beside it would misread as an instruction.
 - Filter → the filter builder (4.4): condition rows, add-condition,
   add-group.
 - Group → the group menu: one grouping field + direction. Group headers band
@@ -779,8 +796,8 @@ every view: create new, find-a-view search, typed icons per view kind, the
 named-view list with the current view highlighted.
 Options: view kinds (`table` now; `dashboard`, others later) · find-a-view
 (typeahead over view names) · create new · personal section vs shared section.
-The list scrolls internally past about six views; on narrow screens the two
-panes stack.
+The pane fills the window before it scrolls (2.16); on narrow screens the
+two panes stack.
 ```html
 <nav class="view-switcher">
   <button class="view-switcher__new" hx-post="/views?resource=accounts">+ Create new…</button>
