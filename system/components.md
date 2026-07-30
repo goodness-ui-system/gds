@@ -639,6 +639,32 @@ columns · selectable rows · numeric mono columns · row actions (ghost ⋯ men
 footer with Pagination. Server-sorted, server-filtered; rows are `_row.html`
 fragments.
 
+Header anatomy. The head is a different stratum from the data, and it
+differentiates by treatment rather than by volume — making the labels darker
+or heavier puts them in competition with the values they name, and the values
+are the point. Four parts:
+
+- A band behind the head (`--color-well`), which does most of the separating
+  without adding a unit of text contrast.
+- The label one step quieter than its data: muted, medium weight. Optional
+  micro-label variant (`.data-table--head-label`): uppercase and
+  letterspaced, so the head stops reading as data at all — all-caps is
+  measurably slower to read, an acceptable trade for a handful of fixed
+  words learned once, never for content. One treatment per application.
+- The strongest rule in the table beneath it (2px `--color-border-strong`),
+  so the head/body split outranks every row separator. Never a box around
+  the head — that makes it a floating card (3.0).
+- Sticky. An unlabeled column at row fifty is the real complaint behind
+  "the header is hard to see".
+
+Alignment and marking: numeric columns right-align, header included, while
+the header label itself stays sans — mono is for the figures, not for the
+word naming them. Identifier columns use `.data-table__cell--mono`,
+left-aligned, because a code is read rather than compared. The sorted column
+carries its direction in the header (`.data-table__sort--active` plus
+`.data-table__sort-dir`): a toolbar claiming "Sort · 1" while no column is
+marked is a claim the table never confirms.
+
 Row delimitation — how the eye crosses a wide table. Hairlines
 (`border-bottom` per row) and the hover lane are the resting default on every
 table. The quiet stripe (`.data-table--zebra`) is the sanctioned variant for

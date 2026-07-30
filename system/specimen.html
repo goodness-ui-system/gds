@@ -1010,6 +1010,57 @@
       </div>
       <div class="data-table__url">/accounts?view=high-priority&amp;filterHasNoneOf_priority=low&amp;filterContains_status=&amp;group=priority&amp;sort=score,account&amp;dir=desc — the URL is the view: copy the address bar, a colleague sees this exact screen</div>
     </div>
+    <div class="specimen__label">Table header anatomy — a band behind the head, the label one step quieter than its data, the strongest rule in the table beneath it, and the sorted column marked in the header</div>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th><button class="data-table__sort" type="button">Security <span class="data-table__sort-dir">▲</span></button></th>
+              <th><button class="data-table__sort" type="button">Symbol <span class="data-table__sort-dir">▲</span></button></th>
+              <th><button class="data-table__sort" type="button">Type <span class="data-table__sort-dir">▲</span></button></th>
+              <th><button class="data-table__sort" type="button">Status <span class="data-table__sort-dir">▲</span></button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last reviewed <span class="data-table__sort-dir">▲</span></button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort data-table__sort--active" type="button">Score <span class="data-table__sort-dir">▼</span></button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Northwind Cloud</td><td class="data-table__cell--mono">NWCL</td><td>Equity</td><td><span class="badge badge--success">Reviewed</span></td><td class="data-table__cell--num">2026-07-19</td><td class="data-table__cell--num">93</td></tr>
+            <tr><td>Aperture Billing</td><td class="data-table__cell--mono">APBL</td><td>Equity</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td></tr>
+            <tr><td>Vandelay Balanced Fund</td><td class="data-table__cell--mono">VNBFX</td><td>Mutual Fund</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td></tr>
+            <tr><td>Bracewell Foundry</td><td class="data-table__cell--mono">BRWF</td><td>Equity</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">91</td></tr>
+            <tr><td>Massive Dynamic</td><td class="data-table__cell--mono">MSVD</td><td>Equity</td><td><span class="badge badge--success">Reviewed</span></td><td class="data-table__cell--num">2026-07-15</td><td class="data-table__cell--num">91</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="specimen__note">The head differentiates by treatment, not by volume: making the labels darker or heavier would put them in competition with the values they name, and the values are the point. The band does the separating. Numeric columns right-align — header included — while the label itself stays sans, because mono is for the figures and not for the word naming them. The sorted column carries its direction in the accent: a toolbar that claims one sort while no column is marked is a claim the table never confirms. The head is sticky, so column names survive the scroll — the real complaint behind "the header is hard to see" is usually an unlabeled column at row fifty.</p>
+
+    <div class="specimen__label">Optional — the micro-label treatment: uppercase and letterspaced, so the head stops reading as data at all</div>
+    <div class="data-table data-table--head-label">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th><button class="data-table__sort" type="button">Security <span class="data-table__sort-dir">▲</span></button></th>
+              <th><button class="data-table__sort" type="button">Symbol <span class="data-table__sort-dir">▲</span></button></th>
+              <th><button class="data-table__sort" type="button">Type <span class="data-table__sort-dir">▲</span></button></th>
+              <th><button class="data-table__sort" type="button">Status <span class="data-table__sort-dir">▲</span></button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last reviewed <span class="data-table__sort-dir">▲</span></button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort data-table__sort--active" type="button">Score <span class="data-table__sort-dir">▼</span></button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Northwind Cloud</td><td class="data-table__cell--mono">NWCL</td><td>Equity</td><td><span class="badge badge--success">Reviewed</span></td><td class="data-table__cell--num">2026-07-19</td><td class="data-table__cell--num">93</td></tr>
+            <tr><td>Aperture Billing</td><td class="data-table__cell--mono">APBL</td><td>Equity</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td></tr>
+            <tr><td>Vandelay Balanced Fund</td><td class="data-table__cell--mono">VNBFX</td><td>Mutual Fund</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td></tr>
+            <tr><td>Bracewell Foundry</td><td class="data-table__cell--mono">BRWF</td><td>Equity</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">91</td></tr>
+            <tr><td>Massive Dynamic</td><td class="data-table__cell--mono">MSVD</td><td>Equity</td><td><span class="badge badge--success">Reviewed</span></td><td class="data-table__cell--num">2026-07-15</td><td class="data-table__cell--num">91</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="specimen__note">All-caps is measurably slower to read, which is an acceptable trade for a handful of fixed words learned once and never for content. Pick one treatment per application; the two are not mixed.</p>
   </section>
 
   <!-- ================= ROW ACTIONS ================= -->

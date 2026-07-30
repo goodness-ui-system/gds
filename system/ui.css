@@ -636,13 +636,33 @@ html:has(#opt-light:checked) .theme-glyph--moon { display: none; }
 .table-toolbar__group { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
 .data-table__scroll { max-height: 19rem; overflow: auto; }
 .data-table__table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
-.data-table__table th { position: sticky; top: 0; background: var(--color-surface); text-align: left; font-weight: var(--weight-medium); color: var(--color-text-muted); padding: var(--row-pad-y) var(--space-4); border-bottom: 1px solid var(--color-border-strong); white-space: nowrap; }
+/* Header anatomy (3.4a): the head is a different stratum from the data, and
+   it differentiates by treatment rather than by shouting — a band behind it,
+   a label one step quieter than the values it names, and the strongest rule
+   in the table beneath it. Sticky, because an unlabeled column past row
+   fifteen is the real "cannot see the header". */
+.data-table__table th { position: sticky; top: 0; z-index: 1; background: var(--color-well); text-align: left; font-weight: var(--weight-medium); color: var(--color-text-muted); padding: var(--row-pad-y) var(--space-4); border-bottom: 2px solid var(--color-border-strong); white-space: nowrap; }
+/* Optional micro-label treatment: stops reading as data entirely. All-caps is
+   measurably slower to read — fine for a handful of fixed words learned once,
+   never for content. */
+.data-table--head-label th { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; }
+/* A numeric header aligns with its column, but stays sans: mono is for the
+   figures, not for the word naming them. */
+.data-table__table th.data-table__cell--num { font-family: var(--font-sans); font-size: inherit; }
 .data-table__table td { padding: var(--row-pad-y) var(--space-4); border-bottom: 1px solid var(--color-border); }
 .data-table__table tbody tr:hover { background: var(--color-surface-hover); }
 .data-table__row--selected, .data-table__table tbody tr.data-table__row--selected:hover { background: var(--color-selected-bg); }
 .data-table__sort { display: inline-flex; align-items: center; gap: var(--space-1); border: none; background: none; color: inherit; font: inherit; cursor: pointer; }
 .data-table__sort--active { color: var(--color-action); }
+/* The sorted column says so in the header — a toolbar claiming "Sort · 1"
+   while no column is marked is a claim the table never confirms. */
+.data-table__sort-dir { font-size: var(--text-xs); opacity: 0; }
+.data-table__sort--active .data-table__sort-dir { opacity: 1; }
+.data-table__sort:hover .data-table__sort-dir { opacity: 0.5; }
 .data-table__cell--num { font-family: var(--font-mono); text-align: right; font-size: var(--text-sm); }
+/* Identifiers and codes: mono means something (AGENTS §3.4) — left-aligned,
+   because a code is read left to right, not compared as a magnitude. */
+.data-table__cell--mono { font-family: var(--font-mono); font-size: var(--text-sm); }
 .data-table__cell--check { width: 2rem; }
 /* favorites marker column: the star is the state and the toggle. Marked rows
    always show; unmarked rows reveal on hover or keyboard focus, so a column

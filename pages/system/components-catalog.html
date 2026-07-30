@@ -596,6 +596,31 @@ posts the new layout. Ships with a designed Empty state.</p>
 columns · selectable rows · numeric mono columns · row actions (ghost ⋯ menu) ·
 footer with Pagination. Server-sorted, server-filtered; rows are <code>_row.html</code>
 fragments.</p>
+<p>Header anatomy. The head is a different stratum from the data, and it
+differentiates by treatment rather than by volume — making the labels darker
+or heavier puts them in competition with the values they name, and the values
+are the point. Four parts:</p>
+<ul>
+<li>A band behind the head (<code>--color-well</code>), which does most of the separating
+  without adding a unit of text contrast.</li>
+<li>The label one step quieter than its data: muted, medium weight. Optional
+  micro-label variant (<code>.data-table--head-label</code>): uppercase and
+  letterspaced, so the head stops reading as data at all — all-caps is
+  measurably slower to read, an acceptable trade for a handful of fixed
+  words learned once, never for content. One treatment per application.</li>
+<li>The strongest rule in the table beneath it (2px <code>--color-border-strong</code>),
+  so the head/body split outranks every row separator. Never a box around
+  the head — that makes it a floating card (3.0).</li>
+<li>Sticky. An unlabeled column at row fifty is the real complaint behind
+  "the header is hard to see".</li>
+</ul>
+<p>Alignment and marking: numeric columns right-align, header included, while
+the header label itself stays sans — mono is for the figures, not for the
+word naming them. Identifier columns use <code>.data-table__cell--mono</code>,
+left-aligned, because a code is read rather than compared. The sorted column
+carries its direction in the header (<code>.data-table__sort--active</code> plus
+<code>.data-table__sort-dir</code>): a toolbar claiming "Sort · 1" while no column is
+marked is a claim the table never confirms.</p>
 <p>Row delimitation — how the eye crosses a wide table. Hairlines
 (<code>border-bottom</code> per row) and the hover lane are the resting default on every
 table. The quiet stripe (<code>.data-table--zebra</code>) is the sanctioned variant for
