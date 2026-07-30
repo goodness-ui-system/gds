@@ -67,6 +67,17 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
 * + .specimen__label { margin-top: var(--space-6); }
 .specimen__section-title + .specimen__label { margin-top: 0; }
 
+/* ---- the foot of a scrolling list (3.12) -------------------------------- */
+/* Three states, one slot: more coming, the end reached, nothing at all.
+   The end marker is flow content — the last thing after the last row — not
+   pinned chrome, so it does not violate the nothing-at-the-bottom rule of
+   the scrolling-page model: it is only ever seen at the true end. */
+.list-foot { display: flex; align-items: center; justify-content: center; gap: var(--space-3); padding: var(--space-4) var(--space-3); font-size: var(--text-sm); color: var(--color-text-muted); }
+.list-foot--end { border-top: 1px solid var(--color-border); }
+.list-foot__count { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.list-foot__top { color: var(--color-action); text-decoration: none; }
+.list-foot__top:hover { text-decoration: underline; }
+
 /* ---- page head (14) ----------------------------------------------------- */
 /* The record page's furniture: title, meta, status and primary action in one
    row. On list pages the name folds into the toolbar instead (page-head__name)

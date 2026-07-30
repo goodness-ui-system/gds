@@ -1248,10 +1248,19 @@
           <tr><td>Wonka Metrics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">70</td></tr>
         </tbody>
       </table>
-        <span class="scroll-study__more">… rows keep arriving as the scroll nears the end — the bottom edge belongs to the last row</span>
+        <div class="list-foot"><span class="spinner"></span> Loading more…</div>
       </div>
     </div>
     <p class="wp-prose">The contained scroll. The third model changes what scrolls. The table's box stretches to fill the height of the screen; the rows scroll inside it, fed the same way as the scrolling page; the column header stays pinned at the top of the box; and the chrome — toolbar above, bulk actions and summary below — never moves. There is no next button, and there is nothing dishonest about the bottom of the screen: the summary pinned there is not fleeing from anyone, because the scrolling happens inside the frame above it. This is the working-grid tradition of every spreadsheet-like tool. Its one demand is honesty about height: a page that scrolls and a grid that scrolls is the double-scrollbar trap, so the shell must hand the grid its height and the grid must fit it exactly.</p>
+    <div class="specimen__label">The foot of a scrolling list — three states in one slot: more coming · the end, stated with the total · nothing (a list that fits)</div>
+    <div class="data-table">
+      <div class="list-foot"><span class="spinner"></span> Loading more…</div>
+    </div>
+    <div class="data-table">
+      <div class="list-foot list-foot--end" role="status">End of list — all <span class="list-foot__count">248</span> accounts shown <a class="list-foot__top" href="#table-scroll">Back to top</a></div>
+    </div>
+    <p class="specimen__note">The end marker answers the question infinite scroll creates: is more coming, or was that everything? Stating the total turns the worry into a fact, and it settles the second question too — a list that ends this way has no next page to look for. A list short enough to fit shows neither state: an end marker under six rows is ceremony.</p>
+
     <div class="specimen__label">Option C — the contained scroll: the grid fills the screen and scrolls inside (recommended)</div>
     <div class="scroll-study">
       <div class="scroll-study__chrome"><span>The screen</span><span>model: contained scroll</span></div>
@@ -1291,13 +1300,14 @@
           <tr><td>Wonka Metrics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">70</td></tr>
         </tbody>
       </table>
-        <span class="scroll-study__more">… more arriving as the scroll nears the end — the header stays pinned, the chrome below never moves</span>
+        <div class="list-foot list-foot--end" role="status">End of list — all <span class="list-foot__count">248</span> accounts shown <a class="list-foot__top" href="#table-scroll">Back to top</a></div>
       </div>
       <div class="scroll-study__foot">
         <span class="scroll-study__actions"><span class="scroll-study__count">2 selected</span><button class="button button--ghost" type="button">Export</button><button class="button button--ghost" type="button">Archive</button></span>
         <span>248 accounts · avg 62 · no next button</span>
       </div>
     </div>
+    <p class="wp-prose">Both scrolling models owe the reader one thing the paged model gives for free: an ending. A page footer says plainly that the list is over; a scroll that simply stops leaves a question — is more still loading, or was that everything? — and a reader who cannot answer it either waits for nothing or goes hunting for a next button that no longer exists. So the foot of a scrolling list carries three states in one slot. More coming: a spinner and a word, sitting where the next rows will appear. The end: a hairline, then a sentence that states the total — all two hundred and forty-eight accounts shown — because a bare "end of list" still leaves the reader counting, while a number converts the worry into a fact and simultaneously answers the second question, since a list that ends this way plainly has no page two. And nothing at all: a list short enough to fit on screen needs no marker, because an ending announced under six rows is ceremony. The marker is flow content — the last thing after the last row, never pinned furniture — so it sits comfortably inside the scrolling page's rule that nothing may occupy the bottom of the screen: it is only ever seen at the true end, and it scrolls away the moment a filter shortens the list. It carries the status role so the ending is announced rather than merely drawn, and it is the natural home for the return to the top of a long list.</p>
     <p class="wp-prose">Recommendation: the contained scroll as the default for working grids — the only model that abolishes the next button while keeping every piece of chrome reachable. The scrolling page where the table is the page — a feed, a log — with the bottom-of-screen rule enforced strictly. Pages where position in the set is part of the task.</p>
     <div class="wp-status"><span class="badge badge--success">Adopted as rule — nothing at the bottom of a scrolling page; contained scroll is the working-grid default</span></div>
     <div class="wp-sources">Sources: the published usability record on infinite scrolling, pagination, and the load-more hybrid — citations live in the Table Scroll research note · sticky positioning inside scroll containers is native CSS · incremental loading via the reveal trigger: the stack's own documentation.</div>

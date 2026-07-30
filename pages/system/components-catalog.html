@@ -796,6 +796,18 @@ table, and dashboard has one designed — never a bare "No results."</p>
   <strong>Rule: nothing may sit at the bottom of the screen.</strong> The bottom edge
   belongs to the last visible row; selected count, bulk actions, and summary
   all move above the table, and the toolbar states the true total.</li>
+<li><strong>The foot of a scrolling list</strong> (<code>.list-foot</code>) — three states in one slot,
+  and both scrolling models owe it. More coming: spinner plus a word, where
+  the next rows will appear. The end: a hairline and the total stated
+  ("End of list — all 248 accounts shown"), because a bare end-of-list
+  leaves the reader counting while a number converts the worry into a fact,
+  and it answers the second question at the same time — a list that ends
+  this way has no page two to look for. Nothing: a list that fits on screen
+  shows neither, since an ending announced under six rows is ceremony. The
+  marker is flow content, never pinned furniture, so it satisfies the
+  scrolling-page rule that nothing may sit at the bottom of the screen — it
+  is only ever seen at the true end. Carries <code>role="status"</code> so the ending
+  is announced, and it is the natural home for a back-to-top link.</li>
 <li><strong>Contained scroll (recommended)</strong> — the grid's box fills the viewport
   height and rows scroll inside it; sticky column header at the box top;
   toolbar above and bulk bar + summary below never move; no next button.

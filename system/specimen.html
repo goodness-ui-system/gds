@@ -1077,9 +1077,18 @@
           <tr><td>Wonka Metrics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">70</td></tr>
         </tbody>
       </table>
-        <span class="scroll-study__more">… rows keep arriving as the scroll nears the end — the bottom edge belongs to the last row</span>
+        <div class="list-foot"><span class="spinner"></span> Loading more…</div>
       </div>
     </div>
+
+    <div class="specimen__label">The foot of a scrolling list — three states in one slot: more coming · the end, stated with the total · nothing (a list that fits)</div>
+    <div class="data-table">
+      <div class="list-foot"><span class="spinner"></span> Loading more…</div>
+    </div>
+    <div class="data-table">
+      <div class="list-foot list-foot--end" role="status">End of list — all <span class="list-foot__count">248</span> accounts shown <a class="list-foot__top" href="#table-scroll">Back to top</a></div>
+    </div>
+    <p class="specimen__note">The end marker answers the question infinite scroll creates: is more coming, or was that everything? Stating the total turns the worry into a fact, and it settles the second question too — a list that ends this way has no next page to look for. A list short enough to fit shows neither state: an end marker under six rows is ceremony.</p>
 
     <div class="specimen__label">Option C — the contained scroll: the grid fills the screen and scrolls inside (recommended)</div>
     <div class="scroll-study">
@@ -1120,7 +1129,7 @@
           <tr><td>Wonka Metrics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">70</td></tr>
         </tbody>
       </table>
-        <span class="scroll-study__more">… more arriving as the scroll nears the end — the header stays pinned, the chrome below never moves</span>
+        <div class="list-foot list-foot--end" role="status">End of list — all <span class="list-foot__count">248</span> accounts shown <a class="list-foot__top" href="#table-scroll">Back to top</a></div>
       </div>
       <div class="scroll-study__foot">
         <span class="scroll-study__actions"><span class="scroll-study__count">2 selected</span><button class="button button--ghost" type="button">Export</button><button class="button button--ghost" type="button">Archive</button></span>
