@@ -202,6 +202,7 @@ example and explanation, including the full View System — is `components.md`.
 | Select | `default · invalid` | native `<select>`; multiselect = chips |
 | Checkbox / Radio | `native · drawn` (candidates) | wrapped in `.choice`; mixed state server-rendered (`aria-checked="mixed"`) |
 | Switch | `md · sm`; row presentation | immediate effect only — never beside a Save button; checkbox + `role="switch"` (+ native `switch` attr), never `aria-checked` |
+| Favorites | lens toggle · row marker · menu entry · bulk pair · empty lens | personal always; lens flag in the URL, never the id list; marker leads the row, pinned with identity |
 | Segmented control | `raised · accent`; counts | candidate; one-of-few values/scopes, 2–5 segments; hidden radios, zero JS |
 | Toggle button | `labeled · icon-only` | candidate; `aria-pressed` server-rendered; pressed ≠ color alone |
 | Choice chip | — | candidate; many-of-many filter facets; hidden checkbox + pill |

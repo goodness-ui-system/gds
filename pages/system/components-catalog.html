@@ -788,16 +788,28 @@ table, and dashboard has one designed — never a bare "No results."</p>
 (1.13). Five parts, each answering a question a reader asks:</p>
 <ol>
 <li>Marker column (<code>.data-table__cell--fav</code>) — a star in the leading position
-   beside the identity column. Filled with the accent on favorites; on
-   unmarked rows drawn only on hover or keyboard focus, because a column of
-   hollow stars is the badge-dot mistake repeated (1.6).</li>
+   beside the identity column, pinned with it on wide grids (3.4). Filled
+   with the accent on favorites; on unmarked rows drawn only on hover or
+   keyboard focus — transparent but still clickable, and still ≥
+   <code>--target-min</code> — because a column of hollow stars is the badge-dot
+   mistake repeated (1.6). Leading, not trailing: the star is primarily a
+   state marker, and markers belong where the eye scans, at the row's start.
+   A trailing star beside the row menu is a permitted variant only on narrow
+   tables where the whole row fits on screen; on a wide grid it sits past
+   the horizontal scroll, invisible exactly when the reader is reading the
+   name (the tracking problem of the rows chapter).</li>
 <li>The marker is the toggle — one click in place, no menu round trip. The
    repeated-icon caution (3.4) does not apply: this icon is primarily a state
    marker that happens to be clickable, the action is trivially reversible,
    and no destructive action sits nearby.</li>
 <li>Overflow-menu entry — the discoverable, keyboard-obvious path, with a
    state-honest label pair (<code>Add to favorites</code> / <code>Remove from favorites</code>,
-   matching the row's current state).</li>
+   matching the row's current state) and the same star glyph as the marker.
+   Dual entry is deliberate: the menu is for discovery, the inline star for
+   frequency. Where the row's actions cluster in a trailing column, that
+   column is fixed — always last, never hideable or reorderable in the field
+   visibility panel (4.3), because a reader must not be able to hide the
+   only route to a row's actions.</li>
 <li>Bulk pair — the bulk-actions bar (3.9) gains add and remove, so clearing a
    collection is lens + select-all + remove: three existing components
    composing. Deliberate: wiping curation deserves the selection ceremony; a
@@ -813,9 +825,35 @@ user-selected state), never the warning color (a favorite is not a warning).
 Favorites never auto-sort to the top: silently reordering breaks the sort the
 toolbar claims — the lens is the honest way to see them together.</p>
 <p>The lens itself (1.13) is part six's other half: the toolbar star that
-narrows any view to the collection, wearing its count at rest, composing
-with every scope, filter, and sort. Live renderings: the specimen's
-Favorites section and the white paper's Favorites chapter.</p>
+narrows any view to the collection, composing with every scope, filter, and
+sort. Its finite rules:</p>
+<ul>
+<li>Count visibility. Pressed: the count always shows, including zero — the
+  lens is the active filter, and its result must be stated. Not pressed: the
+  count shows only when it is greater than zero, because a resting <code>0</code> on
+  quiet chrome is noise. (The tab-count rule is the opposite — a scope tab
+  always shows its zero — and the difference is the component: a tab row is
+  a declared summary of every subset, a resting lens is an offer.)</li>
+<li>What the count counts. Favorites within the current filter set, not within
+  the whole book: the number must predict the click. A resting <code>12</code> that
+  yields four rows because a status filter is on has lied, and every other
+  count in the system (<code>Filter · 2</code>, <code>All 248</code>) describes the configuration
+  in force.</li>
+<li>URL. Only the flag travels (<code>?favorites=1</code>, omitted when off) — never the
+  favorite ids. The set is per-user server state read at render time (a
+  server-read cookie is an acceptable first implementation; browser storage
+  restored after paint is not — it is client state and it desynchronizes).</li>
+<li>Empty states, two cases with different primary actions. Lens on, no other
+  filters, nothing starred: title "No favorites in this view", one sentence
+  teaching the row star and the menu, and the primary action turns the lens
+  off — the collection is empty, so clearing filters would change nothing.
+  Lens on with other filters, no matches: "No favorites match these
+  filters", primary action clears the filters, secondary turns off the lens
+  — the collection exists, the filters are what hid it. Both teach; neither
+  is a dead end.</li>
+</ul>
+<p>Live renderings: the specimen's Favorites section and the white paper's
+Favorites chapter.</p>
 <h2>4 · The View System</h2>
 <p>Best-of-breed reference: the leading spreadsheet-database platforms, studied from
 their live UIs and documentation. What makes them the benchmark: <em>every</em> aspect of a table's presentation (visible

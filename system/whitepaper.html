@@ -1964,11 +1964,32 @@
       </div>
     </div>
 
-    <div class="specimen__label">Favorites, the empty lens — the lens is on and nothing is starred yet</div>
+    <div class="specimen__label">Lens count visibility — resting with favorites · resting with none (count withheld) · pressed showing its result, zero included</div>
+    <div class="specimen__row">
+      <button class="toggle-btn" type="button" aria-pressed="false" aria-label="Favorites only"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> 12</button>
+      <button class="toggle-btn" type="button" aria-pressed="false" aria-label="Favorites only"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></button>
+      <button class="toggle-btn" type="button" aria-pressed="true" aria-label="Favorites only"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> 0</button>
+    </div>
+
+    <div class="specimen__label">The empty lens, case one — nothing starred: the primary action turns the lens off, because clearing filters would change nothing</div>
     <div class="empty-state">
       <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      <div class="empty-state__title">No favorites yet</div>
-      <div class="empty-state__text">Star a row to collect it here. Favorites are personal — they follow the account, not the team — and the star in the toolbar narrows any view to them.</div>
+      <div class="empty-state__title">No favorites in this view</div>
+      <div class="empty-state__text">Star a row — or use its row menu — to collect it here. Favorites are personal: they follow the account, not the team.</div>
+      <div class="specimen__row">
+        <button class="button button--primary" type="button">Turn off favorites</button>
+      </div>
+    </div>
+
+    <div class="specimen__label">The empty lens, case two — starred rows exist but filters hide them: the primary action clears the filters, the lens stays offered</div>
+    <div class="empty-state">
+      <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="empty-state__title">No favorites match these filters</div>
+      <div class="empty-state__text">The collection is not empty — the filters in force are hiding it. Clear them to see the favorites again, or leave the filters and step out of the collection.</div>
+      <div class="specimen__row">
+        <button class="button button--primary" type="button">Clear filters</button>
+        <button class="button button--secondary" type="button">Turn off favorites</button>
+      </div>
     </div>
     <div class="wp-status"><span class="badge badge--success">Adopted — five parts, personal always, never auto-sorted</span></div>
     <div class="wp-sources">Sources: the star-column tradition of mail clients and code hosts · this system's own badge-dot decision (a marker that means nothing at rest is texture), the row-actions frequency budget, the bulk-actions bar, and the empty-state rule — components.md 1.6, 3.4, 3.9, 3.11, 3.13.</div>
