@@ -1181,6 +1181,51 @@
       <div class="data-table__url">/accounts?view=high-priority&amp;filterHasNoneOf_priority=low&amp;filterContains_status=&amp;group=priority&amp;sort=score,account&amp;dir=desc — the URL is the view: copy the address bar, a colleague sees this exact screen</div>
     </div>
     <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
+    <div class="specimen__label">State pairs — two cues, not one: the settled state carries the fill, the open state recedes</div>
+    <div class="specimen__row">
+      <div>
+        <div class="specimen__label">Option A — semantic: success for the settled state</div>
+        <div class="data-table data-table--head-label">
+          <table class="data-table__table">
+            <thead><tr><th>Item</th><th class="data-table__cell--center">Status</th></tr></thead>
+            <tbody>
+            <tr><td>Row 1</td><td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td></tr>
+            <tr><td>Row 2</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
+            <tr><td>Row 3</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
+            <tr><td>Row 4</td><td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td></tr>
+            <tr><td>Row 5</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="specimen__label">Option B — no colour: filled neutral vs outline</div>
+        <div class="data-table data-table--head-label">
+          <table class="data-table__table">
+            <thead><tr><th>Item</th><th class="data-table__cell--center">Status</th></tr></thead>
+            <tbody>
+            <tr><td>Row 1</td><td class="data-table__cell--center"><span class="badge badge--solid">Reviewed</span></td></tr>
+            <tr><td>Row 2</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
+            <tr><td>Row 3</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
+            <tr><td>Row 4</td><td class="data-table__cell--center"><span class="badge badge--solid">Reviewed</span></td></tr>
+            <tr><td>Row 5</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p class="specimen__note">Both pairs differ by field as well as by hue, so the distinction survives grayscale, printing, and colour blindness — a pair separated by colour alone reads as one repeated pill. The mark sits on the settled state because the open state is usually the majority, and badging fifty of seventy rows is a wall that helps nobody; the exception is what the eye should find. Reserve the meaning colours for what they mean: warning is for overdue and danger for failed, so a plain "not started" never spends them.</p>
+
+    <div class="specimen__label">The full scale, for when the vocabulary outgrows a pair</div>
+    <div class="specimen__row">
+      <span class="badge badge--quiet">To review</span>
+      <span class="badge badge--info">In progress</span>
+      <span class="badge badge--warning">Overdue</span>
+      <span class="badge badge--danger">Failed</span>
+      <span class="badge badge--success">Reviewed</span>
+    </div>
+    <p class="specimen__note">Design the whole scale the moment a third state appears, rather than extending a pair — a two-value vocabulary that already spent the warning colour has nothing left for the state that genuinely warns.</p>
+
     <div class="specimen__label">Column alignment — the header always takes its column's alignment, and alignment follows what a value means, not what it is made of</div>
     <div class="data-table data-table--head-label">
       <div class="data-table__scroll">

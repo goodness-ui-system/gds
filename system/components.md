@@ -105,6 +105,23 @@ column it is twenty circles meaning nothing. The dot (`badge__dot`) survives
 as one reserved variant: liveness — a state happening right now ("recording",
 "running") — which the static word cannot say.
 
+State pairs — a progress vocabulary, not a severity scale. Where a column
+carries two states of one piece of work ("to review" and "reviewed"), give
+the pair two independent cues rather than one, so it survives grayscale,
+printing, and colour blindness: hue and field, never hue alone.
+
+- The settled state takes the fill. A terminal good state is `success` — a
+  completed review is a success, which is what the colour means. Where colour
+  is unwanted, `.badge--solid` gives the same settled reading in neutral.
+- The open state recedes: `.badge--quiet`, outline only, muted. It is not a
+  warning and not an error — it is work outstanding, and it is usually the
+  majority. Marking the majority produces a wall of badges, the badge-dot
+  mistake at larger size; the mark belongs on the exception.
+- Reserve the meaning colours for what they mean. `warning` is for overdue,
+  `danger` for failed — never for "not started", or the two states that
+  matter later have no colours left. Design the whole scale when the second
+  state appears, not the pair.
+
 ### 1.7 Chip (removable)
 An applied token — an active filter, a selected value. Options: with/without key
 prefix; removable.
@@ -638,6 +655,14 @@ The core primitive. Options: density (token switch) · sticky header · sortable
 columns · selectable rows · numeric mono columns · row actions (ghost ⋯ menu) ·
 footer with Pagination. Server-sorted, server-filtered; rows are `_row.html`
 fragments.
+
+A status column that duplicates a date column. Where every "reviewed" row
+carries a date and every "to review" row carries a dash, the two columns
+encode one fact, and one of them is width spent on nothing (the badge-dot
+logic applied to a column). If the vocabulary is genuinely binary, the date
+column alone says it. Keep both only when the status vocabulary is larger
+than the date can express — overdue, in progress, waiting — in which case
+design the whole scale rather than the pair.
 
 Column alignment. One master rule generates the rest: a header always takes
 its column's alignment, so the label and the values it names share an edge.
