@@ -494,6 +494,25 @@ opens a group. The only sanctioned tight pairs are a caption with the object
 it captions (label, heading, legend) and a component's own internal anatomy.
 The rule is enforced by rendering, not by trust: <code>enforcement/check_rhythm.mjs</code>
 measures every adjacent pair on every page and fails on any flush pair.</p>
+<h3>3.0b Page head — title, meta, status, primary action</h3>
+<p>The row a page title anchors. Options, and the choice belongs to the
+application (white paper chapter 14 argues both sides):</p>
+<ul>
+<li>List page, no display title — the rail names the page; the pane starts at
+  the toolbar. The <code>&lt;h1&gt;</code> still exists, visually hidden, because readers
+  navigating by headings need one.</li>
+<li>List page, name in the toolbar row (<code>.page-head__name</code>) — visible, costs no
+  extra row, modest rather than display size. Preferred where the shell lets
+  the rail hide, since the rail's marker can be absent, and where the name can
+  carry something the rail cannot (a count).</li>
+<li>Record page (<code>.page-head</code>) — title, meta line, status, and primary action in
+  one row. Always prominent: no navigation lists every record, so the title
+  carries information nothing else on screen carries.</li>
+</ul>
+<p>Fixed regardless of option: exactly one first-level heading per page, and the
+document <code>&lt;title&gt;</code> always set. Failure modes: a display-size heading that only
+echoes the rail, and a title kept beside a breadcrumb (2.10) ending in the
+same word — the third statement of one fact.</p>
 <h3>3.1 App shell</h3>
 <p>Sidebar + topbar + main. Options: sidebar expanded/collapsed (a <code>preferences</code>
 row); active item via <code>aria-current="page"</code> from the request path; <code>hx-boost</code> for

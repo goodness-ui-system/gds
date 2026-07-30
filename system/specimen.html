@@ -1728,6 +1728,74 @@
     </div>
   </section>
 
+  <!-- ================= PAGE TITLE ================= -->
+  <section class="specimen__section" id="page-title">
+    <h2 class="specimen__section-title">The page title — three placements, the application decides</h2>
+    <p class="specimen__note">A rail already marks the current page. Whether the pane repeats it is the application's call; what is fixed is that one first-level heading always exists, displayed or visually hidden.</p>
+    <div class="specimen__label">Option A — a list page with no display title: the rail names it, the toolbar starts at the top edge, the heading stays in the accessibility tree</div>
+    <div class="shell-demo">
+      <nav class="sidenav" aria-label="Demo rail">
+        <div class="sidenav__section">Workspace</div>
+        <a class="sidenav__item" href="#pagetitle">Dashboard</a>
+        <a class="sidenav__item" href="#pagetitle" aria-current="page">Accounts</a>
+        <a class="sidenav__item" href="#pagetitle">Reports</a>
+      </nav>
+      <div class="shell-demo__content">
+        <div class="table-toolbar">
+          <div class="table-toolbar__group">
+            <span class="chip"><span class="chip__key">priority:</span> high+</span>
+            <button class="button button--ghost" type="button">Filter · 2</button>
+            <button class="button button--ghost" type="button">Sort · 2</button>
+          </div>
+          <div class="table-toolbar__group"><button class="button button--primary" type="button">Add account</button></div>
+        </div>
+        <p class="section-stack__text">No row is spent restating the rail. The page still carries one heading for the accessibility tree — visually hidden — so a reader navigating by headings lands on a named page.</p>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option B — a list page with the name folded into the toolbar row: visible, costs no extra row, modest rather than display size</div>
+    <div class="shell-demo">
+      <nav class="sidenav" aria-label="Demo rail">
+        <div class="sidenav__section">Workspace</div>
+        <a class="sidenav__item" href="#pagetitle">Dashboard</a>
+        <a class="sidenav__item" href="#pagetitle" aria-current="page">Accounts</a>
+        <a class="sidenav__item" href="#pagetitle">Reports</a>
+      </nav>
+      <div class="shell-demo__content">
+        <div class="table-toolbar">
+          <div class="table-toolbar__group">
+            <span class="page-head__name">Accounts <span class="tabs__count">248</span></span>
+            <button class="button button--ghost" type="button">Filter · 2</button>
+          </div>
+          <div class="table-toolbar__group"><button class="button button--primary" type="button">Add account</button></div>
+        </div>
+        <p class="section-stack__text">The name survives a hidden rail, and it earns its place by carrying something the rail cannot: the collection's size.</p>
+      </div>
+    </div>
+
+    <div class="specimen__label">Option C — a record page: the title is the record, so it is prominent, and the rail could never have said it</div>
+    <div class="shell-demo">
+      <nav class="sidenav" aria-label="Demo rail">
+        <div class="sidenav__section">Workspace</div>
+        <a class="sidenav__item" href="#pagetitle" aria-current="page">Accounts</a>
+        <a class="sidenav__item" href="#pagetitle">Reports</a>
+      </nav>
+      <div class="shell-demo__content">
+        <div class="page-head">
+          <div>
+            <div class="page-head__title">Acme Payments</div>
+            <div class="page-head__meta">Enterprise · owner K. Lane · last reviewed 2026-07-18</div>
+          </div>
+          <div class="page-head__actions">
+            <span class="badge badge--success">On track</span>
+            <button class="button button--primary" type="button">Start review</button>
+          </div>
+        </div>
+        <p class="section-stack__text">Title, meta line, status, and the primary action share one row — the furniture the title anchors, and the reason deleting it usually costs more than a heading.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= KEYBOARD ================= -->
   <section class="specimen__section" id="keyboard-conventions">
     <h2 class="specimen__section-title">Keyboard conventions — what Enter means</h2>

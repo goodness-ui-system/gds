@@ -529,6 +529,26 @@ it captions (label, heading, legend) and a component's own internal anatomy.
 The rule is enforced by rendering, not by trust: `enforcement/check_rhythm.mjs`
 measures every adjacent pair on every page and fails on any flush pair.
 
+### 3.0b Page head — title, meta, status, primary action
+The row a page title anchors. Options, and the choice belongs to the
+application (white paper chapter 14 argues both sides):
+
+- List page, no display title — the rail names the page; the pane starts at
+  the toolbar. The `<h1>` still exists, visually hidden, because readers
+  navigating by headings need one.
+- List page, name in the toolbar row (`.page-head__name`) — visible, costs no
+  extra row, modest rather than display size. Preferred where the shell lets
+  the rail hide, since the rail's marker can be absent, and where the name can
+  carry something the rail cannot (a count).
+- Record page (`.page-head`) — title, meta line, status, and primary action in
+  one row. Always prominent: no navigation lists every record, so the title
+  carries information nothing else on screen carries.
+
+Fixed regardless of option: exactly one first-level heading per page, and the
+document `<title>` always set. Failure modes: a display-size heading that only
+echoes the rail, and a title kept beside a breadcrumb (2.10) ending in the
+same word — the third statement of one fact.
+
 ### 3.1 App shell
 Sidebar + topbar + main. Options: sidebar expanded/collapsed (a `preferences`
 row); active item via `aria-current="page"` from the request path; `hx-boost` for

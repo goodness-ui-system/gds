@@ -67,6 +67,16 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
 * + .specimen__label { margin-top: var(--space-6); }
 .specimen__section-title + .specimen__label { margin-top: 0; }
 
+/* ---- page head (14) ----------------------------------------------------- */
+/* The record page's furniture: title, meta, status and primary action in one
+   row. On list pages the name folds into the toolbar instead (page-head__name)
+   or is visually hidden — the placement is the application's decision. */
+.page-head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-4); flex-wrap: wrap; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); }
+.page-head__title { font-size: var(--text-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); }
+.page-head__meta { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-1); }
+.page-head__actions { display: flex; gap: var(--space-3); align-items: center; }
+.page-head__name { font-size: var(--text-base); font-weight: var(--weight-semibold); }
+
 /* ---- table scroll study (specimen chrome) ------------------------------- */
 /* A miniature screen: the frame plays the viewport so the three scroll
    models can sit side by side inside a document. The frame is a column;
