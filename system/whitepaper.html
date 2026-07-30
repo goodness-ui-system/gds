@@ -632,13 +632,26 @@
         </nav>
       </div>
     </div>
-    <p class="wp-prose">The same tab row holds two different jobs, and both are legitimate under two named contracts distinguished by their label grammar, never by a visual fork. Scope tabs partition one collection: the labels are states of the list — All first, carrying the exclusive-All arithmetic from the choice family — counts ride the labels so the row doubles as a status summary readable without clicking, and a tab switch changes only the rows: toolbar, columns, sort, and selection all survive untouched. Section tabs partition one record: the labels are nouns naming different panels of one parent, there is no All — a merged view of different things is a report, not a tab — a count is permitted where a section is a countable collection, and the section lives in the URL so a deep link lands on the right tab.</p>
+    <p class="wp-prose">The same tab row holds two different jobs, and both are legitimate under two named contracts distinguished by their label grammar, never by a visual fork. Scope tabs partition one collection: the labels are states of the list — All first, carrying the exclusive-All arithmetic from the choice family — counts ride the labels so the row doubles as a status summary readable without clicking, and a tab switch changes only the rows: toolbar, columns, sort, and selection all survive untouched. The counts have their own craft rules, and one of them is a restraint. Each count is mono and tabular, so a re-render never shifts the labels beside it; one type step down and one step quieter than its label, muted even on the active tab, because the label carries the emphasis and a number competing with it turns the row into a scoreboard; a zero renders as a zero rather than vanishing, since a missing number reads as unknown rather than as none; and large counts cap so the row never reflows. The restraint is the second number: a count paired with a percentage on every tab triples the row's numeric load and says twice what one figure already says, because every share is derivable from the total the first tab is already showing. Where completion is the story, the percentage belongs to a ratio tile or a meter beside the table — a bar states progress at a glance in a way a digit inside a tab label never will. Section tabs partition one record: the labels are nouns naming different panels of one parent, there is no All — a merged view of different things is a report, not a tab — a count is permitted where a section is a countable collection, and the section lives in the URL so a deep link lands on the right tab.</p>
     <p class="wp-prose">The rules at the boundary keep the jobs from colliding. One row, one job — a row mixing states and sections is incoherent, because the reader cannot predict what a click preserves. The jobs may nest in one order only: section tabs describe the page, and a scope row may sit inside a section above its list — never the reverse. Against the segmented control the split is what changes: the segmented control re-renders the same panel with a different parameter; tabs change which thing is on screen. And per the accessibility record, every tab here is a real link with the current one marked — the tab-role widget belongs to client-side swaps this system does not ship. Across an application the two jobs coexist freely — a list page scopes, a record page sections — under two conditions: one solution per page type, so the same kind of page never solves the same problem two ways; and when both rows share a page they never sit adjacent — section tabs on the page's top boundary, the scope row down inside its section above the list, content between them, so a reader always knows which level a click switches. The full record and citations live in the Tabs research note.</p>
     <div class="specimen__label">Tabs, job one — scope tabs: subsets of one collection, All first, counts at rest</div>
     <nav class="tabs" aria-label="List scopes">
       <a class="tabs__tab" href="#tabs" aria-current="page">All <span class="tabs__count">248</span></a>
       <a class="tabs__tab" href="#tabs">In review <span class="tabs__count">34</span></a>
       <a class="tabs__tab" href="#tabs">Reviewed <span class="tabs__count">214</span></a>
+    </nav>
+
+    <div class="specimen__label">Counts on scope tabs, and where the percentage goes instead — the meter states progress, the tabs state quantities</div>
+    <div class="ratio">
+      <div class="ratio__label">Reviewed</div>
+      <div class="ratio__line"><span class="ratio__pct">26%</span><span class="ratio__frac">18 / 70</span></div>
+      <progress class="meter" value="18" max="70"></progress>
+    </div>
+    <nav class="tabs" aria-label="List scopes">
+      <a class="tabs__tab" href="#tabs" aria-current="page">All <span class="tabs__count">70</span></a>
+      <a class="tabs__tab" href="#tabs">To review <span class="tabs__count">52</span></a>
+      <a class="tabs__tab" href="#tabs">Reviewed <span class="tabs__count">18</span></a>
+      <a class="tabs__tab" href="#tabs">Flagged <span class="tabs__count">0</span></a>
     </nav>
 
     <div class="specimen__label">Tabs, job two — section tabs: panels of one record, noun labels, no All</div>

@@ -291,6 +291,21 @@ tabs guidance; citations in the Tabs research note).
   changes only the rows — toolbar, columns, sort, selection survive. Few,
   stable, near-exhaustive subsets; a dozen volatile ones is a saved-view
   problem (§4), not a tab row.
+
+  Count formatting — one numeric reading per tab. The count is mono,
+  tabular (a re-render must not shift the labels beside it), one type step
+  down, and one step quieter than its label — muted even on the active tab,
+  because the label carries the emphasis and a count competing with it makes
+  the row a scoreboard. No filled counter pill: a tinted chip is
+  notification grammar, and this row already has its baseline. Zero renders
+  as `0`, never hidden — a missing number reads as unknown, not as none.
+  Large counts cap (`999+`) so the row never reflows. And no second number:
+  a count-plus-percent pair per tab triples the row's numeric load and
+  states twice what one figure already says, since every share is derivable
+  from the All total. Where completion is the story, the percentage belongs
+  to a ratio tile or meter (2.13) beside or above the table — one place,
+  one reading, and the meter shows progress at a glance in a way a digit
+  in a tab label cannot.
 - Section tabs — panels of one record ("Score · Files · Due diligence").
   Noun labels naming different content of one parent; no All; counts only
   where a section is a countable collection; the section is in the URL, so
