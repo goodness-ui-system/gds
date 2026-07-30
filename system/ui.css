@@ -663,7 +663,24 @@ html:has(#opt-light:checked) .theme-glyph--moon { display: none; }
 /* Identifiers and codes: mono means something (AGENTS §3.4) — left-aligned,
    because a code is read left to right, not compared as a magnitude. */
 .data-table__cell--mono { font-family: var(--font-mono); font-size: var(--text-sm); }
-.data-table__cell--check { width: 2rem; }
+.data-table__cell--check { width: 2rem; text-align: center; }
+/* Alignment follows meaning, and a header always inherits its column's
+   alignment (3.4a). Centre is only ever for short fixed tokens — a pill, a
+   mark, a checkbox — never for prose, which becomes unreadable centred. */
+.data-table__cell--center { text-align: center; }
+.data-table__table th.data-table__cell--center { text-align: center; }
+.data-table__table th.data-table__cell--mono { font-family: var(--font-sans); font-size: inherit; text-align: left; }
+/* The actions column: last, narrow, right, and its header is empty on screen
+   but named for assistive technology. */
+.data-table__cell--actions { width: 3rem; text-align: right; }
+.data-table__table th.data-table__cell--actions { text-align: right; }
+/* A leading mark inside a text cell must not shift the text away from its
+   header — the mark and the label share one left edge. */
+.data-table__cell--marked { display: flex; align-items: center; gap: var(--space-2); }
+
+/* Available to any component: present to assistive technology, absent on
+   screen. The empty column header and the list page's heading use it. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 /* favorites marker column: the star is the state and the toggle. Marked rows
    always show; unmarked rows reveal on hover or keyboard focus, so a column
    of hollow stars never becomes texture. */

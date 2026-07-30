@@ -596,6 +596,68 @@ posts the new layout. Ships with a designed Empty state.</p>
 columns · selectable rows · numeric mono columns · row actions (ghost ⋯ menu) ·
 footer with Pagination. Server-sorted, server-filtered; rows are <code>_row.html</code>
 fragments.</p>
+<p>Column alignment. One master rule generates the rest: a header always takes
+its column's alignment, so the label and the values it names share an edge.
+Alignment follows what a value means, not what it is made of — the test is
+whether anyone would ever compare or total the column.</p>
+<table>
+<thead>
+<tr>
+<th>Column kind</th>
+<th>Alignment</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Text (names, descriptions)</td>
+<td>Left</td>
+<td>Clip to one line rather than wrap, so rows keep one height and column edges stay straight</td>
+</tr>
+<tr>
+<td>Pills, badges, marks, avatars</td>
+<td>Centre (<code>--center</code>)</td>
+<td>Short fixed tokens only — never prose, which is unreadable centred</td>
+</tr>
+<tr>
+<td>Numbers, currency, scores</td>
+<td>Right (<code>--num</code>)</td>
+<td>Mono, tabular figures, one decimal precision for the whole column; the unit lives in the header, never repeated per row</td>
+</tr>
+<tr>
+<td>Fixed-format dates</td>
+<td>Right (<code>--num</code>)</td>
+<td>Ordinal, so they compare like magnitudes and mono makes the column exact. Relative dates ("2 days ago") are text — left</td>
+</tr>
+<tr>
+<td>Identifiers and codes</td>
+<td>Left (<code>--mono</code>)</td>
+<td>Mono but never right: a code is read left to right, not compared. Digits alone do not make a number — postal codes, phone numbers, and account numbers are identifiers</td>
+</tr>
+<tr>
+<td>Selection checkbox</td>
+<td>Centre (<code>--check</code>)</td>
+<td>First, fixed narrow; the header holds select-all</td>
+</tr>
+<tr>
+<td>Row actions</td>
+<td>Right (<code>--actions</code>)</td>
+<td>Last, fixed narrow, never hideable (4.3)</td>
+</tr>
+</tbody>
+</table>
+<p>Two rules the table above implies. Empty headers are still named: a column
+whose header shows nothing on screen — selection, favourites, actions —
+carries a <code>.visually-hidden</code> label, because a screen reader announcing
+"blank" is a column with no name. And a placeholder for a missing value
+takes its column's alignment, never an exception: a missing number sits
+right where the number would have been.</p>
+<p>One craft trap in the first column. A leading mark inside a text cell — an
+avatar, a status dot, a favourite star — pushes the text right while the
+header stays at the cell edge, so the label and its data start at different
+places and the eye notices without being able to name it. Either the mark
+sits in its own narrow column, or the cell uses <code>.data-table__cell--marked</code>
+so the mark and the label share one left edge with the header above them.</p>
 <p>Header anatomy. The head is a different stratum from the data, and it
 differentiates by treatment rather than by volume — making the labels darker
 or heavier puts them in competition with the values they name, and the values

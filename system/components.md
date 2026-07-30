@@ -639,6 +639,35 @@ columns · selectable rows · numeric mono columns · row actions (ghost ⋯ men
 footer with Pagination. Server-sorted, server-filtered; rows are `_row.html`
 fragments.
 
+Column alignment. One master rule generates the rest: a header always takes
+its column's alignment, so the label and the values it names share an edge.
+Alignment follows what a value means, not what it is made of — the test is
+whether anyone would ever compare or total the column.
+
+| Column kind | Alignment | Notes |
+|---|---|---|
+| Text (names, descriptions) | Left | Clip to one line rather than wrap, so rows keep one height and column edges stay straight |
+| Pills, badges, marks, avatars | Centre (`--center`) | Short fixed tokens only — never prose, which is unreadable centred |
+| Numbers, currency, scores | Right (`--num`) | Mono, tabular figures, one decimal precision for the whole column; the unit lives in the header, never repeated per row |
+| Fixed-format dates | Right (`--num`) | Ordinal, so they compare like magnitudes and mono makes the column exact. Relative dates ("2 days ago") are text — left |
+| Identifiers and codes | Left (`--mono`) | Mono but never right: a code is read left to right, not compared. Digits alone do not make a number — postal codes, phone numbers, and account numbers are identifiers |
+| Selection checkbox | Centre (`--check`) | First, fixed narrow; the header holds select-all |
+| Row actions | Right (`--actions`) | Last, fixed narrow, never hideable (4.3) |
+
+Two rules the table above implies. Empty headers are still named: a column
+whose header shows nothing on screen — selection, favourites, actions —
+carries a `.visually-hidden` label, because a screen reader announcing
+"blank" is a column with no name. And a placeholder for a missing value
+takes its column's alignment, never an exception: a missing number sits
+right where the number would have been.
+
+One craft trap in the first column. A leading mark inside a text cell — an
+avatar, a status dot, a favourite star — pushes the text right while the
+header stays at the cell edge, so the label and its data start at different
+places and the eye notices without being able to name it. Either the mark
+sits in its own narrow column, or the cell uses `.data-table__cell--marked`
+so the mark and the label share one left edge with the header above them.
+
 Header anatomy. The head is a different stratum from the data, and it
 differentiates by treatment rather than by volume — making the labels darker
 or heavier puts them in competition with the values they name, and the values

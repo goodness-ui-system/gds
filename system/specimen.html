@@ -1010,6 +1010,69 @@
       </div>
       <div class="data-table__url">/accounts?view=high-priority&amp;filterHasNoneOf_priority=low&amp;filterContains_status=&amp;group=priority&amp;sort=score,account&amp;dir=desc — the URL is the view: copy the address bar, a colleague sees this exact screen</div>
     </div>
+    <div class="specimen__label">Column alignment — the header always takes its column's alignment, and alignment follows what a value means, not what it is made of</div>
+    <div class="data-table data-table--head-label">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
+              <th>Security</th>
+              <th class="data-table__cell--mono">Symbol</th>
+              <th>Type</th>
+              <th class="data-table__cell--center">Status</th>
+              <th class="data-table__cell--num">Last reviewed</th>
+              <th class="data-table__cell--num"><button class="data-table__sort data-table__sort--active" type="button">Score <span class="data-table__sort-dir">▼</span></button></th>
+              <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">NO</span> Northwind Cloud</span></td>
+              <td class="data-table__cell--mono">NWCL</td>
+              <td>Equity</td>
+              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--num">2026-07-19</td>
+              <td class="data-table__cell--num">93.0</td>
+              <td class="data-table__cell--actions"><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">AP</span> Aperture Billing</span></td>
+              <td class="data-table__cell--mono">APBL</td>
+              <td>Equity</td>
+              <td class="data-table__cell--center"><span class="badge badge">To review</span></td>
+              <td class="data-table__cell--num">—</td>
+              <td class="data-table__cell--num">92.5</td>
+              <td class="data-table__cell--actions"><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">VA</span> Vandelay Balanced</span></td>
+              <td class="data-table__cell--mono">VNBF</td>
+              <td>Mutual Fund</td>
+              <td class="data-table__cell--center"><span class="badge badge">To review</span></td>
+              <td class="data-table__cell--num">—</td>
+              <td class="data-table__cell--num">92.0</td>
+              <td class="data-table__cell--actions"><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">MA</span> Massive Dynamic</span></td>
+              <td class="data-table__cell--mono">MSVD</td>
+              <td>Equity</td>
+              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--num">2026-07-15</td>
+              <td class="data-table__cell--num">91.5</td>
+              <td class="data-table__cell--actions"><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="specimen__note">Text left, pills centred, numbers and fixed-format dates right, identifiers left in mono — and every header sits on the same edge as the values beneath it. The score column shares one decimal precision so the digits form a true column, and the unit would live in the header rather than repeating on seventy rows. The missing date takes the column's alignment rather than becoming an exception. The first column shows the craft trap: the avatar and the name share one left edge with the header above them, because a leading mark that pushes the text right while the header stays put leaves the label and its data starting in different places. The selection and actions columns carry headers that are silent on screen and named for assistive technology — a column announced as "blank" is a column with no name.</p>
+
     <div class="specimen__label">Table header anatomy — a band behind the head, the label one step quieter than its data, the strongest rule in the table beneath it, and the sorted column marked in the header</div>
     <div class="data-table">
       <div class="data-table__scroll">
