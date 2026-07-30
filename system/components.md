@@ -871,19 +871,34 @@ A personal collection flag, and the reference case for the lens toggle
    column is fixed — always last, never hideable or reorderable in the field
    visibility panel (4.3), because a reader must not be able to hide the
    only route to a row's actions.
-4. Bulk pair — the bulk-actions bar (3.9) gains add and remove, so emptying
-   a collection is lens + select-all + remove: three clicks, three existing
-   components composing, no new control. Deliberate: wiping curation deserves
-   the selection ceremony, and a standing clear-all button in the toolbar
-   would put an unbounded erasure one click from everything. Two guards make
-   the bulk path safe. When the selection covers the whole collection the
-   remove confirms with its count ("Remove all 47 favorites?") — the
-   consequential-action rule (2.11, and the confirm-copy rule: the count in
-   the question, the verb in the button). And a `Clear all favorites` entry
-   may live in the view panel's actions pane as the discoverable twin of the
-   composed path — the same dual-entry logic as the row star and its menu
-   (menu for discovery, direct gesture for frequency) — routed through the
-   identical confirm, never a shortcut past it.
+4. Emptying the collection — and it depends on what the table has. Two
+   tiers, because the composed path presupposes components a table may not
+   ship:
+
+   - A table with row selection: the bulk-actions bar (3.9) gains add and
+     remove, so emptying is lens + select-all + remove — three clicks,
+     three existing components composing, no new control. This is the
+     primary path wherever selection exists, and a `Clear all favorites`
+     entry in the view panel's actions pane is its optional discoverable
+     twin (the dual-entry logic of the row star and its menu: menu for
+     discovery, direct gesture for frequency).
+   - A table without row selection: there is no bulk bar to hold the pair,
+     so the row star is the only per-record path (fine for a handful) and
+     the `Clear all favorites` entry becomes required rather than optional
+     — it is the single action that needs no selection, and without it a
+     reader who starred forty rows has no way back except forty clicks.
+     Never substitute a standing clear-all button in the toolbar: an
+     unbounded erasure one click from everything is the shape being
+     avoided, whether or not selection exists.
+
+   Both tiers route through one confirm, and it is the same confirm: when
+   the action covers the whole collection it states the count — "Remove all
+   47 favorites?", the count in the question and the verb on the button
+   (2.11, and the confirm-copy rule) — so the scale of an erasure is never
+   discovered afterwards. Prescribing the composed path without checking
+   for selection is the general trap: a path may only be prescribed where
+   its components are present, and the catalog names the fallback where
+   they are not.
 5. Empty lens — the empty state (3.11) when the lens is on and nothing is
    starred: teach the gesture in one sentence, never a bare grid.
 
