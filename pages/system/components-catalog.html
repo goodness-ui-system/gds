@@ -810,11 +810,19 @@ table, and dashboard has one designed — never a bare "No results."</p>
    column is fixed — always last, never hideable or reorderable in the field
    visibility panel (4.3), because a reader must not be able to hide the
    only route to a row's actions.</li>
-<li>Bulk pair — the bulk-actions bar (3.9) gains add and remove, so clearing a
-   collection is lens + select-all + remove: three existing components
-   composing. Deliberate: wiping curation deserves the selection ceremony; a
-   standing clear-all would put an irreversible-feeling erasure one click
-   from everything.</li>
+<li>Bulk pair — the bulk-actions bar (3.9) gains add and remove, so emptying
+   a collection is lens + select-all + remove: three clicks, three existing
+   components composing, no new control. Deliberate: wiping curation deserves
+   the selection ceremony, and a standing clear-all button in the toolbar
+   would put an unbounded erasure one click from everything. Two guards make
+   the bulk path safe. When the selection covers the whole collection the
+   remove confirms with its count ("Remove all 47 favorites?") — the
+   consequential-action rule (2.11, and the confirm-copy rule: the count in
+   the question, the verb in the button). And a <code>Clear all favorites</code> entry
+   may live in the view panel's actions pane as the discoverable twin of the
+   composed path — the same dual-entry logic as the row star and its menu
+   (menu for discovery, direct gesture for frequency) — routed through the
+   identical confirm, never a shortcut past it.</li>
 <li>Empty lens — the empty state (3.11) when the lens is on and nothing is
    starred: teach the gesture in one sentence, never a bare grid.</li>
 </ol>
@@ -828,12 +836,12 @@ toolbar claims — the lens is the honest way to see them together.</p>
 narrows any view to the collection, composing with every scope, filter, and
 sort. Its finite rules:</p>
 <ul>
-<li>Count visibility. Pressed: the count always shows, including zero — the
-  lens is the active filter, and its result must be stated. Not pressed: the
-  count shows only when it is greater than zero, because a resting <code>0</code> on
-  quiet chrome is noise. (The tab-count rule is the opposite — a scope tab
-  always shows its zero — and the difference is the component: a tab row is
-  a declared summary of every subset, a resting lens is an offer.)</li>
+<li>Count visibility. The count always shows, pressed or resting, including
+  zero. A withheld zero reads as unknown rather than as none — the same
+  reasoning as the scope-tab count (2.6), so counts-at-rest is one rule
+  across the system rather than a rule with an exception. <code>★ 0</code> at rest is
+  also the honest invitation: it says the collection exists and is empty,
+  which is what teaches the gesture.</li>
 <li>What the count counts. Favorites within the current filter set, not within
   the whole book: the number must predict the click. A resting <code>12</code> that
   yields four rows because a status filter is on has lied, and every other
