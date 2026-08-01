@@ -757,12 +757,27 @@ what the page does?</em> Rows only → scope. What the page does → nest.</p>
 <p>Two corollaries. First, one grammar per rail: a list of leaves with a single
 branch in the middle reads as a mistake even when the branch is justified,
 because the reader cannot tell from the shape which items will navigate.
-Prefer all-flat; if one parent must nest, expect to justify it. Second, an
-application must not solve the same distinction two ways — scope pills on
-one page and a submenu on another, both splitting the same taxonomy, is the
-one-solution-per-page-type rule (2.6) broken across the rail instead of
-within a page. Whichever mechanism the busiest page already uses is the one
-the rest adopts.</p>
+Prefer all-flat; if one parent must nest, expect to justify it — and when it
+is justified, let the connector rail carry the whole burden of saying so, so
+the shape is legible without spending space on it.</p>
+<p>Second, an application must not solve the same distinction two ways — but
+"the same distinction" means the same <em>job</em>, not the same word. Two pages
+may both offer Equity / ETF / Mutual Fund and be entirely consistent, if on
+one page the type is an attribute of rows in a single table (a filter) and
+on the other it decides which table you are in (a destination). Those are
+different problems wearing one vocabulary. The question to ask is not "does
+this label appear twice?" but "do the rows on both sides share a schema?" —
+same columns and actions means one collection filtered, and the mechanism
+must then match across pages; divergent columns mean two collections, and
+the mechanisms are free to differ because the problems do.</p>
+<p>What decides a grouping is schema and search, not category purity. Two
+instrument types that are legally distinct but carry identical columns, and
+that a person searching one name expects to see in a single list, belong on
+one page — splitting them would be taxonomically tidy and practically
+wrong, because it turns one search into two. Conversely a type whose
+attributes genuinely diverge earns its own page however closely related it
+looks on an org chart. Group by what the rows are made of and by what a
+search must return, and let the taxonomy fall where it falls.</p>
 <p>Nav density rule: navigation and menu rows use <code>--menu-pad-y</code>, a tighter rhythm
 than data rows (<code>--row-pad-y</code>). A nav item is targeted, not read — menu-heavy
 business applications burn sidebar space fast, and the reference tools run their
