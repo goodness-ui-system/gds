@@ -688,21 +688,30 @@ produces a different answer each time, and the differences are the point:
 | Seam | Device | What it says |
 |---|---|---|
 | Toolbar → scope rail | **air**, no ink | One assembly, two parts |
-| Scope rail → table head | **1px `--color-border-strong`** | Two adjacent parts of one object |
-| Table head → first row | **1px `--color-border`** (filled head) · **2px `--color-border-strong`** (plain head) | The head/body boundary — carried by the fill where there is one, by the rule where there is not |
+| Every seam inside the table — rail → head, head → first row, row → row, and the frame | **1px `--color-border`**, one weight | Boundaries within one object |
+| A boundary with neither fill nor space to carry it — the plain head | **2px `--color-border-strong`** | The rule is the only edge there is |
+
+**One hairline weight per object.** A second weight inside one table reads as
+a hierarchy that is not there: the heavier line pulls the eye to a seam
+instead of to the data, and a reader starts looking for the meaning it must
+be signalling. Strength escalates only when a rule is carrying a boundary
+alone. Where a fill or a gap is already doing the work, the rule is there to
+make the edge crisp, not to rank it — and crispness is a matter of the line
+existing, not of the line being dark.
 
 Read down that column and the reasoning is legible: separation gets heavier
 as the relationship gets weaker, so a reader learns the vocabulary once and
 applies it everywhere. Three devices, three strengths, no repetition.
 
-Two failures follow from it. Adding a hairline where air is doing the job —
+Three failures follow from it. Adding a hairline where air is doing the job —
 above the scope rail, say — flattens the ladder and makes the toolbar look
-like a separate stratum from the controls it belongs to. And a header band
-whose *fill* is its only top edge looks bottom-heavy: anchored below by its
-2px rule, floating above. The fix is never a second line. The docked rail is
-already that boundary (2.6) — the table pulls up one pixel to share it — so
-it takes `--color-border-strong`, not the default border. Two hairlines a
-pixel apart is a double rule, and a double rule reads as a mistake.
+like a separate stratum from the controls it belongs to. Drawing a second
+line where one already exists: the docked rail *is* the head's top edge
+(2.6), since the table pulls up one pixel to share it, and two hairlines a
+pixel apart is a double rule that reads as a mistake rather than emphasis.
+And reaching for a heavier weight when the real complaint is that a line is
+missing or invisible — the cure for an edge that will not read is a line, at
+the object's one weight, not a darker line.
 
 Two consequences worth stating. The ladder is what makes the assembly
 legible without adding a single divider — dividers are ink spent on what

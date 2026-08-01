@@ -540,7 +540,13 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
    accent interrupts that rail rather than floating above nothing. Proximity
    carries the grouping — air above toward the toolbar, none below. */
 .tab-dock { margin-top: var(--space-4); }
-.tab-dock .tabs { padding: 0 var(--space-3); border-bottom-color: var(--color-border-strong); }
+/* One hairline weight per object. The rail, the head's bottom, the row
+   separators and the frame are all boundaries inside one table, so they all
+   take the same hairline: a second weight inside one object reads as a
+   hierarchy that is not there, and the heavier line pulls the eye to a seam
+   instead of the data. Strength escalates only where a rule carries a
+   boundary alone — the plain head, which has no fill to help it. */
+.tab-dock .tabs { padding: 0 var(--space-3); border-bottom-color: var(--color-border); }
 .tab-dock .data-table { margin-top: -1px; border-top-left-radius: 0; border-top-right-radius: 0; }
 .tabs__tab { display: inline-flex; align-items: center; text-decoration: none; padding: var(--space-2) var(--space-3); border: none; background: none; color: var(--color-text-muted); font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .tabs__tab:hover { color: var(--color-text); }
