@@ -602,6 +602,30 @@ document `<title>` always set. Failure modes: a display-size heading that only
 echoes the rail, and a title kept beside a breadcrumb (2.10) ending in the
 same word — the third statement of one fact.
 
+### 3.0c Chrome stack — the rhythm above the data
+Everything between the page's top edge and its first record, spaced as a
+ladder rather than a rhythm. Proximity is the only grouping signal a stack
+of chrome has, and equal gaps spend it on nothing: four evenly spaced bands
+read as four unrelated strata, leaving the reader to work out which parts
+belong together.
+
+The steps halve, and each halving states a relationship:
+
+| Gap | Step | What it says |
+|---|---|---|
+| Page title → toolbar | `--space-6` | The title is a separate stratum |
+| Toolbar → scope rail | `--space-4` | These are one control assembly |
+| Scope rail → table | `0` (shared line) | The rail is the table's own top edge (2.6) |
+
+Two consequences worth stating. The ladder is what makes the assembly
+legible without adding a single divider — dividers are ink spent on what
+spacing already says. And it pays for itself in rows: a header region
+laddered this way runs roughly a third shorter than one spaced uniformly,
+and on a dense list every pixel returned is another record visible before
+the first scroll. Where the title area grows (a description, a status), a
+hairline beneath it is the honest divider — but only once the ladder alone
+stops carrying the grouping.
+
 ### 3.1 App shell
 Sidebar + topbar + main. Options: sidebar expanded/collapsed (a `preferences`
 row); active item via `aria-current="page"` from the request path; `hx-boost` for

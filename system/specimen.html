@@ -1052,6 +1052,69 @@
       </div>
       <div class="data-table__url">/accounts?view=high-priority&amp;filterHasNoneOf_priority=low&amp;filterContains_status=&amp;group=priority&amp;sort=score,account&amp;dir=desc — the URL is the view: copy the address bar, a colleague sees this exact screen</div>
     </div>
+    <div class="specimen__label">The chrome stack — the gaps above the data halve at each step: the title is its own stratum, the toolbar and rail are one assembly, the rail is the table's edge</div>
+    <div class="chrome-stack">
+      <div class="chrome-stack__head">
+        <span class="chrome-stack__name">Book of Business</span>
+        <span class="chrome-stack__who">K. Lane · XYZ-45332</span>
+      </div>
+      <div class="table-toolbar">
+        <div class="table-toolbar__group">
+          <span class="search-field"><span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>
+            <input class="input search-field__input" type="search" placeholder="Name, symbol, or code">
+            <button class="search-field__clear" type="button" aria-label="Clear search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+          </span>
+          <button class="toggle-btn" type="button" aria-pressed="true">All</button>
+          <button class="toggle-btn" type="button" aria-pressed="false">Equity</button>
+          <button class="toggle-btn" type="button" aria-pressed="false">Mutual Fund</button>
+          <button class="toggle-btn" type="button" aria-pressed="false" aria-label="Favorites only"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> 3</button>
+        </div>
+        <div class="table-toolbar__group">
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 8.5 5L12 12 3.5 7Z"/><path d="m20.5 12-8.5 5-8.5-5"/></svg></span> View ▾</button>
+          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></span> Filter · 1</button>
+        </div>
+      </div>
+      <div class="tab-dock">
+        <nav class="tabs" aria-label="List scopes">
+          <a class="tabs__tab" href="#chrome" aria-current="page">All <span class="tabs__count">70</span></a>
+          <a class="tabs__tab" href="#chrome">Overdue <span class="tabs__count">2</span></a>
+          <a class="tabs__tab" href="#chrome">To review <span class="tabs__count">52</span></a>
+          <a class="tabs__tab" href="#chrome">Reviewed <span class="tabs__count">16</span></a>
+        </nav>
+        <div class="data-table data-table--head-label">
+          <table class="data-table__table">
+            <thead><tr>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Security <span class="data-table__sort-dir">▲</span></button></th>
+              <th class="data-table__cell--mono">Symbol</th><th>Type</th><th>Sector / Category</th>
+              <th class="data-table__cell--center">Status</th>
+              <th class="data-table__cell--num">Last reviewed</th><th class="data-table__cell--num">Score</th>
+            </tr></thead>
+            <tbody>
+            <tr>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">NO</span> Northwind Cloud</span></td>
+              <td class="data-table__cell--mono">NWCL</td><td>Equity</td><td>Technology</td>
+              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--num">2026-07-19</td><td class="data-table__cell--num">93</td>
+            </tr>
+            <tr>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">AP</span> Aperture Billing</span></td>
+              <td class="data-table__cell--mono">APBL</td><td>Equity</td><td>Health Care</td>
+              <td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td>
+              <td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td>
+            </tr>
+            <tr>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">VA</span> Vandelay Balanced</span></td>
+              <td class="data-table__cell--mono">VNBF</td><td>Mutual Fund</td><td>—</td>
+              <td class="data-table__cell--center"><span class="badge badge--warning">Overdue</span></td>
+              <td class="data-table__cell--num">2026-04-02</td><td class="data-table__cell--num">92</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p class="specimen__note">Three gaps, each half the one before: the page title takes the full step, the toolbar and the scope rail take half of it, and the rail takes none because it is the table's own top edge. The ladder is what does the grouping — proximity is the only signal available in a stack of chrome, and four evenly spaced bands spend it on nothing, leaving the reader to work out which parts belong together. It also pays for itself in rows: a header region laddered this way runs roughly a third shorter than one spaced uniformly, and every pixel it returns is another record on screen before the first scroll.</p>
+
     <div class="specimen__label">Every control clears itself — the field's own X, present only when there is something to clear</div>
     <div class="specimen__row">
       <span class="search-field"><span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>

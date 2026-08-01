@@ -564,6 +564,47 @@ application (white paper chapter 14 argues both sides):</p>
 document <code>&lt;title&gt;</code> always set. Failure modes: a display-size heading that only
 echoes the rail, and a title kept beside a breadcrumb (2.10) ending in the
 same word — the third statement of one fact.</p>
+<h3>3.0c Chrome stack — the rhythm above the data</h3>
+<p>Everything between the page's top edge and its first record, spaced as a
+ladder rather than a rhythm. Proximity is the only grouping signal a stack
+of chrome has, and equal gaps spend it on nothing: four evenly spaced bands
+read as four unrelated strata, leaving the reader to work out which parts
+belong together.</p>
+<p>The steps halve, and each halving states a relationship:</p>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Step</th>
+<th>What it says</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page title → toolbar</td>
+<td><code>--space-6</code></td>
+<td>The title is a separate stratum</td>
+</tr>
+<tr>
+<td>Toolbar → scope rail</td>
+<td><code>--space-4</code></td>
+<td>These are one control assembly</td>
+</tr>
+<tr>
+<td>Scope rail → table</td>
+<td><code>0</code> (shared line)</td>
+<td>The rail is the table's own top edge (2.6)</td>
+</tr>
+</tbody>
+</table>
+<p>Two consequences worth stating. The ladder is what makes the assembly
+legible without adding a single divider — dividers are ink spent on what
+spacing already says. And it pays for itself in rows: a header region
+laddered this way runs roughly a third shorter than one spaced uniformly,
+and on a dense list every pixel returned is another record visible before
+the first scroll. Where the title area grows (a description, a status), a
+hairline beneath it is the honest divider — but only once the ladder alone
+stops carrying the grouping.</p>
 <h3>3.1 App shell</h3>
 <p>Sidebar + topbar + main. Options: sidebar expanded/collapsed (a <code>preferences</code>
 row); active item via <code>aria-current="page"</code> from the request path; <code>hx-boost</code> for
