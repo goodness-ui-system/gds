@@ -583,10 +583,17 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 .sidenav__group-items { margin-left: calc(var(--space-3) + var(--sidenav-icon) / 2); padding-left: var(--space-3); border-left: 1px solid var(--color-border); }
 .sidenav__item--sub { position: relative; color: var(--color-text-muted); border-radius: 0 var(--radius-xs) var(--radius-xs) 0; }
 .sidenav__item--sub:hover { color: var(--color-text); }
-/* The active child marks the rail itself, so position within the branch is
-   visible without a filled pill competing with the active top-level item. */
+/* Two ways to mark the active child, one per application (never mixed).
+   Default — the rail: the accent segment replaces a length of the branch, so
+   position is visible while the fill stays reserved for the top level, which
+   keeps the two depths distinguishable at a glance. */
 .sidenav__item--sub[aria-current="page"] { background: none; color: var(--color-action); font-weight: var(--weight-medium); }
 .sidenav__item--sub[aria-current="page"]::before { content: ""; position: absolute; left: calc(-1 * var(--space-3) - 1px); top: 0; bottom: 0; width: 2px; background: var(--color-action); }
+/* Option — the fill: the child marks the way the top level does. Louder and
+   impossible to miss, at the cost of the depth cue; choose it where level two
+   is where the reader actually lives. */
+.sidenav--sub-filled .sidenav__item--sub[aria-current="page"] { background: var(--color-selected-bg); }
+.sidenav--sub-filled .sidenav__item--sub[aria-current="page"]::before { content: none; }
 .sidenav--secondary { width: 12rem; }
 @media (prefers-reduced-motion: reduce) { .sidenav__chev { transition: none; } }
 
