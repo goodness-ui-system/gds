@@ -768,6 +768,35 @@ filled shape is the current item's selection pill. Floating menus that open from
 the rail are overlays and keep their edge and shadow (that is a requirement of
 floating above other content, not a card by choice).
 
+Nest or scope? — the qualifier test. A child appears in the rail for one of
+two reasons, and only one of them earns the indent. The honest question is
+what the child needs from its parent:
+
+- If the child needs the parent only as a **qualifier** — "Equities" would
+  be ambiguous standing alone, because it could mean the ones I hold — then
+  it is a scope, not a destination. Make the parent one flat item and put
+  the children in a scope row on its page (2.6). The page title states the
+  qualifier in words, which is strictly stronger than stating it by
+  indentation: indentation is a spatial hint the reader must interpret, a
+  title is a sentence. Nesting to disambiguate is treating a weak signal as
+  a fix for a naming problem.
+- If the child is a **different page** — different columns, different
+  actions, a different workflow, not merely a filtered set of the same rows
+  — then it is a destination and the indent is correct.
+
+The test is one question: *do the children differ in what rows appear, or in
+what the page does?* Rows only → scope. What the page does → nest.
+
+Two corollaries. First, one grammar per rail: a list of leaves with a single
+branch in the middle reads as a mistake even when the branch is justified,
+because the reader cannot tell from the shape which items will navigate.
+Prefer all-flat; if one parent must nest, expect to justify it. Second, an
+application must not solve the same distinction two ways — scope pills on
+one page and a submenu on another, both splitting the same taxonomy, is the
+one-solution-per-page-type rule (2.6) broken across the rail instead of
+within a page. Whichever mechanism the busiest page already uses is the one
+the rest adopts.
+
 Nav density rule: navigation and menu rows use `--menu-pad-y`, a tighter rhythm
 than data rows (`--row-pad-y`). A nav item is targeted, not read — menu-heavy
 business applications burn sidebar space fast, and the reference tools run their
