@@ -681,6 +681,29 @@ The steps halve, and each halving states a relationship:
 | Toolbar → scope rail | `--space-4` | These are one control assembly |
 | Scope rail → table | `0` (shared line) | The rail is the table's own top edge (2.6) |
 
+There is a second ladder running alongside the spatial one, and it is the
+answer to "does this boundary need a hairline?" — asked once per seam, it
+produces a different answer each time, and the differences are the point:
+
+| Seam | Device | What it says |
+|---|---|---|
+| Toolbar → scope rail | **air**, no ink | One assembly, two parts |
+| Scope rail → table head | **1px `--color-border-strong`** | Two adjacent parts of one object |
+| Table head → first row | **2px `--color-border-strong`** | The head/body boundary — the strongest line in the table |
+
+Read down that column and the reasoning is legible: separation gets heavier
+as the relationship gets weaker, so a reader learns the vocabulary once and
+applies it everywhere. Three devices, three strengths, no repetition.
+
+Two failures follow from it. Adding a hairline where air is doing the job —
+above the scope rail, say — flattens the ladder and makes the toolbar look
+like a separate stratum from the controls it belongs to. And a header band
+whose *fill* is its only top edge looks bottom-heavy: anchored below by its
+2px rule, floating above. The fix is never a second line. The docked rail is
+already that boundary (2.6) — the table pulls up one pixel to share it — so
+it takes `--color-border-strong`, not the default border. Two hairlines a
+pixel apart is a double rule, and a double rule reads as a mistake.
+
 Two consequences worth stating. The ladder is what makes the assembly
 legible without adding a single divider — dividers are ink spent on what
 spacing already says. And it pays for itself in rows: a header region
