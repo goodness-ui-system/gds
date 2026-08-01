@@ -724,6 +724,11 @@ html:has(#opt-light:checked) .theme-glyph--moon { display: none; }
 .data-table { border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface); }
 .table-toolbar { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: space-between; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); }
 .table-toolbar__group { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+/* A hairline marking a change of kind inside one group — a lens beside the
+   scopes it composes with, an action beside the controls it does not. */
+/* Icon-only: square, so the glyph sits centred rather than in a wide slot. */
+.button--icon { width: var(--control-h); padding: 0; justify-content: center; }
+.table-toolbar__sep { width: 1px; align-self: stretch; margin: var(--space-1) var(--space-1); background: var(--color-border); }
 .data-table__scroll { max-height: 19rem; overflow: auto; }
 .data-table__table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
 /* Header anatomy (3.4a): the head is a different stratum from the data, and

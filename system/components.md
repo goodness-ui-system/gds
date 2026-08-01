@@ -911,6 +911,35 @@ brand-vs-meaning chapter). Order rule: the five controls keep this order in
 every application; a sixth control enters by the standard workflow
 (AGENTS.md §11), never ad hoc.
 
+Control treatment — when a control is boxed. The toolbar carries two kinds
+of control, and the treatment says which is which rather than decorating
+either:
+
+- A control that holds a value is boxed. A text field needs its box to show
+  where typing goes; a toggle needs an outline because an unfilled box is
+  what makes "off" legible; the lens is the same. Box = something lives
+  here.
+- A control that opens something is not boxed (`.button--ghost`). A door has
+  no state to display at rest, so a container around it describes nothing,
+  and nine contours in one row is ink spent saying nothing nine times.
+  Hover must give these a background — borderless is a weaker affordance at
+  rest, and the hover ground is what repays it. Without it the criticism of
+  flat controls lands fairly.
+- A borderless control announces state with a fill, never by growing a
+  border (`Sort · 1`, `Hidden fields · 3`). Fill is the stronger signal on
+  an unbordered control, and it keeps "has a value" reading the same way
+  across the whole group.
+
+Icon-only qualifies twice over. It is permitted where the symbol is genuinely
+universal and the control is an action — the export tray, the row-actions
+ellipsis — and it always carries an `aria-label` and a tooltip. It is not
+permitted for a control that holds a value: a density control has no
+conventional glyph and a state to state, so it takes a label and its value
+(`Row height · Normal`) like every neighbour. And an action sitting among
+configuration controls takes a separator (`.table-toolbar__sep`), because
+adjacency implies membership — the same hairline that separates the lens
+from the scope pills it composes with.
+
 ### 3.6 Table editing vs. form editing — the options catalog
 Where should a value change: in the table cell itself, or in the record form the
 row opens? Every option is on display in the specimen, pending selection; a real
