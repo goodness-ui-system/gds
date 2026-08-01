@@ -711,6 +711,33 @@ answering nowhere. The rule:
   someone else is a mode, and an unannounced mode is how the wrong record
   gets edited.
 
+**The subject slot.** Where a page is always *about* somebody — one
+advisor's book, one team's queue, one client's portfolio — that subject is
+page head material and takes a shape of its own, sized between the title
+and the meta beneath it:
+
+- If the subject can be changed, it is a **control, not a label**:
+  `Book of Business · [John Smith ▾]`. A name a reader can change but that
+  looks like text is a door with no handle, and a name that can only be one
+  value should not imply a menu. The shape states which it is.
+- The identifier travels with the subject, not with the account — mono, one
+  step quieter, on the same line.
+- Do not fold the subject into the page title (`John Smith's Book of
+  Business`). The title matches the nav label that got you there; when it
+  drifts, the rail stops confirming where you are.
+
+**Viewing versus acting.** Two different intensities, and conflating them
+either cries wolf or hides a live hazard:
+
+- *Viewing* another subject read-only: the subject control wears a marked
+  state and names the owner in words. Nothing more — a banner over a
+  read-only report is a false alarm, and false alarms are how real ones
+  stop being read.
+- *Acting as* another subject with write powers: a persistent banner that
+  survives every navigation, in words that say whose data will change, with
+  the exit in the banner itself. This one is not proportional to how often
+  it happens; it is proportional to what it costs when nobody noticed.
+
 **Anatomy.** One target, not three: the whole cluster is a single door with
 one hover ground, opening the account menu (profile, preferences, sign
 out). It is not boxed — a door has no state to show at rest (3.5 control
