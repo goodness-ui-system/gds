@@ -124,6 +124,66 @@ prefix; removable.</p>
   &lt;button class=&quot;chip__remove&quot; hx-get=&quot;/items?tier=&quot; hx-target=&quot;#list&quot;
           hx-push-url=&quot;true&quot; aria-label=&quot;Remove filter&quot;&gt;✕&lt;/button&gt;&lt;/span&gt;
 </code></pre>
+<p><strong>The status ladder — weight tracks the action demanded, not the state
+named.</strong> A status column is a queue seen sideways, and the badge's job is to
+show a reader where their attention is owed. So the treatment is ranked by
+what each state asks of a person, in three steps:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>States</th>
+<th>Treatment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Resting</strong> — asks nothing</td>
+<td>Reviewed · On track · Approved · Active</td>
+<td><code>--quiet</code>: neutral hairline, muted text, no ground</td>
+</tr>
+<tr>
+<td><strong>Pending</strong> — asks eventually</td>
+<td>To review · In progress · Awaiting</td>
+<td><code>--info --outline</code>: semantic border and text, no ground</td>
+</tr>
+<tr>
+<td><strong>Exception</strong> — asks now</td>
+<td>Overdue · Failed · Rejected · Blocked</td>
+<td><code>--warning</code> / <code>--danger</code>: semantic border, text, <strong>and</strong> a filled ground</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Only an exception earns a fill.</strong> The ladder must be monotonic — no
+colour, then colour, then colour with a ground — and it cannot be built by
+hoping one hue reads lighter than another. The first attempt here graded the
+steps by hue alone, and the cool tint on the pending state came out visually
+heavier than the warm tint on the exception, so the ladder inverted a second
+time in the same afternoon. The ground is the only reliable third step: it
+is a difference of kind rather than degree, and no palette choice can
+scramble it.</p>
+<p>It also falls out right in practice, because the pending state is usually
+the one filling the column. Fifty-two rows of filled "to review" is a wall
+that competes with the two rows a person actually needs to open.</p>
+<p><strong>A green badge for a finished state is the trap</strong>, and it is the one nearly
+everyone falls into: green means good, good means done, so "Reviewed" gets a
+success tint. But a tint is emphasis, and emphasis on the rows that need
+nothing is emphasis spent backwards — the eye lands on completed work while
+the overdue item two rows down waits its turn. Worse, when most rows are
+finished, the loudest column on screen is a wall of "nothing to do here". A
+finished state is not news. Reserve saturated semantic color for what needs
+a human; <code>--success</code> belongs to a confirmation a person is actively waiting
+on (an alert after saving), not to a resting row in a list.</p>
+<p>The test, and it takes one screenshot: squint at the table. The marks that
+survive should be exactly the rows you would want someone to work on first.
+If the loudest thing on screen is "done", the ladder is upside down.</p>
+<p>Corollary for a near-uniform column: when nearly every row carries the same
+badge — whichever step it belongs to — that badge has stopped being a signal
+and become a texture. The majority state is the background, and the column's
+job is to mark departures from it. So the dominant state drops to plain
+muted text, and the marks that remain are the news. A mark that appears
+everywhere marks nothing, and this is judged on the data a deployment
+actually holds, not on the state names in the schema.</p>
 <p><strong>Badge fills must be visible as fills.</strong> A tinted status pill whose ground
 cannot be told from the row it sits on is not a quiet badge — it is an
 outline and some colored text, and the fill has silently stopped working.

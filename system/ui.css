@@ -488,6 +488,14 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
    fill, so the two differ by field as well as by hue and the pair survives
    grayscale, printing, and colour blindness. */
 .badge--quiet { border-color: var(--color-border); color: var(--color-text-muted); background: transparent; }
+/* The middle step of the status ladder (1.7): semantic border and text, no
+   ground. Composes with any semantic modifier. It exists so the ladder stays
+   monotonic — no mark, then colour, then colour with a ground — rather than
+   relying on one hue happening to read lighter than another. Only an
+   exception earns a fill; a pending state that fills competes with the thing
+   a person is supposed to act on, and it is usually the state that fills the
+   column. */
+.badge--outline { background: transparent; }
 .badge--solid { border-color: var(--color-border-strong); color: var(--color-text); background: var(--color-well); }
 /* Reserved for liveness only ("recording", "running") — a state happening
    right now, which the static word cannot say. Never decoration: the label

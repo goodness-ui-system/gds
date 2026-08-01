@@ -167,6 +167,9 @@
   <section class="specimen__section" id="themes">
     <h2 class="specimen__section-title">4. Dark and light as equals — and the halation problem</h2>
     <p class="wp-prose">The system treats dark and light as two equal renderings of the same design, not a main theme and an afterthought. The operating system's preference leads (via the standard <code>prefers-color-scheme</code> signal), and a stored per-user choice overrides it. Every color pair is contrast-solved independently in both themes and verified by an automated checker against the WCAG accessibility floors (WCAG is the international standard for readable contrast).</p>
+    <p class="wp-prose">Before the question of how strong a badge's tint should be comes the question of which badge gets a tint at all, and here a habit runs almost universally backwards. Green means good, good means done, so a finished row gets a success tint — and the loudest marks on the screen end up sitting beside the work that needs nothing. In a review queue where most rows are complete, that produces a column shouting "nothing to do here" while the two overdue items wait quietly further down. A tint is emphasis, and emphasis on finished work is emphasis spent backwards.</p>
+    <p class="wp-prose">The correction is to rank the treatment by what each state asks of a person rather than by what it names. A resting state — reviewed, approved, on track — asks nothing, and takes the quietest badge there is: a hairline, muted text, no fill. A pending state asks eventually, and takes a cool tint, visible but low in arousal. An exception — overdue, failed, blocked — asks now, and takes a warm tint, the loudest mark in the column. The escalation already exists in the palette, since warm hues arrest the eye more than cool ones at equal contrast; what was missing was the instruction to use it in that order. Saturated semantic color is reserved for what needs a human. Success green belongs to a confirmation somebody is actively waiting on, not to a settled row in a list.</p>
+    <p class="wp-prose">The test costs one screenshot and no argument: squint at the table until the words blur. The marks that survive should be precisely the rows you would want someone to open first. If what survives is "done", the ladder is upside down. And when nearly every row carries the same badge, that badge has stopped being a signal and become a texture — at which point the resting state should drop its pill and render as plain muted text, because a mark that appears everywhere marks nothing.</p>
     <p class="wp-prose">A quieter trap sits beside halation, and it caught this system. A tinted status pill — the soft green behind "Reviewed", the amber behind "Overdue" — is drawn as a percentage of its semantic color, and a percentage behaves completely differently over a white ground and a dark navy one. At ten percent the fill cleared its row by 1.25 to 1 in light and 1.04 to 1 in dark: nothing at all. The border and the text still measured above five to one, so every swatch looked correct in isolation and the pill looked like an outline with some colored text inside it. The fix is to make the strength a token with a measured floor against the row it lands on, in every palette and both themes, rather than a number chosen once by eye on a white page.</p>
     <p class="wp-prose">Two things generalise from that. Judge a tint against the ground it will actually land on, never against a swatch sheet — a color that has no ground has no contrast. And verify the value the stylesheet actually renders, not the value the tokens declare: one of the four badge rules here kept its old literal percentage while the checker read the token and reported all clear, which is the precise shape of a check that agrees with itself instead of with the screen. The checker now asserts that every badge fill consumes the token as well as that the token clears the floor.</p>
     <p class="wp-prose">Dark mode has a trap of its own called halation: pure white text on a dark background scatters in the eye and appears to glow, with a halo around each letter — especially for readers with astigmatism. The published evidence converges on the fix: dark-theme text is never pure white but a light gray in the #DEDEDE–#EBEBEB band, and the canvas is never pure black. Those ceilings are enforced by the same checker that enforces the contrast floors — flip the Light theme switch above and note that both renderings hold.</p>
@@ -424,7 +427,7 @@
     <p class="wp-prose">A badge states a condition; a chip states an applied choice and can be removed. Both follow the compound-signal rule: a semantic color never appears alone — always with a word — so meaning survives grayscale, color-blindness, and printing. The dot the badge once carried is gone, and the reasoning is the founding chapter applied to one circle: the word is the accessible signal, the tinted text and border are the color layer, and a dot beside a static word is a third coding that says nothing — a twenty-row status column would carry twenty circles meaning nothing. The dot survives as one reserved variant, liveness: a state happening right now — recording, running — which a static word cannot say.</p>
     <div class="specimen__row">
       <span class="badge">Neutral</span>
-      <span class="badge badge--success">On track</span>
+      <span class="badge badge--quiet">On track</span>
       <span class="badge badge--warning">Review due</span>
       <span class="badge badge--danger">Overdue</span>
       <span class="badge badge--info">In review</span>
@@ -843,7 +846,7 @@
             <div class="page-head__meta">Enterprise · owner K. Lane · last reviewed 2026-07-18</div>
           </div>
           <div class="page-head__actions">
-            <span class="badge badge--success">On track</span>
+            <span class="badge badge--quiet">On track</span>
             <button class="button button--primary" type="button">Start review</button>
           </div>
         </div>
@@ -1156,7 +1159,7 @@
             <tr class="data-table__row--selected">
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" checked aria-label="Select row"></td>
               <td>Acme Payments</td><td><span class="badge badge--warning">High</span></td>
-              <td><span class="badge badge--success">On track</span></td>
+              <td><span class="badge badge--quiet">On track</span></td>
               <td><span class="avatar avatar--sm">KL</span></td>
               <td class="data-table__cell--num">87</td><td class="data-table__cell--num">2026-07-18</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -1180,7 +1183,7 @@
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
               <td>Massive Dynamic</td><td><span class="badge badge--warning">High</span></td>
-              <td><span class="badge badge--success">On track</span></td>
+              <td><span class="badge badge--quiet">On track</span></td>
               <td><span class="avatar avatar--sm">JD</span></td>
               <td class="data-table__cell--num">78</td><td class="data-table__cell--num">2026-07-05</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -1205,7 +1208,7 @@
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
               <td>Aperture Billing</td><td><span class="badge">Moderate</span></td>
-              <td><span class="badge badge--success">On track</span></td>
+              <td><span class="badge badge--quiet">On track</span></td>
               <td><span class="avatar avatar--sm">KL</span></td>
               <td class="data-table__cell--num">90</td><td class="data-table__cell--num">2026-06-25</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -1213,7 +1216,7 @@
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
               <td>Initech Legal</td><td><span class="badge">Moderate</span></td>
-              <td><span class="badge badge--success">On track</span></td>
+              <td><span class="badge badge--quiet">On track</span></td>
               <td><span class="avatar avatar--sm">TS</span></td>
               <td class="data-table__cell--num">93</td><td class="data-table__cell--num">2026-07-01</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -1229,7 +1232,7 @@
             <tr>
               <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
               <td>Vandelay Exports</td><td><span class="badge">Moderate</span></td>
-              <td><span class="badge badge--success">On track</span></td>
+              <td><span class="badge badge--quiet">On track</span></td>
               <td><span class="avatar avatar--sm">AM</span></td>
               <td class="data-table__cell--num">82</td><td class="data-table__cell--num">2026-06-03</td>
               <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -1374,19 +1377,19 @@
             <tr>
               <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">NO</span> Northwind Cloud</span></td>
               <td class="data-table__cell--mono">NWCL</td><td>Equity</td><td>Technology</td>
-              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--center"><span class="badge badge--quiet">Reviewed</span></td>
               <td class="data-table__cell--num">2026-07-19</td><td class="data-table__cell--num">93</td>
             </tr>
             <tr>
               <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">AP</span> Aperture Billing</span></td>
               <td class="data-table__cell--mono">APBL</td><td>Equity</td><td>Health Care</td>
-              <td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td>
+              <td class="data-table__cell--center"><span class="badge badge--info badge--outline">To review</span></td>
               <td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td>
             </tr>
             <tr>
               <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">VA</span> Vandelay Balanced</span></td>
               <td class="data-table__cell--mono">VNBF</td><td>Mutual Fund</td><td>—</td>
-              <td class="data-table__cell--center"><span class="badge badge--warning">Overdue</span></td>
+              <td class="data-table__cell--center"><span class="badge badge--danger">Overdue</span></td>
               <td class="data-table__cell--num">2026-04-02</td><td class="data-table__cell--num">92</td>
             </tr>
             </tbody>
@@ -1454,7 +1457,7 @@
               <td class="data-table__cell--mono">NWCL</td>
               <td>Equity</td>
               <td>Technology</td>
-              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--center"><span class="badge badge--quiet">Reviewed</span></td>
               <td class="data-table__cell--num">2026-07-19</td>
               <td class="data-table__cell--num">93</td>
             </tr>
@@ -1463,7 +1466,7 @@
               <td class="data-table__cell--mono">APBL</td>
               <td>Equity</td>
               <td>Health Care</td>
-              <td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td>
+              <td class="data-table__cell--center"><span class="badge badge--info badge--outline">To review</span></td>
               <td class="data-table__cell--num">—</td>
               <td class="data-table__cell--num">92</td>
             </tr>
@@ -1472,7 +1475,7 @@
               <td class="data-table__cell--mono">VNBF</td>
               <td>Mutual Fund</td>
               <td>—</td>
-              <td class="data-table__cell--center"><span class="badge badge--warning">Overdue</span></td>
+              <td class="data-table__cell--center"><span class="badge badge--danger">Overdue</span></td>
               <td class="data-table__cell--num">2026-04-02</td>
               <td class="data-table__cell--num">92</td>
             </tr>
@@ -1481,7 +1484,7 @@
               <td class="data-table__cell--mono">MSVD</td>
               <td>Equity</td>
               <td>Technology</td>
-              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--center"><span class="badge badge--quiet">Reviewed</span></td>
               <td class="data-table__cell--num">2026-07-15</td>
               <td class="data-table__cell--num">91</td>
             </tr>
@@ -1499,11 +1502,11 @@
           <table class="data-table__table">
             <thead><tr><th>Item</th><th class="data-table__cell--center">Status</th></tr></thead>
             <tbody>
-            <tr><td>Row 1</td><td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td></tr>
-            <tr><td>Row 2</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
-            <tr><td>Row 3</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
-            <tr><td>Row 4</td><td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td></tr>
-            <tr><td>Row 5</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
+            <tr><td>Row 1</td><td class="data-table__cell--center"><span class="badge badge--quiet">Reviewed</span></td></tr>
+            <tr><td>Row 2</td><td class="data-table__cell--center"><span class="badge badge--info badge--outline">To review</span></td></tr>
+            <tr><td>Row 3</td><td class="data-table__cell--center"><span class="badge badge--info badge--outline">To review</span></td></tr>
+            <tr><td>Row 4</td><td class="data-table__cell--center"><span class="badge badge--quiet">Reviewed</span></td></tr>
+            <tr><td>Row 5</td><td class="data-table__cell--center"><span class="badge badge--info badge--outline">To review</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -1514,11 +1517,11 @@
           <table class="data-table__table">
             <thead><tr><th>Item</th><th class="data-table__cell--center">Status</th></tr></thead>
             <tbody>
-            <tr><td>Row 1</td><td class="data-table__cell--center"><span class="badge badge--solid">Reviewed</span></td></tr>
-            <tr><td>Row 2</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
-            <tr><td>Row 3</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
-            <tr><td>Row 4</td><td class="data-table__cell--center"><span class="badge badge--solid">Reviewed</span></td></tr>
-            <tr><td>Row 5</td><td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td></tr>
+            <tr><td>Row 1</td><td class="data-table__cell--center"><span class="badge badge--quiet">Reviewed</span></td></tr>
+            <tr><td>Row 2</td><td class="data-table__cell--center"><span class="badge badge--info badge--outline">To review</span></td></tr>
+            <tr><td>Row 3</td><td class="data-table__cell--center"><span class="badge badge--info badge--outline">To review</span></td></tr>
+            <tr><td>Row 4</td><td class="data-table__cell--center"><span class="badge badge--quiet">Reviewed</span></td></tr>
+            <tr><td>Row 5</td><td class="data-table__cell--center"><span class="badge badge--info badge--outline">To review</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -1528,11 +1531,11 @@
 
     <div class="specimen__label">The full scale, for when the vocabulary outgrows a pair</div>
     <div class="specimen__row">
-      <span class="badge badge--quiet">To review</span>
+      <span class="badge badge--info badge--outline">To review</span>
       <span class="badge badge--info">In progress</span>
-      <span class="badge badge--warning">Overdue</span>
+      <span class="badge badge--danger">Overdue</span>
       <span class="badge badge--danger">Failed</span>
-      <span class="badge badge--success">Reviewed</span>
+      <span class="badge badge--quiet">Reviewed</span>
     </div>
     <p class="specimen__note">Design the whole scale the moment a third state appears, rather than extending a pair — a two-value vocabulary that already spent the warning colour has nothing left for the state that genuinely warns.</p>
 
@@ -1558,7 +1561,7 @@
               <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">NO</span> Northwind Cloud</span></td>
               <td class="data-table__cell--mono">NWCL</td>
               <td>Equity</td>
-              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--center"><span class="badge badge--quiet">Reviewed</span></td>
               <td class="data-table__cell--num">2026-07-19</td>
               <td class="data-table__cell--num">93.0</td>
               <td class="data-table__cell--actions"><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -1588,7 +1591,7 @@
               <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">MA</span> Massive Dynamic</span></td>
               <td class="data-table__cell--mono">MSVD</td>
               <td>Equity</td>
-              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--center"><span class="badge badge--quiet">Reviewed</span></td>
               <td class="data-table__cell--num">2026-07-15</td>
               <td class="data-table__cell--num">91.5</td>
               <td class="data-table__cell--actions"><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
@@ -1614,11 +1617,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Northwind Cloud</td><td class="data-table__cell--mono">NWCL</td><td>Equity</td><td><span class="badge badge--success">Reviewed</span></td><td class="data-table__cell--num">2026-07-19</td><td class="data-table__cell--num">93</td></tr>
+            <tr><td>Northwind Cloud</td><td class="data-table__cell--mono">NWCL</td><td>Equity</td><td><span class="badge badge--quiet">Reviewed</span></td><td class="data-table__cell--num">2026-07-19</td><td class="data-table__cell--num">93</td></tr>
             <tr><td>Aperture Billing</td><td class="data-table__cell--mono">APBL</td><td>Equity</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td></tr>
             <tr><td>Vandelay Balanced Fund</td><td class="data-table__cell--mono">VNBFX</td><td>Mutual Fund</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td></tr>
             <tr><td>Bracewell Foundry</td><td class="data-table__cell--mono">BRWF</td><td>Equity</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">91</td></tr>
-            <tr><td>Massive Dynamic</td><td class="data-table__cell--mono">MSVD</td><td>Equity</td><td><span class="badge badge--success">Reviewed</span></td><td class="data-table__cell--num">2026-07-15</td><td class="data-table__cell--num">91</td></tr>
+            <tr><td>Massive Dynamic</td><td class="data-table__cell--mono">MSVD</td><td>Equity</td><td><span class="badge badge--quiet">Reviewed</span></td><td class="data-table__cell--num">2026-07-15</td><td class="data-table__cell--num">91</td></tr>
           </tbody>
         </table>
       </div>
@@ -1640,11 +1643,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Northwind Cloud</td><td class="data-table__cell--mono">NWCL</td><td>Equity</td><td><span class="badge badge--success">Reviewed</span></td><td class="data-table__cell--num">2026-07-19</td><td class="data-table__cell--num">93</td></tr>
+            <tr><td>Northwind Cloud</td><td class="data-table__cell--mono">NWCL</td><td>Equity</td><td><span class="badge badge--quiet">Reviewed</span></td><td class="data-table__cell--num">2026-07-19</td><td class="data-table__cell--num">93</td></tr>
             <tr><td>Aperture Billing</td><td class="data-table__cell--mono">APBL</td><td>Equity</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td></tr>
             <tr><td>Vandelay Balanced Fund</td><td class="data-table__cell--mono">VNBFX</td><td>Mutual Fund</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">92</td></tr>
             <tr><td>Bracewell Foundry</td><td class="data-table__cell--mono">BRWF</td><td>Equity</td><td><span class="badge badge">To review</span></td><td class="data-table__cell--num">—</td><td class="data-table__cell--num">91</td></tr>
-            <tr><td>Massive Dynamic</td><td class="data-table__cell--mono">MSVD</td><td>Equity</td><td><span class="badge badge--success">Reviewed</span></td><td class="data-table__cell--num">2026-07-15</td><td class="data-table__cell--num">91</td></tr>
+            <tr><td>Massive Dynamic</td><td class="data-table__cell--mono">MSVD</td><td>Equity</td><td><span class="badge badge--quiet">Reviewed</span></td><td class="data-table__cell--num">2026-07-15</td><td class="data-table__cell--num">91</td></tr>
           </tbody>
         </table>
       </div>
@@ -1663,12 +1666,12 @@
       <table class="data-table__table">
         <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
         <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">87</td></tr>
           <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">90</td></tr>
           <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">73</td></tr>
           <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">71</td></tr>
         </tbody>
       </table>
       </div>
@@ -1691,30 +1694,30 @@
       <table class="data-table__table">
         <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
         <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">87</td></tr>
           <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">90</td></tr>
           <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">73</td></tr>
           <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">71</td></tr>
           <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">68</td></tr>
           <tr><td>Hooli Storage</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">31</td></tr>
-          <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td></tr>
+          <tr><td>Initech Legal</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">93</td></tr>
           <tr><td>Massive Dynamic</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">78</td></tr>
-          <tr><td>Monarch Data</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">66</td></tr>
+          <tr><td>Monarch Data</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">66</td></tr>
           <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">49</td></tr>
           <tr><td>Northwind Cloud</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">42</td></tr>
-          <tr><td>Oceanic Freight</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">80</td></tr>
+          <tr><td>Oceanic Freight</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">80</td></tr>
           <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">58</td></tr>
-          <tr><td>Pied Piper Data</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">76</td></tr>
+          <tr><td>Pied Piper Data</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">76</td></tr>
           <tr><td>Soylent Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">52</td></tr>
           <tr><td>Stark Logistics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">29</td></tr>
-          <tr><td>Sterling Media</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">84</td></tr>
+          <tr><td>Sterling Media</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">84</td></tr>
           <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">61</td></tr>
-          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">38</td></tr>
+          <tr><td>Umbrella Hosting</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">38</td></tr>
           <tr><td>Vandelay Exports</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">82</td></tr>
           <tr><td>Wayne Foundry</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">45</td></tr>
-          <tr><td>Wonka Metrics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">70</td></tr>
+          <tr><td>Wonka Metrics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">70</td></tr>
         </tbody>
       </table>
         <div class="list-foot"><span class="spinner"></span> Loading more…</div>
@@ -1743,30 +1746,30 @@
       <table class="data-table__table">
         <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
         <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">87</td></tr>
           <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">90</td></tr>
           <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">73</td></tr>
           <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">71</td></tr>
           <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">68</td></tr>
           <tr><td>Hooli Storage</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">31</td></tr>
-          <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td></tr>
+          <tr><td>Initech Legal</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">93</td></tr>
           <tr><td>Massive Dynamic</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">78</td></tr>
-          <tr><td>Monarch Data</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">66</td></tr>
+          <tr><td>Monarch Data</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">66</td></tr>
           <tr><td>Nakatomi Systems</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">49</td></tr>
           <tr><td>Northwind Cloud</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">42</td></tr>
-          <tr><td>Oceanic Freight</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">80</td></tr>
+          <tr><td>Oceanic Freight</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">80</td></tr>
           <tr><td>Oscorp Cloud</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">58</td></tr>
-          <tr><td>Pied Piper Data</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">76</td></tr>
+          <tr><td>Pied Piper Data</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">76</td></tr>
           <tr><td>Soylent Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">52</td></tr>
           <tr><td>Stark Logistics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">29</td></tr>
-          <tr><td>Sterling Media</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">84</td></tr>
+          <tr><td>Sterling Media</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">84</td></tr>
           <tr><td>Tyrell Accounts</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">61</td></tr>
-          <tr><td>Umbrella Hosting</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">38</td></tr>
+          <tr><td>Umbrella Hosting</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">38</td></tr>
           <tr><td>Vandelay Exports</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">82</td></tr>
           <tr><td>Wayne Foundry</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">45</td></tr>
-          <tr><td>Wonka Metrics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">70</td></tr>
+          <tr><td>Wonka Metrics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">70</td></tr>
         </tbody>
       </table>
         <div class="list-foot list-foot--end" role="status">End of list — all <span class="list-foot__count">248</span> accounts shown <a class="list-foot__top" href="#table-scroll">Back to top</a></div>
@@ -1792,12 +1795,12 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
           <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
           <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--quiet">On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
           <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--quiet">On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
           </tbody>
         </table>
       </div>
@@ -1809,12 +1812,12 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
           <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
           <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--quiet">On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
           <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--quiet">On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
           </tbody>
         </table>
       </div>
@@ -1826,12 +1829,12 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th>Owner</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">87</td></tr>
           <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td><span class="avatar avatar--sm">TS</span></td><td class="data-table__cell--num">90</td></tr>
           <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">64</td></tr>
-          <tr class="data-table__row--selected"><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
+          <tr class="data-table__row--selected"><td>Duff Logistics</td><td><span class="badge badge--quiet">On track</span></td><td><span class="avatar avatar--sm">AM</span></td><td class="data-table__cell--num">73</td></tr>
           <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td><span class="avatar avatar--sm">KL</span></td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--quiet">On track</span></td><td><span class="avatar avatar--sm">JD</span></td><td class="data-table__cell--num">71</td></tr>
           </tbody>
         </table>
       </div>
@@ -1843,12 +1846,12 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Jan</th><th class="data-table__cell--num">Feb</th><th class="data-table__cell--num">Mar</th><th class="data-table__cell--num">Apr</th><th class="data-table__cell--num">May</th><th class="data-table__cell--num">Jun</th><th class="data-table__cell--num">Jul</th><th class="data-table__cell--num">Aug</th><th class="data-table__cell--num">Sep</th><th class="data-table__cell--num">Oct</th><th class="data-table__cell--num">Nov</th><th class="data-table__cell--num">Dec</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
           <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">39</td><td class="data-table__cell--num">52</td><td class="data-table__cell--num">65</td><td class="data-table__cell--num">78</td><td class="data-table__cell--num">91</td><td class="data-table__cell--num">14</td><td class="data-table__cell--num">27</td><td class="data-table__cell--num">40</td><td class="data-table__cell--num">53</td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">90</td></tr>
           <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
           <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">88</td><td class="data-table__cell--num">11</td><td class="data-table__cell--num">24</td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
           <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">44</td><td class="data-table__cell--num">57</td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">68</td></tr>
           <tr><td>Hooli Storage</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">96</td><td class="data-table__cell--num">19</td><td class="data-table__cell--num">32</td><td class="data-table__cell--num">45</td><td class="data-table__cell--num">58</td><td class="data-table__cell--num">71</td><td class="data-table__cell--num">84</td><td class="data-table__cell--num">97</td><td class="data-table__cell--num">20</td><td class="data-table__cell--num">33</td><td class="data-table__cell--num">31</td></tr>
           </tbody>
@@ -1861,12 +1864,12 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Jan</th><th class="data-table__cell--num">Feb</th><th class="data-table__cell--num">Mar</th><th class="data-table__cell--num">Apr</th><th class="data-table__cell--num">May</th><th class="data-table__cell--num">Jun</th><th class="data-table__cell--num">Jul</th><th class="data-table__cell--num">Aug</th><th class="data-table__cell--num">Sep</th><th class="data-table__cell--num">Oct</th><th class="data-table__cell--num">Nov</th><th class="data-table__cell--num">Dec</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-          <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
+          <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">42</td><td class="data-table__cell--num">87</td></tr>
           <tr><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">39</td><td class="data-table__cell--num">52</td><td class="data-table__cell--num">65</td><td class="data-table__cell--num">78</td><td class="data-table__cell--num">91</td><td class="data-table__cell--num">14</td><td class="data-table__cell--num">27</td><td class="data-table__cell--num">40</td><td class="data-table__cell--num">53</td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">90</td></tr>
           <tr><td>Cyberdyne Metrics</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">66</td><td class="data-table__cell--num">79</td><td class="data-table__cell--num">92</td><td class="data-table__cell--num">15</td><td class="data-table__cell--num">28</td><td class="data-table__cell--num">41</td><td class="data-table__cell--num">54</td><td class="data-table__cell--num">67</td><td class="data-table__cell--num">80</td><td class="data-table__cell--num">93</td><td class="data-table__cell--num">16</td><td class="data-table__cell--num">29</td><td class="data-table__cell--num">64</td></tr>
-          <tr><td>Duff Logistics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
+          <tr><td>Duff Logistics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">68</td><td class="data-table__cell--num">81</td><td class="data-table__cell--num">94</td><td class="data-table__cell--num">17</td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">73</td></tr>
           <tr><td>Gekko Capital</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">88</td><td class="data-table__cell--num">11</td><td class="data-table__cell--num">24</td><td class="data-table__cell--num">55</td></tr>
-          <tr><td>Globex Analytics</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
+          <tr><td>Globex Analytics</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">22</td><td class="data-table__cell--num">35</td><td class="data-table__cell--num">48</td><td class="data-table__cell--num">61</td><td class="data-table__cell--num">74</td><td class="data-table__cell--num">87</td><td class="data-table__cell--num">10</td><td class="data-table__cell--num">23</td><td class="data-table__cell--num">36</td><td class="data-table__cell--num">49</td><td class="data-table__cell--num">62</td><td class="data-table__cell--num">75</td><td class="data-table__cell--num">71</td></tr>
           <tr><td>Gringotts Ledger</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">30</td><td class="data-table__cell--num">43</td><td class="data-table__cell--num">56</td><td class="data-table__cell--num">69</td><td class="data-table__cell--num">82</td><td class="data-table__cell--num">95</td><td class="data-table__cell--num">18</td><td class="data-table__cell--num">31</td><td class="data-table__cell--num">44</td><td class="data-table__cell--num">57</td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">68</td></tr>
           <tr><td>Hooli Storage</td><td><span class="badge badge--info">In review</span></td><td class="data-table__cell--num">70</td><td class="data-table__cell--num">83</td><td class="data-table__cell--num">96</td><td class="data-table__cell--num">19</td><td class="data-table__cell--num">32</td><td class="data-table__cell--num">45</td><td class="data-table__cell--num">58</td><td class="data-table__cell--num">71</td><td class="data-table__cell--num">84</td><td class="data-table__cell--num">97</td><td class="data-table__cell--num">20</td><td class="data-table__cell--num">33</td><td class="data-table__cell--num">31</td></tr>
           </tbody>
@@ -1890,9 +1893,9 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
           <tbody>
-            <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
             <tr><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
-            <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -1905,7 +1908,7 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
           <tbody>
-            <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
             <tr><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost" type="button" aria-label="Edit record">✎</button><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td></tr>
           </tbody>
         </table>
@@ -1919,9 +1922,9 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th><th></th></tr></thead>
           <tbody>
-            <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">87</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
             <tr><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">71</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
-            <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">93</td><td><button class="button button--ghost data-table__rowaction" type="button" aria-label="Row actions">⋯</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -1934,9 +1937,9 @@
         <table class="data-table__table">
           <thead><tr><th>Account</th><th>Status</th><th></th></tr></thead>
           <tbody>
-            <tr><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+            <tr><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
             <tr><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
-            <tr><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
+            <tr><td>Initech Legal</td><td><span class="badge badge--quiet">On track</span></td><td><button class="button button--ghost rowaction-danger" type="button" aria-label="Delete">✕</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -2095,7 +2098,7 @@
           </div>
           <div class="prop">
             <span class="prop__label">Status</span>
-            <span class="prop__value"><span class="badge badge--success">On track</span></span>
+            <span class="prop__value"><span class="badge badge--quiet">On track</span></span>
             <span class="prop__edit-hint">✎</span>
           </div>
           <div class="prop">
@@ -2212,7 +2215,7 @@
           <p class="doc-record__prose">The account renews next quarter. Usage grew 22% year over year, and the expansion conversation should lead with the reporting module. Click the title or this text to edit in place.</p>
         </div>
         <div class="doc-record__props">
-          <div class="prop"><span class="prop__label">Status</span><span class="prop__value"><span class="badge badge--success">On track</span></span><span class="prop__edit-hint">✎</span></div>
+          <div class="prop"><span class="prop__label">Status</span><span class="prop__value"><span class="badge badge--quiet">On track</span></span><span class="prop__edit-hint">✎</span></div>
           <div class="prop"><span class="prop__label">Priority</span><span class="prop__value"><span class="badge badge--warning">High</span></span><span class="prop__edit-hint">✎</span></div>
         </div>
       </div>
@@ -2255,9 +2258,9 @@
           <table class="data-table__table">
             <thead><tr><th>Account</th><th class="data-table__cell--num">Score</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td>Acme Payments</td><td class="data-table__cell--num">87</td><td><span class="badge badge--success">On track</span></td></tr>
+              <tr><td>Acme Payments</td><td class="data-table__cell--num">87</td><td><span class="badge badge--quiet">On track</span></td></tr>
               <tr><td>Globex Analytics</td><td class="data-table__cell--num"><input class="grid-entry__input" value="71" aria-label="Score, editing"></td><td><span class="badge badge--warning">Review due</span></td></tr>
-              <tr><td>Initech Legal</td><td class="data-table__cell--num">93</td><td><span class="badge badge--success">On track</span></td></tr>
+              <tr><td>Initech Legal</td><td class="data-table__cell--num">93</td><td><span class="badge badge--quiet">On track</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -2498,11 +2501,11 @@
         <table class="data-table__table">
           <thead><tr><th class="data-table__cell--fav"><span class="data-table__fav-head" aria-label="Favorite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></th><th>Account</th><th>Status</th><th class="data-table__cell--num">Score</th></tr></thead>
           <tbody>
-            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Acme Payments"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Acme Payments</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">87</td></tr>
+            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Acme Payments"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Acme Payments</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">87</td></tr>
             <tr><td class="data-table__cell--fav"><button class="data-table__fav" type="button" aria-pressed="false" aria-label="Add to favorites: Aperture Billing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Aperture Billing</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">90</td></tr>
             <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Globex Analytics"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Globex Analytics</td><td><span class="badge badge--warning">Review due</span></td><td class="data-table__cell--num">71</td></tr>
             <tr><td class="data-table__cell--fav"><button class="data-table__fav" type="button" aria-pressed="false" aria-label="Add to favorites: Hooli Storage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Hooli Storage</td><td><span class="badge badge--danger">Overdue</span></td><td class="data-table__cell--num">31</td></tr>
-            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Initech Legal"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Initech Legal</td><td><span class="badge badge--success">On track</span></td><td class="data-table__cell--num">93</td></tr>
+            <tr><td class="data-table__cell--fav"><button class="data-table__fav data-table__fav--on" type="button" aria-pressed="true" aria-label="Remove from favorites: Initech Legal"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button></td><td>Initech Legal</td><td><span class="badge badge--quiet">On track</span></td><td class="data-table__cell--num">93</td></tr>
           </tbody>
         </table>
       </div>
