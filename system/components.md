@@ -364,6 +364,15 @@ above and a docked rail below are different kinds of object, where two
 stacked pill rows each beginning with "All" read as two versions of one
 control.
 
+Distinct treatment is necessary but not sufficient: the labels must part
+too. When two scope rows share a page, at most one "All" may stand bare.
+The second names its axis — `All types` above, `All` below, or the reverse
+— because a reader who meets the same word twice within a centimetre has to
+derive the difference from position, and position is the weakest thing a
+label can lean on. The bare one goes to the row whose axis the page title
+already names; the other spells its axis out. The same holds for any option
+label appearing in both rows, not just All.
+
 Boundary rules: one row never mixes jobs; nesting in one order only (a scope
 row may sit inside a section, never the reverse); the segmented control
 (1.12) re-renders the same panel with a different parameter, tabs change
