@@ -561,7 +561,7 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
    separators, and collapsible groups (native details/summary — zero JS). */
 .sidenav__section--sentence { text-transform: none; letter-spacing: normal; }
 .sidenav__divider { height: 1px; background: var(--color-border); border: none; margin: var(--space-2) var(--space-3); }
-.sidenav__icon { flex: none; width: 0.9rem; height: 0.9rem; display: inline-flex; color: var(--color-text-muted); }
+.sidenav__icon { flex: none; width: var(--sidenav-icon); height: var(--sidenav-icon); display: inline-flex; color: var(--color-text-muted); }
 .sidenav__item[aria-current="page"] .sidenav__icon,
 .sidenav__item:hover .sidenav__icon { color: inherit; }
 .sidenav--icons-lg .sidenav__icon { width: 1.125rem; height: 1.125rem; }
@@ -574,8 +574,19 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 .sidenav__group-summary:hover { background: var(--color-surface-hover); }
 .sidenav__chev { margin-left: auto; flex: none; display: inline-flex; width: 0.875rem; height: 0.875rem; color: var(--color-text-muted); transition: rotate var(--motion-fast) var(--ease); }
 .sidenav__group[open] > .sidenav__group-summary .sidenav__chev { rotate: 90deg; }
-.sidenav__item--sub { margin-left: var(--space-5); padding-left: var(--space-3); border-left: 1px solid var(--color-border); border-radius: 0 var(--radius-xs) var(--radius-xs) 0; }
-.sidenav__item--sub[aria-current="page"] { border-left-color: var(--color-action); }
+/* Submenu group. The children hang off their parent on one continuous rail
+   that descends from the parent's icon — a per-item border breaks at every
+   row gap and reads as a stack of unrelated fragments rather than a branch.
+   Children are muted at rest: they are the second level, and the parent
+   carries the group's weight. They take no icons — icons mark the top level
+   only, so a child row cannot be mistaken for a parent. */
+.sidenav__group-items { margin-left: calc(var(--space-3) + var(--sidenav-icon) / 2); padding-left: var(--space-3); border-left: 1px solid var(--color-border); }
+.sidenav__item--sub { position: relative; color: var(--color-text-muted); border-radius: 0 var(--radius-xs) var(--radius-xs) 0; }
+.sidenav__item--sub:hover { color: var(--color-text); }
+/* The active child marks the rail itself, so position within the branch is
+   visible without a filled pill competing with the active top-level item. */
+.sidenav__item--sub[aria-current="page"] { background: none; color: var(--color-action); font-weight: var(--weight-medium); }
+.sidenav__item--sub[aria-current="page"]::before { content: ""; position: absolute; left: calc(-1 * var(--space-3) - 1px); top: 0; bottom: 0; width: 2px; background: var(--color-action); }
 .sidenav--secondary { width: 12rem; }
 @media (prefers-reduced-motion: reduce) { .sidenav__chev { transition: none; } }
 

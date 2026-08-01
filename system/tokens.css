@@ -159,6 +159,7 @@
   --space-5: 1.5rem;
   --space-6: 2rem;
   --space-8: 3rem;
+  --sidenav-icon: 0.9rem;  /* the rail under a submenu descends from this icon's centre */
   --popover-gutter: 6rem;  /* ≈100px: the air a popover leaves above the window's bottom edge */
 
   /* Radius */

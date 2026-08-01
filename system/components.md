@@ -658,6 +658,21 @@ never flashing into place. Client storage is the named anti-pattern: it is
 client state, and it desynchronizes across devices. A fifth control enters
 by the standard workflow (AGENTS.md §11), never as a private feature.
 
+Submenu style. Four parts, and each answers why it looks the way it does.
+The rail is one continuous hairline on the children's container, never a
+border per child — a per-item border breaks at every row gap and reads as
+unrelated fragments instead of a branch. It descends from the centre of the
+parent's icon (`calc(var(--space-3) + var(--sidenav-icon) / 2)`), so the
+children hang from the row that owns them rather than from the panel edge.
+Children are muted at rest, because the parent carries the group's weight;
+hover restores full text colour. Children take no icons — icons mark the top
+level only, so a child row can never be mistaken for a parent, and the
+indent plus the rail already say where it sits. The active child marks the
+rail (a 2px accent segment) rather than filling a pill, so position inside
+the branch reads without competing with the active top-level item, which
+does fill. Depth stops at two levels; a third is promoted to tabs in the
+page (menus research).
+
 ### 3.3 Dashboard grid
 User-composed widget grid. Layout is a `views` row (`{"tiles":[{"w":…}]}`); each
 tile is a fragment loaded with `hx-get hx-trigger="load"`; add/remove/rearrange

@@ -511,18 +511,49 @@
         <a class="sidenav__item" href="#nav">Recurring Tasks</a>
         <details class="sidenav__group" open>
           <summary class="sidenav__group-summary">Directories <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
-          <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
-          <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
-          <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+          <div class="sidenav__group-items">
+            <a class="sidenav__item sidenav__item--sub" href="#nav">People</a>
+            <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Committees</a>
+            <a class="sidenav__item sidenav__item--sub" href="#nav">Firm Locations</a>
+          </div>
         </details>
         <details class="sidenav__group">
           <summary class="sidenav__group-summary">Evidence <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
-          <a class="sidenav__item sidenav__item--sub" href="#nav">Improvements</a>
-          <a class="sidenav__item sidenav__item--sub" href="#nav">Tables</a>
+          <div class="sidenav__group-items">
+            <a class="sidenav__item sidenav__item--sub" href="#nav">Improvements</a>
+            <a class="sidenav__item sidenav__item--sub" href="#nav">Tables</a>
+          </div>
         </details>
         <a class="sidenav__item" href="#nav">Implementation</a>
       </nav>
     </div>
+    <div class="specimen__label">The submenu — children hang off the parent on one continuous rail that descends from the parent's icon</div>
+    <div class="specimen__row">
+      <nav class="sidenav" aria-label="Submenu anatomy">
+        <a class="sidenav__item" href="#nav" aria-current="page"><span class="sidenav__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h8Z"/></svg></span> Book of Business</a>
+        <details class="sidenav__group" open>
+          <summary class="sidenav__group-summary"><span class="sidenav__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 16 8 10 12 13 21 5"/></svg></span> Research <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <div class="sidenav__group-items">
+            <a class="sidenav__item sidenav__item--sub" href="#nav">Equities</a>
+            <a class="sidenav__item sidenav__item--sub" href="#nav">ETF &amp; Mutual Funds</a>
+          </div>
+        </details>
+        <a class="sidenav__item" href="#nav"><span class="sidenav__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h3"/></svg></span> Due Diligence Reports</a>
+      </nav>
+      <nav class="sidenav" aria-label="Submenu with an active child">
+        <a class="sidenav__item" href="#nav"><span class="sidenav__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h8a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H2Z"/><path d="M22 5h-8a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h8Z"/></svg></span> Book of Business</a>
+        <details class="sidenav__group" open>
+          <summary class="sidenav__group-summary"><span class="sidenav__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 16 8 10 12 13 21 5"/></svg></span> Research <svg class="sidenav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg></summary>
+          <div class="sidenav__group-items">
+            <a class="sidenav__item sidenav__item--sub" href="#nav" aria-current="page">Equities</a>
+            <a class="sidenav__item sidenav__item--sub" href="#nav">ETF &amp; Mutual Funds</a>
+          </div>
+        </details>
+        <a class="sidenav__item" href="#nav"><span class="sidenav__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h3"/></svg></span> Due Diligence Reports</a>
+      </nav>
+    </div>
+    <p class="specimen__note">Four parts carry the style. The rail is one continuous hairline, not a border per child — a per-item border breaks at every row gap and reads as a stack of unrelated fragments rather than a branch. It descends from the centre of the parent's icon, so the children visibly hang from the row that owns them rather than from the panel edge. The children are muted at rest, because they are the second level and the parent carries the group's weight; hover restores full text colour. And the children take no icons: icons mark the top level only, so a child row can never be mistaken for a parent — the indent and the rail already say where it sits. The active child marks the rail itself rather than filling a pill, so position inside the branch is legible without competing with the active top-level item, which does fill. Depth stops here: two levels, never three.</p>
+
     <div class="specimen__label">Submenu overflow — the second column: a parent with dozens of children gets its own rail (the drill-in)</div>
     <div class="specimen__row">
       <div class="shell-demo">
