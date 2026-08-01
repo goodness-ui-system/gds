@@ -553,6 +553,26 @@ two settings inside. The trigger becomes a pair of sliders — not "theme",
 not "density", but "adjust how this looks", which is the menu's actual
 scope. Rule: the trigger must not name a subset of what the menu holds.
 
+The glyph is **two vertical faders**, and each part of that is a decision:
+
+- Faders, not a gear. A gear promises account and administration settings;
+  people click it looking for their profile and find row height. It is the
+  most over-promising icon in the toolbox — it means "settings", which is
+  every setting.
+- Faders, not a monitor. A screen glyph reads as *the device* — resolution,
+  external displays, projection — not as how this application renders.
+- Vertical, not horizontal. Horizontal sliders are a stack of horizontal
+  lines with knobs, and at 16px they sit in the same silhouette family as
+  the burger, the filter funnel, and the row-height rows this control just
+  replaced. Verticality is unmistakably a mixer, and it collides with
+  nothing else in the set. Test the glyph beside its neighbours at true
+  size, never alone at 3× — an icon is only as legible as its nearest
+  lookalike.
+- Two, not three. Three faders read as a promise of three groups; two
+  faders match the two the menu holds, and at 16px the third stroke is
+  noise. If a third group ever earns its place in this menu, the glyph
+  gains a third fader — the icon counts what is inside.
+
 Honest-stack mapping: the menu is a server-rendered overlay; choosing posts
 to the preferences endpoint and the server re-renders with `data-theme` and
 `data-density` set (or `data-theme` absent, for System) — no flash of the
