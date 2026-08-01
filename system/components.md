@@ -586,8 +586,29 @@ decisions almost nobody revisits, while a reader thinking "I want this
 bigger" has to guess which of several small icons owns that. One door,
 labelled Display, holding two named groups separated by a divider.
 
-It lives in the app header, never in a table toolbar. A toolbar configures
-its table; this configures the reader's experience of every table.
+It lives with the account, wherever the account lives — never in a table
+toolbar. A toolbar configures its table; this configures the reader's
+experience of every table. Two shell layouts, both correct:
+
+- **Account top-right**: the Display control sits beside it in the header,
+  one click from anywhere.
+- **Account at the rail foot** (3.0d): the Display control moves *inside*
+  the account menu, and the header keeps no permanent control at all. This
+  is the better arrangement when the page head already carries a subject
+  control (3.0d), because it leaves the top-right to say one thing.
+
+The second costs a click, and that cost is the same argument that merged
+appearance and density in the first place: a setting chosen once and then
+forgotten does not need to be one click away, it needs to be findable. Depth
+is cheap for a preference and expensive for a task.
+
+**One condition, and it is not negotiable.** A rail that can be hidden must
+still surrender its foot. If hiding the rail makes the account menu
+unreachable, then appearance, density, preferences and *sign out* all
+disappear with it — so the peek (3.2 utility controls) must reach the foot,
+or the collapsed rail must keep a narrow strip with the avatar still on it.
+Verify by hiding the rail and signing out; if you cannot, the control does
+not belong there yet.
 
 **Appearance group — System · Light · Dark.** The visible half of
 system-first theming (principle 3):
@@ -860,8 +881,31 @@ either cries wolf or hides a live hazard:
 one hover ground, opening the account menu (profile, preferences, sign
 out). It is not boxed — a door has no state to show at rest (3.5 control
 treatment) — but it owes the hover ground that borderless controls always
-owe. The Display control (2.15) sits immediately to its left; together they
-are the shell's two permanent controls and they travel as a pair.
+owe. The Display control (2.15) travels with it: beside it in the header, or
+inside its menu when the cluster sits at the rail foot.
+
+**At the rail foot.** Putting the account at the bottom of the rail is now
+common enough to be a convention a reader arrives already knowing — but the
+convention is carried by specific affordances, not by the position alone, and
+dropping any of them turns it back into a mystery:
+
+- The row shows an **avatar and the person's name**. Not a gear, not the word
+  "Settings". A name is what makes the row legible as *your* account, and it
+  is the thing people look for when they want to leave.
+- It is **pinned to the foot and divided from the nav by a hairline**, so it
+  reads as a different kind of object rather than the last item in the list.
+  It takes no active state — it is not a destination.
+- It carries a **disclosure mark** — a chevron or an ellipsis, at rest or on
+  hover — because the convention tells a reader this row *is* something, not
+  that it *opens* something. This is the affordance most often dropped, and
+  the one that decides whether the row is discoverable.
+- The menu opens **upward**, and it names its items in words: Profile,
+  Preferences, Display, Sign out. Whatever the entry point implies, the open
+  menu must be unambiguous.
+- **Do not make it the only path.** A keyboard route (command palette:
+  "Sign out") costs nothing and covers the reader who never thinks to click
+  their own name — which, in products whose users are not software-native,
+  is more of them than the convention's popularity suggests.
 
 **Inside it, a hierarchy, because a name and a code are not equals.**
 
