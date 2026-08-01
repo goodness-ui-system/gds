@@ -814,7 +814,19 @@ html:has(#opt-appearance-light:checked) .theme-glyph--moon { display: none; }
    the legibility of the labels that orient the whole table. It would also
    move the table's top edge on every density change — the one line that
    should stay put while the rows beneath it breathe. */
-.data-table__table th { position: sticky; top: 0; z-index: 1; background: var(--color-well); text-align: left; font-weight: var(--weight-medium); color: var(--color-text-muted); padding: var(--row-pad-y-head) var(--space-4); border-bottom: 2px solid var(--color-border-strong); white-space: nowrap; }
+/* The head's fill and the head's rule are two devices for one job — separating
+   head from body — and running both states it twice. A filled head already
+   says where it ends, so its bottom rule drops to the table's ordinary
+   hairline: same weight as the frame and the row lines, and the darkest ink
+   in the frame stops being a boundary nobody needed pointed out. The 2px
+   strong rule is for the unfilled head (--head-plain), where the rule is the
+   only boundary there is. */
+.data-table__table th { position: sticky; top: 0; z-index: 1; background: var(--color-well); text-align: left; font-weight: var(--weight-medium); color: var(--color-text-muted); padding: var(--row-pad-y-head) var(--space-4); border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+/* Unfilled head: the rule carries the whole boundary, so it takes the strong
+   weight and doubles. It cannot be sticky — a transparent head with rows
+   scrolling under it shows them through, which is why the filled head is the
+   default and this is the exception. */
+.data-table--head-plain .data-table__table th { position: static; background: transparent; border-bottom: 2px solid var(--color-border-strong); }
 /* Optional micro-label treatment: stops reading as data entirely. All-caps is
    measurably slower to read — fine for a handful of fixed words learned once,
    never for content. */

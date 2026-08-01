@@ -689,7 +689,7 @@ produces a different answer each time, and the differences are the point:
 |---|---|---|
 | Toolbar → scope rail | **air**, no ink | One assembly, two parts |
 | Scope rail → table head | **1px `--color-border-strong`** | Two adjacent parts of one object |
-| Table head → first row | **2px `--color-border-strong`** | The head/body boundary — the strongest line in the table |
+| Table head → first row | **1px `--color-border`** (filled head) · **2px `--color-border-strong`** (plain head) | The head/body boundary — carried by the fill where there is one, by the rule where there is not |
 
 Read down that column and the reasoning is legible: separation gets heavier
 as the relationship gets weaker, so a reader learns the vocabulary once and
@@ -1073,6 +1073,24 @@ are the point. Four parts:
   the head — that makes it a floating card (3.0).
 - Sticky. An unlabeled column at row fifty is the real complaint behind
   "the header is hard to see".
+
+The head's fill and the head's rule are two devices for one job, and running
+both states it twice. A filled head already says where it ends, so its
+bottom rule takes the table's ordinary hairline — the same weight as the
+frame and the row lines — rather than a doubled strong rule. Otherwise the
+heaviest ink in the whole frame is spent on a boundary the fill had already
+made unmistakable, and the eye is pulled to the seam instead of the data.
+The 2px strong rule belongs to the unfilled head (`--head-plain`), where the
+rule is the only boundary there is. One consequence is not optional: an
+unfilled head cannot be sticky, because a transparent head with rows
+scrolling under it shows them through — which is why the filled head is the
+default and the plain one is the exception.
+
+This is the same reasoning that keeps grouped tables off the zebra stripe
+and keeps a divider out of a gap that spacing already opened: when two
+devices claim one job, drop one. The device that survives is whichever also
+carries information the other cannot — here the fill, because it identifies
+the head as a region even when the rule is off screen.
 
 The head keeps one height in every density step (`--row-pad-y-head`, which
 density never re-points). Density exists to fit more records on screen;
