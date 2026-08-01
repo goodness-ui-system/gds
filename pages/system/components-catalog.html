@@ -887,9 +887,18 @@ dropping any of them turns it back into a mystery:</p>
 <li>The row shows an <strong>avatar and the person's name</strong>. Not a gear, not the word
   "Settings". A name is what makes the row legible as <em>your</em> account, and it
   is the thing people look for when they want to leave.</li>
-<li>It is <strong>pinned to the foot and divided from the nav by a hairline</strong>, so it
-  reads as a different kind of object rather than the last item in the list.
-  It takes no active state — it is not a destination.</li>
+<li>It is <strong>pinned to the foot</strong>, which is what makes it read as a different
+  kind of object rather than the last item in the list. It takes no active
+  state — it is not a destination.</li>
+<li><strong>No hairline above it by default.</strong> Three devices already separate it:
+  the avatar, the disclosure mark, and the empty space a pinned foot leaves
+  above itself — and the space is the strongest of the three. A rule on top
+  of that is ink spent stating what spacing already said. The line earns its
+  place in exactly one case: when the nav list is long enough to reach the
+  foot, so there is no gap left and content passes beneath a pinned row.
+  That is a scroll state, not a resting one (<code>--edged</code>), which is the same
+  reasoning that gives a sticky header its edge only once something is
+  scrolling under it.</li>
 <li>It carries a <strong>disclosure mark</strong> — a chevron or an ellipsis, at rest or on
   hover — because the convention tells a reader this row <em>is</em> something, not
   that it <em>opens</em> something. This is the affordance most often dropped, and

@@ -675,6 +675,21 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
    Children are muted at rest: they are the second level, and the parent
    carries the group's weight. They take no icons — icons mark the top level
    only, so a child row cannot be mistaken for a parent. */
+/* ---- the rail's account row (3.0d) ---------------------------------------
+   No hairline by default. Three devices already say this row is a different
+   kind of object from the nav items above it: the avatar, the disclosure
+   mark, and — the strongest of them — the empty space a pinned foot leaves
+   above itself. A rule added on top is ink spent stating what spacing has
+   already said, and the sections-not-cards reasoning applies to a rail as
+   much as to a page.
+   The line earns its place only when the nav list can actually reach the
+   foot, because then there is no gap left to do the separating and content
+   passes beneath a pinned row. That is a scroll state, not a resting one —
+   hence a modifier rather than a default. */
+.sidenav__account { display: flex; align-items: center; gap: var(--space-2); margin-top: auto; padding: var(--menu-pad-y) var(--space-2); border-radius: var(--radius-sm); cursor: pointer; color: var(--color-text); }
+.sidenav__account:hover { background: var(--color-surface-hover); }
+.sidenav__more { margin-left: auto; color: var(--color-text-muted); }
+.sidenav__account--edged { border-top: 1px solid var(--color-border); border-radius: 0; }
 .sidenav__group-items { margin-left: calc(var(--space-3) + var(--sidenav-icon) / 2); padding-left: var(--space-3); border-left: 1px solid var(--color-border); }
 .sidenav__item--sub { position: relative; color: var(--color-text-muted); border-radius: 0 var(--radius-xs) var(--radius-xs) 0; }
 .sidenav__item--sub:hover { color: var(--color-text); }
