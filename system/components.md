@@ -503,9 +503,20 @@ part of the convention, and why:
 Evidence and the history of the confusion: research/enter-key.md. Live
 examples: the specimen's keyboard-conventions section.
 
-### 2.15 Appearance control — System · Light · Dark
-The visible half of system-first theming (principle 3): one button in the
-header opens a menu with exactly three choices. Every part, and why:
+### 2.15 Display control — appearance and density behind one door
+Every setting about *how the application looks* opens from one button in the
+header, beside the account. Not one button per setting: appearance and
+density are both per-person comfort choices — set once, then forgotten — and
+a permanent slot in the chrome for each spends scarce header room on
+decisions almost nobody revisits, while a reader thinking "I want this
+bigger" has to guess which of several small icons owns that. One door,
+labelled Display, holding two named groups separated by a divider.
+
+It lives in the app header, never in a table toolbar. A toolbar configures
+its table; this configures the reader's experience of every table.
+
+**Appearance group — System · Light · Dark.** The visible half of
+system-first theming (principle 3):
 
 - Three options, not two. System is a first-class choice, always one click
   away — never buried behind "advanced". The site opens in System.
@@ -517,18 +528,42 @@ header opens a menu with exactly three choices. Every part, and why:
   "Match device — currently Dark" — so nobody picks System blind. Rendered
   with zero script: two prewritten spans, one shown by a
   `prefers-color-scheme` media query.
-- Trigger options: sun/moon (reports the current appearance — sun when
-  light, moon when dark; the icon reports, the menu chooses) or the neutral
-  contrast circle ◐. Sun/moon is the recommended default.
-- Honest-stack mapping: the menu is a server-rendered overlay; choosing posts
-  to the preferences endpoint and the server re-renders with `data-theme`
-  set (or absent, for System) — no flash of the wrong theme, no client
-  state.
 
-Open decision: override persistence. Session-scoped (device stays the source
-of truth; every visit greets in System) vs. stored per user (a decision made
-once holds). May legitimately differ between public sites and signed-in
-applications. Evidence and named prior art: research/theme-control.md.
+**Density group — tight · normal · loose.** The three steps of the one
+density axis (whitepaper ch. 6), the active one checked. No System row:
+the platform publishes no density preference to read.
+
+**Density is per-user, not per-view.** Merging the control settles a scope
+question the system had left open. Density set inside a table's toolbar
+would be a property of *that table* — saved with the view, inherited by
+whoever opens it. Density set here is a property of *the reader* — it
+follows that person across every table in the application and belongs to
+nobody else. The system takes the second reading: stored with the account,
+server-rendered, and it does **not** travel inside a saved view. A view
+carries what the data looks like — columns, filters, sort, grouping. It does
+not carry how tall someone else likes their rows. A screen that genuinely
+needs a table-local override must earn the exception; it is not the shape.
+
+**The trigger reports the scope.** When the menu holds appearance alone,
+sun/moon is the honest glyph — it reports the current appearance while the
+menu chooses, so the two jobs never collide — and the contrast circle ◐ is
+the neutral alternative that names appearance without picking a side. Once
+density joins the menu, both of those lie by omission: they name one of the
+two settings inside. The trigger becomes a pair of sliders — not "theme",
+not "density", but "adjust how this looks", which is the menu's actual
+scope. Rule: the trigger must not name a subset of what the menu holds.
+
+Honest-stack mapping: the menu is a server-rendered overlay; choosing posts
+to the preferences endpoint and the server re-renders with `data-theme` and
+`data-density` set (or `data-theme` absent, for System) — no flash of the
+wrong theme, no client state.
+
+Open decision: appearance-override persistence. Session-scoped (device stays
+the source of truth; every visit greets in System) vs. stored per user (a
+decision made once holds). May legitimately differ between public sites and
+signed-in applications. Density has no such question — a comfort setting
+that resets every visit is not a setting. Evidence and named prior art:
+research/theme-control.md.
 
 ---
 
@@ -657,6 +692,17 @@ Everything below those two lines may differ freely. Four rules hold them:
    line. A background may pass the text margin; text may not.
 4. The gutter is symmetric about the divider, so the line sits in its own
    channel rather than hugging the rail.
+
+Type ratio across the divider. The two heads sit on one line, so their
+sizes are compared whether or not that was intended, and the ratio states
+which name outranks which. The rule: **the wordmark is never smaller than
+the page title.** An application's identity outranks the name of any one
+page inside it; a title set two steps above the mark inverts the hierarchy
+and reads as though the page were the product. Both take the same step
+(`--text-lg`) unless the brand is a drawn wordmark that earns more. The
+subtitle under each — the product line under the mark, the record count
+under the title — takes the small muted step, matching across the divider
+too.
 
 And the formatting rule the layout implies: the rail recedes. It is chrome
 while the table is the work, so navigation never sets larger than body text
@@ -884,7 +930,7 @@ anti-pattern). Evidence and sources: research/row-actions.md.
 
 ### 3.5 Table toolbar
 The table's control strip and the view's cockpit. Left to right: Search field ·
-Chip-bar (applied filters) · the five view controls · primary action. Everything
+Chip-bar (applied filters) · the four view controls · primary action. Everything
 mutates the same URL-backed view state, and each control wears its active count
 at rest (`Filter · 2`), so the view's configuration is readable without opening
 anything; a control with nothing active shows its bare name.
@@ -906,16 +952,18 @@ The elements, and what a click opens:
 - Group → the group menu: one grouping field + direction. Group headers band
   the table — which is why grouped tables skip the zebra stripe (3.4).
 - Sort → the ordered sort list: several sorts stacked, direction per field.
-- Row height → the compact-to-roomy control: the three density steps
-  (tight · normal · loose) applied per view (§4.7) — one crowded review view
-  packs rows while a presentation view breathes; stored like every other
-  part of the view.
 
-Deliberately absent: a color button. Painting rows from the toolbar puts
+Deliberately absent, first: a row-height button. Density is per-user, not
+per-view — it lives once in the Display control in the app header (§2.15).
+A toolbar copy would offer to save someone else's comfort setting into a
+shared view. A screen that truly needs a table-local override earns the
+exception and states why.
+
+Deliberately absent, second: a color button. Painting rows from the toolbar puts
 meaning into decoration; meaning belongs to the semantic colors — badges,
 marks, and a rule the view declares in its description line (see the
-brand-vs-meaning chapter). Order rule: the five controls keep this order in
-every application; a sixth control enters by the standard workflow
+brand-vs-meaning chapter). Order rule: the four controls keep this order in
+every application; a fifth control enters by the standard workflow
 (AGENTS.md §11), never ad hoc.
 
 Control treatment — when a control is boxed. The toolbar carries two kinds
@@ -938,14 +986,26 @@ either:
   across the whole group.
 
 Icon-only qualifies twice over. It is permitted where the symbol is genuinely
-universal and the control is an action — the export tray, the row-actions
-ellipsis — and it always carries an `aria-label` and a tooltip. It is not
-permitted for a control that holds a value: a density control has no
-conventional glyph and a state to state, so it takes a label and its value
-(`Row height · Normal`) like every neighbour. And an action sitting among
+universal and the control either performs an action or opens a menu — the
+row-actions ellipsis, the Display trigger in the app header (§2.15) — and it
+always carries an `aria-label` and a tooltip. It is not permitted for a
+control that holds a value *and shows it at rest*: such a control has a
+state to state, so it takes a label and its value (`Sort · 1`,
+`Hidden fields · 3`) like every neighbour. The line is not icon vs. label,
+it is door vs. dial: a door has nothing to report until it opens, a dial
+must report or it is lying by silence. And an action sitting among
 configuration controls takes a separator (`.table-toolbar__sep`), because
 adjacency implies membership — the same hairline that separates the lens
 from the scope pills it composes with.
+
+Deliberately absent, third: a download button. Export is a view-level
+operation — it exports *this* configuration of columns, filters and sort —
+so it lives in the view menu beside duplicate and delete (§4.2), where its
+scope is unambiguous. In the toolbar it would read as "export the table",
+scope unstated, and it would take a permanent slot for something almost
+nobody does daily. The frequency budget that governs row actions governs
+the toolbar too: a permanent slot is earned by daily use, not by
+importance.
 
 ### 3.6 Table editing vs. form editing — the options catalog
 Where should a value change: in the table cell itself, or in the record form the
@@ -1336,10 +1396,15 @@ when off, order becomes manual: a `position` column the user drags, which is
 DATAOS-native (the order *is* data).
 
 ### 4.7 Row-height control
-Four heights — short to extra-tall — plus wrap headers. Here it is token-native:
-Short/Comfortable map to `[data-density]`; Tall adds line-clamped multi-line
-cells; wrap headers is a table modifier. Options: `short · comfortable ·
-tall` · wrap headers on/off. Persisted per view.
+The reference product puts four heights — short to extra-tall — plus wrap
+headers in the view, persisted per view. The system diverges: row height *is*
+density, density is one axis of three steps, and it belongs to the reader,
+not to the view (§2.15). The control lives once, in the Display menu in the
+app header; it is not repeated in the toolbar and is not written into a
+saved view. What stays view-owned here is the part that really is about the
+data: wrap headers on/off (a table modifier), and tall rows meaning
+line-clamped multi-line cells — a decision about the *content* a column
+shows, which travels with the view legitimately.
 
 ### 4.8 Color rules
 Record coloring, adapted to the system's restraint: conditional row edge
@@ -1446,9 +1511,6 @@ not yet argued in full):
   by `ui.css` or a component file, or carry an explicit `reserved:` comment.
   Exit 1 on any orphan — the audit found a dead token consumed by nothing for
   two years while the documentation still described it as rendering.
-- A density-control spec (§2.16): the user-facing control for application-wide
-  density — a twin of the appearance control (§2.15), three labeled options,
-  the active one checked, stored per user, no System row.
 - A casing lint for navigation: §3.2 rules one casing per application; a
   pure-function classifier over rendered nav labels (title case vs sentence
   case, fail on mixture) moves the rule from prose to machinery.

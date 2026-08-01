@@ -20,19 +20,18 @@
         <option value="cool">Cool</option>
       </select>
     </label>
-    <label class="control-switch" for="opt-density">Density
-      <select class="select" id="opt-density">
-        <option value="tight">Tight</option>
-        <option value="normal" selected>Normal</option>
-        <option value="loose">Loose</option>
-      </select>
-    </label>
-      <details class="appearance">
-      <summary class="appearance__trigger" aria-label="Appearance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor" stroke="none"/></svg></summary>
-      <div class="appearance__menu">
-        <label class="appearance__item"><input class="appearance__input" type="radio" name="appearance" id="opt-appearance-system" checked><span class="appearance__label">System</span><span class="appearance__resolves"><span class="appearance__resolves--light">Light</span><span class="appearance__resolves--dark">Dark</span></span><span class="appearance__check">✓</span></label>
-        <label class="appearance__item"><input class="appearance__input" type="radio" name="appearance" id="opt-appearance-light"><span class="appearance__label">Light</span><span class="appearance__check">✓</span></label>
-        <label class="appearance__item"><input class="appearance__input" type="radio" name="appearance" id="opt-appearance-dark"><span class="appearance__label">Dark</span><span class="appearance__check">✓</span></label>
+    <details class="display">
+      <summary class="display__trigger" aria-label="Display"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 8h8M17 8h3M4 16h3M12 16h8"/><circle cx="14.5" cy="8" r="2.5"/><circle cx="9.5" cy="16" r="2.5"/></svg></summary>
+      <div class="display__menu">
+        <div class="display__heading">Appearance</div>
+        <label class="display__item"><input class="display__input" type="radio" name="appearance" id="opt-appearance-system" checked><span class="display__label">System</span><span class="display__resolves"><span class="display__resolves--light">Light</span><span class="display__resolves--dark">Dark</span></span><span class="display__check">✓</span></label>
+        <label class="display__item"><input class="display__input" type="radio" name="appearance" id="opt-appearance-light"><span class="display__label">Light</span><span class="display__check">✓</span></label>
+        <label class="display__item"><input class="display__input" type="radio" name="appearance" id="opt-appearance-dark"><span class="display__label">Dark</span><span class="display__check">✓</span></label>
+        <hr class="display__divider">
+        <div class="display__heading">Density</div>
+        <label class="display__item"><input class="display__input" type="radio" name="density" id="opt-density-tight"><span class="display__label">Tight</span><span class="display__check">✓</span></label>
+        <label class="display__item"><input class="display__input" type="radio" name="density" id="opt-density-normal" checked><span class="display__label">Normal</span><span class="display__check">✓</span></label>
+        <label class="display__item"><input class="display__input" type="radio" name="density" id="opt-density-loose"><span class="display__label">Loose</span><span class="display__check">✓</span></label>
       </div>
     </details>
 </div>
@@ -653,19 +652,18 @@
       </div>
     </div>
 
-  <!-- ================= APPEARANCE ================= -->
-  <section class="specimen__section" id="appearance-control">
-    <h2 class="specimen__section-title">Appearance control — System · Light · Dark</h2>
+  <!-- ================= DISPLAY ================= -->
+  <section class="specimen__section" id="display-control">
+    <h2 class="specimen__section-title">Display control — appearance and density behind one door</h2>
 
-    <div class="specimen__label">Trigger options — sun/moon (reports the current appearance; flip the Light switch above) · contrast circle (neutral)</div>
+    <div class="specimen__label">The trigger — sliders, because the menu adjusts more than the theme</div>
     <div class="specimen__row">
-      <button class="button button--ghost theme-trigger" type="button" aria-label="Appearance"><span class="theme-glyph--sun">☀</span><span class="theme-glyph--moon">☾</span></button>
-      <button class="button button--ghost theme-trigger" type="button" aria-label="Appearance">◐</button>
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Display"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 8h8M17 8h3M4 16h3M12 16h8"/><circle cx="14.5" cy="8" r="2.5"/><circle cx="9.5" cy="16" r="2.5"/></svg></span></button>
     </div>
 
-    <div class="specimen__label">The appearance menu — active choice checked; the System row states what it resolves to right now</div>
+    <div class="specimen__label">The menu — two named groups, one divider; the System row states what it resolves to right now</div>
     <div class="specimen__row">
-      <div class="menu" role="menu" aria-label="Appearance">
+      <div class="menu" role="menu" aria-label="Display">
         <div class="menu__label">Appearance</div>
         <button class="menu__item menu__item--active" type="button" role="menuitemradio" aria-checked="true">
           <span class="menu__stack"><span>System</span><span class="menu__sub">Match device — currently <span class="sysnote--light">Light</span><span class="sysnote--dark">Dark</span></span></span>
@@ -673,7 +671,24 @@
         </button>
         <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Light</button>
         <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Dark</button>
+        <hr class="menu__divider">
+        <div class="menu__label">Density</div>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Tight</button>
+        <button class="menu__item menu__item--active" type="button" role="menuitemradio" aria-checked="true">Normal<span class="menu__check">✓</span></button>
+        <button class="menu__item" type="button" role="menuitemradio" aria-checked="false">Loose</button>
       </div>
+    </div>
+
+    <div class="specimen__label">Trigger alternatives — sun/moon (reports the current appearance) · contrast circle (neutral); both only honest when the menu holds appearance alone</div>
+    <div class="specimen__row">
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Appearance"><span class="theme-glyph--sun">☀</span><span class="theme-glyph--moon">☾</span></button>
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Appearance">◐</button>
+    </div>
+
+    <div class="specimen__label">Rejected — one permanent slot per setting: two buttons in the chrome for two choices a person makes once</div>
+    <div class="specimen__row">
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Appearance">◐</button>
+      <button class="button button--ghost theme-trigger" type="button" aria-label="Density">≡</button>
     </div>
 
     <div class="specimen__label">Rejected — the cycling toggle (one icon, three hidden states)</div>
@@ -893,7 +908,6 @@
           <button class="button button--ghost" type="button">Filter · 2</button>
           <button class="button button--ghost" type="button">Group · 1</button>
           <button class="button button--ghost" type="button">Sort · 2</button>
-          <button class="button button--ghost" type="button">Row height</button>
           <button class="button button--primary" type="button">Add account</button>
         </div>
       </div>
@@ -1074,12 +1088,11 @@
         <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 8.5 5L12 12 3.5 7Z"/><path d="m20.5 12-8.5 5-8.5-5"/></svg></span> View ▾</button>
         <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></span> Filter · 1</button>
         <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg></span> Sort · 1</button>
-        <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18"/><path d="M3 12h18"/><path d="M3 19h18"/></svg></span> Row height · Normal</button>
         <span class="table-toolbar__sep"></span>
-        <button class="button button--ghost button--icon" type="button" aria-label="Export" title="Export"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 12 5 5 5-5"/><path d="M4 21h16"/></svg></span></button>
+        <button class="button button--ghost button--icon" type="button" aria-label="Refresh" title="Refresh"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></span></button>
       </div>
     </div>
-    <p class="specimen__note">The two halves of a toolbar do different work, and the treatment says which is which rather than decorating either. On the left, controls that hold a value: the field needs its box to show where typing goes, and a toggle needs its outline because an unfilled box is what makes "off" legible. On the right, controls that open something: a door has no state to display at rest, so a container around it describes nothing, and nine contours in one row is ink spent saying nothing nine times. Borderless owes one thing in return — a hover ground, since an unbordered control is a weaker affordance at rest and the hover is what repays it. State on that side arrives as a fill rather than a new border, so "has a value" reads identically across the group. Icon-only qualifies twice: permitted where the symbol is genuinely universal and the control is an action, refused where the control holds a value — a density control has no conventional glyph and a state to state, so it wears its label and its value like every neighbour. And an action standing among configuration controls takes a separator, on the same rule that separates the lens from the scopes: adjacency implies membership.</p>
+    <p class="specimen__note">The two halves of a toolbar do different work, and the treatment says which is which rather than decorating either. On the left, controls that hold a value: the field needs its box to show where typing goes, and a toggle needs its outline because an unfilled box is what makes "off" legible. On the right, controls that open something: a door has no state to display at rest, so a container around it describes nothing, and nine contours in one row is ink spent saying nothing nine times. Borderless owes one thing in return — a hover ground, since an unbordered control is a weaker affordance at rest and the hover is what repays it. State on that side arrives as a fill rather than a new border, so "has a value" reads identically across the group. Icon-only qualifies twice: permitted where the symbol is genuinely universal and the control either acts or opens a menu, refused where the control holds a value it must show at rest — such a control wears its label and its value like every neighbour. The line is not icon against label, it is door against dial: a door has nothing to report until it opens, a dial that stays silent is lying. And an action standing among configuration controls takes a separator, on the same rule that separates the lens from the scopes: adjacency implies membership.</p>
 
     <div class="specimen__label">The two-column agreement — the brand row sits on the page title's baseline, and the first nav item starts where the first control starts</div>
     <div class="app-frame">
@@ -2335,7 +2348,6 @@
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></span> Filter</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9.5h10"/><path d="M7 14.5h6"/></svg></span> Group</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg></span> Sort</button>
-          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18"/><path d="M3 12h18"/><path d="M3 19h18"/></svg></span> Row height</button>
         </div>
         <div class="table-toolbar__group">
           <button class="button button--primary" type="button">Add account</button>
@@ -2352,7 +2364,6 @@
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></span> Filter · 2</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9.5h10"/><path d="M7 14.5h6"/></svg></span> Group · 1</button>
           <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg></span> Sort · 2</button>
-          <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18"/><path d="M3 12h18"/><path d="M3 19h18"/></svg></span> Row height · Normal</button>
         </div>
         <div class="table-toolbar__group">
           <button class="button button--primary" type="button">Add account</button>

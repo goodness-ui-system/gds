@@ -92,7 +92,12 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
 /* The brand row carries the shell's own controls: chrome beside chrome,
    rather than a separate band holding one icon. */
 .app-frame__brand { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-2); height: var(--space-6); }
-.app-frame__mark { font-weight: var(--weight-semibold); letter-spacing: 0.08em; font-size: var(--text-sm); text-transform: uppercase; }
+/* The wordmark is never smaller than the page title: an application's
+   identity outranks the name of any one page inside it, and a title that
+   doubles the mark inverts the hierarchy. Near parity reads calmest, and two
+   similar sizes share a baseline far more comfortably than a small cap
+   against a display-size title. */
+.app-frame__mark { font-weight: var(--weight-semibold); letter-spacing: 0.08em; font-size: var(--text-lg); text-transform: uppercase; }
 /* The rail runs the ladder too: a full step down to the first group, half a
    step between groups, a quarter from a label to the items it names. */
 .app-frame__rail .sidenav { width: auto; padding: 0; border-right: none; margin-top: var(--space-6); }
@@ -121,7 +126,7 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
    columns share a line exactly rather than nearly — a near miss reads worse
    than either agreement or a clear difference. */
 .chrome-stack__head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); height: var(--space-6); }
-.chrome-stack__name { font-size: var(--text-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); }
+.chrome-stack__name { font-size: var(--text-lg); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); }
 .chrome-stack__who { font-size: var(--text-sm); color: var(--color-text-muted); }
 
 /* ---- page head (14) ----------------------------------------------------- */
@@ -655,33 +660,42 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 .menu__sub { font-size: var(--text-xs); color: var(--color-text-muted); font-weight: var(--weight-normal, 400); }
 .menu__check { margin-left: auto; color: var(--color-action); }
 
-/* ---- appearance control: the working one (2.15) -------------------------- */
+/* ---- the display control (2.15a) ---------------------------------------- */
+/* One door for every setting about how the application looks, rather than one
+   button per setting: appearance and density are both per-user comfort
+   choices, set once and forgotten, so two permanent slots in the chrome is
+   real estate spent badly and a reader asking "how do I change how this
+   looks?" has one place to go. It lives in the app header beside the account,
+   never in a table toolbar — a toolbar configures its table, this configures
+   the reader's experience of every table. */
 /* One trigger opening exactly three choices — System, Light, Dark — with the
    active one checked and the System row stating what it currently resolves
    to. Never a cycling toggle: a single control that flips state must answer
    "what am I in?" and "what happens if I click?" with one symbol, and cannot.
    Zero script: a details element for the popover, radios for the choice, and
    the theme blocks keyed off which radio is checked. */
-.appearance { position: relative; }
-.appearance__trigger { width: var(--control-h); height: var(--control-h); display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--color-border-strong); border-radius: var(--radius-pill); color: var(--color-text-muted); cursor: pointer; list-style: none; }
-.appearance__trigger::-webkit-details-marker { display: none; }
-.appearance__trigger::marker { content: ""; }
-.appearance__trigger:hover { color: var(--color-text); background: var(--color-surface-hover); }
-.appearance__trigger svg { width: 1rem; height: 1rem; }
-.appearance__menu { position: absolute; right: 0; top: calc(100% + var(--space-1)); z-index: 40; width: 13rem; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); padding: var(--space-1); box-shadow: var(--shadow-overlay); }
-.appearance__item { display: flex; align-items: center; gap: var(--space-2); padding: var(--menu-pad-y) var(--space-2); border-radius: var(--radius-xs); font-size: var(--text-sm); cursor: pointer; }
-.appearance__item:hover { background: var(--color-surface-hover); }
-.appearance__input { position: absolute; width: 1px; height: 1px; opacity: 0; }
-.appearance__check { margin-left: auto; color: var(--color-action); visibility: hidden; }
-.appearance__input:checked ~ .appearance__check { visibility: visible; }
-.appearance__input:focus-visible ~ .appearance__label { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
+.display { position: relative; }
+.display__trigger { width: var(--control-h); height: var(--control-h); display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--color-border-strong); border-radius: var(--radius-pill); color: var(--color-text-muted); cursor: pointer; list-style: none; }
+.display__trigger::-webkit-details-marker { display: none; }
+.display__trigger::marker { content: ""; }
+.display__trigger:hover { color: var(--color-text); background: var(--color-surface-hover); }
+.display__trigger svg { width: 1rem; height: 1rem; }
+.display__heading { font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.06em; padding: var(--space-2) var(--space-2) var(--space-1); }
+.display__divider { height: 1px; background: var(--color-border); border: none; margin: var(--space-1) 0; }
+.display__menu { position: absolute; right: 0; top: calc(100% + var(--space-1)); z-index: 40; width: 13rem; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); padding: var(--space-1); box-shadow: var(--shadow-overlay); }
+.display__item { display: flex; align-items: center; gap: var(--space-2); padding: var(--menu-pad-y) var(--space-2); border-radius: var(--radius-xs); font-size: var(--text-sm); cursor: pointer; }
+.display__item:hover { background: var(--color-surface-hover); }
+.display__input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.display__check { margin-left: auto; color: var(--color-action); visibility: hidden; }
+.display__input:checked ~ .display__check { visibility: visible; }
+.display__input:focus-visible ~ .display__label { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
 /* The System row says what it resolves to, so nobody picks it blind. Two
    prewritten words; the media query shows one. */
-.appearance__resolves { color: var(--color-text-muted); font-size: var(--text-xs); }
-.appearance__resolves--light { display: none; }
+.display__resolves { color: var(--color-text-muted); font-size: var(--text-xs); }
+.display__resolves--light { display: none; }
 @media (prefers-color-scheme: light) {
-  .appearance__resolves--light { display: inline; }
-  .appearance__resolves--dark { display: none; }
+  .display__resolves--light { display: inline; }
+  .display__resolves--dark { display: none; }
 }
 
 /* ---- appearance control: the catalog exhibit ----------------------------- */
@@ -1161,12 +1175,12 @@ html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
   }
 }
 
-html:has(#opt-density [value="tight"]:checked) {
+html:has(#opt-density-tight:checked) {
   --control-h: var(--control-h-tight);
   --row-pad-y: var(--space-1);
   --menu-pad-y: var(--space-1);
 }
-html:has(#opt-density [value="loose"]:checked) {
+html:has(#opt-density-loose:checked) {
   --control-h: var(--control-h-loose);
   --row-pad-y: var(--space-3);
   --menu-pad-y: var(--space-2);
