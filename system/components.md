@@ -775,6 +775,21 @@ sidebars at roughly 32–36px of row pitch. The floor is `--target-min` (24px);
 tight density tightens one step further. Applies to sidebar items, dropdown
 and view menus, panel rows, and palette items alike.
 
+Where this meets the air rule (R11). The air rule governs *sections* — two
+blocks of a document that must not touch. It does not govern the rows of a
+list. A list is one object and its items are that object's anatomy, which is
+why the rhythm check exempts them by construction: the space between two nav
+items is not a missing gap, it is the list's rhythm. Siblings in one nav
+list therefore stack flush at the pitch above — no added gap — and only the
+ladder's named steps buy space: a full step below the brand slot, half a
+step between groups, a quarter from a parent to the children it names.
+Adding air *inside* a list is the common misreading of R11, and it costs
+twice: the rail stops being scannable in one pass, and the space that was
+meant to signal a real break no longer signals anything, because everything
+has it. When rows genuinely belong to different groups, say so with a group
+label or a hairline. Space alone is the most expensive way to claim a
+difference and the only way that never says what the difference is.
+
 
 Utility controls — a finite option set. Real deployments grow shell
 conveniences; without a catalog entry they live as per-application forks,
