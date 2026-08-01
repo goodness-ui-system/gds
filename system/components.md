@@ -690,6 +690,54 @@ the first scroll. Where the title area grows (a description, a status), a
 hairline beneath it is the honest divider — but only once the ladder alone
 stops carrying the grouping.
 
+### 3.0d Account cluster — the top-right identity slot
+The constant of the shell: whoever is signed in, and the doors that belong
+to them. It sits at the far right of the top line, opposite the brand, and
+it is the one region of the chrome that does not change when the page does.
+
+**Settle the referent first.** The commonest defect in this slot is not
+visual — it is that the name in it is ambiguous. In any application where a
+person can act on another's data (an advisor viewing a colleague's book, an
+admin impersonating, a manager reading a team queue), "John Smith · 45332"
+in the top right answers two different questions and states which one it is
+answering nowhere. The rule:
+
+- The account cluster names **the signed-in person only** — never the
+  subject of the current page. It is identity, not context.
+- Whose data is on screen belongs to the **page head** (3.0b), beside the
+  title, where the reader is already looking for what this page is about.
+- When the two differ, the application says so loudly and continuously — a
+  banner or a marked state, not a quiet line in the corner. Acting as
+  someone else is a mode, and an unannounced mode is how the wrong record
+  gets edited.
+
+**Anatomy.** One target, not three: the whole cluster is a single door with
+one hover ground, opening the account menu (profile, preferences, sign
+out). It is not boxed — a door has no state to show at rest (3.5 control
+treatment) — but it owes the hover ground that borderless controls always
+owe. The Display control (2.15) sits immediately to its left; together they
+are the shell's two permanent controls and they travel as a pair.
+
+**Inside it, a hierarchy, because a name and a code are not equals.**
+
+- The name carries the identity: `--text-sm`, normal ink.
+- Any identifier beside it — rep code, tenant, seat number — is a
+  *qualifier*: one step quieter, muted, and in the mono face, because an
+  identifier means its exact characters (typography rule) and mono is what
+  tells a reader at a glance that this is a code and not a word. Watch for
+  a typographic en dash substituted into an identifier: `XYZ–45332` is not
+  `XYZ-45332`, and it breaks copy, search, and support tickets.
+- The avatar carries **initials, not a generic silhouette**. A silhouette
+  says "a user"; initials say "you". A photograph where one exists.
+- The name truncates with a max-width and an ellipsis; the cluster must
+  never be able to push the layout.
+
+**Adjacency.** If the page puts its own controls on that line, a separator
+divides them from the cluster — adjacency implies membership, and shell
+chrome and page actions are not members of one another. Better still,
+leave the line to the shell and let page actions live in the toolbar, where
+their scope is already stated.
+
 ### 3.1 App shell
 Sidebar + topbar + main. Options: sidebar expanded/collapsed (a `preferences`
 row); active item via `aria-current="page"` from the request path; `hx-boost` for
