@@ -819,6 +819,13 @@ are the point. Four parts:
 - Sticky. An unlabeled column at row fifty is the real complaint behind
   "the header is hard to see".
 
+The head keeps one height in every density step (`--row-pad-y-head`, which
+density never re-points). Density exists to fit more records on screen;
+compressing the head buys a single row once and costs the legibility of the
+labels that orient the whole table. It would also move the table's top edge
+on every density change — the one line that should stay put while the rows
+beneath it breathe.
+
 Alignment and marking: numeric columns right-align, header included, while
 the header label itself stays sans — mono is for the figures, not for the
 word naming them. Identifier columns use `.data-table__cell--mono`,

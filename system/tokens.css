@@ -465,6 +465,7 @@
   --control-h-loose: 40px;           /* primitive: loose control height       */
   --control-h: var(--control-h-normal);   /* inputs, buttons, selects         */
   --row-pad-y: var(--space-2);       /* table rows, list rows               */
+  --row-pad-y-head: var(--space-2);  /* the head never follows density (3.4a) */
   --menu-pad-y: 0.375rem;            /* nav & menu items — tighter than data
                                         rows: navigation is targeted, not
                                         read; rows stay ≥ --target-min      */

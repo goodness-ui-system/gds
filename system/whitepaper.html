@@ -20,9 +20,6 @@
         <option value="cool">Cool</option>
       </select>
     </label>
-    <label class="control-switch" for="opt-light">
-      <input class="control-switch__box" type="checkbox" id="opt-light"> Light theme
-    </label>
     <label class="control-switch" for="opt-density">Density
       <select class="select" id="opt-density">
         <option value="tight">Tight</option>
@@ -30,7 +27,15 @@
         <option value="loose">Loose</option>
       </select>
     </label>
-  </div>
+      <details class="appearance">
+      <summary class="appearance__trigger" aria-label="Appearance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor" stroke="none"/></svg></summary>
+      <div class="appearance__menu">
+        <label class="appearance__item"><input class="appearance__input" type="radio" name="appearance" id="opt-appearance-system" checked><span class="appearance__label">System</span><span class="appearance__resolves"><span class="appearance__resolves--light">Light</span><span class="appearance__resolves--dark">Dark</span></span><span class="appearance__check">✓</span></label>
+        <label class="appearance__item"><input class="appearance__input" type="radio" name="appearance" id="opt-appearance-light"><span class="appearance__label">Light</span><span class="appearance__check">✓</span></label>
+        <label class="appearance__item"><input class="appearance__input" type="radio" name="appearance" id="opt-appearance-dark"><span class="appearance__label">Dark</span><span class="appearance__check">✓</span></label>
+      </div>
+    </details>
+</div>
 </header>
 
 <main class="specimen__main">

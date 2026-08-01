@@ -655,11 +655,40 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 .menu__sub { font-size: var(--text-xs); color: var(--color-text-muted); font-weight: var(--weight-normal, 400); }
 .menu__check { margin-left: auto; color: var(--color-action); }
 
-/* ---- appearance control ---------------------------------------------------- */
+/* ---- appearance control: the working one (2.15) -------------------------- */
+/* One trigger opening exactly three choices — System, Light, Dark — with the
+   active one checked and the System row stating what it currently resolves
+   to. Never a cycling toggle: a single control that flips state must answer
+   "what am I in?" and "what happens if I click?" with one symbol, and cannot.
+   Zero script: a details element for the popover, radios for the choice, and
+   the theme blocks keyed off which radio is checked. */
+.appearance { position: relative; }
+.appearance__trigger { width: var(--control-h); height: var(--control-h); display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--color-border-strong); border-radius: var(--radius-pill); color: var(--color-text-muted); cursor: pointer; list-style: none; }
+.appearance__trigger::-webkit-details-marker { display: none; }
+.appearance__trigger::marker { content: ""; }
+.appearance__trigger:hover { color: var(--color-text); background: var(--color-surface-hover); }
+.appearance__trigger svg { width: 1rem; height: 1rem; }
+.appearance__menu { position: absolute; right: 0; top: calc(100% + var(--space-1)); z-index: 40; width: 13rem; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); padding: var(--space-1); box-shadow: var(--shadow-overlay); }
+.appearance__item { display: flex; align-items: center; gap: var(--space-2); padding: var(--menu-pad-y) var(--space-2); border-radius: var(--radius-xs); font-size: var(--text-sm); cursor: pointer; }
+.appearance__item:hover { background: var(--color-surface-hover); }
+.appearance__input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.appearance__check { margin-left: auto; color: var(--color-action); visibility: hidden; }
+.appearance__input:checked ~ .appearance__check { visibility: visible; }
+.appearance__input:focus-visible ~ .appearance__label { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
+/* The System row says what it resolves to, so nobody picks it blind. Two
+   prewritten words; the media query shows one. */
+.appearance__resolves { color: var(--color-text-muted); font-size: var(--text-xs); }
+.appearance__resolves--light { display: none; }
+@media (prefers-color-scheme: light) {
+  .appearance__resolves--light { display: inline; }
+  .appearance__resolves--dark { display: none; }
+}
+
+/* ---- appearance control: the catalog exhibit ----------------------------- */
 .theme-trigger { width: var(--control-h); height: var(--control-h); display: inline-flex; align-items: center; justify-content: center; }
 .theme-glyph--sun { display: none; }
-html:has(#opt-light:checked) .theme-glyph--sun { display: inline; }
-html:has(#opt-light:checked) .theme-glyph--moon { display: none; }
+html:has(#opt-appearance-light:checked) .theme-glyph--sun { display: inline; }
+html:has(#opt-appearance-light:checked) .theme-glyph--moon { display: none; }
 .sysnote--dark { display: none; }
 @media (prefers-color-scheme: dark) {
   .sysnote--dark { display: inline; }
@@ -736,7 +765,12 @@ html:has(#opt-light:checked) .theme-glyph--moon { display: none; }
    a label one step quieter than the values it names, and the strongest rule
    in the table beneath it. Sticky, because an unlabeled column past row
    fifteen is the real "cannot see the header". */
-.data-table__table th { position: sticky; top: 0; z-index: 1; background: var(--color-well); text-align: left; font-weight: var(--weight-medium); color: var(--color-text-muted); padding: var(--row-pad-y) var(--space-4); border-bottom: 2px solid var(--color-border-strong); white-space: nowrap; }
+/* The head keeps one height in every density step. Density exists to fit more
+   records on screen; compressing the head buys a single row once, and costs
+   the legibility of the labels that orient the whole table. It would also
+   move the table's top edge on every density change — the one line that
+   should stay put while the rows beneath it breathe. */
+.data-table__table th { position: sticky; top: 0; z-index: 1; background: var(--color-well); text-align: left; font-weight: var(--weight-medium); color: var(--color-text-muted); padding: var(--row-pad-y-head) var(--space-4); border-bottom: 2px solid var(--color-border-strong); white-space: nowrap; }
 /* Optional micro-label treatment: stops reading as data entirely. All-caps is
    measurably slower to read — fine for a handful of fixed words learned once,
    never for content. */
@@ -953,7 +987,7 @@ tr:hover .data-table__fav, tr:focus-within .data-table__fav { visibility: visibl
    blocks using :has(), because CSS cannot set attributes. Apps use the
    data-attributes; this duplication exists only so the specimen needs no JS.
    ========================================================================== */
-html:has(#opt-light:checked) {
+html:has(#opt-appearance-light:checked) {
   --color-canvas:        var(--neutral-25);
   --color-surface:       var(--neutral-0);
   --color-surface-hover: var(--neutral-50);
@@ -1077,7 +1111,7 @@ html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
    own — the light toggle then only matters on a dark OS. Mirrors the
    :has(#opt-light) blocks above, the way tokens.css mirrors [data-theme]. */
 @media (prefers-color-scheme: light) {
-  html:has(#opt-family [value="cool"]:checked) {
+  html:not(:has(#opt-appearance-dark:checked)):has(#opt-family [value="cool"]:checked) {
     --color-canvas:        var(--cool-25);
     --color-surface:       var(--cool-0);
     --color-surface-hover: var(--cool-50);
@@ -1093,7 +1127,7 @@ html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
     --color-selected-bg:   color-mix(in srgb, var(--azure-600) 12%, transparent);
     --color-focus:         var(--azure-600);
   }
-  html:has(#opt-family [value="mono"]:checked) {
+  html:not(:has(#opt-appearance-dark:checked)):has(#opt-family [value="mono"]:checked) {
     --color-canvas:        var(--gray-25);
     --color-surface:       var(--gray-0);
     --color-surface-hover: var(--gray-50);
@@ -1109,7 +1143,7 @@ html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
     --color-selected-bg:   color-mix(in srgb, var(--ink-600) 12%, transparent);
     --color-focus:         var(--ink-600);
   }
-  html:has(#opt-family [value="goodness"]:checked) {
+  html:not(:has(#opt-appearance-dark:checked)):has(#opt-family [value="goodness"]:checked) {
     --color-canvas:        var(--navy-25);
     --color-surface:       var(--navy-0);
     --color-surface-hover: var(--navy-50);
