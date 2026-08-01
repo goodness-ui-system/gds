@@ -1181,6 +1181,88 @@
       <div class="data-table__url">/accounts?view=high-priority&amp;filterHasNoneOf_priority=low&amp;filterContains_status=&amp;group=priority&amp;sort=score,account&amp;dir=desc — the URL is the view: copy the address bar, a colleague sees this exact screen</div>
     </div>
     <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
+    <div class="specimen__label">The docked tab row — the scope rail is the table's top edge, so the tabs cannot float and the space past the last tab reads as the rail continuing</div>
+    <div class="table-toolbar">
+      <div class="table-toolbar__group">
+        <span class="search-field">
+          <span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>
+          <input class="input search-field__input" type="search" placeholder="Name, symbol, or code">
+        </span>
+        <button class="toggle-btn" type="button" aria-pressed="true">All</button>
+        <button class="toggle-btn" type="button" aria-pressed="false">Equity</button>
+        <button class="toggle-btn" type="button" aria-pressed="false">Mutual Fund</button>
+        <button class="toggle-btn" type="button" aria-pressed="false" aria-label="Favorites only"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> 2</button>
+      </div>
+      <div class="table-toolbar__group">
+        <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 8.5 5L12 12 3.5 7Z"/><path d="m20.5 12-8.5 5-8.5-5"/><path d="m20.5 17-8.5 5-8.5-5"/></svg></span> View ▾</button>
+        <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 8 10 8a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/></svg></span> Hidden fields · 3</button>
+        <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/></svg></span> Filter · 1</button>
+        <button class="button button--ghost" type="button"><span class="button__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg></span> Sort · 1</button>
+      </div>
+    </div>
+    <div class="tab-dock">
+      <nav class="tabs" aria-label="List scopes">
+        <a class="tabs__tab" href="#tabs" aria-current="page">All <span class="tabs__count">70</span></a>
+        <a class="tabs__tab" href="#tabs">Overdue <span class="tabs__count">2</span></a>
+        <a class="tabs__tab" href="#tabs">To review <span class="tabs__count">52</span></a>
+        <a class="tabs__tab" href="#tabs">Reviewed <span class="tabs__count">16</span></a>
+      </nav>
+      <div class="data-table data-table--head-label">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Security <span class="data-table__sort-dir">▲</span></button></th>
+              <th class="data-table__cell--mono">Symbol</th>
+              <th>Type</th>
+              <th>Sector / Category</th>
+              <th class="data-table__cell--center">Status</th>
+              <th class="data-table__cell--num">Last reviewed</th>
+              <th class="data-table__cell--num">Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">NO</span> Northwind Cloud</span></td>
+              <td class="data-table__cell--mono">NWCL</td>
+              <td>Equity</td>
+              <td>Technology</td>
+              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--num">2026-07-19</td>
+              <td class="data-table__cell--num">93</td>
+            </tr>
+            <tr>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">AP</span> Aperture Billing</span></td>
+              <td class="data-table__cell--mono">APBL</td>
+              <td>Equity</td>
+              <td>Health Care</td>
+              <td class="data-table__cell--center"><span class="badge badge--quiet">To review</span></td>
+              <td class="data-table__cell--num">—</td>
+              <td class="data-table__cell--num">92</td>
+            </tr>
+            <tr>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">VA</span> Vandelay Balanced</span></td>
+              <td class="data-table__cell--mono">VNBF</td>
+              <td>Mutual Fund</td>
+              <td>—</td>
+              <td class="data-table__cell--center"><span class="badge badge--warning">Overdue</span></td>
+              <td class="data-table__cell--num">2026-04-02</td>
+              <td class="data-table__cell--num">92</td>
+            </tr>
+            <tr>
+              <td><span class="data-table__cell--marked"><span class="avatar avatar--sm">MA</span> Massive Dynamic</span></td>
+              <td class="data-table__cell--mono">MSVD</td>
+              <td>Equity</td>
+              <td>Technology</td>
+              <td class="data-table__cell--center"><span class="badge badge--success">Reviewed</span></td>
+              <td class="data-table__cell--num">2026-07-15</td>
+              <td class="data-table__cell--num">91</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="specimen__note">Three things the dock settles at once. The tabs stop floating, because the active tab's accent interrupts a rail that exists rather than hanging under nothing. The space past the last tab stops reading as forgotten, because the rail crosses it. And the grouping becomes legible by proximity alone — air above the row toward the toolbar, none below it — since a scope row belongs to the table it filters, not to the chrome above. The head keeps its contour from the table's own border, with the strong rule beneath it doing the head-and-body division; no box around the header is needed or wanted. One more thing the dock repairs: two scope rows stacked, each starting with All, read as two versions of one control — attaching the lower one to the table makes them different kinds of object, chrome above and the table's own rail below.</p>
+
     <div class="specimen__label">State pairs — two cues, not one: the settled state carries the fill, the open state recedes</div>
     <div class="specimen__row">
       <div>

@@ -328,6 +328,19 @@ tabs guidance; citations in the Tabs research note).
   where a section is a countable collection; the section is in the URL, so
   deep links land and the back button walks tab history.
 
+Docking (`.tab-dock`). A scope row belongs to the table it filters, so it
+attaches to it: the rail runs the full width and becomes the table's top
+edge, the table loses its top radius and pulls up one pixel to share that
+line, and the active tab's accent interrupts the rail rather than hanging
+under nothing. A tab row with no rail is the floating-tabs defect — the
+active underline reads as a stray dash and the other tabs attach to
+nothing. Spacing is asymmetric by rule: air above toward the toolbar, none
+below, so proximity alone says which object the row belongs to. The dock
+also separates two scope rows that would otherwise compete — toolbar pills
+above and a docked rail below are different kinds of object, where two
+stacked pill rows each beginning with "All" read as two versions of one
+control.
+
 Boundary rules: one row never mixes jobs; nesting in one order only (a scope
 row may sit inside a section, never the reverse); the segmented control
 (1.12) re-renders the same panel with a different parameter, tabs change

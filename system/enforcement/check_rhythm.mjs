@@ -66,6 +66,10 @@ const walk = (minGap) => {
     if (/^(LI|DT|DD|OPTION|TR)$/.test(el.tagName)) continue;
     // form controls and their hints/errors are field anatomy, not blocks
     if (/^(INPUT|SELECT|TEXTAREA|BUTTON|LABEL)$/.test(prev.tagName)) continue;
+    // a docked pair shares one line on purpose — the tab rail is the table's
+    // top edge (components.md 2.6), the same sanctioned fusion as a section
+    // stack rather than two blocks that forgot their air
+    if (el.parentElement.classList && el.parentElement.classList.contains("tab-dock")) continue;
     // a run of the same component repeated is a designed fused stack
     // (switch-row after switch-row: the section law — flush, sharing a hairline)
     if (blockOf(prev) && blockOf(prev) === blockOf(el)) continue;

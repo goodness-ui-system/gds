@@ -453,6 +453,14 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 
 /* ---- tabs ------------------------------------------------------------------ */
 .tabs { display: flex; gap: var(--space-1); border-bottom: 1px solid var(--color-border); }
+/* ---- docked tab row (2.6) ------------------------------------------------ */
+/* A scope row belongs to the table beneath it, so it attaches: the rail runs
+   the full width and becomes the table's top edge, and the active tab's
+   accent interrupts that rail rather than floating above nothing. Proximity
+   carries the grouping — air above toward the toolbar, none below. */
+.tab-dock { margin-top: var(--space-5); }
+.tab-dock .tabs { padding: 0 var(--space-3); border-bottom-color: var(--color-border-strong); }
+.tab-dock .data-table { margin-top: -1px; border-top-left-radius: 0; border-top-right-radius: 0; }
 .tabs__tab { display: inline-flex; align-items: center; text-decoration: none; padding: var(--space-2) var(--space-3); border: none; background: none; color: var(--color-text-muted); font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .tabs__tab:hover { color: var(--color-text); }
 .tabs__tab[aria-selected="true"], .tabs__tab[aria-current="page"] { color: var(--color-action); border-bottom-color: var(--color-action); }
