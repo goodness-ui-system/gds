@@ -139,6 +139,36 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
 .page-head__actions { display: flex; gap: var(--space-3); align-items: center; }
 .page-head__name { font-size: var(--text-base); font-weight: var(--weight-semibold); }
 
+/* ---- the subject control (3.0d) ------------------------------------------
+   A page that is always about somebody carries who beside its title. Set
+   inline it costs nothing: the title's own line box at --text-2xl already
+   exceeds a --text-sm control at normal density, so the head measures the
+   same height with the control as without it (34px either way, verified).
+   Stacking it on its own line is the version that grows the head, by a
+   full step — reach for it only when the name will not fit beside a long
+   title. Ghost, not boxed: the same species as the View button, a control
+   whose resting label is its value. The identifier travels in mono, one
+   step quieter, because an identifier means its exact characters. */
+.page-subject { display: inline-flex; align-items: center; gap: var(--space-2); height: var(--control-h); padding: 0 var(--space-2); border: 1px solid transparent; border-radius: var(--radius-sm); font-size: var(--text-sm); color: var(--color-text); cursor: pointer; }
+.page-subject:hover { background: var(--color-surface-hover); }
+.page-subject__code { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+.page-subject__chev { color: var(--color-text-muted); font-size: var(--text-xs); }
+/* Viewing a subject that is not you: marked, and named in words. Read-only
+   viewing earns this and no more — a banner over a report nobody can change
+   is a false alarm, and false alarms are how real ones stop being read. */
+.page-subject--other { border-color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) 10%, transparent); }
+.page-subject__sep { color: var(--color-text-muted); }
+/* Right-aligned is the default placement, not adjacent: type scale governs
+   rank, distance governs whether two things read as one thing. Beside the
+   title a long name makes the whole line look like an oversized heading;
+   pushed to the far end, the title sits alone and reads as a title at any
+   name length. The name caps with an ellipsis as a backstop — full name in
+   the tooltip and in the menu. */
+.page-subject__name { max-width: 16rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.page-head--subject { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+/* the display step the subject control is measured against */
+.page-head__title--display { font-size: var(--text-2xl); line-height: 1.2; }
+
 /* ---- table scroll study (specimen chrome) ------------------------------- */
 /* A miniature screen: the frame plays the viewport so the three scroll
    models can sit side by side inside a document. The frame is a column;

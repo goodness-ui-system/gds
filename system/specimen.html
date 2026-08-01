@@ -2195,6 +2195,29 @@
   <section class="specimen__section" id="page-title">
     <h2 class="specimen__section-title">The page title — three placements, the application decides</h2>
     <p class="specimen__note">A rail already marks the current page. Whether the pane repeats it is the application's call; what is fixed is that one first-level heading always exists, displayed or visually hidden.</p>
+    <div class="specimen__label">The subject control — a page that is always about somebody names who beside the title, and set inline it costs no height at all</div>
+    <div class="specimen__row">
+      <span class="page-head__title page-head__title--display">Book of Business</span>
+      <span class="page-subject__sep">·</span>
+      <span class="page-subject"><span>J. Whitfield</span><span class="page-subject__code">XYZ-45332</span><span class="page-subject__chev">▾</span></span>
+    </div>
+    <p class="specimen__note">Measured: the head is 34px tall with the control and 34px without it. A title at <code>--text-2xl</code> already carries a 34px line box, and a <code>--text-sm</code> control at normal density is 34px, so the control fits inside space the title was occupying anyway. Stacking the same control on its own line is the version that grows the head — 72px against 34px, a full extra step — so stack it only when a long title leaves no room beside it. The control is ghost rather than boxed: it is the same species as the View button, a control whose resting label is its value. The identifier sets in mono one step quieter, because an identifier means its exact characters — and a typographic en dash must never be substituted into one, since <code>XYZ–45332</code> is not <code>XYZ-45332</code> and it breaks copy, search, and support tickets.</p>
+
+    <div class="specimen__label">Placement — adjacent works for a short subject; a long one makes the whole line read as an oversized heading</div>
+    <div class="page-head--subject">
+      <span class="page-head__title page-head__title--display">Book of Business</span>
+      <span class="page-subject"><span class="page-subject__name">K. Vandermolen-Ruiz</span><span class="page-subject__code">XYZ-45332</span><span class="page-subject__chev">▾</span></span>
+    </div>
+    <p class="specimen__note">Right-aligned is the default. Type scale governs rank; distance governs whether two things read as one thing — and setting the subject one step down in a control is not enough on its own, because beside the title it still parses as one long phrase. Pushed to the far end of the row, the title sits alone and reads as a title at any name length, while the subject grows leftward into space that was empty anyway. Two consequences follow: the top-right of that row now belongs to the subject, so the account cluster either moves to the rail's foot or the page head takes its own row beneath the shell bar — what must not happen is subject and account adjacent in one corner without a separator, which is the original ambiguity restated in a new place. And the name caps with an ellipsis as a backstop, full name in the tooltip and in the menu; abbreviating the given name buys roughly forty percent of the length back before truncation ever bites.</p>
+
+    <div class="specimen__label">Viewing a subject that is not you — marked, and named in words</div>
+    <div class="specimen__row">
+      <span class="page-head__title page-head__title--display">Book of Business</span>
+      <span class="page-subject__sep">·</span>
+      <span class="page-subject page-subject--other"><span>J. Whitfield</span><span class="page-subject__code">XYZ-45332</span><span class="page-subject__chev">▾</span></span>
+    </div>
+    <p class="specimen__note">Read-only viewing earns the marked state and nothing more. Writing as another subject is a different intensity: a persistent banner that survives every navigation, saying whose data will change, with the exit inside it. That one is sized not to how often it happens but to what it costs the once nobody noticed.</p>
+
     <div class="specimen__label">Option A — a list page with no display title: the rail names it, the toolbar starts at the top edge, the heading stays in the accessibility tree</div>
     <div class="shell-demo">
       <nav class="sidenav" aria-label="Demo rail">

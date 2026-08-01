@@ -726,6 +726,27 @@ and the meta beneath it:
   Business`). The title matches the nav label that got you there; when it
   drifts, the rail stops confirming where you are.
 
+**What separates a title from its subject is whitespace, not size.** Setting
+the subject one step down and in a control is not enough: placed directly
+beside the title it still reads as one long phrase, and the longer the name
+the more the whole line looks like an oversized heading. Type scale governs
+*rank*; distance governs *whether two things are one thing*. So the subject
+right-aligns to the far end of the title's row, with the empty middle doing
+the separating — the title sits alone at the left and reads as a title at
+any name length, and the subject grows leftward into space that was empty
+anyway. Adjacent placement is for a short, stable subject only.
+
+Two consequences for a long name. Right-alignment means the top-right of
+that row is now the subject's, which forces a decision about the account
+cluster: either the account moves (the rail's foot is the established
+alternative) or the page head takes its own row beneath the shell bar. What
+must not happen is subject and account sitting adjacent in the same corner
+without a separator, since that is the original ambiguity restated in a new
+place. And cap the name — a generous `max-width` with an ellipsis, the full
+name in the tooltip and in the menu — as a backstop that bites only on true
+outliers. Abbreviating the given name (`K. Vandermolen-Ruiz`) buys roughly
+forty percent of the length back before truncation is needed at all.
+
 **Viewing versus acting.** Two different intensities, and conflating them
 either cries wolf or hides a live hazard:
 
