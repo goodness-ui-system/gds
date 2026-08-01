@@ -643,7 +643,19 @@ html:has(#opt-light:checked) .theme-glyph--moon { display: none; }
 /* ---- search & filters -------------------------------------------------------- */
 .search-field { position: relative; display: inline-flex; align-items: center; min-width: 16rem; }
 .search-field__icon { position: absolute; left: var(--space-3); color: var(--color-text-muted); display: inline-flex; width: 1rem; height: 1rem; pointer-events: none; }
-.search-field__input { width: 100%; padding-left: var(--space-6); }
+.search-field__input { width: 100%; padding-left: var(--space-6); padding-right: var(--space-6); }
+/* Every control clears itself (1.18). The field's own X appears only when
+   there is something to clear — pure CSS on the placeholder-shown state, so
+   it is right under the cursor the instant a character is typed, with no
+   round trip and no script. The glyph stays small while the hit area meets
+   the target minimum. */
+.search-field__clear { position: absolute; right: var(--space-2); display: none; align-items: center; justify-content: center; width: var(--target-min); height: var(--target-min); border: none; background: none; color: var(--color-text-muted); cursor: pointer; border-radius: var(--radius-pill); }
+.search-field__clear svg { width: 0.875rem; height: 0.875rem; }
+.search-field__clear:hover { color: var(--color-text); background: var(--color-surface-hover); }
+.search-field__input:not(:placeholder-shown) ~ .search-field__clear { display: inline-flex; }
+/* The platform's own clear button is suppressed: it exists in some engines
+   and not others, cannot be styled, and would sit beside this one. */
+.search-field__input::-webkit-search-cancel-button { appearance: none; }
 
 .filter-bar { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
 

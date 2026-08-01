@@ -1049,7 +1049,7 @@
         <div class="table-toolbar__group">
           <span class="search-field">
             <span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>
-            <input class="input search-field__input" type="search" placeholder="Filter accounts…">
+            <input class="input search-field__input" type="search" placeholder="Filter accounts…"><button class="search-field__clear" type="button" aria-label="Clear search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
           </span>
           <span class="chip"><span class="chip__key">priority:</span> high+ <button class="chip__remove" type="button" aria-label="Remove filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></span>
         </div>
@@ -1223,12 +1223,25 @@
       <div class="data-table__url">/accounts?view=high-priority&amp;filterHasNoneOf_priority=low&amp;filterContains_status=&amp;group=priority&amp;sort=score,account&amp;dir=desc — the URL is the view: copy the address bar, a colleague sees this exact screen</div>
     </div>
     <div class="wp-status"><span class="badge badge--success">Adopted as principle</span></div>
+    <div class="specimen__label">Every control clears itself — the field's own X, present only when there is something to clear</div>
+    <div class="specimen__row">
+      <span class="search-field"><span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>
+        <input class="input search-field__input" type="search" placeholder="Name, symbol, or code">
+        <button class="search-field__clear" type="button" aria-label="Clear search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+      </span>
+      <span class="search-field"><span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>
+        <input class="input search-field__input" type="search" placeholder="Name, symbol, or code" value="northwind">
+        <button class="search-field__clear" type="button" aria-label="Clear search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+      </span>
+    </div>
+    <p class="specimen__note">The X belongs to the field, so its scope needs no explanation: it clears this box and nothing else. It appears the instant a character is typed and vanishes when the box empties — pure CSS on the placeholder-shown state, no round trip and no script — and the platform's own clear button is suppressed, since it exists in some engines and not others and would otherwise sit beside this one. The glyph stays small while the hit area meets the target minimum. This is one instance of a rule that runs through the toolbar: every control owns its clear. The search box has its X, a chip has its own remove, a scope group resets through its All, the filter panel clears its conditions, the favourites lens turns itself off. A single global reset reaching into all of them is a control whose scope cannot be seen — and a reader who has to guess whether it will also drop their favourites will not press it.</p>
+
     <div class="specimen__label">The docked tab row — the scope rail is the table's top edge, so the tabs cannot float and the space past the last tab reads as the rail continuing</div>
     <div class="table-toolbar">
       <div class="table-toolbar__group">
         <span class="search-field">
           <span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>
-          <input class="input search-field__input" type="search" placeholder="Name, symbol, or code">
+          <input class="input search-field__input" type="search" placeholder="Name, symbol, or code"><button class="search-field__clear" type="button" aria-label="Clear search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
         </span>
         <button class="toggle-btn" type="button" aria-pressed="true">All</button>
         <button class="toggle-btn" type="button" aria-pressed="false">Equity</button>
@@ -2224,7 +2237,7 @@
         <div class="table-toolbar__group">
           <span class="search-field">
             <span class="search-field__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></span>
-            <input class="input search-field__input" type="search" placeholder="Filter accounts…">
+            <input class="input search-field__input" type="search" placeholder="Filter accounts…"><button class="search-field__clear" type="button" aria-label="Clear search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
           </span>
           <button class="toggle-btn" type="button" aria-pressed="false">All</button>
           <button class="toggle-btn" type="button" aria-pressed="true">Documents</button>

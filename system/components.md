@@ -262,6 +262,29 @@ Input + leading icon; instant results server-side.
 </span>
 ```
 
+### 1.18 Every control clears itself (rule)
+A control that can be set carries its own way to unset it, positioned so its
+scope needs no explanation:
+
+- Search field — an X inside the box (`.search-field__clear`), present only
+  when there is something to clear. Pure CSS on `:not(:placeholder-shown)`,
+  so it appears the instant a character is typed with no round trip; the
+  platform's own search-cancel button is suppressed, since it ships in some
+  engines and not others and would otherwise sit beside this one. Honest
+  mapping: the X is a link or `hx-get` to the same list with the query
+  parameter dropped — the request the server already understands.
+- Chip — its own remove (1.7). Scope group — its leading All (1.17).
+  Filter panel — clears its own conditions (4.4). Favourites lens — turns
+  itself off (3.13). Bulk selection — its Clear in the bulk bar (3.9).
+
+A single global reset that reaches into all of them is a control whose scope
+cannot be seen: placed after the favourites star it appears to clear
+favourites too, and a reader who has to guess will not press it. Where a
+global reset genuinely exists it names its scope ("Reset view", "Clear all
+filters"), sits with the controls it clears rather than beside ones it does
+not, and never becomes the only way to clear something that could clear
+itself.
+
 ### 2.3 Dropdown menu
 Button-opened action list; the fragment arrives from the server open.
 Options: items, `--danger` item, dividers, kbd hints. Carries `--shadow-overlay`.
