@@ -609,6 +609,38 @@ stops carrying the grouping.</p>
 <p>Sidebar + topbar + main. Options: sidebar expanded/collapsed (a <code>preferences</code>
 row); active item via <code>aria-current="page"</code> from the request path; <code>hx-boost</code> for
 instant transitions.</p>
+<h3>3.1a The two-column agreement</h3>
+<p>A rail and a content column are two documents unless they agree on
+something, and two shared lines are enough (<code>.app-frame</code>):</p>
+<ul>
+<li>The rail's brand row sits on the page title's baseline. Both columns'
+  heads take one height and one bottom edge, so the line is exact rather
+  than near — a three-pixel miss reads worse than either agreement or a
+  clear difference.</li>
+<li>The first nav item starts where the first control starts. With the heads
+  equal and both columns running the same first step, this falls out for
+  free.</li>
+</ul>
+<p>Everything below those two lines may differ freely. Four rules hold them:</p>
+<ol>
+<li>The shell's own controls ride in the brand row — chrome beside chrome —
+   rather than taking a band of their own to hold one icon, which is what
+   pushes the nav out of agreement in the first place (3.2 utility
+   controls).</li>
+<li>The rail runs the same halving ladder as the content (3.0c): a full step
+   down to the first group, half a step between groups, a quarter from a
+   label to the items it names.</li>
+<li>One left margin governs the rail — the item icon aligns with the mark
+   above it, and the active pill's background is free to bleed left of that
+   line. A background may pass the text margin; text may not.</li>
+<li>The gutter is symmetric about the divider, so the line sits in its own
+   channel rather than hugging the rail.</li>
+</ol>
+<p>And the formatting rule the layout implies: the rail recedes. It is chrome
+while the table is the work, so navigation never sets larger than body text
+and only the current item stands at full strength — the rest one step down,
+as the submenu children do. A rail that outshouts its data has the
+hierarchy backwards.</p>
 <h3>3.2 Sidebar nav</h3>
 <p>Anatomy options on display (whitepaper, Navigation chapter; decision pending):</p>
 <ul>

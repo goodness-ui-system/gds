@@ -78,6 +78,36 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
 .list-foot__top { color: var(--color-action); text-decoration: none; }
 .list-foot__top:hover { text-decoration: underline; }
 
+/* ---- the two-column agreement (3.1a) ------------------------------------ */
+/* A rail and a content column are two documents unless they agree on
+   something. Two shared lines are enough: the brand row sits on the page
+   title's baseline, and the first nav item starts where the first control
+   starts. Everything else may differ. The gutter is symmetric about the
+   divider, so the line sits in its own channel rather than hugging the rail,
+   and both columns run the same halving ladder so the shell reads as one
+   rhythm rather than two. */
+.app-frame { display: flex; align-items: stretch; }
+.app-frame__rail { width: 14rem; flex: none; padding: var(--space-4) var(--space-3); border-right: 1px solid var(--color-border); display: flex; flex-direction: column; }
+.app-frame__main { flex: 1; min-width: 0; padding: var(--space-4) var(--space-3); }
+/* The brand row carries the shell's own controls: chrome beside chrome,
+   rather than a separate band holding one icon. */
+.app-frame__brand { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-2); height: var(--space-6); }
+.app-frame__mark { font-weight: var(--weight-semibold); letter-spacing: 0.08em; font-size: var(--text-sm); text-transform: uppercase; }
+/* The rail runs the ladder too: a full step down to the first group, half a
+   step between groups, a quarter from a label to the items it names. */
+.app-frame__rail .sidenav { width: auto; padding: 0; border-right: none; margin-top: var(--space-6); }
+.app-frame__rail .sidenav__section { padding-left: var(--space-2); padding-bottom: var(--space-1); }
+.app-frame__rail .sidenav__section:not(:first-child) { margin-top: var(--space-4); }
+/* One left margin: the item's icon aligns with the mark above it, and the
+   pill's background is free to bleed left of that line — a background may
+   pass the text margin, text may not. */
+.app-frame__rail .sidenav__item, .app-frame__rail .sidenav__group-summary { padding-left: var(--space-2); }
+/* The rail recedes. It is chrome; the data is the work. Navigation never
+   sets larger than body text, and only the current item is at full strength. */
+.app-frame__rail .sidenav__item { font-size: var(--text-sm); color: var(--color-text-muted); }
+.app-frame__rail .sidenav__item:hover { color: var(--color-text); }
+.app-frame__rail .sidenav__item[aria-current="page"] { color: var(--color-action); }
+
 /* ---- the chrome stack (3.0c) -------------------------------------------- */
 /* Everything above the data, spaced as a ladder rather than a rhythm. Equal
    gaps group nothing: four evenly spaced bands read as four strata, and the
@@ -87,7 +117,10 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
    and the rail takes none at all because it is the table's own top edge. */
 .chrome-stack { display: flex; flex-direction: column; }
 .chrome-stack > .table-toolbar { margin-top: var(--space-6); }
-.chrome-stack__head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); }
+/* Same height and same bottom edge as the rail's brand row, so the two
+   columns share a line exactly rather than nearly — a near miss reads worse
+   than either agreement or a clear difference. */
+.chrome-stack__head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); height: var(--space-6); }
 .chrome-stack__name { font-size: var(--text-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); }
 .chrome-stack__who { font-size: var(--text-sm); color: var(--color-text-muted); }
 

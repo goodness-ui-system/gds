@@ -631,6 +631,39 @@ Sidebar + topbar + main. Options: sidebar expanded/collapsed (a `preferences`
 row); active item via `aria-current="page"` from the request path; `hx-boost` for
 instant transitions.
 
+### 3.1a The two-column agreement
+A rail and a content column are two documents unless they agree on
+something, and two shared lines are enough (`.app-frame`):
+
+- The rail's brand row sits on the page title's baseline. Both columns'
+  heads take one height and one bottom edge, so the line is exact rather
+  than near — a three-pixel miss reads worse than either agreement or a
+  clear difference.
+- The first nav item starts where the first control starts. With the heads
+  equal and both columns running the same first step, this falls out for
+  free.
+
+Everything below those two lines may differ freely. Four rules hold them:
+
+1. The shell's own controls ride in the brand row — chrome beside chrome —
+   rather than taking a band of their own to hold one icon, which is what
+   pushes the nav out of agreement in the first place (3.2 utility
+   controls).
+2. The rail runs the same halving ladder as the content (3.0c): a full step
+   down to the first group, half a step between groups, a quarter from a
+   label to the items it names.
+3. One left margin governs the rail — the item icon aligns with the mark
+   above it, and the active pill's background is free to bleed left of that
+   line. A background may pass the text margin; text may not.
+4. The gutter is symmetric about the divider, so the line sits in its own
+   channel rather than hugging the rail.
+
+And the formatting rule the layout implies: the rail recedes. It is chrome
+while the table is the work, so navigation never sets larger than body text
+and only the current item stands at full strength — the rest one step down,
+as the submenu children do. A rail that outshouts its data has the
+hierarchy backwards.
+
 ### 3.2 Sidebar nav
 Anatomy options on display (whitepaper, Navigation chapter; decision pending):
 
