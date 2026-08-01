@@ -131,6 +131,25 @@ prefix; removable.
           hx-push-url="true" aria-label="Remove filter">✕</button></span>
 ```
 
+**Badge fills must be visible as fills.** A tinted status pill whose ground
+cannot be told from the row it sits on is not a quiet badge — it is an
+outline and some colored text, and the fill has silently stopped working.
+The trap is that a fixed percentage of a *semantic* color behaves completely
+differently over a light ground and a dark one: a 10% wash cleared its row
+by 1.25:1 in light and **1.04:1 in dark**, which is nothing, while the
+border and the text still measured 5:1 and looked fine in isolation. So the
+strength is a token (`--badge-fill`, 30%) with a measured floor of 1.40:1
+against the row, enforced across every family and both themes.
+
+Two lessons generalise past badges. First, judge a tint against the ground
+it will actually land on, in both themes, never against white in a swatch
+sheet. Second — and this one cost a release-shaped bug here — checking the
+token math proves nothing if the stylesheet does not consume the token: one
+of the four badge rules kept its literal percentage while the checker
+reported all clear, so the checker now also verifies that every semantic
+badge fill references `--badge-fill`. A value and its verification must be
+the same value.
+
 ### 1.8 Avatar
 Identity mark, initials fallback. Options: `sm · md · lg`.
 

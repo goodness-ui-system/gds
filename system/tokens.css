@@ -168,6 +168,15 @@
   --radius-md:   8px;
   --radius-pill: 999px;
 
+  /* Badge fill strength. A tinted status pill must be visible AS a pill —
+     an outline plus colored text with no perceptible ground is not a badge,
+     it is a badge that failed. The old 10% wash cleared its row by 1.25:1 in
+     light and 1.04:1 in dark, which is nothing; 30% clears 1.45:1 in every
+     family and both themes, enforced by check_contrast.py. Mixed toward
+     transparent rather than a fixed surface, so the fill still adapts to the
+     zebra row it lands on. */
+  --badge-fill: 30%;
+
   /* Elevation — exactly ONE shadow, for floating overlays only
      (menus, popovers, command palette). App chrome uses the surface
      ladder + hairline borders, never shadows. */

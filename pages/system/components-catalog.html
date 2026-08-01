@@ -124,6 +124,23 @@ prefix; removable.</p>
   &lt;button class=&quot;chip__remove&quot; hx-get=&quot;/items?tier=&quot; hx-target=&quot;#list&quot;
           hx-push-url=&quot;true&quot; aria-label=&quot;Remove filter&quot;&gt;✕&lt;/button&gt;&lt;/span&gt;
 </code></pre>
+<p><strong>Badge fills must be visible as fills.</strong> A tinted status pill whose ground
+cannot be told from the row it sits on is not a quiet badge — it is an
+outline and some colored text, and the fill has silently stopped working.
+The trap is that a fixed percentage of a <em>semantic</em> color behaves completely
+differently over a light ground and a dark one: a 10% wash cleared its row
+by 1.25:1 in light and <strong>1.04:1 in dark</strong>, which is nothing, while the
+border and the text still measured 5:1 and looked fine in isolation. So the
+strength is a token (<code>--badge-fill</code>, 30%) with a measured floor of 1.40:1
+against the row, enforced across every family and both themes.</p>
+<p>Two lessons generalise past badges. First, judge a tint against the ground
+it will actually land on, in both themes, never against white in a swatch
+sheet. Second — and this one cost a release-shaped bug here — checking the
+token math proves nothing if the stylesheet does not consume the token: one
+of the four badge rules kept its literal percentage while the checker
+reported all clear, so the checker now also verifies that every semantic
+badge fill references <code>--badge-fill</code>. A value and its verification must be
+the same value.</p>
 <h3>1.8 Avatar</h3>
 <p>Identity mark, initials fallback. Options: <code>sm · md · lg</code>.</p>
 <h3>1.9 Icon</h3>

@@ -156,7 +156,7 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
 /* Viewing a subject that is not you: marked, and named in words. Read-only
    viewing earns this and no more — a banner over a report nobody can change
    is a false alarm, and false alarms are how real ones stop being read. */
-.page-subject--other { border-color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) 10%, transparent); }
+.page-subject--other { border-color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) var(--badge-fill), transparent); }
 .page-subject__sep { color: var(--color-text-muted); }
 /* Right-aligned is the default placement, not adjacent: type scale governs
    rank, distance governs whether two things read as one thing. Beside the
@@ -478,10 +478,10 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
   font-size: var(--text-xs); font-weight: var(--weight-medium); color: var(--color-text-muted);
   background: transparent;
 }
-.badge--success { color: var(--color-success); border-color: var(--color-success); background: color-mix(in srgb, var(--color-success) 10%, transparent); }
-.badge--warning { color: var(--color-warning); border-color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) 10%, transparent); }
-.badge--danger  { color: var(--color-danger);  border-color: var(--color-danger);  background: color-mix(in srgb, var(--color-danger) 10%, transparent); }
-.badge--info    { color: var(--color-info);    border-color: var(--color-info);    background: color-mix(in srgb, var(--color-info) 10%, transparent); }
+.badge--success { color: var(--color-success); border-color: var(--color-success); background: color-mix(in srgb, var(--color-success) var(--badge-fill), transparent); }
+.badge--warning { color: var(--color-warning); border-color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) var(--badge-fill), transparent); }
+.badge--danger  { color: var(--color-danger);  border-color: var(--color-danger);  background: color-mix(in srgb, var(--color-danger) var(--badge-fill), transparent); }
+.badge--info    { color: var(--color-info);    border-color: var(--color-info);    background: color-mix(in srgb, var(--color-info) var(--badge-fill), transparent); }
 .badge--accent  { color: var(--color-action);  border-color: var(--color-action);  background: var(--color-selected-bg); }
 /* State-pair treatments (1.6). An open state recedes — it is usually the
    majority, and a badge on fifty rows is a wall. A settled state carries the

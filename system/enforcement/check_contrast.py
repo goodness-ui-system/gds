@@ -31,6 +31,9 @@ TEXT_CEILING_HEX = "#ebebeb"   # top of the recommended dark-mode text band
 CANVAS_FLOOR_HEX = "#0a0a0a"   # darkest sanctioned canvas (never #000000)
 
 TEXT_ROLES = ("text", "text-muted", "action", "success", "warning", "danger", "info")
+SEMANTIC_ROLES = ("success", "warning", "danger", "info")
+FILL_FLOOR = 1.40             # a tint below this is indistinguishable from its row
+BADGE_FILL = 0.30             # must track --badge-fill in tokens.css
 
 
 def luminance(hexcolor: str) -> float:
@@ -47,6 +50,16 @@ def ratio(a: str, b: str) -> float:
     la, lb = luminance(a), luminance(b)
     hi, lo = max(la, lb), min(la, lb)
     return (hi + 0.05) / (lo + 0.05)
+
+
+def mix(a: str, b: str, t: float) -> str:
+    """Pure. sRGB mix of two hex colors: t of a, (1-t) of b — CSS color-mix."""
+    ah, bh = a.lstrip("#"), b.lstrip("#")
+    out = []
+    for i in (0, 2, 4):
+        ca, cb = int(ah[i:i + 2], 16), int(bh[i:i + 2], 16)
+        out.append(round(ca * t + cb * (1 - t)))
+    return "#" + "".join(f"{c:02x}" for c in out)
 
 
 def parse_primitives(css: str) -> dict:
@@ -103,6 +116,19 @@ def check_mapping(family: str, theme: str, colors: dict) -> list[str]:
                 problems.append(
                     f"{family}/{theme}: {role} {fg} on {surface} {bg} = "
                     f"{ratio(fg, bg):.2f}:1 (floor {FLOOR}:1)")
+    surface = colors.get("surface")
+    if surface:
+        for role in SEMANTIC_ROLES:
+            hue = colors.get(role)
+            if not hue:
+                continue
+            fill = mix(hue, surface, BADGE_FILL)
+            r = ratio(fill, surface)
+            if r < FILL_FLOOR:
+                problems.append(
+                    f"{family}/{theme}: badge--{role} fill {fill} on surface "
+                    f"{surface} = {r:.2f}:1 (floor {FILL_FLOOR}:1) — the pill "
+                    f"has no visible ground")
     if colors.get("on-action") and colors.get("action"):
         r = ratio(colors["on-action"], colors["action"])
         if r < FLOOR:
@@ -124,6 +150,27 @@ def check_mapping(family: str, theme: str, colors: dict) -> list[str]:
     return problems
 
 
+def check_usage(ui_css: str) -> list[str]:
+    """Pure. The token math above is worth nothing if the stylesheet does not
+    consume the token. A literal percentage in a semantic badge fill is how a
+    rule silently keeps the old value while the checker reports all clear —
+    which is exactly what happened once. Every semantic badge background must
+    reference --badge-fill."""
+    problems = []
+    for role in SEMANTIC_ROLES:
+        pattern = (r"\.badge--" + role + r"\s*\{[^}]*background:\s*"
+                   r"color-mix\([^)]*var\(--color-" + role + r"\)\s*([^,]+),")
+        m = re.search(pattern, ui_css)
+        if not m:
+            problems.append(f"badge--{role}: no semantic fill declaration found")
+        elif "var(--badge-fill)" not in m.group(1):
+            problems.append(
+                f"badge--{role}: fill is the literal {m.group(1).strip()!r}, "
+                f"not var(--badge-fill) — the checked value and the rendered "
+                f"value can drift apart")
+    return problems
+
+
 def main() -> int:
     path = Path(sys.argv[1]) if len(sys.argv) > 1 else \
         Path(__file__).resolve().parent.parent / "tokens.css"
@@ -134,12 +181,23 @@ def main() -> int:
         problems = check_mapping(family, theme, colors)
         checked = sum(1 for r in TEXT_ROLES for srf in ("canvas", "surface")
                       if colors.get(r) and colors.get(srf))
+        checked += sum(1 for r in SEMANTIC_ROLES
+                       if colors.get(r) and colors.get("surface"))
         status = "FAIL" if problems else "pass"
         print(f"{status}  {family}/{theme}: {checked} pairs checked, "
               f"{len(problems)} problem(s)")
         for p in problems:
             print("      " + p)
         total += len(problems)
+    ui = path.parent / "ui.css"
+    if ui.exists():
+        usage = check_usage(ui.read_text(encoding="utf-8"))
+        status = "FAIL" if usage else "pass"
+        print(f"{status}  badge-fill token usage: {len(SEMANTIC_ROLES)} rules "
+              f"checked, {len(usage)} problem(s)")
+        for u in usage:
+            print("      " + u)
+        total += len(usage)
     print(f"\ncontrast-check: {len(mappings)} mappings, {total} violation(s)")
     return 1 if total else 0
 
