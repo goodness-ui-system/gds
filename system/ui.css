@@ -892,6 +892,28 @@ tr:hover .data-table__fav, tr:focus-within .data-table__fav { visibility: visibl
 .data-table__fav-head svg { width: 1rem; height: 1rem; }
 .data-table__footer { display: flex; justify-content: space-between; align-items: center; padding: var(--space-2) var(--space-4); border-top: 1px solid var(--color-border); }
 
+/* ---- the scope line (3.14) -----------------------------------------------
+   The table's own footer, answering the two questions a filtered list leaves
+   open and never volunteers: am I seeing everything, and in what order? Both
+   are invisible once a reader has scrolled — the toolbar's counts are off
+   screen and the sort lives in a menu nobody reopens. Every figure is stated
+   as a share of the whole, because a bare count cannot say how much is
+   missing. Tabular figures throughout, so the line does not jitter as
+   filters change. */
+.table-scope { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border-top: 1px solid var(--color-border); font-size: var(--text-xs); color: var(--color-text-muted); }
+.table-scope__num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.table-scope__sep { opacity: 0.5; }
+/* The share is derived from the pair beside it, never a second independent
+   number — one fact, one source. It goes quiet at 100%, where it says only
+   that nothing is hidden. */
+.table-scope__share { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.table-scope--filtered .table-scope__share { color: var(--color-text); font-weight: var(--weight-medium); }
+/* Distinct from the end-of-table marker, which lives inside the scroll and
+   says "you have reached the bottom". This is the table's foot and says
+   "this is what you are looking at" — a different question, so a different
+   line; where both exist the marker sits above this one. */
+.table-scope__sort { margin-left: auto; }
+
 .pagination { display: flex; gap: var(--space-1); align-items: center; }
 .pagination__status { font-size: var(--text-xs); color: var(--color-text-muted); font-family: var(--font-mono); }
 

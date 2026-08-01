@@ -1732,6 +1732,51 @@ collapse via `<details>`), rows beneath, optional per-group summary. Options:
 group field (groupable types only) · sub-group (one level) · collapsed state
 per user · copy from view.
 
+### 3.14 The scope line — the table's footer
+One line across the table's foot, answering the two questions a filtered
+list leaves open and never volunteers: **am I seeing everything, and in what
+order?**
+
+```
+70 of 70 securities (100%) · $143M of $143M AUM (100%) ·
+3,095 of 3,095 positions (100%)                       sorted by AUM ↓
+```
+
+Both questions are invisible to a reader who has scrolled. The toolbar's
+counts are off screen, and the sort lives inside a menu nobody reopens to
+check. The scope line is the cheapest possible answer — one row of muted
+text, no controls, no interaction.
+
+The rules that make it work:
+
+- **Always `N of TOTAL`, never a bare `N`.** A bare count says how much you
+  have; only the pair says how much you are *not* seeing. `18 securities` is
+  a fact about the screen; `18 of 70` is a fact about the book.
+- **The share is derived, never a second number.** It restates the pair
+  beside it in one glance and comes from the same source — the tabs' own
+  rule against a count-plus-percent pair (2.6) applies here in reverse,
+  because here the pair is the subject and the percentage is the summary.
+  At 100% it goes quiet; below it, it earns emphasis, since a reader looking
+  at a quarter of the book should be told so.
+- **State the measures that matter to the domain**, not just the row count.
+  Records, money, and positions answer three different versions of "how
+  much"; a book that is 26% of the rows may be 78% of the assets, and only
+  saying so prevents the wrong conclusion.
+- **The sort goes last, with its direction.** After the first scroll, the
+  order of a list is otherwise unknowable without reopening a menu.
+- **Tabular figures throughout**, so the line does not jitter as filters
+  change.
+
+Distinct from the end-of-table marker, which lives *inside* the scroll and
+says "you have reached the bottom". The scope line is the table's foot and
+says "this is what you are looking at" — a different question, so a
+different line. Where both exist the marker sits above it.
+
+The scope line is also the honest place for a truncation to confess itself.
+A view capped at 500 rows says `500 of 12,904 (4%)` and the reader knows;
+a view that says `500 securities` has lied by omission, and the lie is the
+kind nobody catches until a number is wrong in a meeting.
+
 ### 4.6 Sort panel
 Multi-sort: ordered sort rows rendered as the same compact segmented control as
 filter conditions, direction labels typed per field
