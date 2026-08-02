@@ -522,6 +522,43 @@ A rail that says "Book of Business" over a security the reader does not own,
 reached from a research search, is stating something false about both the
 record and the route.
 
+**The rail marks the route, never the record.** The sharpest version of this
+arrives when a reader searching research opens a security they had forgotten
+they own. The tempting move is to relocate them — they own it, so surely
+they belong in the book now. It is wrong four times over:
+
+- The rail answers *where am I working*, not *what is this thing*. Ownership
+  is a property of the record. Switching the marked area on a data attribute
+  makes the rail answer a question nobody asked and abandon the one it
+  exists for.
+- Back stops meaning what it meant. The reader had a search in progress — a
+  query, filters, a scroll position — and relocating them discards the way
+  back to it.
+- It is unpredictable from the outside. Two adjacent search results, one
+  owned and one not, would behave differently on click, and a reader cannot
+  tell which they are about to get. Unpredictability is the worst property
+  navigation can have.
+- Ownership is mutable. Adding the record to the book from the record page
+  would then have to move the reader mid-task, which is an interface
+  rearranging itself as a side effect of a data change.
+
+The rule: **the application may offer a change of context; it may never
+perform one on the reader's behalf.** So the record states the relationship
+plainly — and states it usefully, since a reader who has forgotten they own
+something wants the position, not a yes: `In your book · 3,200 shares ·
+$412K`, in the page head where the record identifies itself. Beside it, an
+explicit route: `Open in Book of Business →`. The application offers; the
+reader decides.
+
+**And the surprise belongs in the list, not the record.** If a reader can be
+startled by ownership on arrival, the finder that sent them failed to
+mention it. Mark the owned rows in the research results — the same weight as
+a favourite star, one column, no colour — and the reader knows before the
+click rather than after. A relationship the reader has to the data belongs in
+every list that can reach it, not only on the record. Fixing it at the
+record is treating the symptom; fixing it in the list means the surprise
+never happens.
+
 Boundary rules: one row never mixes jobs; nesting in one order only (a scope
 row may sit inside a section, never the reverse); the segmented control
 (1.12) re-renders the same panel with a different parameter, tabs change
