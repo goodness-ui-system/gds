@@ -1217,6 +1217,24 @@ Arrived from a route with no collection, the line names only the area
 where the possessive is finally accurate and should be used: `IN YOUR BOOK`.
 That is the one place it is not a lie.
 
+**Ownership never rewrites the back link — not even when the reader owns the
+record.** A person searching research and finding a security they hold is
+still *in research*: the line reads `← Equities`, and the holding appears in
+the fact strip where holdings belong. Naming the book there instead would
+break the one promise a back link makes. Back would return to a list the
+reader was never on, discarding the search, the filters and the scroll
+position they were working through — and the discovery that they own this
+one is usually a reason to keep researching, not to stop.
+
+The two facts are answering different questions and the page has a place for
+each: **the context line says how you got here; the fact strip says what
+this is to you.** Conflating them costs the return path and gains nothing,
+since the strip already states the holding in the same glance. Where an
+application wants to offer the other route, it offers it as an action beside
+the held facts (`Open in Book of Business →`), never by rewriting the way
+back — the offer-never-perform rule (2.6) applied to a link instead of a
+redirect.
+
 **The held group never disappears.** A security not held shows the group with
 the fact stated — `IN THIS BOOK · NOT HELD` — rather than the group being
 omitted. An absent group is indistinguishable from a group that failed to
