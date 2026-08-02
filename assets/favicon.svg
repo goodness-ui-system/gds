@@ -1,14 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="37 44 160 160">
+<!-- The ink is a presentation attribute, not currentColor. A favicon renders
+     in an isolated image context where a style block may not run at all; if
+     it does not, currentColor falls back to the initial color value — which
+     some browsers resolve to canvastext, i.e. WHITE under a dark browser UI,
+     and the mark disappears against a light tab strip. Presentation attributes
+     lose to any CSS rule, so the media query below still wins wherever CSS
+     does run, and the dark ink is what survives when it does not. The safe
+     default is dark, because the overwhelming majority of tab strips are
+     light.
+     The preference read here is the SYSTEM's, never the application's: the
+     icon lives in the browser chrome, which the OS paints, so switching the
+     app's own theme must never change it. -->
 <style>
-  svg { color: #0A2244; }
-  @media (prefers-color-scheme: dark) { svg { color: #EAF3FF; } }
+  @media (prefers-color-scheme: dark) {
+    .gm-line { stroke: #EAF3FF; }
+    .gm-node { fill: #EAF3FF; }
+  }
 </style>
-<g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<g class="gm-line" fill="none" stroke="#0A2244" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
 <line x1="172" y1="86" x2="120" y2="60"/><line x1="120" y1="60" x2="68" y2="90"/>
 <line x1="68" y1="90" x2="62" y2="150"/><line x1="62" y1="150" x2="112" y2="188"/>
 <line x1="112" y1="188" x2="170" y2="168"/><line x1="170" y1="168" x2="170" y2="126"/>
 <line x1="170" y1="126" x2="126" y2="126"/></g>
-<g fill="currentColor"><circle cx="172" cy="86" r="10"/><circle cx="120" cy="60" r="10"/><circle cx="68" cy="90" r="10"/>
+<g class="gm-node" fill="#0A2244"><circle cx="172" cy="86" r="10"/><circle cx="120" cy="60" r="10"/><circle cx="68" cy="90" r="10"/>
 <circle cx="62" cy="150" r="10"/><circle cx="112" cy="188" r="10"/><circle cx="170" cy="168" r="10"/>
 <circle cx="126" cy="126" r="10"/><circle cx="170" cy="126" r="10"/></g>
 </svg>
