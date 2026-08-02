@@ -1137,6 +1137,52 @@ divides them from the cluster — adjacency implies membership, and shell
 chrome and page actions are not members of one another. Better still,
 leave the line to the shell and let page actions live in the toolbar, where
 their scope is already stated.</p>
+<h3>3.0e Record header — identity, and the fact strip</h3>
+<p>The record's own head: who this is on the left, and on the right the handful
+of facts a reader needs <em>in every section</em>. It sits above the section row
+(2.6), which fuses to it, so it persists no matter which section is open —
+and that is the test for what belongs in it. <strong>A fact that only matters
+inside one section belongs to that section, not here.</strong> The strip is not a
+summary of the record; it is the subset that stays relevant when the pane
+below changes completely.</p>
+<p><strong>The division that must not be skipped: what it IS, against what you
+HOLD.</strong> A security's own attributes — sector, industry, country, price,
+one-year return, score, market capitalisation — and the reader's position in
+it — shares, positions, value — answer different questions and must not run
+together in one undifferentiated row. Separate them with a gap wider than
+any hairline in the strip, and name the held facts possessively (<code>YOUR
+POSITIONS</code>, <code>YOUR AUM</code>), never bare.</p>
+<p>This is not fastidiousness. In a financial product, a bare <code>AUM</code> beside a
+fund's own attributes reads as <em>the fund's</em> assets under management, which
+is a real published figure and a different number by orders of magnitude
+from the reader's holding. A label that can be read two ways in a domain
+where both readings exist is a defect, and the possessive costs four
+characters. The general rule: <strong>a label inherits the meaning of its
+neighbours</strong> — put a relationship fact among attribute facts and it will be
+read as an attribute.</p>
+<p>Anatomy and formatting:</p>
+<ul>
+<li><strong>Label above, value below</strong>, sharing a left edge. Each pair is its own
+  unit here, unlike a table column, so the label anchors the value and
+  numbers are <em>not</em> right-aligned across the strip.</li>
+<li><strong>Every figure mono and tabular.</strong> A strip that re-renders per record must
+  not shift its own labels sideways as the digits change.</li>
+<li><strong>Signed where the sign is the meaning.</strong> A return is <code>+42.9%</code> or
+  <code>−12.4%</code>, with the sign character present and not merely implied by
+  colour — colour is the second encoding, never the only one. Semantic
+  colour belongs to figures that can go either way, and to nothing else in
+  the strip: a score of 93 is not "good news", it is a number.</li>
+<li><strong>Hairlines only when the row is dense.</strong> At nine facts there is no width
+  left to make the between-pair gap clearly larger than the within-pair gap,
+  and space that cannot be generous is not a grouping signal — so the
+  hairline earns its place. A shorter strip drops the rules and uses space.</li>
+<li><strong>Never wraps.</strong> A strip that wraps to a second ragged row has too many
+  facts; the overflow belongs in the Overview section, which is where the
+  full attribute list lives. Rank by what is needed in every section and cut
+  at what fits.</li>
+<li><strong>Empty is an em dash</strong> (<code>—</code>) in the value's position, never a blank and
+  never <code>--</code>, which reads as a typo for a minus sign.</li>
+</ul>
 <h3>3.1 App shell</h3>
 <p>Sidebar + topbar + main. Options: sidebar expanded/collapsed (a <code>preferences</code>
 row); active item via <code>aria-current="page"</code> from the request path; <code>hx-boost</code> for

@@ -557,6 +557,35 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 
 /* ---- tabs ------------------------------------------------------------------ */
 .tabs { display: flex; gap: var(--space-1); border-bottom: 1px solid var(--color-border); }
+/* ---- record header + fact strip (3.0e) ----------------------------------- */
+/* Identity on the left, the facts a reader needs in EVERY section on the
+   right. The strip sits above the section row, so it persists across every
+   section — which is the test for what belongs in it: a fact that only
+   matters inside one section belongs to that section, not here. */
+.record-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+.record-head__identity { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
+.record-head__name { font-size: var(--text-lg); font-weight: var(--weight-semibold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.factstrip { display: flex; align-items: stretch; }
+/* Hairlines rather than space, and only because the row is dense: at nine
+   facts there is no width left to make the between-pair gap clearly larger
+   than the within-pair gap, and space that cannot be generous is not a
+   grouping signal. A shorter strip drops them and uses space. */
+.factstrip__item { display: flex; flex-direction: column; gap: var(--space-1); padding: 0 var(--space-3); border-left: 1px solid var(--color-border); }
+.factstrip__group { display: flex; }
+.factstrip__group > .factstrip__item:first-child { border-left: none; }
+/* Two kinds of fact never run together undivided: what the security IS, and
+   what the reader HOLDS of it. A gap wider than any hairline in the row
+   separates them, because they answer different questions and a reader
+   scanning one should not fall into the other. */
+.factstrip__group + .factstrip__group { margin-left: var(--space-5); }
+.factstrip__label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); white-space: nowrap; }
+.factstrip__value { font-size: var(--text-sm); font-weight: var(--weight-medium); white-space: nowrap; }
+/* Every figure is mono and tabular: a strip that re-renders per record must
+   not shift its own labels sideways as the digits change. */
+.factstrip__value--num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.factstrip__value--up { color: var(--color-success); }
+.factstrip__value--down { color: var(--color-danger); }
+
 /* ---- section tab row (2.6) ----------------------------------------------- */
 /* The record's own row: panels of one record, not subsets of one collection.
    Same component as the scope row, deliberately — the two jobs are told apart

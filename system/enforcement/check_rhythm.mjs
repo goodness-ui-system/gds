@@ -70,6 +70,11 @@ const walk = (minGap) => {
     // top edge (components.md 2.6), the same sanctioned fusion as a section
     // stack rather than two blocks that forgot their air
     if (el.parentElement.classList && el.parentElement.classList.contains("tab-dock")) continue;
+    // the same sanctioned fusion in the other direction: a section row welds
+    // UPWARD to the record header it belongs to (3.0e / 2.6), with its air
+    // taken below instead of above. Attachment is the strongest signal that
+    // tells a section row from a scope row, so the zero gap is the design.
+    if (/\btab-head\b/.test(el.className || "")) continue;
     // a run of the same component repeated is a designed fused stack
     // (switch-row after switch-row: the section law — flush, sharing a hairline)
     if (blockOf(prev) && blockOf(prev) === blockOf(el)) continue;
