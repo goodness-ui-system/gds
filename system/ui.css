@@ -578,6 +578,12 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
    separates them, because they answer different questions and a reader
    scanning one should not fall into the other. */
 .factstrip__group + .factstrip__group { margin-left: var(--space-5); }
+/* Attribution goes on the group, once, and names the collection rather than
+   the reader: "your" is false wherever a person can view a book that is not
+   theirs, which is exactly what the subject control (3.0d) exists to allow.
+   Set as a heading beside the group so the strip stays one line, and so any
+   number of held facts share one statement instead of each growing a prefix. */
+.factstrip__heading { display: flex; align-items: center; padding-right: var(--space-3); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); white-space: nowrap; }
 .factstrip__label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); white-space: nowrap; }
 .factstrip__value { font-size: var(--text-sm); font-weight: var(--weight-medium); white-space: nowrap; }
 /* Every figure is mono and tabular: a strip that re-renders per record must

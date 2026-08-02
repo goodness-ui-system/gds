@@ -1168,22 +1168,54 @@ inside one section belongs to that section, not here.** The strip is not a
 summary of the record; it is the subset that stays relevant when the pane
 below changes completely.
 
-**The division that must not be skipped: what it IS, against what you
-HOLD.** A security's own attributes — sector, industry, country, price,
-one-year return, score, market capitalisation — and the reader's position in
-it — shares, positions, value — answer different questions and must not run
-together in one undifferentiated row. Separate them with a gap wider than
-any hairline in the strip, and name the held facts possessively (`YOUR
-POSITIONS`, `YOUR AUM`), never bare.
+**The division that must not be skipped: what it IS, against what the
+collection HOLDS.** A security's own attributes — sector, industry, country,
+price, one-year return, score, market capitalisation — and the position held
+in it — shares, positions, value — answer different questions and must not
+run together in one undifferentiated row. Separate them with a gap wider
+than any hairline in the strip.
 
 This is not fastidiousness. In a financial product, a bare `AUM` beside a
 fund's own attributes reads as *the fund's* assets under management, which
 is a real published figure and a different number by orders of magnitude
-from the reader's holding. A label that can be read two ways in a domain
-where both readings exist is a defect, and the possessive costs four
-characters. The general rule: **a label inherits the meaning of its
-neighbours** — put a relationship fact among attribute facts and it will be
-read as an attribute.
+from the position being described. The general rule: **a label inherits the
+meaning of its neighbours** — put a relationship fact among attribute facts
+and it will be read as an attribute.
+
+**Attribute the group, do not possess it.** The obvious repair is a
+possessive — `YOUR POSITIONS` — and it is wrong wherever a reader can view a
+collection that is not theirs. The subject slot (3.0d) exists precisely
+because that happens: a supervisor reading a colleague's book, an admin
+acting on someone's behalf. "Your" then states something false, and states
+it on a number. The possessive is only safe in a product where the viewer
+and the owner can never differ, which is a smaller set of products than it
+appears.
+
+So the attribution goes on the **group**, once, as a heading that names the
+collection rather than the reader — `IN THIS BOOK` — and the items stay
+bare: `POSITIONS`, `VALUE`. Three things follow. It is true regardless of
+who is looking. It composes with the subject control above, which has
+already named *which* book. And it stops repeating: one heading serves any
+number of held facts, where a prefix has to be pasted onto each and grows
+every label.
+
+**Against an initialism, even a domain one.** The tempting shortcut is the
+firm's own abbreviation — `BOB` for book of business — and it fails two
+tests worth applying to any initialism before it reaches a label:
+
+- *Does it read as something else?* `BOB` reads first as a personal name,
+  which is a poor start in a column of people-adjacent data.
+- *Does it collide inside this domain?* `BOB` is the ISO 4217 code for the
+  Bolivian boliviano. Placing it beside a currency amount, in a financial
+  product, puts a currency code next to a number where it is not one. That
+  is not a hypothetical misreading; it is the exact position a currency code
+  occupies.
+
+House vocabulary is not banned — it is often better than plain language,
+because the reader already speaks it. But it belongs where a misreading
+costs nothing: in the subject control, in a tooltip, in prose. Not as the
+qualifier on a money figure, where the whole job of the label is to say
+which number this is.
 
 Anatomy and formatting:
 
