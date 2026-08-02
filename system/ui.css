@@ -542,6 +542,28 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 
 /* ---- tabs ------------------------------------------------------------------ */
 .tabs { display: flex; gap: var(--space-1); border-bottom: 1px solid var(--color-border); }
+/* ---- section tab row (2.6) ----------------------------------------------- */
+/* The record's own row: panels of one record, not subsets of one collection.
+   Same component as the scope row, deliberately — the two jobs are told apart
+   by label grammar, and a second shape would ask a reader to decode a style
+   instead of reading a word. What differs is only what the difference in job
+   actually implies:
+     · position — attached to the record header above it, at the page's top
+       boundary, where the scope row attaches to the table below it;
+     · scale — one step up, because it switches the whole pane rather than
+       re-filtering one table, and the levels should not read as equals;
+     · icons — permitted here and refused there, since a section names a kind
+       of content (files, people, a document) and a subset has no iconic form.
+   That is the whole licence: a fork that follows from the job is legible, a
+   fork chosen for looks is a style to be decoded. */
+.tabs--section { gap: var(--space-3); }
+.tabs--section .tabs__tab { font-size: var(--text-base); padding: var(--space-2) var(--space-2); gap: var(--space-2); }
+.tabs--section .tabs__tab svg { width: 1rem; height: 1rem; }
+/* Attached upward: no air between the record header and the row it belongs
+   to, a full step below before the content it introduces. */
+.tab-head { margin-top: 0; }
+.tab-head + * { margin-top: var(--space-6); }
+
 /* ---- docked tab row (2.6) ------------------------------------------------ */
 /* A scope row belongs to the table beneath it, so it attaches: the rail runs
    the full width and becomes the table's top edge, and the active tab's

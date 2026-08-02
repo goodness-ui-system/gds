@@ -143,6 +143,44 @@
   </section>
 
   <!-- ================= TYPOGRAPHY ================= -->
+  <!-- ================= TABS ================= -->
+  <section class="specimen__section" id="tabs">
+    <h2 class="specimen__section-title">Tabs — one row, two jobs</h2>
+
+    <div class="specimen__label">Section row — panels of one record: at the page's top boundary, one type step up, icons permitted</div>
+    <div class="tab-head">
+      <nav class="tabs tabs--section" aria-label="Record sections">
+        <a class="tabs__tab" href="#tabs" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12V3a9 9 0 0 1 9 9Z"/></svg> Overview</a>
+        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Scoring</a>
+        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg> Peers</a>
+        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg> Files</a>
+        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg> Due Diligence</a>
+      </nav>
+    </div>
+
+    <div class="specimen__label">Scope row — subsets of one collection: docked to the table, body size, counts, no icons</div>
+    <div class="tab-dock">
+      <nav class="tabs" aria-label="Scope">
+        <a class="tabs__tab" href="#tabs" aria-current="page">All <span class="tabs__count">70</span></a>
+        <a class="tabs__tab" href="#tabs">Overdue <span class="tabs__count">2</span></a>
+        <a class="tabs__tab" href="#tabs">To review <span class="tabs__count">52</span></a>
+        <a class="tabs__tab" href="#tabs">Reviewed <span class="tabs__count">16</span></a>
+      </nav>
+      <div class="data-table"><div class="table-scope"><span>the table this row filters</span></div></div>
+    </div>
+    <p class="specimen__note">One component, two jobs, told apart by label grammar: nouns naming different content against adjectives naming subsets of one thing. What differs visually is only what the difference in job implies — position, because each row attaches to the object it belongs to; scale, because a section switches the whole pane while a scope re-filters one table, and the two levels should not read as equals; and icons, permitted on sections because a section names a kind of content and refused on scopes because a subset has no iconic form. That is the whole licence. A fork that follows from the job is legible; a fork chosen for looks is a style the reader has to decode.</p>
+
+    <div class="specimen__label">Rejected — the filled pill for sections: a segmented control means "same panel, different parameter", which is the scope meaning, not this one</div>
+    <div class="specimen__row">
+      <div class="segmented">
+        <input class="segmented__input" type="radio" name="segrej" id="segrej-o" checked><label class="segmented__btn" for="segrej-o">Overview</label>
+        <input class="segmented__input" type="radio" name="segrej" id="segrej-s"><label class="segmented__btn" for="segrej-s">Scoring</label>
+        <input class="segmented__input" type="radio" name="segrej" id="segrej-p"><label class="segmented__btn" for="segrej-p">Peers</label>
+      </div>
+    </div>
+    <p class="specimen__note">The pill says the panel below stays and a setting changes. A section replaces the panel entirely, so the shape states the opposite of what happens — and it borrows the one form this system has already assigned to the other job (1.12). It is worse still when drawn on a filled bar as well: the bar and the pill are two devices claiming one job, which is the objection this system raises everywhere else.</p>
+  </section>
+
   <section class="specimen__section" id="typography">
     <h2 class="specimen__section-title">Typography — sans for UI, mono for meaning</h2>
     <div class="type-demo">
