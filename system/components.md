@@ -438,6 +438,90 @@ label can lean on. The bare one goes to the row whose axis the page title
 already names; the other spells its axis out. The same holds for any option
 label appearing in both rows, not just All.
 
+Where a record's sections live — the submenu question. A record page needs
+somewhere to put Overview · Scoring · Peers · Files · Due Diligence, and
+there are three candidate homes. Only two of them are ever right.
+
+- **Horizontal section tabs at the page's top boundary** — the default, and
+  correct up to about seven sections with labels short enough not to wrap.
+  Tabs are for alternating between views *within one context*; navigation is
+  for moving *between* contexts, and a record's sections are the former by
+  definition. The published guidance converges on five to seven as the
+  ceiling, and names the failure past it precisely: tabs that need a second
+  row produce jumping elements that destroy spatial memory.
+- **A second column inside the record page** — a sub-rail belonging to the
+  record, not to the application. This is the answer when sections exceed the
+  tab ceiling, when labels are long, or when they need grouping. Vertical
+  lists scale where horizontal rows cannot, and a rail is indifferent to
+  label length. It costs about 200px of width permanently, which is why it
+  is the escalation and not the default: a record page usually wants its
+  width for data.
+- **The application's own left rail — never.** See below.
+
+**The decisive test: is the record reachable from more than one area?** If
+one security opens from the book, from an equity search, and from a fund
+search — the same page, the same sections, every time — then the record is
+not a child of any nav item. It is a shared destination that several areas
+find. Putting its sections in the rail then has no correct answer available:
+nesting them under one parent makes the rail lie about where the reader came
+from, nesting them under whichever parent they arrived through means one page
+occupies three different rail positions, and putting a copy under all three
+is three copies of one thing. Tabs have no such problem, because the sections
+belong to the record and travel with it.
+
+This is worth checking before any of the arguments below, because it settles
+the question on its own. Areas that *find* records are not parents of them.
+The rail lists finders; the record is the thing found.
+
+The corollary is a feature, not a compromise: **the sections are identical
+however the reader arrived**, so a person learns the record page once and
+knows it everywhere. Where a record's status differs by route — owned versus
+merely researched — that is a *fact shown on the page*, not a change in its
+structure. Varying the sections by ownership would mean learning two record
+pages and discovering which one you got only after arriving.
+
+**The app rail is a map, and a map does not redraw itself when you open a
+document.** Repurposing the rail to hold one record's sections costs three
+things at once. The reader loses the answer to "which area of the
+application am I in?", since the area's own items have been replaced. The
+return path to the list disappears, or has to be rebuilt as a back
+affordance the rail did not previously need. And the rail's contents now
+change with every record opened — which is the same spatial-memory failure
+the tab guidance names, moved into the one component that most depends on
+being stable. Navigation earns its keep by being in the same place with the
+same contents every time; a rail that reshuffles per record has traded that
+away for nothing the page could not have provided itself.
+
+The drill-in variant — the rail replacing its contents with a back arrow, the
+record's name, and its sections — is a real pattern and legitimate on small
+screens, where there is no room for two columns and one thing at a time is
+the whole interaction model. On a desktop working application it is the wrong
+trade: switching areas becomes two steps instead of one, and the map is gone
+exactly when a reader is deepest in the product and most likely to want it.
+
+So the rule: while a record is open, the rail keeps the *area* marked and
+says nothing about the record. The record's identity belongs to the page
+head, and its sections belong to the page.
+
+Which area stays marked, when several can reach the record, is the one live
+question this leaves — and it must be answered from the URL, never from
+client memory, or a refresh and a shared link disagree with the screen. Two
+honest answers:
+
+- **Carry the origin in the route** and mark it. The page head then also
+  earns a back link that names where it returns to ("← Book of Business"),
+  which is the affordance the rail used to provide by being a parent. A
+  shared link that arrives with no origin marks nothing and returns to the
+  default finder.
+- **Mark nothing while a record is open**, and let a breadcrumb in the page
+  head carry the whole answer. Less anchored, but never wrong, and it is
+  what several mature tools do.
+
+What is not acceptable is marking an area the reader did not come through.
+A rail that says "Book of Business" over a security the reader does not own,
+reached from a research search, is stating something false about both the
+record and the route.
+
 Boundary rules: one row never mixes jobs; nesting in one order only (a scope
 row may sit inside a section, never the reverse); the segmented control
 (1.12) re-renders the same panel with a different parameter, tabs change
