@@ -562,19 +562,47 @@ never happens.
 The look, and the one licence for differing. The two jobs share one
 component on purpose: they are told apart by label grammar, and a second
 shape would ask a reader to decode a style instead of reading a word. What
-may differ is only what the difference in job actually implies:
+may differ is only what the difference in job actually implies — listed here
+strongest first, because the order matters more than the list:
 
-- **Position** — each row attaches to the object it belongs to. A scope row
-  docks downward onto its table; a section row attaches upward to the record
-  header, at the page's top boundary, with a full step below before the
-  content it introduces.
-- **Scale** — the section row takes one type step up (`--section`), because
-  it replaces the whole pane while a scope re-filters one table, and two
-  levels of navigation should not read as equals.
-- **Icons** — permitted on sections, refused on scopes. A section names a
-  *kind of content* (files, people, a document) and has an iconic form; a
-  subset of one collection does not, and an icon invented for "Overdue" is
-  decoration.
+1. **Attachment, and it is a mirror.** Each row fuses to the object it
+   belongs to and takes its air on the other side. A scope row attaches
+   *downward*: air above toward the toolbar, nothing below, its bottom edge
+   literally the table's top edge. A section row attaches *upward*: nothing
+   above, fused to the record header, a full step of air below before the
+   content it introduces. The two are opposite relationships to their
+   neighbours, and that reads before any label does — a row welded to a
+   table is filtering it; a row welded to a record's name is naming parts of
+   the record.
+2. **Counts, or their absence.** A scope row carries them (`All 70`,
+   `Overdue 2`) because a subset's size is the fact a reader wants. A
+   section row carries them only where a section is itself a countable
+   collection. A number beside a tab says "this many rows match"; no number
+   says the row is not about rows at all.
+3. **Label grammar.** Nouns naming content against adjectives naming
+   subsets. "Overview · Scoring · Peers" cannot be read as a filter, because
+   there is nothing for it to filter.
+4. **Scale** — the section row takes one type step up (`--section`), since
+   it replaces the whole pane while a scope re-filters one table, and two
+   levels of navigation should not read as equals.
+5. **Icons** — permitted on sections, refused on scopes, because a section
+   names a *kind of content* and has an iconic form while a subset does not.
+   This is the **weakest** signal in the set and must never be the one
+   carrying the distinction. If removing the icons would make a row
+   ambiguous, the row was already ambiguous and one of the four above is
+   missing.
+
+The worry this list answers is a fair one: the two rows look alike, and on a
+list page a tab row means "filter the table", so a reader might carry that
+expectation onto a record. Two things dissolve it. The rows never appear
+adjacent (see the boundary rules below), so nothing has to be told apart
+side by side. And the failure mode is not costly — both rows do the same
+thing from the reader's side, which is *click, and what is below changes*.
+Whether the change is fewer rows or a different panel is announced by the
+content itself, instantly, with no wrong outcome to recover from. That is a
+half-second of orientation, paid once, against the standing cost of a second
+component to learn. Reserve visual forks for pairs where a mistaken click
+costs something.
 
 That is the whole licence, and the principle behind it is worth keeping: a
 fork that follows from the job is legible without instruction; a fork chosen
