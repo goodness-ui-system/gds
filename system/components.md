@@ -881,6 +881,26 @@ it captions (label, heading, legend) and a component's own internal anatomy.
 The rule is enforced by rendering, not by trust: `enforcement/check_rhythm.mjs`
 measures every adjacent pair on every page and fails on any flush pair.
 
+**A caption hugs its object, and the ratio is what binds them.** The air rule
+opens a full step *above* a label; the step *below* it must be about a
+quarter of that, or the pairing is ambiguous. Equal-ish gaps on both sides
+leave a label floating between two exhibits, belonging to whichever one the
+reader guesses — and a reader who has to ask "which one does this describe?"
+was failed by the spacing, not by the words. A label two steps from what it
+names and three from what it does not is not close enough: the ratio has to
+be obvious at a glance, not on measurement. This is the caption case of the
+same principle the chrome ladder states — proximity is the grouping signal,
+and it only works when the gaps differ enough to be read as different.
+
+**A rejected exhibit carries its verdict beside it, not only above it.** In a
+catalog that shows what the system refuses next to what it adopts, a word
+above a specimen can be read as belonging to the specimen *before* it. So
+the rejected example takes a rule down its left edge in the danger color
+(`.specimen__reject`) — beside the exhibit, touching nothing inside it. The
+exhibit itself renders at full fidelity: dimming or greying it would
+misreport the very colors under discussion, and an argument against a
+treatment is worthless if it shows the treatment inaccurately.
+
 ### 3.0b Page head — title, meta, status, primary action
 The row a page title anchors. Options, and the choice belongs to the
 application (white paper chapter 14 argues both sides):

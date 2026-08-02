@@ -65,6 +65,21 @@ code, kbd { font-family: var(--font-mono); font-size: var(--text-sm); }
    only to the section title above it and to the object it captions below. */
 .specimen__section > * + * { margin-top: var(--space-4); }
 * + .specimen__label { margin-top: var(--space-6); }
+/* A caption hugs the object it captions. The air rule opens a full step
+   ABOVE a label, but the step below it must be a quarter of that or the
+   binding is ambiguous — a reader who has to ask "which exhibit does this
+   label describe?" has been failed by the spacing, not by the words. Two
+   parts of one caption-object pair, so the pair is exempt from the air rule
+   by construction (the rhythm check already skips captions). */
+.specimen__section > .specimen__label + *, .specimen__label + * { margin-top: var(--space-2); }
+
+/* A rejected exhibit renders at full fidelity — dimming it would misreport
+   the very colors under discussion — so the verdict is carried BESIDE it,
+   in a danger-colored rule that touches nothing inside. The label alone is
+   not enough: a word above a specimen can be read as belonging to the
+   specimen before it, and once a reader has to work out which, the exhibit
+   has already argued against itself. */
+.specimen__reject { border-left: 2px solid var(--color-danger); padding-left: var(--space-3); }
 .specimen__section-title + .specimen__label { margin-top: 0; }
 
 /* ---- the foot of a scrolling list (3.12) -------------------------------- */
