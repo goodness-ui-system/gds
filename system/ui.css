@@ -562,6 +562,17 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
    right. The strip sits above the section row, so it persists across every
    section — which is the test for what belongs in it: a fact that only
    matters inside one section belongs to that section, not here. */
+/* The context line: where this record was opened from, and — when that was a
+   collection — which collection. It carries the answer "in this book, but
+   whose?" that the strip below otherwise points at with nothing to point to,
+   and it restores the return path the rail cannot provide for a record that
+   several areas can reach (2.6). Route from the URL, never from client
+   memory, or a refresh and a shared link disagree with the screen. */
+.record-head__context { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.record-head__back { display: inline-flex; align-items: center; gap: var(--space-1); color: var(--color-text-muted); text-decoration: none; }
+.record-head__back:hover { color: var(--color-action); }
+.record-head__owner { color: var(--color-text); }
+.record-head__code { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: var(--text-xs); color: var(--color-text-muted); }
 .record-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
 .record-head__identity { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
 .record-head__name { font-size: var(--text-lg); font-weight: var(--weight-semibold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

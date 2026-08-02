@@ -1193,7 +1193,35 @@ appears.
 
 So the attribution goes on the **group**, once, as a heading that names the
 collection rather than the reader — `IN THIS BOOK` — and the items stay
-bare: `POSITIONS`, `VALUE`. Three things follow. It is true regardless of
+bare: `POSITIONS`, `VALUE`.
+
+**`IN THIS BOOK` is a pointer, so something on the page must be the thing it
+points at.** A record opened from a collection loses that collection's name
+the moment the record header replaces the list's page head, and the phrase
+is then referring to nothing the reader can see. The record header therefore
+carries a **context line** above the identity, naming the route it was
+opened from and — where that route was a collection — naming the collection:
+
+```
+← Book of Business · J. Whitfield · XYZ-45332
+```
+
+It does three jobs with one line. It restores the return path, which the
+rail cannot provide for a record several areas can reach (2.6). It names the
+book, which makes the strip's heading concrete. And it keeps the owner
+visible, which the drill-in had silently dropped — a reader working through
+a colleague's book should not lose that fact by opening a record in it.
+
+Arrived from a route with no collection, the line names only the area
+(`← Equities`) and the held group refers to the signed-in reader's own book,
+where the possessive is finally accurate and should be used: `IN YOUR BOOK`.
+That is the one place it is not a lie.
+
+**The held group never disappears.** A security not held shows the group with
+the fact stated — `IN THIS BOOK · NOT HELD` — rather than the group being
+omitted. An absent group is indistinguishable from a group that failed to
+load, and "not held" is exactly the fact a reader searching research needs;
+silence makes them assume the page simply does not say. Three things follow. It is true regardless of
 who is looking. It composes with the subject control above, which has
 already named *which* book. And it stops repeating: one heading serves any
 number of held facts, where a prefix has to be pasted onto each and grows

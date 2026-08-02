@@ -1167,7 +1167,29 @@ and the owner can never differ, which is a smaller set of products than it
 appears.</p>
 <p>So the attribution goes on the <strong>group</strong>, once, as a heading that names the
 collection rather than the reader — <code>IN THIS BOOK</code> — and the items stay
-bare: <code>POSITIONS</code>, <code>VALUE</code>. Three things follow. It is true regardless of
+bare: <code>POSITIONS</code>, <code>VALUE</code>.</p>
+<p><strong><code>IN THIS BOOK</code> is a pointer, so something on the page must be the thing it
+points at.</strong> A record opened from a collection loses that collection's name
+the moment the record header replaces the list's page head, and the phrase
+is then referring to nothing the reader can see. The record header therefore
+carries a <strong>context line</strong> above the identity, naming the route it was
+opened from and — where that route was a collection — naming the collection:</p>
+<pre><code>← Book of Business · J. Whitfield · XYZ-45332
+</code></pre>
+<p>It does three jobs with one line. It restores the return path, which the
+rail cannot provide for a record several areas can reach (2.6). It names the
+book, which makes the strip's heading concrete. And it keeps the owner
+visible, which the drill-in had silently dropped — a reader working through
+a colleague's book should not lose that fact by opening a record in it.</p>
+<p>Arrived from a route with no collection, the line names only the area
+(<code>← Equities</code>) and the held group refers to the signed-in reader's own book,
+where the possessive is finally accurate and should be used: <code>IN YOUR BOOK</code>.
+That is the one place it is not a lie.</p>
+<p><strong>The held group never disappears.</strong> A security not held shows the group with
+the fact stated — <code>IN THIS BOOK · NOT HELD</code> — rather than the group being
+omitted. An absent group is indistinguishable from a group that failed to
+load, and "not held" is exactly the fact a reader searching research needs;
+silence makes them assume the page simply does not say. Three things follow. It is true regardless of
 who is looking. It composes with the subject control above, which has
 already named <em>which</em> book. And it stops repeating: one heading serves any
 number of held facts, where a prefix has to be pasted onto each and grows
