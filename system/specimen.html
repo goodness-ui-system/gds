@@ -148,14 +148,14 @@
   <section class="specimen__section" id="tabs">
     <h2 class="specimen__section-title">Tabs — one row, two jobs</h2>
 
-    <div class="specimen__label">Section row — panels of one record: at the page's top boundary, one type step up, icons permitted</div>
+    <div class="specimen__label">Section row — panels of one record: at the page's top boundary, one type step up, words only</div>
     <div class="tab-head">
       <nav class="tabs tabs--section" aria-label="Record sections">
-        <a class="tabs__tab" href="#tabs" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12V3a9 9 0 0 1 9 9Z"/></svg> Overview</a>
-        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Scoring</a>
-        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg> Peers</a>
-        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg> Files</a>
-        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg> Due Diligence</a>
+        <a class="tabs__tab" href="#tabs" aria-current="page">Overview</a>
+        <a class="tabs__tab" href="#tabs">Scoring</a>
+        <a class="tabs__tab" href="#tabs">Peers</a>
+        <a class="tabs__tab" href="#tabs">Files</a>
+        <a class="tabs__tab" href="#tabs">Due Diligence</a>
       </nav>
     </div>
 
@@ -169,7 +169,17 @@
       </nav>
       <div class="data-table"><div class="table-scope"><span>the table this row filters</span></div></div>
     </div>
-    <p class="specimen__note">One component, two jobs, told apart by label grammar: nouns naming different content against adjectives naming subsets of one thing. What differs visually is only what the difference in job implies — position, because each row attaches to the object it belongs to; scale, because a section switches the whole pane while a scope re-filters one table, and the two levels should not read as equals; and icons, permitted on sections because a section names a kind of content and refused on scopes because a subset has no iconic form. That is the whole licence. A fork that follows from the job is legible; a fork chosen for looks is a style the reader has to decode.</p>
+    <p class="specimen__note">One component, two jobs, told apart by label grammar: nouns naming different content against adjectives naming subsets of one thing. What differs visually is only what the difference in job implies — position, because each row attaches to the object it belongs to; scale, because a section switches the whole pane while a scope re-filters one table, and the two levels should not read as equals; and icons, refused on scopes outright and on sections unless every label in the row clears the three tests below. That is the whole licence. A fork that follows from the job is legible; a fork chosen for looks is a style the reader has to decode.</p>
+
+    <div class="specimen__label">With icons — permitted only when every label has a universal symbol, none is already assigned elsewhere, and none repeats an icon the rail already uses</div>
+    <div class="tab-head">
+      <nav class="tabs tabs--section" aria-label="Record sections with icons">
+        <a class="tabs__tab" href="#tabs" aria-current="page">Overview</a>
+        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg> Peers</a>
+        <a class="tabs__tab" href="#tabs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg> Files</a>
+      </nav>
+    </div>
+    <p class="specimen__note">Peers is people and Files is a document — read the same way by everyone. Overview keeps no icon, because it has no universal symbol and a guessed one is decoration wearing the costume of information. Since icons are all-or-none per row, a single label without a symbol disqualifies the whole row: this exhibit is the argument for words only, not an endorsement of a mixed row. Two further disqualifications are easy to miss. A symbol already assigned elsewhere — a star for "Scoring" in a product where a star means favourite on every table row — teaches the reader that the star means two things. And an icon repeated at two navigation levels merges them: where the rail has a "Due Diligence" area and a record has a "Due Diligence" section, the word survives the collision because position disambiguates it, and the icon does not, because an icon carries no position.</p>
 
     <div class="specimen__label">Rejected — the filled pill for sections: a segmented control means "same panel, different parameter", which is the scope meaning, not this one</div>
     <div class="specimen__reject">

@@ -585,12 +585,38 @@ strongest first, because the order matters more than the list:
 4. **Scale** — the section row takes one type step up (`--section`), since
    it replaces the whole pane while a scope re-filters one table, and two
    levels of navigation should not read as equals.
-5. **Icons** — permitted on sections, refused on scopes, because a section
-   names a *kind of content* and has an iconic form while a subset does not.
+5. **Icons** — refused on scopes always, and on sections only conditionally.
    This is the **weakest** signal in the set and must never be the one
    carrying the distinction. If removing the icons would make a row
    ambiguous, the row was already ambiguous and one of the four above is
    missing.
+
+**The two tests a section row must pass before it may wear icons.** They are
+all-or-none (3.2), so one failure disqualifies the whole row:
+
+- **Every label has a genuinely universal symbol.** Files is a document,
+  Peers is people, and those are read the same way by everyone. "Overview"
+  has no universal symbol; a pie chart is a guess, and a guessed icon is
+  decoration wearing the costume of information.
+- **No symbol in the row is already assigned elsewhere in the application.**
+  A star on a "Scoring" tab, in a product where a star means *favourite* on
+  every row of every table, spends a symbol that is already taken and teaches
+  the reader that the star means two things.
+
+There is a third failure worth naming because it is invisible until it
+happens: **an icon repeated at two navigation levels merges them.** Where an
+area in the rail and a section inside a record share a name — a "Due
+Diligence" area listing every report, and a "Due Diligence" section holding
+one record's — the word is already working hard to keep two destinations
+apart, and giving both the same clipboard makes them look like one place. The
+word survives that collision because position disambiguates it; the icon does
+not, because an icon carries no position.
+
+Fail any of the three and the row is words only, which costs nothing: a
+section row's labels are nouns, and a noun in a row of five is read faster
+than a noun with a picture beside it. Icons earn their place in a vertical
+sub-rail, where they aid scanning down a column and there is room for them,
+far more often than in a horizontal row of five.
 
 The worry this list answers is a fair one: the two rows look alike, and on a
 list page a tab row means "filter the table", so a reader might carry that
