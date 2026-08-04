@@ -228,6 +228,12 @@
      hover and selection in the background ladder. */
   --color-row-alt: color-mix(in srgb, var(--color-canvas) 45%, var(--color-surface));
 
+  /* modal scrim: the wash behind an open Dialog (2.11). One value for every
+     theme and family — a dialog dims the page by the same amount everywhere;
+     defined once, never re-pointed. Not a shadow: --shadow-overlay separates
+     the surface, the scrim declares the page behind it inert. */
+  --color-backdrop: rgba(0, 0, 0, 0.45);
+
   --color-success: var(--green-400);
   --color-warning: var(--amber-400);
   --color-danger:  var(--red-300);

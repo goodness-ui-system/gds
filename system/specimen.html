@@ -501,6 +501,94 @@
     <div class="alert alert--info"><div><div class="alert__title">New template available</div><div class="alert__text">A new report template can now be enabled per workspace.</div></div></div>
   </section>
 
+  <!-- ================= DIALOG ================= -->
+  <section class="specimen__section" id="dialog">
+    <h2 class="specimen__section-title">Dialog — confirm &amp; notice, never the browser's</h2>
+
+    <div class="specimen__label">Destructive confirm — question, consequence, verb on the path</div>
+    <div class="specimen__row">
+      <dialog class="dialog dialog--exhibit" open aria-label="Remove all 12 favorites?">
+        <form method="dialog" class="dialog__form">
+          <h2 class="dialog__title">Remove all 12 favorites?</h2>
+          <p class="dialog__body">Rows stay where they are. Only this account’s favorites collection empties.</p>
+          <div class="dialog__actions">
+            <button class="button button--ghost" value="">Cancel</button>
+            <button class="button button--danger" value="confirm">Remove all</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+
+    <div class="specimen__label">Single-line confirm — the whole message is the question; no body, no filler title</div>
+    <div class="specimen__row">
+      <dialog class="dialog dialog--exhibit" open aria-label="You have unsaved changes. Are you sure you want to cancel?">
+        <form method="dialog" class="dialog__form">
+          <h2 class="dialog__title">You have unsaved changes. Are you sure you want to cancel?</h2>
+          <div class="dialog__actions">
+            <button class="button button--ghost" value="">Keep editing</button>
+            <button class="button button--danger" value="confirm">Discard changes</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+
+    <div class="specimen__label">Primary confirm — non-destructive commitment takes the pill, not the red</div>
+    <div class="specimen__row">
+      <dialog class="dialog dialog--exhibit" open aria-label="Complete this Due Diligence Report?">
+        <form method="dialog" class="dialog__form">
+          <h2 class="dialog__title">Complete this Due Diligence Report?</h2>
+          <p class="dialog__body">Completing locks the report as read-only. To keep editing, save as a draft instead.</p>
+          <div class="dialog__actions">
+            <button class="button button--ghost" value="">Cancel</button>
+            <button class="button button--primary" value="confirm">Complete report</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+
+    <div class="specimen__label">Long message, zero-edit fallback — faithful, safe, and visibly worse: the argument for a declared title</div>
+    <div class="specimen__row">
+      <dialog class="dialog dialog--exhibit" open aria-label="Rotate Firebase login?">
+        <form method="dialog" class="dialog__form">
+          <h2 class="dialog__title">ROTATE FIREBASE LOGIN: This will mint a brand-new Firebase credential at the address you provide, then DISABLE the user's current credential and REVOKE all of their refresh tokens. The user will need to use the password-reset flow on the new address to sign in. Their work history (books, reports) follows them to the new login. Continue?</h2>
+          <div class="dialog__actions">
+            <button class="button button--ghost" value="">Cancel</button>
+            <button class="button button--danger" value="confirm">Confirm</button>
+          </div>
+        </form>
+      </dialog>
+      <dialog class="dialog dialog--exhibit" open aria-label="Rotate Firebase login?">
+        <form method="dialog" class="dialog__form">
+          <h2 class="dialog__title">Rotate Firebase login?</h2>
+          <p class="dialog__body">This will mint a brand-new Firebase credential at the address you provide, then DISABLE the user's current credential and REVOKE all of their refresh tokens. The user will need to use the password-reset flow on the new address to sign in. Their work history (books, reports) follows them to the new login.</p>
+          <div class="dialog__actions">
+            <button class="button button--ghost" value="">Cancel</button>
+            <button class="button button--danger" value="confirm">Rotate login</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+
+    <div class="specimen__label">Notice — a fact to acknowledge, not a choice; one quiet button</div>
+    <div class="specimen__row">
+      <dialog class="dialog dialog--exhibit" open aria-label="Save the draft first to generate a PDF.">
+        <form method="dialog" class="dialog__form">
+          <h2 class="dialog__title">Save the draft first to generate a PDF.</h2>
+          <div class="dialog__actions">
+            <button class="button button--secondary" value="confirm">OK</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+
+    <div class="specimen__label">Live — modal, focus-trapped, Esc cancels, Enter lands on Cancel, backdrop denies</div>
+    <div class="specimen__row">
+      <button class="button button--secondary" type="button" id="demo-dialog-danger">Open destructive confirm</button>
+      <button class="button button--secondary" type="button" id="demo-dialog-notice">Open notice</button>
+      <span class="specimen__note">resolved: <output id="demo-dialog-result" style="font-family: var(--font-mono);">—</output></span>
+    </div>
+  </section>
+
   <!-- ================= SECTIONS ================= -->
   <section class="specimen__section" id="sections-not-cards">
     <h2 class="specimen__section-title">Sections, not cards — one separator between neighbors</h2>
@@ -2722,5 +2810,97 @@
   </section>
 
 </main>
+
+<script>
+/* Dialog (2.11) — reference implementation of the confirm/notice utility.
+   This is the contract an adopting application ports, not a specimen toy:
+   promise-based, default-deny. Only the explicit confirm button ever
+   resolves true; Esc, backdrop, close(), and any render failure resolve
+   false. There is no fallback to window.confirm — if this cannot render,
+   the action does not proceed. */
+function gdsDialog(opts) {
+  return new Promise(function (resolve) {
+    var dlg;
+    try {
+      dlg = document.createElement('dialog');
+      dlg.className = 'dialog';
+      dlg.setAttribute('aria-label', opts.title || opts.body || '');
+      var form = document.createElement('form');
+      form.method = 'dialog';
+      form.className = 'dialog__form';
+      if (opts.title) {
+        var title = document.createElement('h2');
+        title.className = 'dialog__title';
+        title.textContent = opts.title;   /* textContent: messages are data */
+        form.appendChild(title);
+      }
+      if (opts.body) {
+        var body = document.createElement('p');
+        body.className = 'dialog__body';
+        body.textContent = opts.body;
+        form.appendChild(body);
+      }
+      var actions = document.createElement('div');
+      actions.className = 'dialog__actions';
+      if (!opts.notice) {
+        /* Cancel is first in DOM order, so showModal() focuses it and
+           implicit submission (Enter) lands on it: the safe default. */
+        var cancel = document.createElement('button');
+        cancel.className = 'button button--ghost';
+        cancel.value = '';
+        cancel.textContent = opts.cancelLabel || 'Cancel';
+        actions.appendChild(cancel);
+      }
+      var ok = document.createElement('button');
+      ok.className = 'button ' + (opts.notice ? 'button--secondary'
+                     : opts.danger ? 'button--danger' : 'button--primary');
+      ok.value = 'confirm';
+      ok.textContent = opts.actionLabel || (opts.notice ? 'OK' : 'Confirm');
+      actions.appendChild(ok);
+      form.appendChild(actions);
+      dlg.appendChild(form);
+      /* The dialog surface has no padding of its own, so a click whose
+         target is the <dialog> element is a click on the backdrop. */
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('close', function () {
+        resolve(dlg.returnValue === 'confirm');
+        dlg.remove();
+      });
+      document.body.appendChild(dlg);
+      dlg.showModal();
+    } catch (err) {
+      if (dlg) dlg.remove();
+      resolve(false);
+    }
+  });
+}
+/* Adapter for string-only call sites (window.confirm, hx-confirm): first
+   line becomes the question, the rest the body; a message with no newline
+   is all question. No other heuristics — a site that wants a better split
+   declares data-confirm-title / data-confirm-label / data-confirm-danger. */
+function gdsConfirmMessage(message, opts) {
+  var i = message.indexOf('\n');
+  var title = i === -1 ? message : message.slice(0, i);
+  var body = i === -1 ? '' : message.slice(i + 1).replace(/^\n+/, '');
+  var merged = { title: title, body: body };
+  if (opts) for (var k in opts) merged[k] = opts[k];
+  return gdsDialog(merged);
+}
+
+/* Specimen demo wiring. */
+(function () {
+  var out = document.getElementById('demo-dialog-result');
+  function show(v) { out.textContent = String(v); }
+  document.getElementById('demo-dialog-danger').addEventListener('click', function () {
+    gdsConfirmMessage(
+      'Remove all 12 favorites?\n\nRows stay where they are. Only this account’s favorites collection empties.',
+      { danger: true, actionLabel: 'Remove all' }
+    ).then(show);
+  });
+  document.getElementById('demo-dialog-notice').addEventListener('click', function () {
+    gdsDialog({ notice: true, title: 'Save the draft first to generate a PDF.' }).then(show);
+  });
+})();
+</script>
 </body>
 </html>

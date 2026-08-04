@@ -871,6 +871,40 @@ html:has(#opt-appearance-light:checked) .theme-glyph--moon { display: none; }
 .toast { display: inline-flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-3); background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); box-shadow: var(--shadow-overlay); font-size: var(--text-sm); }
 .toast__action { border: none; background: none; color: var(--color-action); font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer; padding: 0; }
 
+/* ---- dialog (2.11) — confirm & notice ------------------------------------- */
+/* Native <dialog>, opened with showModal(): the platform supplies the top
+   layer, the focus trap, and Esc-as-cancel — none of it is reimplemented.
+   The dialog itself carries no padding, so a click that reaches the element
+   is a click on the backdrop, never on the surface. */
+.dialog {
+  width: min(26rem, calc(100vw - 2 * var(--space-4)));
+  padding: 0; margin: auto;
+  background: var(--color-surface); color: var(--color-text);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-overlay);
+}
+.dialog::backdrop { background: var(--color-backdrop); }
+.dialog__form { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5); margin: 0; }
+/* One text style for the question whether or not a body follows it. */
+.dialog__title { margin: 0; font-size: var(--text-md); font-weight: var(--weight-medium); line-height: var(--leading-tight); }
+.dialog__body { margin: 0; font-size: var(--text-sm); color: var(--color-text-muted); line-height: var(--leading-normal); white-space: pre-line; }
+/* space-2 form gap + space-4 margin = a full space-5 step above the actions:
+   the question and its detail hug; the decision row stands apart. */
+.dialog__actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-4); }
+/* Fade only — the surface does not travel. Discrete-property transitions let
+   the same declaration run the close, and older engines simply skip it. */
+.dialog, .dialog::backdrop {
+  opacity: 1;
+  transition: opacity var(--motion-fast) var(--ease),
+              display var(--motion-fast) allow-discrete,
+              overlay var(--motion-fast) allow-discrete;
+}
+@starting-style { .dialog[open], .dialog[open]::backdrop { opacity: 0; } }
+.dialog:not([open]), .dialog:not([open])::backdrop { opacity: 0; }
+/* Specimen only: render an open dialog in the flow, side by side, un-modal. */
+.dialog--exhibit { position: static; }
+
 /* ---- search & filters -------------------------------------------------------- */
 .search-field { position: relative; display: inline-flex; align-items: center; min-width: 16rem; }
 .search-field__icon { position: absolute; left: var(--space-3); color: var(--color-text-muted); display: inline-flex; width: 1rem; height: 1rem; pointer-events: none; }
@@ -1229,7 +1263,7 @@ html:has(#opt-family [value="mono"]:checked) {
   --color-selected-bg:   color-mix(in srgb, var(--ink-400) 14%, transparent);
   --color-focus:         var(--ink-400);
 }
-html:has(#opt-family [value="mono"]:checked):has(#opt-light:checked) {
+html:has(#opt-family [value="mono"]:checked):has(#opt-appearance-light:checked) {
   --color-canvas:        var(--gray-25);
   --color-surface:       var(--gray-0);
   --color-surface-hover: var(--gray-50);
@@ -1249,7 +1283,7 @@ html:has(#opt-family [value="mono"]:checked):has(#opt-light:checked) {
   --color-danger:  var(--red-400);
   --color-info:    var(--blue-600);
 }
-html:has(#opt-family [value="cool"]:checked):has(#opt-light:checked) {
+html:has(#opt-family [value="cool"]:checked):has(#opt-appearance-light:checked) {
   --color-canvas:        var(--cool-25);
   --color-surface:       var(--cool-0);
   --color-surface-hover: var(--cool-50);
@@ -1281,7 +1315,7 @@ html:has(#opt-family [value="goodness"]:checked) {
   --color-selected-bg:   color-mix(in srgb, var(--mint-400) 14%, transparent);
   --color-focus:         var(--mint-400);
 }
-html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
+html:has(#opt-family [value="goodness"]:checked):has(#opt-appearance-light:checked) {
   --color-canvas:        var(--navy-25);
   --color-surface:       var(--navy-0);
   --color-surface-hover: var(--navy-50);
@@ -1299,7 +1333,7 @@ html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
 }
 /* System-first: under a light OS the family mappings resolve light on their
    own — the light toggle then only matters on a dark OS. Mirrors the
-   :has(#opt-light) blocks above, the way tokens.css mirrors [data-theme]. */
+   :has(#opt-appearance-light) blocks above, the way tokens.css mirrors [data-theme]. */
 @media (prefers-color-scheme: light) {
   html:not(:has(#opt-appearance-dark:checked)):has(#opt-family [value="cool"]:checked) {
     --color-canvas:        var(--cool-25);

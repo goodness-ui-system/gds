@@ -703,10 +703,76 @@ One of three scroll models — see 3.12 for the full menu and the recommendation
 Path context for deep hierarchies: `Workspaces / Templates / Reports`. Links all the
 way up; current item is plain text with `aria-current="page"`.
 
-### 2.11 Dialog
-Native `<dialog>` for confirmations and small focused tasks, served as a fragment.
-For row-level confirmation prefer `hx-confirm`; Dialog is for anything richer.
-Carries `--shadow-overlay`.
+### 2.11 Dialog — confirm & notice
+Native `<dialog>`, opened with `showModal()`, for confirmations and small
+focused tasks. The platform supplies the top layer, the focus trap and
+Esc-as-cancel; none of it is reimplemented, and none of it is optional.
+
+**The browser's own popups never render.** `window.confirm`, `alert`,
+`prompt`, and the default rendering of `hx-confirm` are all the same defect:
+a system-chrome interruption that carries none of the application's identity
+and cannot be styled, themed, or measured. `hx-confirm` may remain in markup
+as the *trigger vocabulary* — it names the question at the call site, which
+is right — but the application intercepts `htmx:confirm` globally and renders
+this component instead. *(Amended 2026-08-04: this section previously said
+"for row-level confirmation prefer `hx-confirm`", meaning the native popup.
+IDD shipped it, the owner hit the browser chrome on "Clear all favorites",
+and the rule inverted: the trigger attribute stays, the native rendering is
+banned.)*
+
+Anatomy — surface `--color-surface`, 1px `--color-border-strong`,
+`--radius-md`, `--shadow-overlay`; `::backdrop` is `--color-backdrop`, the
+scrim defined once for every theme. Width `min(26rem, 100vw − 2·space-4)`.
+The `<dialog>` itself carries **zero padding** — `.dialog__form`
+(`method="dialog"`) carries `space-5` on all four sides, so a click whose
+target is the dialog element is provably a backdrop click. Question
+(`.dialog__title`, text-md, weight-medium) and its consequence
+(`.dialog__body`, text-sm, muted) hug at the `space-2` form gap; the action
+row stands a full `space-5` apart (gap + `space-4` margin). Actions sit
+right-aligned, `space-2` gap, in the record-form convention (§3.7): ghost
+Cancel, then the committing button — `--primary` when the action is a
+commitment, `--danger` when it destroys something. No hairline above the
+actions: the air already separates (one job, one device).
+
+```html
+<dialog class="dialog" aria-label="Remove all 12 favorites?">
+  <form method="dialog" class="dialog__form">
+    <h2 class="dialog__title">Remove all 12 favorites?</h2>
+    <p class="dialog__body">Rows stay where they are. Only this account’s
+      favorites collection empties.</p>
+    <div class="dialog__actions">
+      <button class="button button--ghost" value="">Cancel</button>
+      <button class="button button--danger" value="confirm">Remove all</button>
+    </div>
+  </form>
+</dialog>
+```
+
+Behavioral contract (the reference implementation lives at the foot of the
+specimen — `gdsDialog` / `gdsConfirmMessage` — and is what an adopting
+application ports):
+
+- **Default-deny.** The promise resolves `true` only when the button whose
+  `value="confirm"` submits. Esc (the native `cancel` event), a backdrop
+  click, `close()`, and any render failure resolve `false`. There is no
+  fallback to `window.confirm` — if the dialog cannot render, the action
+  does not proceed.
+- **The safe default is free, not built.** Cancel is first in DOM order, so
+  `showModal()` focuses it and implicit submission (Enter, §2.14) lands on
+  it. A reader who mashes Enter at a destructive confirm declines it.
+- **Verb on the path.** The committing button carries the verb ("Remove
+  all", "Rotate login"), never a bare OK — OK belongs only to the notice,
+  where there is nothing to decide. Message strings arriving from
+  `confirm()`/`hx-confirm` call sites split on the first newline: first line
+  is the question, the rest the body; no newline means the whole message is
+  the question. No cleverer heuristics — a site that wants a better split
+  declares `data-confirm-title` / `data-confirm-label` /
+  `data-confirm-danger` on the trigger.
+- **Notice variant** (`{notice: true}`): a fact to acknowledge, not a
+  choice. One `--secondary` OK, no Cancel, same surface. This is the
+  replacement for `alert()`.
+- Fade only, `--motion-fast`, via `@starting-style` + discrete-property
+  transitions; the surface does not travel. Older engines skip it.
 
 ### 2.12 Chip-bar
 The row of currently-applied filter Chips above a table, each removable, with a

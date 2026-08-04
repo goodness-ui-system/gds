@@ -74,6 +74,12 @@ catalog; this list is a reminder, not a substitute.
    placed among attribute facts will be read as an attribute. Attribute the
    group once rather than prefixing every label, and never with a possessive
    in a product where the reader may be viewing someone else's data.
+9. **The browser's own popups never render.** `window.confirm`, `alert`,
+   `prompt`, and the default rendering of `hx-confirm` all interrupt in
+   system chrome that carries none of the application's identity. Keep
+   `hx-confirm` as the trigger vocabulary, intercept `htmx:confirm`
+   globally, and render the Dialog (§2.11) — default-deny: only the
+   explicit confirm button proceeds.
 
 ---
 
