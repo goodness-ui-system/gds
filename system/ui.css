@@ -1233,7 +1233,7 @@ html:has(#opt-family [value="mono"]:checked) {
   --color-selected-bg:   color-mix(in srgb, var(--ink-400) 14%, transparent);
   --color-focus:         var(--ink-400);
 }
-html:has(#opt-family [value="mono"]:checked):has(#opt-light:checked) {
+html:has(#opt-family [value="mono"]:checked):has(#opt-appearance-light:checked) {
   --color-canvas:        var(--gray-25);
   --color-surface:       var(--gray-0);
   --color-surface-hover: var(--gray-50);
@@ -1253,7 +1253,7 @@ html:has(#opt-family [value="mono"]:checked):has(#opt-light:checked) {
   --color-danger:  var(--red-400);
   --color-info:    var(--blue-600);
 }
-html:has(#opt-family [value="cool"]:checked):has(#opt-light:checked) {
+html:has(#opt-family [value="cool"]:checked):has(#opt-appearance-light:checked) {
   --color-canvas:        var(--cool-25);
   --color-surface:       var(--cool-0);
   --color-surface-hover: var(--cool-50);
@@ -1285,7 +1285,7 @@ html:has(#opt-family [value="goodness"]:checked) {
   --color-selected-bg:   color-mix(in srgb, var(--mint-400) 14%, transparent);
   --color-focus:         var(--mint-400);
 }
-html:has(#opt-family [value="goodness"]:checked):has(#opt-light:checked) {
+html:has(#opt-family [value="goodness"]:checked):has(#opt-appearance-light:checked) {
   --color-canvas:        var(--navy-25);
   --color-surface:       var(--navy-0);
   --color-surface-hover: var(--navy-50);
