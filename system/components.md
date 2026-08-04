@@ -1867,6 +1867,26 @@ quiet, document-like, at home in the mono family). Presentation style and
 workflow compose freely: any style can appear in any placement and any
 workflow.
 
+**Section headers inside a ledger form.** A ledger form long enough to need
+grouping borrows the property sheet's micro-header grammar rather than
+inventing a second device: an uppercase caption row (`--text-xs`, muted,
+letter-spacing 0.06em, padding `--space-2` `--space-4` `--space-1`) sitting
+in the row flow, separated by the grid's own 1px rule on each side — never a
+heavier rule, never a filled band. A one-row group takes no header: the row's
+label already names the subject, and a header above it would restate it (two
+devices, one job — the OpenVRM Directory-listing row is the precedent).
+Proven in production on OpenVRM's company and service-profile sheets.
+
+**Sheet width on a full record page.** The reference sheets cap at 30rem —
+written for panel and dialog contexts, and deliberately kept when the sheet
+is the sole content of a record page: a wider sheet starts reading as a form
+again. The measured bound of that decision: at 30rem with the 8.5–9rem label
+column, labels longer than roughly twenty characters wrap to two-line rows
+(OpenVRM: "Terms of Use/Service" and "Data Protection Addendum" → 54.8px
+rows in a 36px run). Two wraps in seventeen rows read fine; a sheet whose
+labels wrap systematically should widen the label column a step before
+anyone reaches for a wider sheet.
+
 Workflow candidates, rendered in their own specimen section pending selection:
 the document hybrid (editable title and prose body over a property strip — for
 records whose heart is text); the wizard (sequential creation with a
