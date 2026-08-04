@@ -767,7 +767,11 @@ application ports):
   is the question, the rest the body; no newline means the whole message is
   the question. No cleverer heuristics — a site that wants a better split
   declares `data-confirm-title` / `data-confirm-label` /
-  `data-confirm-danger` on the trigger.
+  `data-confirm-danger` on the trigger. A declared title suspends the
+  split: the **full original message rides as the body, byte-identical** —
+  the title and the button verb are additions on top, never replacements,
+  so no information the author put in the question is lost to a summary.
+  (Decided IDD 2026-08-04, on the two admin credential confirms.)
 - **Notice variant** (`{notice: true}`): a fact to acknowledge, not a
   choice. One `--secondary` OK, no Cancel, same surface. This is the
   replacement for `alert()`.
