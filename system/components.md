@@ -1380,7 +1380,14 @@ Anatomy options on display (whitepaper, Navigation chapter; decision pending):
   frequent groups `open`) · second column (`.sidenav--secondary`) when a parent
   has dozens of children — the drill-in. One level of nesting; a parent either
   navigates or toggles, never both.
-- Items may carry mono counts (`.sidenav__count`).
+- Items may carry mono counts (`.sidenav__count`). A counted item wraps its
+  text in `.sidenav__label` so a long label truncates instead of wrapping —
+  the count keeps the right edge and the row keeps the pitch (a two-line nav
+  row breaks the rail's rhythm exactly where the eye is counting on it).
+  Count formatting follows the tabs rule (2.6): mono, one step down, muted
+  even on the active item, zero renders as `0` — never hidden, since a
+  missing number reads as unknown, not as none — and large counts cap at
+  `999+`. A count is a fact about the destination, never a notification pill.
 
 Not a card: the sidebar is a flat rail sitting directly on the page background,
 separated from the content by a single vertical hairline — the sections-not-cards

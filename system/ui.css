@@ -726,7 +726,8 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
 .sidenav__item { display: flex; align-items: center; gap: var(--space-2); padding: var(--menu-pad-y) var(--space-3); border-radius: var(--radius-xs); font-size: var(--text-sm); color: var(--color-text); text-decoration: none; }
 .sidenav__item:hover { background: var(--color-surface-hover); }
 .sidenav__item[aria-current="page"] { background: var(--color-selected-bg); color: var(--color-action); font-weight: var(--weight-medium); }
-.sidenav__count { margin-left: auto; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); }
+.sidenav__label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sidenav__count { margin-left: auto; flex: none; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); }
 /* ---- sidebar utility controls (§3.2 finite set) -------------------------- */
 .sidenav__utils { display: flex; gap: var(--space-1); align-items: center; padding: 0 var(--space-2) var(--space-2); border-bottom: 1px solid var(--color-border); margin-bottom: var(--space-2); }
 .sidenav__util { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border: none; background: none; border-radius: var(--radius-sm); color: var(--color-text-muted); cursor: pointer; }
