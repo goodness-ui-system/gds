@@ -303,6 +303,30 @@ Refused: All as an ordinary member that can sit active beside specifics —
 is one `hx-get` carrying the next parameter set; the server renders the next
 true state. Full record: the Selection Controls research note.
 
+### 1.19 Verifying an edge (rule)
+An edge is asserted by its **count and its width**, and detected by **contrast
+against the fill beside it** — never by matching an expected token colour. A
+border token may carry alpha, and then the rendered edge is a composite of the
+token and whatever sits behind it: it will scan as neither the token value nor
+the ground, and a check written to match the token reports a correct render as
+broken.
+
+Measured 2026-08-05 in an adopting application: the light theme's border token
+is opaque, the dark theme's is `oklch(1 0 0 / 0.1)`, and the same rule renders
+a fully-resolved colour in one theme and a composite in the other. One
+stylesheet, one class, two different things to a colour-matching scan — which
+is why the *method* has to be theme-independent even though the value is not.
+
+So: scan the column, count the runs, assert `h=1` per edge and no doubling.
+That assertion holds in both themes and needs no expected value. A scan that
+must be told what colour to look for is a scan that will be wrong the first
+time a token gains transparency.
+
+Related: a `color-mix()` reaches computed style already resolved — the browser
+returns a literal colour, so read the value it hands back rather than
+recomputing the mix. Any threshold on the result is then a comparison, not an
+arithmetic exercise, and it is checkable without a colour-space library.
+
 ## 2 · Molecules
 
 ### 2.1 Form field
