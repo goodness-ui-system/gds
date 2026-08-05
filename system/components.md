@@ -327,6 +327,22 @@ returns a literal colour, so read the value it hands back rather than
 recomputing the mix. Any threshold on the result is then a comparison, not an
 arithmetic exercise, and it is checkable without a colour-space library.
 
+**And the threshold is derived, never fixed.** A hairline against its own
+ground is a *small* signal, and an implementer who picks a plausible constant
+will pick one far too large. Measured 2026-08-05 in an adopting application,
+one 1px border composited against the surface it sits on: light theme
+`rgb(255,255,255)` ground against a `rgb(229,229,229)` edge — **delta 26 of
+255, contrast ratio 1.26**; dark theme `rgb(23,23,23)` against `rgb(46,46,46)`
+— **delta 23, ratio 1.32**. Roughly a tenth of the channel range, in both.
+
+Two things follow. The alpha border is **not** the fainter of the two — the
+composited dark edge carries slightly more ratio than the opaque light one, so
+transparency costs detectability nothing and the theme-independent method
+holds for the reason stated above rather than by luck. And any fixed floor
+above about `20/255` silently reports a correct render as edgeless — the same
+false negative as colour-matching, arrived at from the other side. Derive the
+threshold from the pair being compared.
+
 ## 2 · Molecules
 
 ### 2.1 Form field
