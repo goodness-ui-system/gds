@@ -979,7 +979,12 @@ html:has(#opt-appearance-light:checked) .theme-glyph--moon { display: none; }
 .data-table--head-label th { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; }
 /* A numeric header aligns with its column, but stays sans: mono is for the
    figures, not for the word naming them. */
-.data-table__table th.data-table__cell--num { font-family: var(--font-sans); font-size: inherit; }
+/* The header takes its column's alignment (3.4, master rule). `.data-table__table th`
+   sets text-align:left at higher specificity than `.data-table__cell--num`, so the
+   right-alignment the catalog requires never reached the head: numeric labels sat
+   left over right-aligned figures, 48px apart in the specimen's own table. --center,
+   --mono and --actions all carry their th-level rule below; --num was the one gap. */
+.data-table__table th.data-table__cell--num { font-family: var(--font-sans); font-size: inherit; text-align: right; }
 .data-table__table td { padding: var(--row-pad-y) var(--space-4); border-bottom: 1px solid var(--color-border); }
 .data-table__table tbody tr:hover { background: var(--color-surface-hover); }
 .data-table__row--selected, .data-table__table tbody tr.data-table__row--selected:hover { background: var(--color-selected-bg); }
