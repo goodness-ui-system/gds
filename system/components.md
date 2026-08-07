@@ -1820,15 +1820,23 @@ Four parts, and each is measurable:
   | gap from its own label | `53 / 127 / 0 / 0` | `12 / 12 / 12 / 12` |
   | header/value edge delta | `0` | `0` |
 
-  **After the label wins, and the deciding fact is that only one grab is ever
-  visible at a time.** The head never shows a row of them, so the uniform x
-  offset is a property nobody sees, while the uniform gap is the one they feel:
-  point at a heading, the grab is always a step past its name. It also settles
-  ownership without help — at the cell edge a grab can sit 127px from its own
-  label and a hair from the next column's, so *which column does this grab
-  move?* has to be answered by a second device (the owning header lighting).
-  Proximity answers it alone. Two devices for one job, and the placement that
-  needs only one wins.
+  **After the label wins, and ownership is what decides it.** At the cell edge
+  a grab can sit 127px from its own label and a hair from the next column's, so
+  *which column does this grab move?* has to be answered by a second device —
+  the owning header lighting up. A fixed step past the name answers it with
+  position alone. **Two devices for one job, and the placement needing only one
+  wins**; the light is kept on the rejected variant, where it is load-bearing,
+  and nowhere else.
+
+  **A supporting reason, and the bound it needs.** In ordinary pointer use one
+  grab shows at a time, so the uniform x offset is a property the reader rarely
+  sees while the uniform gap is the one they feel. **It is not true that only
+  one can ever be visible, and that stronger claim was made here and is
+  withdrawn:** reveal is `:hover` *or* `:focus-within` on independent headers,
+  and a column in flight shows its grab regardless of both. Measured with focus
+  in one header and another column in flight — **two grabs visible at once.**
+  So this argument supports the pick; it does not carry it. Anyone reasoning
+  from "only one is ever visible" is reasoning from something false.
 
   **Offset with a transform, never a margin.** A margin is in the flow, and on
   a right-aligned header it pushes the label off the edge it shares with its
