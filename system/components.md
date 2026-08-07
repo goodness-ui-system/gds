@@ -343,6 +343,25 @@ above about `20/255` silently reports a correct render as edgeless — the same
 false negative as colour-matching, arrived at from the other side. Derive the
 threshold from the pair being compared.
 
+### 1.20 A transient marker may exceed the hairline weight (rule)
+3.0c's ceiling — one hairline weight per object — governs the rules that are
+*part of the object*. A marker that exists only for the
+duration of a gesture is not part of the object and cannot be misread as
+structure, so it may exceed the ceiling: the landing mark in 3.4b is 2px of
+accent inside a table whose every rule is 1px of the border token. At the
+ceiling it would be invisible, because a head full of 1px border-token lines
+is exactly where a 1px border-token line disappears.
+
+**The precondition is the whole rule, and it is not a promise — it is a
+property.** "Transient" holds only where nothing can persist the marker: the
+mark exists strictly between pickup and drop, no client state carries it, and
+the next server render cannot reproduce it. Where a marker survives its
+gesture — parked in a class that outlives the interaction, restored from
+client state, re-rendered by the server — this rule does not cover it, and
+3.0c's ceiling applies unchanged. Stated as a dependency rather than an
+allowance, because a rule whose precondition goes unwritten becomes a licence
+for the next 2px line someone wants.
+
 ## 2 · Molecules
 
 ### 2.1 Form field
@@ -1741,6 +1760,72 @@ there. The reconciliation is a frequency budget, and it is the rule:
 
 All four states are rendered in the specimen (options A–C plus the rejected
 anti-pattern). Evidence and sources: research/row-actions.md.
+
+### 3.4b Column reorder — the grab, the flight, the landing
+Moving a column is one component with **two surfaces**, not two features. The
+header is where the hand goes; the field panel (4.3) is where every column
+can be reached. Both post the same thing — the whole ordered list of field
+ids — to the same endpoint, and the server re-renders the head.
+
+**Why both, and it is not a courtesy to the panel.** Two columns cannot be
+dragged by a header at all: one that is switched *off* has no header, and one
+that is off the right edge of a table narrower than its content has no header
+on screen. Measured on a seven-column table at a 500px viewport: the head's
+scroller reports `scrollWidth 628` against `clientWidth 466` — a third of the
+head is unreachable, and drag-with-autoscroll is the least reliable gesture in
+any scrolling container. The panel is not the accessible alibi for the drag;
+it is the surface that can reach everything.
+
+**The grab is its own control — the `<th>` is never the drag source.** The
+header already holds the sort link (3.4), so a draggable cell stacks a drag
+threshold on top of a click target, and the failure it produces is an
+accidental sort: the rows the reader was part-way through silently reorder.
+The trade is a smaller target, taken deliberately.
+
+Four parts, and each is measurable:
+
+- **The grab** (⋮⋮, the same mark the panel uses — one symbol, one meaning).
+  A real `<button>` at `--target-min`, never a decorated span: the pointer
+  drag is never the sole path (3.2, the resize handle). Quiet until the
+  header is hovered or holds focus — reveal on focus is mandatory (3.4) —
+  and hidden with `visibility`, never `display`, so the head does not reflow
+  and column widths do not jump as the pointer crosses it.
+- **Its side.** The grab sits **away from the column's alignment edge** —
+  trailing in a left-aligned column, leading in a right-aligned one — so the
+  label keeps the edge it shares with its figures (3.4's master rule). Put it
+  trailing on a numeric column and the header label leaves the values it
+  names; measured at 75px adrift before the rule, 0 after.
+- **The column in flight** wears the selected ground, *composited onto* the
+  head's well rather than substituted for it: `--color-selected-bg` is
+  translucent and the head is sticky, so a substituted ground shows the rows
+  scrolling through it (3.4). Contrast against the head, by 1.19's derived
+  method: 1.33 dark, 1.17 light — the flight is never the only cue, the lit
+  grab and the announcement carry it too.
+- **The landing mark**: 2px in the action colour, **head height only**,
+  in the gap where the column will land. Running it down the body is rendered
+  in the specimen as the rejected case — it reads as a column rule the table
+  does not have, and it crosses every hairline it meets at twice their weight.
+
+**Fixed columns carry no grab.** Selection is first, row actions are last
+(3.4), and neither is reorderable in the panel (4.3). A gesture offered where
+it cannot succeed is the defect, not a kindness.
+
+**Keyboard, and it is the grab itself.** Space or Enter picks up · ←/→ move ·
+Enter drops · Escape cancels. Every step announced in a polite live region
+naming the position and the total — *"Score, position 4 of 5. Moving before
+Priority, position 2 of 5."* A handle that is tabbable, announces itself as a
+control, and does nothing on Enter is worse than no handle: it is a promise
+the interface does not keep (WCAG 2.1.1).
+
+**Nothing client-side remembers an order (7).** During the drag the DOM order
+does not move — only the mark does. The gesture's whole output is the new
+ordered list posted on drop; cancel therefore needs no snapshot to restore
+from, because nothing was changed to restore. A component that reorders the
+DOM live and reverts on cancel has a second copy of the truth, and the copy
+wins whenever the revert is missed.
+
+Rendered: the specimen's column-reorder section — at rest, in flight, landed,
+and the rejected full-height mark.
 
 ### 3.5 Table toolbar
 The table's control strip and the view's cockpit. Left to right: Search field ·
