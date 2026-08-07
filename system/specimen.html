@@ -1988,8 +1988,8 @@
               <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
               <th><button class="data-table__sort" type="button">Priority</button><button class="data-table__grab" type="button" aria-label="Move Priority. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button></th>
               <th><button class="data-table__sort" type="button">Status</button><button class="data-table__grab" type="button" aria-label="Move Status. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button></th>
-              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Score. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button><button class="data-table__sort" type="button">Score</button></th>
-              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Last review. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button><button class="data-table__sort" type="button">Last review</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Score</button><button class="data-table__grab" type="button" aria-label="Move Score. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last review</button><button class="data-table__grab" type="button" aria-label="Move Last review. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button></th>
               <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
             </tr>
           </thead>
@@ -2014,6 +2014,78 @@
     </div>
     <p class="specimen__note">The first column (selection) and the last (row actions) carry no grab: they are fixed by 3.4 and hidden from the field panel by 4.3. A column that cannot move must not offer the gesture that moves it.</p>
 
+    <div class="specimen__label">A2 · Where the grab sits — two rules that never switch sides, frozen side by side</div>
+    <p class="specimen__note">Both fix what was rejected: in neither does the grab move to the other side of the label when the column is right-aligned. They differ in what they hold constant.</p>
+    <div class="specimen__label">P · At the cell's trailing edge — same x offset in every column</div>
+    <div class="data-table specimen__freeze">
+      <div class="data-table__scroll">
+        <table class="data-table__table data-table--grab-at-edge">
+          <thead>
+            <tr>
+              <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
+              <th><button class="data-table__sort" type="button">Owner</button><button class="data-table__grab" type="button" aria-label="Move Owner">⋮⋮</button></th>
+              <th><button class="data-table__sort" type="button">Status</button><button class="data-table__grab" type="button" aria-label="Move Status">⋮⋮</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Score</button><button class="data-table__grab" type="button" aria-label="Move Score">⋮⋮</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last review</button><button class="data-table__grab" type="button" aria-label="Move Last review">⋮⋮</button></th>
+              <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Acme Payments</td><td>KL</td>
+              <td><span class="badge badge--quiet">On track</span></td>
+              <td class="data-table__cell--num">87</td><td class="data-table__cell--num">2026-07-18</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Globex Analytics</td><td>TS</td>
+              <td><span class="badge badge--warning">Review due</span></td>
+              <td class="data-table__cell--num">71</td><td class="data-table__cell--num">2026-05-02</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="specimen__label">R · Beside the label — same distance from the name in every column</div>
+    <div class="data-table specimen__freeze">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
+              <th><button class="data-table__sort" type="button">Owner</button><button class="data-table__grab" type="button" aria-label="Move Owner">⋮⋮</button></th>
+              <th><button class="data-table__sort" type="button">Status</button><button class="data-table__grab" type="button" aria-label="Move Status">⋮⋮</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Score</button><button class="data-table__grab" type="button" aria-label="Move Score">⋮⋮</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last review</button><button class="data-table__grab" type="button" aria-label="Move Last review">⋮⋮</button></th>
+              <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Acme Payments</td><td>KL</td>
+              <td><span class="badge badge--quiet">On track</span></td>
+              <td class="data-table__cell--num">87</td><td class="data-table__cell--num">2026-07-18</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Globex Analytics</td><td>TS</td>
+              <td><span class="badge badge--warning">Review due</span></td>
+              <td class="data-table__cell--num">71</td><td class="data-table__cell--num">2026-05-02</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="specimen__note">Owner is the case that separates them: a short label in a wide column. Under P the grab is far from the word it acts on and near the next column's; under R it stays with its word, and the grabs no longer line up with each other. Only one grab is ever visible at a time — the head does not show a row of them — which is the fact that decides it.</p>
+
     <div class="specimen__label">B · In flight — Score picked up, landing before Priority. The mark is 2px accent, head height only</div>
     <div class="data-table">
       <div class="data-table__scroll">
@@ -2024,8 +2096,8 @@
               <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
               <th class="data-table__col--drop-before"><button class="data-table__sort" type="button">Priority</button><button class="data-table__grab" type="button" aria-label="Move Priority">⋮⋮</button></th>
               <th><button class="data-table__sort" type="button">Status</button><button class="data-table__grab" type="button" aria-label="Move Status">⋮⋮</button></th>
-              <th class="data-table__cell--num data-table__col--grabbed"><button class="data-table__grab" type="button" aria-label="Move Score">⋮⋮</button><button class="data-table__sort" type="button">Score</button></th>
-              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Last review">⋮⋮</button><button class="data-table__sort" type="button">Last review</button></th>
+              <th class="data-table__cell--num data-table__col--grabbed"><button class="data-table__sort" type="button">Score</button><button class="data-table__grab" type="button" aria-label="Move Score">⋮⋮</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last review</button><button class="data-table__grab" type="button" aria-label="Move Last review">⋮⋮</button></th>
               <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
             </tr>
           </thead>
@@ -2058,10 +2130,10 @@
             <tr>
               <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
               <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
-              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Score">⋮⋮</button><button class="data-table__sort" type="button">Score</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Score</button><button class="data-table__grab" type="button" aria-label="Move Score">⋮⋮</button></th>
               <th><button class="data-table__sort" type="button">Priority</button><button class="data-table__grab" type="button" aria-label="Move Priority">⋮⋮</button></th>
               <th><button class="data-table__sort" type="button">Status</button><button class="data-table__grab" type="button" aria-label="Move Status">⋮⋮</button></th>
-              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Last review">⋮⋮</button><button class="data-table__sort" type="button">Last review</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last review</button><button class="data-table__grab" type="button" aria-label="Move Last review">⋮⋮</button></th>
               <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
             </tr>
           </thead>

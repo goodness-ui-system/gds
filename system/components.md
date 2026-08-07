@@ -1795,11 +1795,45 @@ Four parts, and each is measurable:
   header is hovered or holds focus — reveal on focus is mandatory (3.4) —
   and hidden with `visibility`, never `display`, so the head does not reflow
   and column widths do not jump as the pointer crosses it.
-- **Its side.** The grab sits **away from the column's alignment edge** —
-  trailing in a left-aligned column, leading in a right-aligned one — so the
-  label keeps the edge it shares with its figures (3.4's master rule). Put it
-  trailing on a numeric column and the header label leaves the values it
-  names; measured at 75px adrift before the rule, 0 after.
+- **Its side — and this is the rule the first draft got wrong.** The grab sits
+  **a fixed step after the label, in every column, whatever the column's
+  alignment.** It never appears on the other side of the name.
+
+  The rejected draft put it away from the column's alignment edge — trailing
+  in a left-aligned column, leading in a right-aligned one — so that the label
+  kept the edge it shares with its figures. Locally that is correct per column
+  and it measures clean. Across the row it is incoherent: **the reader meets
+  the same control on the right of one heading and the left of the next**, and
+  a control that changes sides is a control the hand has to look for. A rule
+  that is right in each cell and wrong along the row is the failure this
+  catalog names elsewhere and did not catch in itself.
+
+  **The two candidates that both fix it, and why one wins.** Hold the *position*
+  constant (the cell's trailing edge, same x offset in every column), or hold
+  the *relationship* constant (a fixed step after the label). Measured, both
+  keep the table's width and the head's height unchanged and both keep every
+  header on its values' edge — the choice is not paid for in geometry:
+
+  | | cell edge | after the label |
+  |---|---|---|
+  | offset from the cell's right | `0 / 0 / 0 / 0` | `57 / 131 / 4 / 4` |
+  | gap from its own label | `53 / 127 / 0 / 0` | `12 / 12 / 12 / 12` |
+  | header/value edge delta | `0` | `0` |
+
+  **After the label wins, and the deciding fact is that only one grab is ever
+  visible at a time.** The head never shows a row of them, so the uniform x
+  offset is a property nobody sees, while the uniform gap is the one they feel:
+  point at a heading, the grab is always a step past its name. It also settles
+  ownership without help — at the cell edge a grab can sit 127px from its own
+  label and a hair from the next column's, so *which column does this grab
+  move?* has to be answered by a second device (the owning header lighting).
+  Proximity answers it alone. Two devices for one job, and the placement that
+  needs only one wins.
+
+  **Offset with a transform, never a margin.** A margin is in the flow, and on
+  a right-aligned header it pushes the label off the edge it shares with its
+  figures — measured at `-12`, a smaller copy of the defect this rule exists to
+  remove. With a transform, `0`.
 - **The column in flight** wears the selected ground, *composited onto* the
   head's well rather than substituted for it: `--color-selected-bg` is
   translucent and the head is sticky, so a substituted ground shows the rows

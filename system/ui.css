@@ -1007,18 +1007,54 @@ html:has(#opt-appearance-light:checked) .theme-glyph--moon { display: none; }
    permanent ⋮⋮ across the head is texture, not affordance. It is a real
    button, not a decorated span, because the pointer drag is never the sole
    path (3.2, resize handle). */
-/* The glyph's box stays at the text's scale and the TARGET is expanded past it
-   by a pseudo-element, because a --target-min-tall button in the head sets the
-   head's height: sized inline it took the head from 38px to 41px, so a table
-   with reorder would stand 3px taller than the table beside it that has none.
-   The hit area still measures --target-min (WCAG 2.2 SC 2.5.8) and the head
-   keeps the one height 3.4 requires of it. Hidden with visibility, never
-   display — the space stays reserved, so the head does not reflow (and column
-   widths do not jump) as the pointer crosses it. */
-.data-table__grab { position: relative; display: inline-flex; align-items: center; justify-content: center; width: var(--space-4); height: var(--space-4); margin-left: var(--space-1); padding: 0; border: none; background: none; color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-xs); line-height: 1; vertical-align: middle; cursor: grab; visibility: hidden; }
+/* The grab sits ONE FIXED STEP AFTER THE LABEL, in every column, whatever the
+   column's alignment — never on the other side of the name. The first draft
+   put it away from the alignment edge instead, which measured clean per column
+   and was incoherent along the row: the same control appeared on the right of
+   one heading and the left of the next, and the user rejected it on sight.
+   Four properties, each of which was a defect in some earlier draft:
+   1. It contributes NO WIDTH — width:0, the glyph overflowing its own box —
+      so it cannot move the label, and the header keeps the edge it shares
+      with its values (3.4's master rule) in a left- and right-aligned column
+      alike. Measured 0 / 0.
+   2. It cannot set the head's height: a --target-min-tall button in the flow
+      took the head from 38px to 41px, standing a table with reorder taller
+      than the one beside it without. The glyph box stays at the text's scale
+      and the TARGET is expanded past it by a pseudo-element, so the hit area
+      still measures --target-min (WCAG 2.2 SC 2.5.8).
+   3. The step is a TRANSFORM, never a margin: a margin is in the flow and on
+      a right-aligned header pushes the label 12px off its values' edge — a
+      smaller copy of the defect this rule removes. Measured -12 with a
+      margin, 0 with the transform.
+   4. It states its own ownership. Alternative placements at the cell's
+      trailing edge leave a grab up to 127px from its own label and a hair
+      from the next column's, so "which column does this move?" needs a second
+      device to answer. A fixed 12px step answers it with position alone. */
+.data-table__grab { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 0; height: var(--space-4); padding: 0; border: none; background: none; overflow: visible; transform: translateX(var(--space-3)); color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-xs); line-height: 1; cursor: grab; visibility: hidden; }
 .data-table__grab::after { content: ""; position: absolute; top: 50%; left: 50%; width: var(--target-min); height: var(--target-min); transform: translate(-50%, -50%); }
 .data-table__table th:hover .data-table__grab,
 .data-table__table th:focus-within .data-table__grab { visibility: visible; }
+/* Ownership light — required by the cell-edge placement ONLY, and this is why
+   that placement loses. At the cell's trailing edge a grab can sit 127px from
+   its own label and 16px from the next column's, so position cannot say whose
+   it is and a second device has to. The by-label placement below states
+   ownership by proximity alone — one device, no light. Kept scoped to the
+   cell-edge variant so the rejected option can still be judged fairly. */
+.data-table--grab-at-edge th:has(.data-table__grab:hover),
+.data-table--grab-at-edge th:has(.data-table__grab:focus-visible) { background: linear-gradient(var(--color-selected-bg), var(--color-selected-bg)), var(--color-well); }
+/* Variant — the grab trails the LABEL instead of the cell. It keeps the same
+   invariant (it is never on the other side of the name) while staying beside
+   the word it acts on, which is what the cell-edge position gives up in a wide
+   column. Zero width, so it still adds nothing to the layout and still cannot
+   set the head's height; the glyph overflows its own box and the target is the
+   pseudo-element as before. In a column whose label fills the width this
+   collapses onto the cell-edge position exactly — the two rules converge
+   rather than compete.
+   The offset is a transform, never a margin: a margin is in the flow, and on a
+   right-aligned header it pushed the label 12px off the edge it shares with
+   its figures — a smaller copy of the defect this variant exists to remove.
+   Measured -12 with the margin, 0 with the transform. */
+.data-table--grab-at-edge .data-table__grab { position: absolute; right: 0; top: 50%; width: var(--space-4); overflow: visible; transform: translateY(-50%); }
 /* In flight: the column that was picked up wears the selected ground — the
    same ground a selected row wears, because it is the same fact (this one,
    not the others) — and its grab stays lit at action colour. */
