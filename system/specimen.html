@@ -1974,6 +1974,156 @@
     </div>
   </section>
 
+  <!-- ================= COLUMN REORDER ================= -->
+  <section class="specimen__section" id="column-reorder">
+    <h2 class="specimen__section-title">Column reorder — the grab, the flight, the landing</h2>
+
+    <div class="specimen__label">A · At rest — nothing added to the head. The grab appears on hover or focus (frozen here so it can be measured)</div>
+    <div class="data-table specimen__freeze">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
+              <th><button class="data-table__sort" type="button">Priority</button><button class="data-table__grab" type="button" aria-label="Move Priority. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button></th>
+              <th><button class="data-table__sort" type="button">Status</button><button class="data-table__grab" type="button" aria-label="Move Status. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button></th>
+              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Score. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button><button class="data-table__sort" type="button">Score</button></th>
+              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Last review. Space to pick up, arrows to move, Enter to drop, Escape to cancel">⋮⋮</button><button class="data-table__sort" type="button">Last review</button></th>
+              <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Acme Payments</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--quiet">On track</span></td>
+              <td class="data-table__cell--num">87</td><td class="data-table__cell--num">2026-07-18</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Globex Analytics</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--warning">Review due</span></td>
+              <td class="data-table__cell--num">71</td><td class="data-table__cell--num">2026-05-02</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="specimen__note">The first column (selection) and the last (row actions) carry no grab: they are fixed by 3.4 and hidden from the field panel by 4.3. A column that cannot move must not offer the gesture that moves it.</p>
+
+    <div class="specimen__label">B · In flight — Score picked up, landing before Priority. The mark is 2px accent, head height only</div>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
+              <th class="data-table__col--drop-before"><button class="data-table__sort" type="button">Priority</button><button class="data-table__grab" type="button" aria-label="Move Priority">⋮⋮</button></th>
+              <th><button class="data-table__sort" type="button">Status</button><button class="data-table__grab" type="button" aria-label="Move Status">⋮⋮</button></th>
+              <th class="data-table__cell--num data-table__col--grabbed"><button class="data-table__grab" type="button" aria-label="Move Score">⋮⋮</button><button class="data-table__sort" type="button">Score</button></th>
+              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Last review">⋮⋮</button><button class="data-table__sort" type="button">Last review</button></th>
+              <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Acme Payments</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--quiet">On track</span></td>
+              <td class="data-table__cell--num">87</td><td class="data-table__cell--num">2026-07-18</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Globex Analytics</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--warning">Review due</span></td>
+              <td class="data-table__cell--num">71</td><td class="data-table__cell--num">2026-05-02</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="specimen__note">Announced, not just drawn: “Score, position 4 of 5. Moving before Priority, position 2 of 5.” The gesture states its result in words before it commits — the same obligation as the badge that must survive grayscale.</p>
+
+    <div class="specimen__label">C · Landed — Score sits second, the head is back to rest, and focus is on the grab that moved</div>
+    <div class="data-table specimen__freeze">
+      <div class="data-table__scroll">
+        <table class="data-table__table">
+          <thead>
+            <tr>
+              <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
+              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Score">⋮⋮</button><button class="data-table__sort" type="button">Score</button></th>
+              <th><button class="data-table__sort" type="button">Priority</button><button class="data-table__grab" type="button" aria-label="Move Priority">⋮⋮</button></th>
+              <th><button class="data-table__sort" type="button">Status</button><button class="data-table__grab" type="button" aria-label="Move Status">⋮⋮</button></th>
+              <th class="data-table__cell--num"><button class="data-table__grab" type="button" aria-label="Move Last review">⋮⋮</button><button class="data-table__sort" type="button">Last review</button></th>
+              <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Acme Payments</td><td class="data-table__cell--num">87</td>
+              <td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--quiet">On track</span></td>
+              <td class="data-table__cell--num">2026-07-18</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Globex Analytics</td><td class="data-table__cell--num">71</td>
+              <td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--warning">Review due</span></td>
+              <td class="data-table__cell--num">2026-05-02</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="specimen__label">D · Rejected — the landing mark run the full height of the table</div>
+    <div class="data-table">
+      <div class="data-table__scroll">
+        <table class="data-table__table data-table--drop-full">
+          <thead>
+            <tr>
+              <th class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select all"></th>
+              <th><button class="data-table__sort data-table__sort--active" type="button">Account ▲</button></th>
+              <th class="data-table__col--drop-before"><button class="data-table__sort" type="button">Priority</button></th>
+              <th><button class="data-table__sort" type="button">Status</button></th>
+              <th class="data-table__cell--num data-table__col--grabbed"><button class="data-table__sort" type="button">Score</button></th>
+              <th class="data-table__cell--num"><button class="data-table__sort" type="button">Last review</button></th>
+              <th class="data-table__cell--actions"><span class="visually-hidden">Row actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Acme Payments</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--quiet">On track</span></td>
+              <td class="data-table__cell--num">87</td><td class="data-table__cell--num">2026-07-18</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+            <tr>
+              <td class="data-table__cell--check"><input class="checkbox" type="checkbox" aria-label="Select row"></td>
+              <td>Globex Analytics</td><td><span class="badge badge--warning">High</span></td>
+              <td><span class="badge badge--warning">Review due</span></td>
+              <td class="data-table__cell--num">71</td><td class="data-table__cell--num">2026-05-02</td>
+              <td><button class="button button--ghost" type="button" aria-label="Row actions">⋯</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="specimen__note">It reads as a column rule the table does not otherwise have, and it crosses every hairline it meets at twice their weight. The head-height mark says the same thing and says it where the reader is already looking — at the labels being rearranged.</p>
+  </section>
+
   <!-- ================= TABLE EDITING ================= -->
   <section class="specimen__section" id="table-editing-vs-form-editing">
     <h2 class="specimen__section-title">Table editing vs. form editing — the full menu of options</h2>

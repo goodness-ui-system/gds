@@ -483,6 +483,12 @@ html:has(#opt-family [value="goodness"]:checked) .palette-family--goodness { dis
   .option-tile__input:checked + .option-tile__face .option-tile__dot { border-color: HighlightText; }
   .option-tile__input:checked + .option-tile__face .option-tile__dot::before { background: HighlightText; }
   .option-tile__input:checked + .option-tile__face .option-tile__desc { color: HighlightText; }
+  /* Column reorder (3.4b): both the column in flight and the landing mark are
+     carried by background alone, which forced-colors strips — the gesture
+     would run with no visible answer to "where will it land". */
+  .data-table__table th.data-table__col--grabbed { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  .data-table__col--drop-before::before,
+  .data-table__col--drop-after::after { forced-color-adjust: none; background: Highlight; }
 }
 
 /* ---- badges, chips, avatar, loading -------------------------------------- */
@@ -995,6 +1001,44 @@ html:has(#opt-appearance-light:checked) .theme-glyph--moon { display: none; }
 .data-table__sort-dir { font-size: var(--text-xs); opacity: 0; }
 .data-table__sort--active .data-table__sort-dir { opacity: 1; }
 .data-table__sort:hover .data-table__sort-dir { opacity: 0.5; }
+/* Column reorder (3.4b) — three parts: the grab, the column in flight, and
+   the landing mark. The grab is quiet until the header is hovered or holds
+   focus (the row-actions reveal rule, 3.4, applied to the head): seven
+   permanent ⋮⋮ across the head is texture, not affordance. It is a real
+   button, not a decorated span, because the pointer drag is never the sole
+   path (3.2, resize handle). */
+/* --target-min, not the glyph's size: a 16px grab is a WCAG 2.2 2.5.8 failure
+   and it is the control the keyboard path depends on. It is hidden with
+   visibility, never display — the space stays reserved, so the head does not
+   reflow (and column widths do not jump) as the pointer crosses it. */
+.data-table__grab { display: inline-flex; align-items: center; justify-content: center; width: var(--target-min); height: var(--target-min); margin-left: var(--space-1); padding: 0; border: none; background: none; color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-xs); line-height: 1; vertical-align: middle; cursor: grab; visibility: hidden; }
+.data-table__table th:hover .data-table__grab,
+.data-table__table th:focus-within .data-table__grab { visibility: visible; }
+/* In flight: the column that was picked up wears the selected ground — the
+   same ground a selected row wears, because it is the same fact (this one,
+   not the others) — and its grab stays lit at action colour. */
+/* The tint is composited ONTO the well, not substituted for it:
+   --color-selected-bg is translucent, and a sticky head that is not fully
+   opaque shows the rows scrolling beneath it (3.4). */
+.data-table__table th.data-table__col--grabbed { background: linear-gradient(var(--color-selected-bg), var(--color-selected-bg)), var(--color-well); }
+.data-table__table th.data-table__col--grabbed .data-table__grab { visibility: visible; color: var(--color-action); cursor: grabbing; }
+/* The landing mark: 2px accent, head height only. It exceeds the table's one
+   hairline weight deliberately — a 1px border-token line in a head already
+   full of 1px border-token lines is invisible as an answer to "where will it
+   land". It cannot be misread as structure because it exists only while a
+   column is in flight. Same device as the sidebar's active-child segment
+   (3.2): 2px of accent marking a position, never an edge. */
+.data-table__col--drop-before, .data-table__col--drop-after { position: relative; }
+.data-table__col--drop-before::before,
+.data-table__col--drop-after::after { content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: var(--color-action); }
+.data-table__col--drop-before::before { left: -1px; }
+.data-table__col--drop-after::after { right: -1px; }
+/* Rejected variant, rendered so it can be judged rather than described: the
+   mark run the full height of the table. It reads as a column rule the table
+   does not otherwise have, and it competes with every hairline it crosses. */
+.data-table--drop-full .data-table__col--drop-before::before { bottom: -100vh; }
+/* Specimen only: freezes the hover reveal so the state can be photographed. */
+.specimen__freeze .data-table__grab { visibility: visible; }
 .data-table__cell--num { font-family: var(--font-mono); text-align: right; font-size: var(--text-sm); }
 /* Identifiers and codes: mono means something (AGENTS §3.4) — left-aligned,
    because a code is read left to right, not compared as a magnitude. */
