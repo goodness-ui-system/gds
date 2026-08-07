@@ -1785,8 +1785,13 @@ The trade is a smaller target, taken deliberately.
 Four parts, and each is measurable:
 
 - **The grab** (⋮⋮, the same mark the panel uses — one symbol, one meaning).
-  A real `<button>` at `--target-min`, never a decorated span: the pointer
-  drag is never the sole path (3.2, the resize handle). Quiet until the
+  A real `<button>`, never a decorated span: the pointer drag is never the
+  sole path (3.2, the resize handle). Its **target** is `--target-min`; its
+  **box** is not, and the difference is load-bearing — sized inline at
+  `--target-min` the grab sets the head's height, measured taking it from
+  38px to 41px, so a table with reorder stands taller than the one beside it
+  that has none. The target is expanded past the glyph by a pseudo-element:
+  hit area `24 × 24`, box `16 × 16`, head height unchanged. Quiet until the
   header is hovered or holds focus — reveal on focus is mandatory (3.4) —
   and hidden with `visibility`, never `display`, so the head does not reflow
   and column widths do not jump as the pointer crosses it.

@@ -1007,11 +1007,16 @@ html:has(#opt-appearance-light:checked) .theme-glyph--moon { display: none; }
    permanent ⋮⋮ across the head is texture, not affordance. It is a real
    button, not a decorated span, because the pointer drag is never the sole
    path (3.2, resize handle). */
-/* --target-min, not the glyph's size: a 16px grab is a WCAG 2.2 2.5.8 failure
-   and it is the control the keyboard path depends on. It is hidden with
-   visibility, never display — the space stays reserved, so the head does not
-   reflow (and column widths do not jump) as the pointer crosses it. */
-.data-table__grab { display: inline-flex; align-items: center; justify-content: center; width: var(--target-min); height: var(--target-min); margin-left: var(--space-1); padding: 0; border: none; background: none; color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-xs); line-height: 1; vertical-align: middle; cursor: grab; visibility: hidden; }
+/* The glyph's box stays at the text's scale and the TARGET is expanded past it
+   by a pseudo-element, because a --target-min-tall button in the head sets the
+   head's height: sized inline it took the head from 38px to 41px, so a table
+   with reorder would stand 3px taller than the table beside it that has none.
+   The hit area still measures --target-min (WCAG 2.2 SC 2.5.8) and the head
+   keeps the one height 3.4 requires of it. Hidden with visibility, never
+   display — the space stays reserved, so the head does not reflow (and column
+   widths do not jump) as the pointer crosses it. */
+.data-table__grab { position: relative; display: inline-flex; align-items: center; justify-content: center; width: var(--space-4); height: var(--space-4); margin-left: var(--space-1); padding: 0; border: none; background: none; color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-xs); line-height: 1; vertical-align: middle; cursor: grab; visibility: hidden; }
+.data-table__grab::after { content: ""; position: absolute; top: 50%; left: 50%; width: var(--target-min); height: var(--target-min); transform: translate(-50%, -50%); }
 .data-table__table th:hover .data-table__grab,
 .data-table__table th:focus-within .data-table__grab { visibility: visible; }
 /* In flight: the column that was picked up wears the selected ground — the
